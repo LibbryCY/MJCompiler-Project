@@ -47,9 +47,9 @@ import java_cup.runtime.Symbol;
 "read"  	{ return new_symbol(sym.READ, yytext()); }
 "print" 	{ return new_symbol(sym.PRINT, yytext()); }
 "switch" 	{ return new_symbol(sym.SWITCH, yytext()); }
-"case" 	{ return new_symbol(sym.CASE, yytext()); }
-"for" 	{ return new_symbol(sym.FOR, yytext()); }
-
+"case" 		{ return new_symbol(sym.CASE, yytext()); }
+"for" 		{ return new_symbol(sym.FOR, yytext()); }
+"enum"      { return new_symbol(sym.ENUM, yytext()); }
 
 
 
