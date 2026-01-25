@@ -1,6 +1,6 @@
 // generated with ast extension for cup
 // version 0.8
-// 25/0/2026 23:0:1
+// 25/0/2026 23:42:36
 
 
 package src.rs.ac.bg.etf.pp1.ast;
@@ -17,15 +17,19 @@ public interface Visitor {
     public void visit(FactorList FactorList);
     public void visit(FormParMore FormParMore);
     public void visit(Addop Addop);
+    public void visit(ForCondition ForCondition);
     public void visit(Factor Factor);
     public void visit(CondTerm CondTerm);
     public void visit(ConVarDecList ConVarDecList);
     public void visit(Designator Designator);
+    public void visit(CaseStatements CaseStatements);
     public void visit(Condition Condition);
     public void visit(VarDeclListRec VarDeclListRec);
+    public void visit(CaseList CaseList);
     public void visit(EnumList EnumList);
     public void visit(EnumItem EnumItem);
     public void visit(Expr Expr);
+    public void visit(ForDesignatorStatement ForDesignatorStatement);
     public void visit(ActPars ActPars);
     public void visit(DesignatorStatement DesignatorStatement);
     public void visit(MethRetAndName MethRetAndName);
@@ -79,8 +83,22 @@ public interface Visitor {
     public void visit(DesignatorStatement_ass DesignatorStatement_ass);
     public void visit(ActPars_single ActPars_single);
     public void visit(ActPars_list ActPars_list);
+    public void visit(CaseStatements_e CaseStatements_e);
+    public void visit(CaseStatements_state CaseStatements_state);
+    public void visit(Case Case);
+    public void visit(CaseList_e CaseList_e);
+    public void visit(CaseList_list CaseList_list);
+    public void visit(ForCondition_e ForCondition_e);
+    public void visit(ForCondition_for ForCondition_for);
+    public void visit(ForDesignatorStatement_e ForDesignatorStatement_e);
+    public void visit(ForDesignatorStatement_for ForDesignatorStatement_for);
     public void visit(Statement_sl Statement_sl);
-    public void visit(Statement_retv Statement_retv);
+    public void visit(Statement_for Statement_for);
+    public void visit(Statement_switch Statement_switch);
+    public void visit(Statement_print2 Statement_print2);
+    public void visit(Statement_print1 Statement_print1);
+    public void visit(Statement_read Statement_read);
+    public void visit(Statement_retval Statement_retval);
     public void visit(Statement_ret Statement_ret);
     public void visit(Statement_continue Statement_continue);
     public void visit(Statement_break Statement_break);

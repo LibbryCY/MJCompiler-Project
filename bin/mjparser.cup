@@ -96,7 +96,12 @@ nonterminal Program,
 			Factor,
 			FactorList,
 			Designator,
-			Expr;
+			Expr,
+			CaseStatements,
+			CaseList,
+			Case,
+			ForDesignatorStatement,
+			ForCondition;
 
 precedence left ELSE;
 
@@ -218,10 +223,41 @@ Statement ::= (Statement_desig) DesignatorStatement SEMI
 			  |
 			  (Statement_ret) RETURN SEMI
 			  |
-			  (Statement_retv) RETURN Expr SEMI
+			  (Statement_retval) RETURN Expr SEMI
 			  |
+			  (Statement_read) READ LPAREN Designator RPAREN SEMI
+			  |
+			  (Statement_print1) PRINT LPAREN Expr RPAREN SEMI
+			  |
+			  (Statement_print2) PRINT LPAREN Expr COMMA NUMBER RPAREN SEMI
+			  |
+			  (Statement_switch) SWITCH LPAREN Expr RPAREN LBRACE CaseList RBRACE
+			  |
+			  (Statement_for) FOR LPAREN ForDesignatorStatement SEMI ForCondition SEMI ForDesignatorStatement RPAREN Statement
+			  | 
 			  (Statement_sl) LBRACE StatementList RBRACE
 			  ;
+
+ForDesignatorStatement ::= (ForDesignatorStatement_for) DesignatorStatement
+                           |
+						   (ForDesignatorStatement_e) /* epsilon */
+						   ; 
+
+ForCondition ::= (ForCondition_for) Condition
+				|
+				(ForCondition_e) /* epsilon */
+				; 
+
+CaseList ::= (CaseList_list) CaseList Case
+           | (CaseList_e) /* epsilon */
+           ;
+
+Case ::= (Case) CASE NUMBER COL CaseStatements;
+
+CaseStatements ::= (CaseStatements_state) CaseStatements Statement
+                    |
+				   (CaseStatements_e) /* epsilon */ 
+				   ;
 
 ActPars ::= (ActPars_list) ActPars COMMA Expr
             |

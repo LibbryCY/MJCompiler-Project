@@ -1,17 +1,20 @@
 // generated with ast extension for cup
 // version 0.8
-// 25/0/2026 23:0:1
+// 25/0/2026 23:42:36
 
 
 package src.rs.ac.bg.etf.pp1.ast;
 
-public class Statement_retv extends Statement {
+public class Statement_switch extends Statement {
 
     private Expr Expr;
+    private CaseList CaseList;
 
-    public Statement_retv (Expr Expr) {
+    public Statement_switch (Expr Expr, CaseList CaseList) {
         this.Expr=Expr;
         if(Expr!=null) Expr.setParent(this);
+        this.CaseList=CaseList;
+        if(CaseList!=null) CaseList.setParent(this);
     }
 
     public Expr getExpr() {
@@ -22,28 +25,39 @@ public class Statement_retv extends Statement {
         this.Expr=Expr;
     }
 
+    public CaseList getCaseList() {
+        return CaseList;
+    }
+
+    public void setCaseList(CaseList CaseList) {
+        this.CaseList=CaseList;
+    }
+
     public void accept(Visitor visitor) {
         visitor.visit(this);
     }
 
     public void childrenAccept(Visitor visitor) {
         if(Expr!=null) Expr.accept(visitor);
+        if(CaseList!=null) CaseList.accept(visitor);
     }
 
     public void traverseTopDown(Visitor visitor) {
         accept(visitor);
         if(Expr!=null) Expr.traverseTopDown(visitor);
+        if(CaseList!=null) CaseList.traverseTopDown(visitor);
     }
 
     public void traverseBottomUp(Visitor visitor) {
         if(Expr!=null) Expr.traverseBottomUp(visitor);
+        if(CaseList!=null) CaseList.traverseBottomUp(visitor);
         accept(visitor);
     }
 
     public String toString(String tab) {
         StringBuffer buffer=new StringBuffer();
         buffer.append(tab);
-        buffer.append("Statement_retv(\n");
+        buffer.append("Statement_switch(\n");
 
         if(Expr!=null)
             buffer.append(Expr.toString("  "+tab));
@@ -51,8 +65,14 @@ public class Statement_retv extends Statement {
             buffer.append(tab+"  null");
         buffer.append("\n");
 
+        if(CaseList!=null)
+            buffer.append(CaseList.toString("  "+tab));
+        else
+            buffer.append(tab+"  null");
+        buffer.append("\n");
+
         buffer.append(tab);
-        buffer.append(") [Statement_retv]");
+        buffer.append(") [Statement_switch]");
         return buffer.toString();
     }
 }

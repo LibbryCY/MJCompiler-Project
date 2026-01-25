@@ -135,6 +135,16 @@ nonterminal
 			Designator Designator;
 nonterminal
 			Expr Expr;
+nonterminal
+			CaseStatements CaseStatements;
+nonterminal
+			CaseList CaseList;
+nonterminal
+			Case Case;
+nonterminal
+			ForDesignatorStatement ForDesignatorStatement;
+nonterminal
+			ForCondition ForCondition;
 
 precedence left ELSE;
 
@@ -256,10 +266,41 @@ Statement ::= (Statement_desig) DesignatorStatement:D1 SEMI {: RESULT=new Statem
 			  |
 			  (Statement_ret) RETURN SEMI {: RESULT=new Statement_ret(); :}
 			  |
-			  (Statement_retv) RETURN Expr:E1 SEMI {: RESULT=new Statement_retv(E1); RESULT.setLine(E1left); :}
+			  (Statement_retval) RETURN Expr:E1 SEMI {: RESULT=new Statement_retval(E1); RESULT.setLine(E1left); :}
 			  |
+			  (Statement_read) READ LPAREN Designator:D1 RPAREN SEMI {: RESULT=new Statement_read(D1); RESULT.setLine(D1left); :}
+			  |
+			  (Statement_print1) PRINT LPAREN Expr:E1 RPAREN SEMI {: RESULT=new Statement_print1(E1); RESULT.setLine(E1left); :}
+			  |
+			  (Statement_print2) PRINT LPAREN Expr:E1 COMMA NUMBER:N2 RPAREN SEMI {: RESULT=new Statement_print2(E1, N2); RESULT.setLine(E1left); :}
+			  |
+			  (Statement_switch) SWITCH LPAREN Expr:E1 RPAREN LBRACE CaseList:C2 RBRACE {: RESULT=new Statement_switch(E1, C2); RESULT.setLine(E1left); :}
+			  |
+			  (Statement_for) FOR LPAREN ForDesignatorStatement:F1 SEMI ForCondition:F2 SEMI ForDesignatorStatement:F3 RPAREN Statement:S4 {: RESULT=new Statement_for(F1, F2, F3, S4); RESULT.setLine(F1left); :}
+			  | 
 			  (Statement_sl) LBRACE StatementList:S1 RBRACE {: RESULT=new Statement_sl(S1); RESULT.setLine(S1left); :}
 			  ;
+
+ForDesignatorStatement ::= (ForDesignatorStatement_for) DesignatorStatement:D1 {: RESULT=new ForDesignatorStatement_for(D1); RESULT.setLine(D1left); :}
+                           |
+						   (ForDesignatorStatement_e) {: RESULT=new ForDesignatorStatement_e(); :} /* epsilon */
+						   ; 
+
+ForCondition ::= (ForCondition_for) Condition:C1 {: RESULT=new ForCondition_for(C1); RESULT.setLine(C1left); :}
+				|
+				(ForCondition_e) {: RESULT=new ForCondition_e(); :} /* epsilon */
+				; 
+
+CaseList ::= (CaseList_list) CaseList:C1 Case:C2 {: RESULT=new CaseList_list(C1, C2); RESULT.setLine(C1left); :}
+           | (CaseList_e) {: RESULT=new CaseList_e(); :} /* epsilon */
+           ;
+
+Case ::= (Case) CASE NUMBER:N1 COL CaseStatements:C2 {: RESULT=new Case(N1, C2); RESULT.setLine(N1left); :};
+
+CaseStatements ::= (CaseStatements_state) CaseStatements:C1 Statement:S2 {: RESULT=new CaseStatements_state(C1, S2); RESULT.setLine(C1left); :}
+                    |
+				   (CaseStatements_e) {: RESULT=new CaseStatements_e(); :} /* epsilon */ 
+				   ;
 
 ActPars ::= (ActPars_list) ActPars:A1 COMMA Expr:E2 {: RESULT=new ActPars_list(A1, E2); RESULT.setLine(A1left); :}
             |
