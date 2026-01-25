@@ -1,0 +1,102 @@
+package rs.ac.bg.etf.pp1;
+
+import java_cup.runtime.*;
+import org.apache.log4j.*;
+import rs.ac.bg.etf.pp1.ast.*;
+
+parser code {:
+    boolean errorDetected = false;
+	
+	Logger log = Logger.getLogger(getClass());
+   
+   
+    // slede redefinisani metodi za prijavu gresaka radi izmene teksta poruke
+     
+    public void report_fatal_error(String message, Object info) throws java.lang.Exception {
+      done_parsing();
+      report_error(message, info);
+    }
+  
+    public void syntax_error(Symbol cur_token) {
+        report_error("\nSintaksna greska", cur_token);
+    }
+  
+    public void unrecovered_syntax_error(Symbol cur_token) throws java.lang.Exception {
+        report_fatal_error("Fatalna greska, parsiranje se ne moze nastaviti", cur_token);
+    }
+
+    public void report_error(String message, Object info) {
+    	errorDetected = true;
+    	StringBuilder msg = new StringBuilder(message); 
+    	if (info instanceof Symbol)
+            msg.append (" na liniji ").append(((Symbol)info).left);
+        log.error(msg.toString());
+    }
+    
+    public void report_info(String message, Object info) {
+    	StringBuilder msg = new StringBuilder(message); 
+    	if (info instanceof Symbol)
+            msg.append (" na liniji ").append(((Symbol)info).left);
+        log.info(msg.toString());
+    }
+:}
+
+
+scan with {:
+	Symbol s = this.getScanner().next_token();
+	if (s != null && s.value != null) 
+		log.info(s.toString() + " " + s.value.toString());
+	return s;
+:}
+
+
+
+terminal PROG, CONST, VOID, IF, ELSE, BREAK, CONTINUE, RETURN, READ, PRINT, SWITCH, CASE, ENUM, FOR;
+terminal PLUS, MINUS, MUL, DIV, MOD, EQUAL, NOTEQUAL, GRT, GRTEQ, LS, LSEQ, AND, OR, INC, DEC, ASSIGN, SEMI, DOT, COL, COMMA, LPAREN, RPAREN, LBRACE, RBRACE, LBRACKET, RBRACKET;
+
+terminal Integer NUMBER, BOOL;
+terminal Character CHAR;
+terminal String IDENT;
+
+nonterminal Program Program;
+nonterminal ConVarDecList ConVarDecList;
+nonterminal ConDecList ConDecList;
+nonterminal VarDecList VarDecList;
+nonterminal Type Type;
+nonterminal ConDecl ConDecl;
+nonterminal Constant Constant;
+nonterminal MethodDecList MethodDecList;
+nonterminal ConDeclMore ConDeclMore;
+
+
+Program ::= 
+   (Program) PROG IDENT:I1 ConVarDecList:C2 LBRACE MethodDecList:M3 RBRACE {: RESULT=new Program(I1, C2, M3); RESULT.setLine(I1left); :}
+;
+
+ConVarDecList ::=   (ConVarDecList_con) ConVarDecList:C1 ConDecList:C2 {: RESULT=new ConVarDecList_con(C1, C2); RESULT.setLine(C1left); :}
+                    |
+                    (ConVarDecList_var) ConVarDecList:C1 VarDecList:V2 {: RESULT=new ConVarDecList_var(C1, V2); RESULT.setLine(C1left); :}
+                    |
+                    (ConVarDecList_e) ConVarDecList:C1 {: RESULT=new ConVarDecList_e(C1); RESULT.setLine(C1left); :} 
+                    ;
+
+ConDecList ::= (ConDecList) CONST Type:T1 ConDecl:C2 ConDeclMore:C3 SEMI {: RESULT=new ConDecList(T1, C2, C3); RESULT.setLine(T1left); :};
+
+ConDecl ::= (ConDecl) IDENT:I1 ASSIGN Constant:C2 {: RESULT=new ConDecl(I1, C2); RESULT.setLine(I1left); :}; 
+
+ConDeclMore ::= (ConDeclMore_comma) COMMA ConDeclMore:C1 {: RESULT=new ConDeclMore_comma(C1); RESULT.setLine(C1left); :}
+                 |
+                 (ConDeclMore_e) {: RESULT=new ConDeclMore_e(); :}  
+                 ;
+
+Constant ::= (Constant_num) NUMBER:N1 {: RESULT=new Constant_num(N1); RESULT.setLine(N1left); :}
+			 |
+			 (Constant_char) CHAR:C1 {: RESULT=new Constant_char(C1); RESULT.setLine(C1left); :}
+			 |
+			 (Constant_bool) BOOL:B1 {: RESULT=new Constant_bool(B1); RESULT.setLine(B1left); :};
+
+Type ::= (Type) IDENT:I1 {: RESULT=new Type(I1); RESULT.setLine(I1left); :};
+
+
+
+

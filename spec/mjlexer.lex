@@ -50,6 +50,9 @@ import java_cup.runtime.Symbol;
 "case" 		{ return new_symbol(sym.CASE, yytext()); }
 "for" 		{ return new_symbol(sym.FOR, yytext()); }
 "enum"      { return new_symbol(sym.ENUM, yytext()); }
+"length"    { return new_symbol(sym.LENGTH, yytext()); }
+"new" 		{ return new_symbol(sym.NEW, yytext()); }
+
 
 
 
@@ -79,17 +82,16 @@ import java_cup.runtime.Symbol;
 "}"			{ return new_symbol(sym.RBRACE, yytext()); }
 "["   		{ return new_symbol(sym.LBRACKET, yytext());}
 "]"   		{ return new_symbol(sym.RBRACKET, yytext());}
-
+"?"   		{ return new_symbol(sym.QMARK, yytext());}
 
 "//" {yybegin(COMMENT);}
 <COMMENT> . {yybegin(COMMENT);}
 <COMMENT> "\r\n" { yybegin(YYINITIAL); }
 
 [0-9]+  { return new_symbol(sym.NUMBER, new Integer (yytext())); }
-"'"([a-zA-Z0-9 ]|\\t|\\n|\\\\.)"'" { char c = yytext().charAt(1); return new_symbol(sym.CCON, (int)c); }
-"true" 	{ return new_symbol(sym.BCON, 1); }
-"false" { return new_symbol(sym.BCON, 0); }
-([a-z]|[A-Z])[a-z|A-Z|0-9|_]* 	{return new_symbol (sym.IDENT, yytext()); }
+"'"([a-zA-Z0-9 ]|\\t|\\n|\\\\.)"'" { char c = yytext().charAt(1); return new_symbol(sym.CHAR, (int)c); }
+"true"|"false" 					{ return new_symbol(sym.BOOL, yytext().equals("true") ? 1 : 0); }
+([a-z]|[A-Z])[a-z|A-Z|0-9|_]* 	{ return new_symbol (sym.IDENT, yytext()); }
 
 . { System.err.println("Leksicka greska ("+yytext()+") u liniji "+(yyline+1)); }
 
