@@ -145,6 +145,14 @@ nonterminal
 			ForDesignatorStatement ForDesignatorStatement;
 nonterminal
 			ForCondition ForCondition;
+nonterminal
+			MatchedStatement MatchedStatement;
+nonterminal
+			UnmatchedStatement UnmatchedStatement;
+nonterminal
+			ReturnExpression ReturnExpression;
+nonterminal
+			NonTernaryExpr NonTernaryExpr;
 
 precedence left ELSE;
 
@@ -254,32 +262,43 @@ StatementList ::= 	(StatementList_rec) StatementList:S1 Statement:S2 {: RESULT=n
 				  	(StatementList_e) {: RESULT=new StatementList_e(); :} /* epsilon */
 				   	;
 
-Statement ::= (Statement_desig) DesignatorStatement:D1 SEMI {: RESULT=new Statement_desig(D1); RESULT.setLine(D1left); :}
+Statement ::= (MatchedStatement) MatchedStatement:M1 {: RESULT=new MatchedStatement(M1); RESULT.setLine(M1left); :}
 			  |
-			  (Statement_if) IF LPAREN Condition:C1 RPAREN Statement:S2 {: RESULT=new Statement_if(C1, S2); RESULT.setLine(C1left); :} 
-              | 
-			  (Statement_ifelse) IF LPAREN Condition:C1 RPAREN Statement:S2 ELSE Statement:S3 {: RESULT=new Statement_ifelse(C1, S2, S3); RESULT.setLine(C1left); :}
-			  |
-			  (Statement_break) BREAK SEMI {: RESULT=new Statement_break(); :}
-			  |
-			  (Statement_continue) CONTINUE SEMI {: RESULT=new Statement_continue(); :}
-			  |
-			  (Statement_ret) RETURN SEMI {: RESULT=new Statement_ret(); :}
-			  |
-			  (Statement_retval) RETURN Expr:E1 SEMI {: RESULT=new Statement_retval(E1); RESULT.setLine(E1left); :}
-			  |
-			  (Statement_read) READ LPAREN Designator:D1 RPAREN SEMI {: RESULT=new Statement_read(D1); RESULT.setLine(D1left); :}
-			  |
-			  (Statement_print1) PRINT LPAREN Expr:E1 RPAREN SEMI {: RESULT=new Statement_print1(E1); RESULT.setLine(E1left); :}
-			  |
-			  (Statement_print2) PRINT LPAREN Expr:E1 COMMA NUMBER:N2 RPAREN SEMI {: RESULT=new Statement_print2(E1, N2); RESULT.setLine(E1left); :}
-			  |
-			  (Statement_switch) SWITCH LPAREN Expr:E1 RPAREN LBRACE CaseList:C2 RBRACE {: RESULT=new Statement_switch(E1, C2); RESULT.setLine(E1left); :}
-			  |
-			  (Statement_for) FOR LPAREN ForDesignatorStatement:F1 SEMI ForCondition:F2 SEMI ForDesignatorStatement:F3 RPAREN Statement:S4 {: RESULT=new Statement_for(F1, F2, F3, S4); RESULT.setLine(F1left); :}
-			  | 
-			  (Statement_sl) LBRACE StatementList:S1 RBRACE {: RESULT=new Statement_sl(S1); RESULT.setLine(S1left); :}
+			  (UnmatchedStatement) UnmatchedStatement:U1 {: RESULT=new UnmatchedStatement(U1); RESULT.setLine(U1left); :}
 			  ;
+			   
+MatchedStatement ::=  (DesignatorStatement) DesignatorStatement:D1 SEMI {: RESULT=new DesignatorStatement(D1); RESULT.setLine(D1left); :}
+					  |
+					  (IfElseStatement) IF LPAREN Condition:C1 RPAREN MatchedStatement:M2 ELSE MatchedStatement:M3 {: RESULT=new IfElseStatement(C1, M2, M3); RESULT.setLine(C1left); :}
+					  |
+					  (BreakStatement) BREAK SEMI {: RESULT=new BreakStatement(); :}
+					  |
+					  (ContinueStatement) CONTINUE SEMI {: RESULT=new ContinueStatement(); :}
+					  |
+					  (ReturnStatement) RETURN ReturnExpression:R1 SEMI {: RESULT=new ReturnStatement(R1); RESULT.setLine(R1left); :}
+					  |
+					  (ReadStatement) READ LPAREN Designator:D1 RPAREN SEMI {: RESULT=new ReadStatement(D1); RESULT.setLine(D1left); :}
+					  |
+					  (PrintStatement) PRINT LPAREN Expr:E1 RPAREN SEMI {: RESULT=new PrintStatement(E1); RESULT.setLine(E1left); :}
+					  |
+					  (PrintStatement2) PRINT LPAREN Expr:E1 COMMA NUMBER:N2 RPAREN SEMI {: RESULT=new PrintStatement2(E1, N2); RESULT.setLine(E1left); :}
+			  		  |
+					  (SwitchStatement) SWITCH LPAREN Expr:E1 RPAREN LBRACE CaseList:C2 RBRACE {: RESULT=new SwitchStatement(E1, C2); RESULT.setLine(E1left); :}
+					  |
+					  (ForStatement) FOR LPAREN  ForDesignatorStatement:F1 SEMI ForCondition:F2 SEMI ForDesignatorStatement:F3  RPAREN MatchedStatement:M4 {: RESULT=new ForStatement(F1, F2, F3, M4); RESULT.setLine(F1left); :}
+					  |
+					  (RecStatement) LBRACE StatementList:S1 RBRACE {: RESULT=new RecStatement(S1); RESULT.setLine(S1left); :}
+					  ;
+
+UnmatchedStatement ::= (IfElseStatement_non_else) IF LPAREN Condition:C1 RPAREN Statement:S2 {: RESULT=new IfElseStatement_non_else(C1, S2); RESULT.setLine(C1left); :}
+					   |
+					   (IfElseStatement_else) IF LPAREN Condition:C1 RPAREN MatchedStatement:M2 ELSE UnmatchedStatement:U3 {: RESULT=new IfElseStatement_else(C1, M2, U3); RESULT.setLine(C1left); :}
+					   ;
+
+ReturnExpression ::= (ReturnExpression_expr) Expr:E1 {: RESULT=new ReturnExpression_expr(E1); RESULT.setLine(E1left); :}
+					 |
+					 (ReturnExpression_non_expr) {: RESULT=new ReturnExpression_non_expr(); :} /* epsilon */ 
+					 ;
 
 ForDesignatorStatement ::= (ForDesignatorStatement_for) DesignatorStatement:D1 {: RESULT=new ForDesignatorStatement_for(D1); RESULT.setLine(D1left); :}
                            |
@@ -316,7 +335,7 @@ DesignatorStatement ::= (DesignatorStatement_ass) Designator:D1 Assignop:A2 Expr
 						(DesignatorStatement_dec) Designator:D1 DEC {: RESULT=new DesignatorStatement_dec(D1); RESULT.setLine(D1left); :}
 						;
 
-
+/* CONDITION */
 
 Condition ::= (ConditionList) Condition:C1 OR CondTerm:C2 {: RESULT=new ConditionList(C1, C2); RESULT.setLine(C1left); :}
 			  |
@@ -327,15 +346,22 @@ CondTerm ::= (CondTermList) CondTerm:C1 AND CondFact:C2 {: RESULT=new CondTermLi
              |
 			 (SingleCondTerm) CondFact:C1 {: RESULT=new SingleCondTerm(C1); RESULT.setLine(C1left); :}
 			 ;
+			 
+CondFact ::= (CondFact_norelop) NonTernaryExpr:N1 {: RESULT=new CondFact_norelop(N1); RESULT.setLine(N1left); :}
+             |
+             (CondFact_relop) NonTernaryExpr:N1 Relop:R2 NonTernaryExpr:N3 {: RESULT=new CondFact_relop(N1, R2, N3); RESULT.setLine(N1left); :}
+             ;
 
-CondFact ::= (CondFact_exp) Expr:E1 {: RESULT=new CondFact_exp(E1); RESULT.setLine(E1left); :}
-			 |
-			 (CondFact_relop) Expr:E1 Relop:R2 Expr:E3 {: RESULT=new CondFact_relop(E1, R2, E3); RESULT.setLine(E1left); :}
-			 ;
+Expr ::= (Expr_notern) NonTernaryExpr:N1 {: RESULT=new Expr_notern(N1); RESULT.setLine(N1left); :}
+		 |
+	     (Expr_tern) Condition:C1 QMARK Expr:E2 COL Expr:E3 {: RESULT=new Expr_tern(C1, E2, E3); RESULT.setLine(C1left); :}
+		  ;
 
-Expr ::= (Expr_term) Negativ:N1 TermList:T2 {: RESULT=new Expr_term(N1, T2); RESULT.setLine(N1left); :} 
-         
-	     ;
+NonTernaryExpr ::= (NonTernaryExpr_minus) MINUS TermList:T1 {: RESULT=new NonTernaryExpr_minus(T1); RESULT.setLine(T1left); :}
+				  |
+				  (NonTernaryExpr_nominus) TermList:T1 {: RESULT=new NonTernaryExpr_nominus(T1); RESULT.setLine(T1left); :}
+				  ;
+
 
 TermList ::= (TermList_addop) TermList:T1 Addop:A2 Term:T3 {: RESULT=new TermList_addop(T1, A2, T3); RESULT.setLine(T1left); :}
              |

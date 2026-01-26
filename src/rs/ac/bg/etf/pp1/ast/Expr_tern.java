@@ -1,20 +1,23 @@
 // generated with ast extension for cup
 // version 0.8
-// 25/0/2026 23:42:36
+// 26/0/2026 19:56:4
 
 
 package src.rs.ac.bg.etf.pp1.ast;
 
-public class Statement_if extends Statement {
+public class Expr_tern extends Expr {
 
     private Condition Condition;
-    private Statement Statement;
+    private Expr Expr;
+    private Expr Expr1;
 
-    public Statement_if (Condition Condition, Statement Statement) {
+    public Expr_tern (Condition Condition, Expr Expr, Expr Expr1) {
         this.Condition=Condition;
         if(Condition!=null) Condition.setParent(this);
-        this.Statement=Statement;
-        if(Statement!=null) Statement.setParent(this);
+        this.Expr=Expr;
+        if(Expr!=null) Expr.setParent(this);
+        this.Expr1=Expr1;
+        if(Expr1!=null) Expr1.setParent(this);
     }
 
     public Condition getCondition() {
@@ -25,12 +28,20 @@ public class Statement_if extends Statement {
         this.Condition=Condition;
     }
 
-    public Statement getStatement() {
-        return Statement;
+    public Expr getExpr() {
+        return Expr;
     }
 
-    public void setStatement(Statement Statement) {
-        this.Statement=Statement;
+    public void setExpr(Expr Expr) {
+        this.Expr=Expr;
+    }
+
+    public Expr getExpr1() {
+        return Expr1;
+    }
+
+    public void setExpr1(Expr Expr1) {
+        this.Expr1=Expr1;
     }
 
     public void accept(Visitor visitor) {
@@ -39,25 +50,28 @@ public class Statement_if extends Statement {
 
     public void childrenAccept(Visitor visitor) {
         if(Condition!=null) Condition.accept(visitor);
-        if(Statement!=null) Statement.accept(visitor);
+        if(Expr!=null) Expr.accept(visitor);
+        if(Expr1!=null) Expr1.accept(visitor);
     }
 
     public void traverseTopDown(Visitor visitor) {
         accept(visitor);
         if(Condition!=null) Condition.traverseTopDown(visitor);
-        if(Statement!=null) Statement.traverseTopDown(visitor);
+        if(Expr!=null) Expr.traverseTopDown(visitor);
+        if(Expr1!=null) Expr1.traverseTopDown(visitor);
     }
 
     public void traverseBottomUp(Visitor visitor) {
         if(Condition!=null) Condition.traverseBottomUp(visitor);
-        if(Statement!=null) Statement.traverseBottomUp(visitor);
+        if(Expr!=null) Expr.traverseBottomUp(visitor);
+        if(Expr1!=null) Expr1.traverseBottomUp(visitor);
         accept(visitor);
     }
 
     public String toString(String tab) {
         StringBuffer buffer=new StringBuffer();
         buffer.append(tab);
-        buffer.append("Statement_if(\n");
+        buffer.append("Expr_tern(\n");
 
         if(Condition!=null)
             buffer.append(Condition.toString("  "+tab));
@@ -65,14 +79,20 @@ public class Statement_if extends Statement {
             buffer.append(tab+"  null");
         buffer.append("\n");
 
-        if(Statement!=null)
-            buffer.append(Statement.toString("  "+tab));
+        if(Expr!=null)
+            buffer.append(Expr.toString("  "+tab));
+        else
+            buffer.append(tab+"  null");
+        buffer.append("\n");
+
+        if(Expr1!=null)
+            buffer.append(Expr1.toString("  "+tab));
         else
             buffer.append(tab+"  null");
         buffer.append("\n");
 
         buffer.append(tab);
-        buffer.append(") [Statement_if]");
+        buffer.append(") [Expr_tern]");
         return buffer.toString();
     }
 }

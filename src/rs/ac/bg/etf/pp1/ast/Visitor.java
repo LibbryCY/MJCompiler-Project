@@ -1,6 +1,6 @@
 // generated with ast extension for cup
 // version 0.8
-// 25/0/2026 23:42:36
+// 26/0/2026 19:56:4
 
 
 package src.rs.ac.bg.etf.pp1.ast;
@@ -9,6 +9,7 @@ public interface Visitor {
 
     public void visit(Negativ Negativ);
     public void visit(Mulop Mulop);
+    public void visit(MatchedStatement MatchedStatement);
     public void visit(FormParList FormParList);
     public void visit(Constant Constant);
     public void visit(Relop Relop);
@@ -23,8 +24,10 @@ public interface Visitor {
     public void visit(ConVarDecList ConVarDecList);
     public void visit(Designator Designator);
     public void visit(CaseStatements CaseStatements);
+    public void visit(NonTernaryExpr NonTernaryExpr);
     public void visit(Condition Condition);
     public void visit(VarDeclListRec VarDeclListRec);
+    public void visit(ReturnExpression ReturnExpression);
     public void visit(CaseList CaseList);
     public void visit(EnumList EnumList);
     public void visit(EnumItem EnumItem);
@@ -33,6 +36,7 @@ public interface Visitor {
     public void visit(ActPars ActPars);
     public void visit(DesignatorStatement DesignatorStatement);
     public void visit(MethRetAndName MethRetAndName);
+    public void visit(UnmatchedStatement UnmatchedStatement);
     public void visit(ConDeclMore ConDeclMore);
     public void visit(Statement Statement);
     public void visit(VarDecl VarDecl);
@@ -70,9 +74,12 @@ public interface Visitor {
     public void visit(Term Term);
     public void visit(SingleTerm SingleTerm);
     public void visit(TermList_addop TermList_addop);
-    public void visit(Expr_term Expr_term);
+    public void visit(NonTernaryExpr_nominus NonTernaryExpr_nominus);
+    public void visit(NonTernaryExpr_minus NonTernaryExpr_minus);
+    public void visit(Expr_tern Expr_tern);
+    public void visit(Expr_notern Expr_notern);
     public void visit(CondFact_relop CondFact_relop);
-    public void visit(CondFact_exp CondFact_exp);
+    public void visit(CondFact_norelop CondFact_norelop);
     public void visit(SingleCondTerm SingleCondTerm);
     public void visit(CondTermList CondTermList);
     public void visit(SingleCondition SingleCondition);
@@ -92,19 +99,23 @@ public interface Visitor {
     public void visit(ForCondition_for ForCondition_for);
     public void visit(ForDesignatorStatement_e ForDesignatorStatement_e);
     public void visit(ForDesignatorStatement_for ForDesignatorStatement_for);
-    public void visit(Statement_sl Statement_sl);
-    public void visit(Statement_for Statement_for);
-    public void visit(Statement_switch Statement_switch);
-    public void visit(Statement_print2 Statement_print2);
-    public void visit(Statement_print1 Statement_print1);
-    public void visit(Statement_read Statement_read);
-    public void visit(Statement_retval Statement_retval);
-    public void visit(Statement_ret Statement_ret);
-    public void visit(Statement_continue Statement_continue);
-    public void visit(Statement_break Statement_break);
-    public void visit(Statement_ifelse Statement_ifelse);
-    public void visit(Statement_if Statement_if);
-    public void visit(Statement_desig Statement_desig);
+    public void visit(ReturnExpression_non_expr ReturnExpression_non_expr);
+    public void visit(ReturnExpression_expr ReturnExpression_expr);
+    public void visit(IfElseStatement_else IfElseStatement_else);
+    public void visit(IfElseStatement_non_else IfElseStatement_non_else);
+    public void visit(RecStatement RecStatement);
+    public void visit(ForStatement ForStatement);
+    public void visit(SwitchStatement SwitchStatement);
+    public void visit(PrintStatement2 PrintStatement2);
+    public void visit(PrintStatement PrintStatement);
+    public void visit(ReadStatement ReadStatement);
+    public void visit(ReturnStatement ReturnStatement);
+    public void visit(ContinueStatement ContinueStatement);
+    public void visit(BreakStatement BreakStatement);
+    public void visit(IfElseStatement IfElseStatement);
+    public void visit(DesignatorStatement DesignatorStatement);
+    public void visit(UnmatchedStatement UnmatchedStatement);
+    public void visit(MatchedStatement MatchedStatement);
     public void visit(StatementList_e StatementList_e);
     public void visit(StatementList_rec StatementList_rec);
     public void visit(VarDeclListRec_e VarDeclListRec_e);

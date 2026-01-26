@@ -1,6 +1,6 @@
 // generated with ast extension for cup
 // version 0.8
-// 25/0/2026 23:42:36
+// 26/0/2026 19:56:4
 
 
 package src.rs.ac.bg.etf.pp1.ast;
@@ -9,6 +9,7 @@ public abstract class VisitorAdaptor implements Visitor {
 
     public void visit(Negativ Negativ) { }
     public void visit(Mulop Mulop) { }
+    public void visit(MatchedStatement MatchedStatement) { }
     public void visit(FormParList FormParList) { }
     public void visit(Constant Constant) { }
     public void visit(Relop Relop) { }
@@ -23,8 +24,10 @@ public abstract class VisitorAdaptor implements Visitor {
     public void visit(ConVarDecList ConVarDecList) { }
     public void visit(Designator Designator) { }
     public void visit(CaseStatements CaseStatements) { }
+    public void visit(NonTernaryExpr NonTernaryExpr) { }
     public void visit(Condition Condition) { }
     public void visit(VarDeclListRec VarDeclListRec) { }
+    public void visit(ReturnExpression ReturnExpression) { }
     public void visit(CaseList CaseList) { }
     public void visit(EnumList EnumList) { }
     public void visit(EnumItem EnumItem) { }
@@ -33,6 +36,7 @@ public abstract class VisitorAdaptor implements Visitor {
     public void visit(ActPars ActPars) { }
     public void visit(DesignatorStatement DesignatorStatement) { }
     public void visit(MethRetAndName MethRetAndName) { }
+    public void visit(UnmatchedStatement UnmatchedStatement) { }
     public void visit(ConDeclMore ConDeclMore) { }
     public void visit(Statement Statement) { }
     public void visit(VarDecl VarDecl) { }
@@ -70,9 +74,12 @@ public abstract class VisitorAdaptor implements Visitor {
     public void visit(Term Term) { visit(); }
     public void visit(SingleTerm SingleTerm) { visit(); }
     public void visit(TermList_addop TermList_addop) { visit(); }
-    public void visit(Expr_term Expr_term) { visit(); }
+    public void visit(NonTernaryExpr_nominus NonTernaryExpr_nominus) { visit(); }
+    public void visit(NonTernaryExpr_minus NonTernaryExpr_minus) { visit(); }
+    public void visit(Expr_tern Expr_tern) { visit(); }
+    public void visit(Expr_notern Expr_notern) { visit(); }
     public void visit(CondFact_relop CondFact_relop) { visit(); }
-    public void visit(CondFact_exp CondFact_exp) { visit(); }
+    public void visit(CondFact_norelop CondFact_norelop) { visit(); }
     public void visit(SingleCondTerm SingleCondTerm) { visit(); }
     public void visit(CondTermList CondTermList) { visit(); }
     public void visit(SingleCondition SingleCondition) { visit(); }
@@ -92,19 +99,23 @@ public abstract class VisitorAdaptor implements Visitor {
     public void visit(ForCondition_for ForCondition_for) { visit(); }
     public void visit(ForDesignatorStatement_e ForDesignatorStatement_e) { visit(); }
     public void visit(ForDesignatorStatement_for ForDesignatorStatement_for) { visit(); }
-    public void visit(Statement_sl Statement_sl) { visit(); }
-    public void visit(Statement_for Statement_for) { visit(); }
-    public void visit(Statement_switch Statement_switch) { visit(); }
-    public void visit(Statement_print2 Statement_print2) { visit(); }
-    public void visit(Statement_print1 Statement_print1) { visit(); }
-    public void visit(Statement_read Statement_read) { visit(); }
-    public void visit(Statement_retval Statement_retval) { visit(); }
-    public void visit(Statement_ret Statement_ret) { visit(); }
-    public void visit(Statement_continue Statement_continue) { visit(); }
-    public void visit(Statement_break Statement_break) { visit(); }
-    public void visit(Statement_ifelse Statement_ifelse) { visit(); }
-    public void visit(Statement_if Statement_if) { visit(); }
-    public void visit(Statement_desig Statement_desig) { visit(); }
+    public void visit(ReturnExpression_non_expr ReturnExpression_non_expr) { visit(); }
+    public void visit(ReturnExpression_expr ReturnExpression_expr) { visit(); }
+    public void visit(IfElseStatement_else IfElseStatement_else) { visit(); }
+    public void visit(IfElseStatement_non_else IfElseStatement_non_else) { visit(); }
+    public void visit(RecStatement RecStatement) { visit(); }
+    public void visit(ForStatement ForStatement) { visit(); }
+    public void visit(SwitchStatement SwitchStatement) { visit(); }
+    public void visit(PrintStatement2 PrintStatement2) { visit(); }
+    public void visit(PrintStatement PrintStatement) { visit(); }
+    public void visit(ReadStatement ReadStatement) { visit(); }
+    public void visit(ReturnStatement ReturnStatement) { visit(); }
+    public void visit(ContinueStatement ContinueStatement) { visit(); }
+    public void visit(BreakStatement BreakStatement) { visit(); }
+    public void visit(IfElseStatement IfElseStatement) { visit(); }
+    public void visit(DesignatorStatement DesignatorStatement) { visit(); }
+    public void visit(UnmatchedStatement UnmatchedStatement) { visit(); }
+    public void visit(MatchedStatement MatchedStatement) { visit(); }
     public void visit(StatementList_e StatementList_e) { visit(); }
     public void visit(StatementList_rec StatementList_rec) { visit(); }
     public void visit(VarDeclListRec_e VarDeclListRec_e) { visit(); }

@@ -1,26 +1,26 @@
 // generated with ast extension for cup
 // version 0.8
-// 25/0/2026 23:42:36
+// 26/0/2026 19:56:4
 
 
 package src.rs.ac.bg.etf.pp1.ast;
 
-public class Statement_for extends Statement {
+public class ForStatement extends MatchedStatement {
 
     private ForDesignatorStatement ForDesignatorStatement;
     private ForCondition ForCondition;
     private ForDesignatorStatement ForDesignatorStatement1;
-    private Statement Statement;
+    private MatchedStatement MatchedStatement;
 
-    public Statement_for (ForDesignatorStatement ForDesignatorStatement, ForCondition ForCondition, ForDesignatorStatement ForDesignatorStatement1, Statement Statement) {
+    public ForStatement (ForDesignatorStatement ForDesignatorStatement, ForCondition ForCondition, ForDesignatorStatement ForDesignatorStatement1, MatchedStatement MatchedStatement) {
         this.ForDesignatorStatement=ForDesignatorStatement;
         if(ForDesignatorStatement!=null) ForDesignatorStatement.setParent(this);
         this.ForCondition=ForCondition;
         if(ForCondition!=null) ForCondition.setParent(this);
         this.ForDesignatorStatement1=ForDesignatorStatement1;
         if(ForDesignatorStatement1!=null) ForDesignatorStatement1.setParent(this);
-        this.Statement=Statement;
-        if(Statement!=null) Statement.setParent(this);
+        this.MatchedStatement=MatchedStatement;
+        if(MatchedStatement!=null) MatchedStatement.setParent(this);
     }
 
     public ForDesignatorStatement getForDesignatorStatement() {
@@ -47,12 +47,12 @@ public class Statement_for extends Statement {
         this.ForDesignatorStatement1=ForDesignatorStatement1;
     }
 
-    public Statement getStatement() {
-        return Statement;
+    public MatchedStatement getMatchedStatement() {
+        return MatchedStatement;
     }
 
-    public void setStatement(Statement Statement) {
-        this.Statement=Statement;
+    public void setMatchedStatement(MatchedStatement MatchedStatement) {
+        this.MatchedStatement=MatchedStatement;
     }
 
     public void accept(Visitor visitor) {
@@ -63,7 +63,7 @@ public class Statement_for extends Statement {
         if(ForDesignatorStatement!=null) ForDesignatorStatement.accept(visitor);
         if(ForCondition!=null) ForCondition.accept(visitor);
         if(ForDesignatorStatement1!=null) ForDesignatorStatement1.accept(visitor);
-        if(Statement!=null) Statement.accept(visitor);
+        if(MatchedStatement!=null) MatchedStatement.accept(visitor);
     }
 
     public void traverseTopDown(Visitor visitor) {
@@ -71,21 +71,21 @@ public class Statement_for extends Statement {
         if(ForDesignatorStatement!=null) ForDesignatorStatement.traverseTopDown(visitor);
         if(ForCondition!=null) ForCondition.traverseTopDown(visitor);
         if(ForDesignatorStatement1!=null) ForDesignatorStatement1.traverseTopDown(visitor);
-        if(Statement!=null) Statement.traverseTopDown(visitor);
+        if(MatchedStatement!=null) MatchedStatement.traverseTopDown(visitor);
     }
 
     public void traverseBottomUp(Visitor visitor) {
         if(ForDesignatorStatement!=null) ForDesignatorStatement.traverseBottomUp(visitor);
         if(ForCondition!=null) ForCondition.traverseBottomUp(visitor);
         if(ForDesignatorStatement1!=null) ForDesignatorStatement1.traverseBottomUp(visitor);
-        if(Statement!=null) Statement.traverseBottomUp(visitor);
+        if(MatchedStatement!=null) MatchedStatement.traverseBottomUp(visitor);
         accept(visitor);
     }
 
     public String toString(String tab) {
         StringBuffer buffer=new StringBuffer();
         buffer.append(tab);
-        buffer.append("Statement_for(\n");
+        buffer.append("ForStatement(\n");
 
         if(ForDesignatorStatement!=null)
             buffer.append(ForDesignatorStatement.toString("  "+tab));
@@ -105,14 +105,14 @@ public class Statement_for extends Statement {
             buffer.append(tab+"  null");
         buffer.append("\n");
 
-        if(Statement!=null)
-            buffer.append(Statement.toString("  "+tab));
+        if(MatchedStatement!=null)
+            buffer.append(MatchedStatement.toString("  "+tab));
         else
             buffer.append(tab+"  null");
         buffer.append("\n");
 
         buffer.append(tab);
-        buffer.append(") [Statement_for]");
+        buffer.append(") [ForStatement]");
         return buffer.toString();
     }
 }

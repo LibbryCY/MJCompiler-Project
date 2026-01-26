@@ -101,7 +101,11 @@ nonterminal Program,
 			CaseList,
 			Case,
 			ForDesignatorStatement,
-			ForCondition;
+			ForCondition,
+			MatchedStatement,
+			UnmatchedStatement,
+			ReturnExpression,
+			NonTernaryExpr;
 
 precedence left ELSE;
 
@@ -211,32 +215,43 @@ StatementList ::= 	(StatementList_rec) StatementList Statement
 				  	(StatementList_e) /* epsilon */
 				   	;
 
-Statement ::= (Statement_desig) DesignatorStatement SEMI
+Statement ::= (MatchedStatement) MatchedStatement
 			  |
-			  (Statement_if) IF LPAREN Condition RPAREN Statement 
-              | 
-			  (Statement_ifelse) IF LPAREN Condition RPAREN Statement ELSE Statement
-			  |
-			  (Statement_break) BREAK SEMI
-			  |
-			  (Statement_continue) CONTINUE SEMI
-			  |
-			  (Statement_ret) RETURN SEMI
-			  |
-			  (Statement_retval) RETURN Expr SEMI
-			  |
-			  (Statement_read) READ LPAREN Designator RPAREN SEMI
-			  |
-			  (Statement_print1) PRINT LPAREN Expr RPAREN SEMI
-			  |
-			  (Statement_print2) PRINT LPAREN Expr COMMA NUMBER RPAREN SEMI
-			  |
-			  (Statement_switch) SWITCH LPAREN Expr RPAREN LBRACE CaseList RBRACE
-			  |
-			  (Statement_for) FOR LPAREN ForDesignatorStatement SEMI ForCondition SEMI ForDesignatorStatement RPAREN Statement
-			  | 
-			  (Statement_sl) LBRACE StatementList RBRACE
+			  (UnmatchedStatement) UnmatchedStatement
 			  ;
+			   
+MatchedStatement ::=  (DesignatorStatement) DesignatorStatement SEMI
+					  |
+					  (IfElseStatement) IF LPAREN Condition RPAREN MatchedStatement ELSE MatchedStatement
+					  |
+					  (BreakStatement) BREAK SEMI
+					  |
+					  (ContinueStatement) CONTINUE SEMI
+					  |
+					  (ReturnStatement) RETURN ReturnExpression SEMI
+					  |
+					  (ReadStatement) READ LPAREN Designator RPAREN SEMI
+					  |
+					  (PrintStatement) PRINT LPAREN Expr RPAREN SEMI
+					  |
+					  (PrintStatement2) PRINT LPAREN Expr COMMA NUMBER RPAREN SEMI
+			  		  |
+					  (SwitchStatement) SWITCH LPAREN Expr RPAREN LBRACE CaseList RBRACE
+					  |
+					  (ForStatement) FOR LPAREN  ForDesignatorStatement SEMI ForCondition SEMI ForDesignatorStatement  RPAREN MatchedStatement
+					  |
+					  (RecStatement) LBRACE StatementList RBRACE
+					  ;
+
+UnmatchedStatement ::= (IfElseStatement_non_else) IF LPAREN Condition RPAREN Statement
+					   |
+					   (IfElseStatement_else) IF LPAREN Condition RPAREN MatchedStatement ELSE UnmatchedStatement
+					   ;
+
+ReturnExpression ::= (ReturnExpression_expr) Expr
+					 |
+					 (ReturnExpression_non_expr) /* epsilon */ 
+					 ;
 
 ForDesignatorStatement ::= (ForDesignatorStatement_for) DesignatorStatement
                            |
@@ -273,7 +288,7 @@ DesignatorStatement ::= (DesignatorStatement_ass) Designator Assignop Expr
 						(DesignatorStatement_dec) Designator DEC
 						;
 
-
+/* CONDITION */
 
 Condition ::= (ConditionList) Condition OR CondTerm
 			  |
@@ -284,15 +299,22 @@ CondTerm ::= (CondTermList) CondTerm AND CondFact
              |
 			 (SingleCondTerm) CondFact
 			 ;
+			 
+CondFact ::= (CondFact_norelop) NonTernaryExpr
+             |
+             (CondFact_relop) NonTernaryExpr Relop NonTernaryExpr
+             ;
 
-CondFact ::= (CondFact_exp) Expr
-			 |
-			 (CondFact_relop) Expr Relop Expr
-			 ;
+Expr ::= (Expr_notern) NonTernaryExpr
+		 |
+	     (Expr_tern) Condition QMARK Expr COL Expr
+		  ;
 
-Expr ::= (Expr_term) Negativ TermList 
-         
-	     ;
+NonTernaryExpr ::= (NonTernaryExpr_minus) MINUS TermList
+				  |
+				  (NonTernaryExpr_nominus) TermList
+				  ;
+
 
 TermList ::= (TermList_addop) TermList Addop Term
              |

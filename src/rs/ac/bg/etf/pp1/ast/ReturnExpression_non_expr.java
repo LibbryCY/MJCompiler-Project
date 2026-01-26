@@ -1,13 +1,13 @@
 // generated with ast extension for cup
 // version 0.8
-// 25/0/2026 23:42:36
+// 26/0/2026 19:56:4
 
 
 package src.rs.ac.bg.etf.pp1.ast;
 
-public class Statement_continue extends Statement {
+public class ReturnExpression_non_expr extends ReturnExpression {
 
-    public Statement_continue () {
+    public ReturnExpression_non_expr () {
     }
 
     public void accept(Visitor visitor) {
@@ -28,10 +28,10 @@ public class Statement_continue extends Statement {
     public String toString(String tab) {
         StringBuffer buffer=new StringBuffer();
         buffer.append(tab);
-        buffer.append("Statement_continue(\n");
+        buffer.append("ReturnExpression_non_expr(\n");
 
         buffer.append(tab);
-        buffer.append(") [Statement_continue]");
+        buffer.append(") [ReturnExpression_non_expr]");
         return buffer.toString();
     }
 }

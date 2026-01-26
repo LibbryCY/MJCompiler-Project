@@ -1,15 +1,15 @@
 // generated with ast extension for cup
 // version 0.8
-// 25/0/2026 23:42:36
+// 26/0/2026 19:56:4
 
 
 package src.rs.ac.bg.etf.pp1.ast;
 
-public class Statement_sl extends Statement {
+public class RecStatement extends MatchedStatement {
 
     private StatementList StatementList;
 
-    public Statement_sl (StatementList StatementList) {
+    public RecStatement (StatementList StatementList) {
         this.StatementList=StatementList;
         if(StatementList!=null) StatementList.setParent(this);
     }
@@ -43,7 +43,7 @@ public class Statement_sl extends Statement {
     public String toString(String tab) {
         StringBuffer buffer=new StringBuffer();
         buffer.append(tab);
-        buffer.append("Statement_sl(\n");
+        buffer.append("RecStatement(\n");
 
         if(StatementList!=null)
             buffer.append(StatementList.toString("  "+tab));
@@ -52,7 +52,7 @@ public class Statement_sl extends Statement {
         buffer.append("\n");
 
         buffer.append(tab);
-        buffer.append(") [Statement_sl]");
+        buffer.append(") [RecStatement]");
         return buffer.toString();
     }
 }
