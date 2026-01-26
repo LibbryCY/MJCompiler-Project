@@ -122,7 +122,7 @@ nonterminal
 nonterminal
 			ActPars ActPars;
 nonterminal
-			Negativ Negativ;
+			Unary Unary;
 nonterminal
 			Term Term;
 nonterminal
@@ -153,8 +153,9 @@ nonterminal
 			ReturnExpression ReturnExpression;
 nonterminal
 			NonTernaryExpr NonTernaryExpr;
+nonterminal
+			FactorUnar FactorUnar;
 
-precedence left ELSE;
 
 
 Program ::= (Program) PROG ProgramName:P1 ConVarDecList:C2 LBRACE MethodDeclList:M3 RBRACE {: RESULT=new Program(P1, C2, M3); RESULT.setLine(P1left); :};
@@ -357,9 +358,7 @@ Expr ::= (Expr_notern) NonTernaryExpr:N1 {: RESULT=new Expr_notern(N1); RESULT.s
 	     (Expr_tern) Condition:C1 QMARK Expr:E2 COL Expr:E3 {: RESULT=new Expr_tern(C1, E2, E3); RESULT.setLine(C1left); :}
 		  ;
 
-NonTernaryExpr ::= (NonTernaryExpr_minus) MINUS TermList:T1 {: RESULT=new NonTernaryExpr_minus(T1); RESULT.setLine(T1left); :}
-				  |
-				  (NonTernaryExpr_nominus) TermList:T1 {: RESULT=new NonTernaryExpr_nominus(T1); RESULT.setLine(T1left); :}
+NonTernaryExpr ::= (NonTernaryExpr) TermList:T1 {: RESULT=new NonTernaryExpr(T1); RESULT.setLine(T1left); :}
 				  ;
 
 
@@ -375,7 +374,14 @@ FactorList ::= (FactorList_mulop) FactorList:F1 Mulop:M2 Factor:F3 {: RESULT=new
 			   (SingleFactor) Factor:F1 {: RESULT=new SingleFactor(F1); RESULT.setLine(F1left); :}
 			   ;
 
-Factor ::= (Factor_var) Designator:D1 {: RESULT=new Factor_var(D1); RESULT.setLine(D1left); :}
+Factor ::= (Factor) Unary:U1 FactorUnar:F2 {: RESULT=new Factor(U1, F2); RESULT.setLine(U1left); :};
+
+Unary ::= 	(Unary_m) MINUS {: RESULT=new Unary_m(); :}
+			|
+			(Unary_e) {: RESULT=new Unary_e(); :} /* epsilon */
+			;
+
+FactorUnar ::= (Factor_var) Designator:D1 {: RESULT=new Factor_var(D1); RESULT.setLine(D1left); :}
 				|
 				(Factor_meth) Designator:D1 LPAREN ActPars:A2 RPAREN {: RESULT=new Factor_meth(D1, A2); RESULT.setLine(D1left); :}
 		   		|
@@ -398,11 +404,6 @@ Designator ::= (Designator_var) IDENT:I1 {: RESULT=new Designator_var(I1); RESUL
 			   |
 			   (Designator_expr) Designator:D1 LBRACKET Expr:E2 RBRACKET {: RESULT=new Designator_expr(D1, E2); RESULT.setLine(D1left); :}
 			   ;	
-
-Negativ ::= (Negativ_yes) MINUS {: RESULT=new Negativ_yes(); :}
-            |
-			(Negativ_no) {: RESULT=new Negativ_no(); :} /* epsilon */
-			;
 			  
 Relop ::= (Relop_eq) EQUAL {: RESULT=new Relop_eq(); :}
           |

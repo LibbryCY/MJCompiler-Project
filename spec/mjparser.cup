@@ -90,7 +90,7 @@ nonterminal Program,
 			Mulop,
 			Addop,
 			ActPars,
-			Negativ,
+			Unary,
 			Term,
 			TermList,
 			Factor,
@@ -105,9 +105,9 @@ nonterminal Program,
 			MatchedStatement,
 			UnmatchedStatement,
 			ReturnExpression,
-			NonTernaryExpr;
+			NonTernaryExpr,
+			FactorUnar;
 
-precedence left ELSE;
 
 
 Program ::= (Program) PROG ProgramName ConVarDecList LBRACE MethodDeclList RBRACE;
@@ -310,9 +310,7 @@ Expr ::= (Expr_notern) NonTernaryExpr
 	     (Expr_tern) Condition QMARK Expr COL Expr
 		  ;
 
-NonTernaryExpr ::= (NonTernaryExpr_minus) MINUS TermList
-				  |
-				  (NonTernaryExpr_nominus) TermList
+NonTernaryExpr ::= (NonTernaryExpr) TermList
 				  ;
 
 
@@ -328,7 +326,14 @@ FactorList ::= (FactorList_mulop) FactorList Mulop Factor
 			   (SingleFactor) Factor
 			   ;
 
-Factor ::= (Factor_var) Designator
+Factor ::= (Factor) Unary FactorUnar;
+
+Unary ::= 	(Unary_m) MINUS
+			|
+			(Unary_e) /* epsilon */
+			;
+
+FactorUnar ::= (Factor_var) Designator
 				|
 				(Factor_meth) Designator LPAREN ActPars RPAREN
 		   		|
@@ -351,11 +356,6 @@ Designator ::= (Designator_var) IDENT
 			   |
 			   (Designator_expr) Designator LBRACKET Expr RBRACKET
 			   ;	
-
-Negativ ::= (Negativ_yes) MINUS
-            |
-			(Negativ_no) /* epsilon */
-			;
 			  
 Relop ::= (Relop_eq) EQUAL
           |

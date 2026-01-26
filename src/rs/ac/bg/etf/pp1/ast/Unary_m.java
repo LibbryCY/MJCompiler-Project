@@ -1,13 +1,13 @@
 // generated with ast extension for cup
 // version 0.8
-// 26/0/2026 19:56:4
+// 26/0/2026 20:56:5
 
 
 package src.rs.ac.bg.etf.pp1.ast;
 
-public class Negativ_yes extends Negativ {
+public class Unary_m extends Unary {
 
-    public Negativ_yes () {
+    public Unary_m () {
     }
 
     public void accept(Visitor visitor) {
@@ -28,10 +28,10 @@ public class Negativ_yes extends Negativ {
     public String toString(String tab) {
         StringBuffer buffer=new StringBuffer();
         buffer.append(tab);
-        buffer.append("Negativ_yes(\n");
+        buffer.append("Unary_m(\n");
 
         buffer.append(tab);
-        buffer.append(") [Negativ_yes]");
+        buffer.append(") [Unary_m]");
         return buffer.toString();
     }
 }

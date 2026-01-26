@@ -1,11 +1,11 @@
 // generated with ast extension for cup
 // version 0.8
-// 26/0/2026 19:56:4
+// 26/0/2026 20:56:5
 
 
 package src.rs.ac.bg.etf.pp1.ast;
 
-public class Factor_expr extends Factor {
+public class Factor_expr extends FactorUnar {
 
     private Expr Expr;
 

@@ -5,7 +5,7 @@
 
 package src.rs.ac.bg.etf.pp1.ast;
 
-public abstract class Statement implements SyntaxNode {
+public abstract class Unary implements SyntaxNode {
 
     private SyntaxNode parent;
 

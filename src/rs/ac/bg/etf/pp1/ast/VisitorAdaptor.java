@@ -1,30 +1,29 @@
 // generated with ast extension for cup
 // version 0.8
-// 26/0/2026 19:56:4
+// 26/0/2026 20:56:5
 
 
 package src.rs.ac.bg.etf.pp1.ast;
 
 public abstract class VisitorAdaptor implements Visitor { 
 
-    public void visit(Negativ Negativ) { }
     public void visit(Mulop Mulop) { }
     public void visit(MatchedStatement MatchedStatement) { }
     public void visit(FormParList FormParList) { }
     public void visit(Constant Constant) { }
     public void visit(Relop Relop) { }
     public void visit(TermList TermList) { }
+    public void visit(Unary Unary) { }
     public void visit(StatementList StatementList) { }
     public void visit(FactorList FactorList) { }
+    public void visit(FactorUnar FactorUnar) { }
     public void visit(FormParMore FormParMore) { }
     public void visit(Addop Addop) { }
     public void visit(ForCondition ForCondition) { }
-    public void visit(Factor Factor) { }
     public void visit(CondTerm CondTerm) { }
     public void visit(ConVarDecList ConVarDecList) { }
     public void visit(Designator Designator) { }
     public void visit(CaseStatements CaseStatements) { }
-    public void visit(NonTernaryExpr NonTernaryExpr) { }
     public void visit(Condition Condition) { }
     public void visit(VarDeclListRec VarDeclListRec) { }
     public void visit(ReturnExpression ReturnExpression) { }
@@ -56,8 +55,6 @@ public abstract class VisitorAdaptor implements Visitor {
     public void visit(Relop_grt Relop_grt) { visit(); }
     public void visit(Relop_neq Relop_neq) { visit(); }
     public void visit(Relop_eq Relop_eq) { visit(); }
-    public void visit(Negativ_no Negativ_no) { visit(); }
-    public void visit(Negativ_yes Negativ_yes) { visit(); }
     public void visit(Designator_expr Designator_expr) { visit(); }
     public void visit(Designator_len Designator_len) { visit(); }
     public void visit(Designator_enum Designator_enum) { visit(); }
@@ -69,13 +66,15 @@ public abstract class VisitorAdaptor implements Visitor {
     public void visit(Factor_n Factor_n) { visit(); }
     public void visit(Factor_meth Factor_meth) { visit(); }
     public void visit(Factor_var Factor_var) { visit(); }
+    public void visit(Unary_e Unary_e) { visit(); }
+    public void visit(Unary_m Unary_m) { visit(); }
+    public void visit(Factor Factor) { visit(); }
     public void visit(SingleFactor SingleFactor) { visit(); }
     public void visit(FactorList_mulop FactorList_mulop) { visit(); }
     public void visit(Term Term) { visit(); }
     public void visit(SingleTerm SingleTerm) { visit(); }
     public void visit(TermList_addop TermList_addop) { visit(); }
-    public void visit(NonTernaryExpr_nominus NonTernaryExpr_nominus) { visit(); }
-    public void visit(NonTernaryExpr_minus NonTernaryExpr_minus) { visit(); }
+    public void visit(NonTernaryExpr NonTernaryExpr) { visit(); }
     public void visit(Expr_tern Expr_tern) { visit(); }
     public void visit(Expr_notern Expr_notern) { visit(); }
     public void visit(CondFact_relop CondFact_relop) { visit(); }

@@ -1,15 +1,39 @@
 // generated with ast extension for cup
 // version 0.8
-// 26/0/2026 19:56:4
+// 26/0/2026 20:56:5
 
 
 package src.rs.ac.bg.etf.pp1.ast;
 
-public abstract class Factor implements SyntaxNode {
+public class Factor implements SyntaxNode {
 
     private SyntaxNode parent;
-
     private int line;
+    private Unary Unary;
+    private FactorUnar FactorUnar;
+
+    public Factor (Unary Unary, FactorUnar FactorUnar) {
+        this.Unary=Unary;
+        if(Unary!=null) Unary.setParent(this);
+        this.FactorUnar=FactorUnar;
+        if(FactorUnar!=null) FactorUnar.setParent(this);
+    }
+
+    public Unary getUnary() {
+        return Unary;
+    }
+
+    public void setUnary(Unary Unary) {
+        this.Unary=Unary;
+    }
+
+    public FactorUnar getFactorUnar() {
+        return FactorUnar;
+    }
+
+    public void setFactorUnar(FactorUnar FactorUnar) {
+        this.FactorUnar=FactorUnar;
+    }
 
     public SyntaxNode getParent() {
         return parent;
@@ -27,11 +51,46 @@ public abstract class Factor implements SyntaxNode {
         this.line=line;
     }
 
-    public abstract void accept(Visitor visitor);
-    public abstract void childrenAccept(Visitor visitor);
-    public abstract void traverseTopDown(Visitor visitor);
-    public abstract void traverseBottomUp(Visitor visitor);
+    public void accept(Visitor visitor) {
+        visitor.visit(this);
+    }
 
-    public String toString() { return toString(""); }
-    public abstract String toString(String tab);
+    public void childrenAccept(Visitor visitor) {
+        if(Unary!=null) Unary.accept(visitor);
+        if(FactorUnar!=null) FactorUnar.accept(visitor);
+    }
+
+    public void traverseTopDown(Visitor visitor) {
+        accept(visitor);
+        if(Unary!=null) Unary.traverseTopDown(visitor);
+        if(FactorUnar!=null) FactorUnar.traverseTopDown(visitor);
+    }
+
+    public void traverseBottomUp(Visitor visitor) {
+        if(Unary!=null) Unary.traverseBottomUp(visitor);
+        if(FactorUnar!=null) FactorUnar.traverseBottomUp(visitor);
+        accept(visitor);
+    }
+
+    public String toString(String tab) {
+        StringBuffer buffer=new StringBuffer();
+        buffer.append(tab);
+        buffer.append("Factor(\n");
+
+        if(Unary!=null)
+            buffer.append(Unary.toString("  "+tab));
+        else
+            buffer.append(tab+"  null");
+        buffer.append("\n");
+
+        if(FactorUnar!=null)
+            buffer.append(FactorUnar.toString("  "+tab));
+        else
+            buffer.append(tab+"  null");
+        buffer.append("\n");
+
+        buffer.append(tab);
+        buffer.append(") [Factor]");
+        return buffer.toString();
+    }
 }
