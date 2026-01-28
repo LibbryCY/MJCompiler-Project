@@ -1,8 +1,7 @@
-program CompleteTest
+program CompleteTest 
 
 const int ZERO = 0, ONE = 1, HUNDRED = 100;
 const int NEGATIVE = 5;
-const char LETTER_A = 'a', LETTER_Z = 'z', NEWLINE = 'n';
 const bool TRUE_VAL = true, FALSE_VAL = false;
 
 
@@ -10,7 +9,7 @@ int globalVar;
 int globalArray[];
 char charVar;
 bool boolVar;
-//int a= -5, if ((flag1 || flag2) && (flag1)), result = -a + -b;, 
+// int a= -5, if ((flag1 || flag2) && (flag1)), result = -a + -b;, 
 int matrix[];
 char string[];
 
@@ -31,7 +30,16 @@ enum Status {
 }
 
 {
-    void emptyMethod() {
+	void testCalls() {
+        f();
+        f(1);
+        f(1,2,3);
+
+        a = f();
+        a = f(1);
+    }
+	
+    void emptyMethod(int a) {
     }
     
     int simpleReturn() {
@@ -525,6 +533,8 @@ enum Status {
         
         forLoops();
         breakContinue(20);
+        
+        testCalls();
         
         size = 10;
         testArray = new int[size];

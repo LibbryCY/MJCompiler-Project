@@ -1,20 +1,17 @@
 // generated with ast extension for cup
 // version 0.8
-// 28/0/2026 15:26:29
+// 28/0/2026 21:31:48
 
 
 package rs.ac.bg.etf.pp1.ast;
 
-public class Factor_meth extends FactorUnar {
+public class Factor_methnopars extends FactorUnar {
 
     private Designator Designator;
-    private ActPars ActPars;
 
-    public Factor_meth (Designator Designator, ActPars ActPars) {
+    public Factor_methnopars (Designator Designator) {
         this.Designator=Designator;
         if(Designator!=null) Designator.setParent(this);
-        this.ActPars=ActPars;
-        if(ActPars!=null) ActPars.setParent(this);
     }
 
     public Designator getDesignator() {
@@ -25,39 +22,28 @@ public class Factor_meth extends FactorUnar {
         this.Designator=Designator;
     }
 
-    public ActPars getActPars() {
-        return ActPars;
-    }
-
-    public void setActPars(ActPars ActPars) {
-        this.ActPars=ActPars;
-    }
-
     public void accept(Visitor visitor) {
         visitor.visit(this);
     }
 
     public void childrenAccept(Visitor visitor) {
         if(Designator!=null) Designator.accept(visitor);
-        if(ActPars!=null) ActPars.accept(visitor);
     }
 
     public void traverseTopDown(Visitor visitor) {
         accept(visitor);
         if(Designator!=null) Designator.traverseTopDown(visitor);
-        if(ActPars!=null) ActPars.traverseTopDown(visitor);
     }
 
     public void traverseBottomUp(Visitor visitor) {
         if(Designator!=null) Designator.traverseBottomUp(visitor);
-        if(ActPars!=null) ActPars.traverseBottomUp(visitor);
         accept(visitor);
     }
 
     public String toString(String tab) {
         StringBuffer buffer=new StringBuffer();
         buffer.append(tab);
-        buffer.append("Factor_meth(\n");
+        buffer.append("Factor_methnopars(\n");
 
         if(Designator!=null)
             buffer.append(Designator.toString("  "+tab));
@@ -65,14 +51,8 @@ public class Factor_meth extends FactorUnar {
             buffer.append(tab+"  null");
         buffer.append("\n");
 
-        if(ActPars!=null)
-            buffer.append(ActPars.toString("  "+tab));
-        else
-            buffer.append(tab+"  null");
-        buffer.append("\n");
-
         buffer.append(tab);
-        buffer.append(") [Factor_meth]");
+        buffer.append(") [Factor_methnopars]");
         return buffer.toString();
     }
 }

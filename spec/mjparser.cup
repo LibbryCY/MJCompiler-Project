@@ -283,6 +283,8 @@ DesignatorStatement ::= (DesignatorStatement_ass) Designator Assignop Expr
 						|
 						(DesignatorStatement_actpar) Designator LPAREN ActPars RPAREN
 						|
+						(DesignatorStatement_noactpar) Designator LPAREN RPAREN
+						|
 						(DesignatorStatement_inc) Designator INC
 						|
 						(DesignatorStatement_dec) Designator DEC
@@ -335,7 +337,9 @@ Unary ::= 	(Unary_m) MINUS
 
 FactorUnar ::= (Factor_var) Designator
 				|
-				(Factor_meth) Designator LPAREN ActPars RPAREN
+				(Factor_methpars) Designator LPAREN ActPars RPAREN
+		   		|
+				(Factor_methnopars) Designator LPAREN  RPAREN
 		   		|
 		   		(Factor_n) NUMBER
 		   		|

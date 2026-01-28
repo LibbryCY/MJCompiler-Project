@@ -1,0 +1,35 @@
+INFO  15:59:33,850 - Compiling source file: /home/rembrant/EclipseWorkspace3/MJCompiler/test/program.mj
+INFO  15:59:33,878 - #2 program
+INFO  15:59:33,878 - #48 CompleteTest
+INFO  15:59:33,879 - #3 const
+INFO  15:59:33,879 - #48 int
+INFO  15:59:33,879 - #48 ZERO
+INFO  15:59:33,880 - #33 =
+INFO  15:59:33,880 - #45 0
+INFO  15:59:33,880 - #37 ,
+INFO  15:59:33,881 - #48 ONE
+INFO  15:59:33,881 - #33 =
+INFO  15:59:33,881 - #45 1
+INFO  15:59:33,881 - #37 ,
+INFO  15:59:33,881 - #48 HUNDRED
+INFO  15:59:33,881 - #33 =
+INFO  15:59:33,881 - #45 100
+INFO  15:59:33,882 - #34 ;
+INFO  15:59:33,882 - #3 const
+INFO  15:59:33,883 - #48 int
+INFO  15:59:33,883 - #48 NEGATIVE
+INFO  15:59:33,883 - #33 =
+INFO  15:59:33,883 - #45 5
+INFO  15:59:33,884 - #34 ;
+INFO  15:59:33,884 - #3 const
+INFO  15:59:33,884 - #48 char
+INFO  15:59:33,884 - #48 LETTER_A
+INFO  15:59:33,884 - #33 =
+INFO  15:59:33,884 - #47 97
+INFO  15:59:33,884 - #37 ,
+ERROR 15:59:33,886 - Compilation error
+java.lang.ClassCastException: class java.lang.Integer cannot be cast to class java.lang.Character (java.lang.Integer and java.lang.Character are in module java.base of loader 'bootstrap')
+	at rs.ac.bg.etf.pp1.CUP$MJParser$actions.CUP$MJParser$do_action(MJParser.java:1740)
+	at rs.ac.bg.etf.pp1.MJParser.do_action(MJParser.java:461)
+	at java_cup.runtime.lr_parser.parse(lr_parser.java:584)
+	at rs.ac.bg.etf.pp1.Compiler.main(Compiler.java:29)

@@ -35,6 +35,7 @@ import java_cup.runtime.Symbol;
 "\t" 	{ }
 "\r\n" 	{ }
 "\f" 	{ }
+[ \t\n\r\f]+ 	{ }
 
 "program"   { return new_symbol(sym.PROG, yytext()); }
 "const"     { return new_symbol(sym.CONST, yytext()); }
@@ -84,13 +85,13 @@ import java_cup.runtime.Symbol;
 "]"   		{ return new_symbol(sym.RBRACKET, yytext());}
 "?"   		{ return new_symbol(sym.QMARK, yytext());}
 
-"//" {yybegin(COMMENT);}
-<COMMENT> . {yybegin(COMMENT);}
-<COMMENT> "\r\n" { yybegin(YYINITIAL); }
+"//"                   { yybegin(COMMENT); }
+<COMMENT> [^\n\r]*     { /* skip comment text */ }
+<COMMENT> (\r\n|\r|\n) { yybegin(YYINITIAL); }
 
-[0-9]+  { return new_symbol(sym.NUMBER, new Integer (yytext())); }
-"'"([a-zA-Z0-9 ]|\\t|\\n|\\\\.)"'" { char c = yytext().charAt(1); return new_symbol(sym.CHAR, (int)c); }
+[0-9]+  						{ return new_symbol(sym.NUMBER, new Integer (yytext())); }
 "true"|"false" 					{ return new_symbol(sym.BOOL, yytext().equals("true") ? 1 : 0); }
+"'"."'"							{ return new_symbol(sym.CHAR, new Character(yytext().charAt(1))); }
 ([a-z]|[A-Z])[a-z|A-Z|0-9|_]* 	{ return new_symbol (sym.IDENT, yytext()); }
 
 . { System.err.println("Leksicka greska ("+yytext()+") u liniji "+(yyline+1)); }

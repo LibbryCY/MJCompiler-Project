@@ -331,6 +331,8 @@ DesignatorStatement ::= (DesignatorStatement_ass) Designator:D1 Assignop:A2 Expr
 						|
 						(DesignatorStatement_actpar) Designator:D1 LPAREN ActPars:A2 RPAREN {: RESULT=new DesignatorStatement_actpar(D1, A2); RESULT.setLine(D1left); :}
 						|
+						(DesignatorStatement_noactpar) Designator:D1 LPAREN RPAREN {: RESULT=new DesignatorStatement_noactpar(D1); RESULT.setLine(D1left); :}
+						|
 						(DesignatorStatement_inc) Designator:D1 INC {: RESULT=new DesignatorStatement_inc(D1); RESULT.setLine(D1left); :}
 						|
 						(DesignatorStatement_dec) Designator:D1 DEC {: RESULT=new DesignatorStatement_dec(D1); RESULT.setLine(D1left); :}
@@ -383,7 +385,9 @@ Unary ::= 	(Unary_m) MINUS {: RESULT=new Unary_m(); :}
 
 FactorUnar ::= (Factor_var) Designator:D1 {: RESULT=new Factor_var(D1); RESULT.setLine(D1left); :}
 				|
-				(Factor_meth) Designator:D1 LPAREN ActPars:A2 RPAREN {: RESULT=new Factor_meth(D1, A2); RESULT.setLine(D1left); :}
+				(Factor_methpars) Designator:D1 LPAREN ActPars:A2 RPAREN {: RESULT=new Factor_methpars(D1, A2); RESULT.setLine(D1left); :}
+		   		|
+				(Factor_methnopars) Designator:D1 LPAREN  RPAREN {: RESULT=new Factor_methnopars(D1); RESULT.setLine(D1left); :}
 		   		|
 		   		(Factor_n) NUMBER:N1 {: RESULT=new Factor_n(N1); RESULT.setLine(N1left); :}
 		   		|
