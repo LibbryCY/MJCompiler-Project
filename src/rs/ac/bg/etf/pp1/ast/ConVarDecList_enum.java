@@ -1,28 +1,20 @@
 // generated with ast extension for cup
 // version 0.8
-// 26/0/2026 20:56:5
+// 28/0/2026 15:26:29
 
 
-package src.rs.ac.bg.etf.pp1.ast;
+package rs.ac.bg.etf.pp1.ast;
 
 public class ConVarDecList_enum extends ConVarDecList {
 
-    private ConVarDecList ConVarDecList;
     private EnumDeclList EnumDeclList;
+    private ConVarDecList ConVarDecList;
 
-    public ConVarDecList_enum (ConVarDecList ConVarDecList, EnumDeclList EnumDeclList) {
-        this.ConVarDecList=ConVarDecList;
-        if(ConVarDecList!=null) ConVarDecList.setParent(this);
+    public ConVarDecList_enum (EnumDeclList EnumDeclList, ConVarDecList ConVarDecList) {
         this.EnumDeclList=EnumDeclList;
         if(EnumDeclList!=null) EnumDeclList.setParent(this);
-    }
-
-    public ConVarDecList getConVarDecList() {
-        return ConVarDecList;
-    }
-
-    public void setConVarDecList(ConVarDecList ConVarDecList) {
         this.ConVarDecList=ConVarDecList;
+        if(ConVarDecList!=null) ConVarDecList.setParent(this);
     }
 
     public EnumDeclList getEnumDeclList() {
@@ -33,24 +25,32 @@ public class ConVarDecList_enum extends ConVarDecList {
         this.EnumDeclList=EnumDeclList;
     }
 
+    public ConVarDecList getConVarDecList() {
+        return ConVarDecList;
+    }
+
+    public void setConVarDecList(ConVarDecList ConVarDecList) {
+        this.ConVarDecList=ConVarDecList;
+    }
+
     public void accept(Visitor visitor) {
         visitor.visit(this);
     }
 
     public void childrenAccept(Visitor visitor) {
-        if(ConVarDecList!=null) ConVarDecList.accept(visitor);
         if(EnumDeclList!=null) EnumDeclList.accept(visitor);
+        if(ConVarDecList!=null) ConVarDecList.accept(visitor);
     }
 
     public void traverseTopDown(Visitor visitor) {
         accept(visitor);
-        if(ConVarDecList!=null) ConVarDecList.traverseTopDown(visitor);
         if(EnumDeclList!=null) EnumDeclList.traverseTopDown(visitor);
+        if(ConVarDecList!=null) ConVarDecList.traverseTopDown(visitor);
     }
 
     public void traverseBottomUp(Visitor visitor) {
-        if(ConVarDecList!=null) ConVarDecList.traverseBottomUp(visitor);
         if(EnumDeclList!=null) EnumDeclList.traverseBottomUp(visitor);
+        if(ConVarDecList!=null) ConVarDecList.traverseBottomUp(visitor);
         accept(visitor);
     }
 
@@ -59,14 +59,14 @@ public class ConVarDecList_enum extends ConVarDecList {
         buffer.append(tab);
         buffer.append("ConVarDecList_enum(\n");
 
-        if(ConVarDecList!=null)
-            buffer.append(ConVarDecList.toString("  "+tab));
+        if(EnumDeclList!=null)
+            buffer.append(EnumDeclList.toString("  "+tab));
         else
             buffer.append(tab+"  null");
         buffer.append("\n");
 
-        if(EnumDeclList!=null)
-            buffer.append(EnumDeclList.toString("  "+tab));
+        if(ConVarDecList!=null)
+            buffer.append(ConVarDecList.toString("  "+tab));
         else
             buffer.append(tab+"  null");
         buffer.append("\n");

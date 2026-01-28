@@ -162,11 +162,11 @@ Program ::= (Program) PROG ProgramName:P1 ConVarDecList:C2 LBRACE MethodDeclList
 
 ProgramName ::= (ProgramName) IDENT:I1 {: RESULT=new ProgramName(I1); RESULT.setLine(I1left); :};
 
-ConVarDecList ::= 	(ConVarDecList_con) ConVarDecList:C1 ConDecList:C2 {: RESULT=new ConVarDecList_con(C1, C2); RESULT.setLine(C1left); :}
+ConVarDecList ::= 	(ConVarDecList_con) ConDecList:C1 ConVarDecList:C2 {: RESULT=new ConVarDecList_con(C1, C2); RESULT.setLine(C1left); :}
 					|
-					(ConVarDecList_var) ConVarDecList:C1 VarDeclList:V2 {: RESULT=new ConVarDecList_var(C1, V2); RESULT.setLine(C1left); :}
+					(ConVarDecList_var) VarDeclList:V1 ConVarDecList:C2 {: RESULT=new ConVarDecList_var(V1, C2); RESULT.setLine(V1left); :}
 					|
-					(ConVarDecList_enum) ConVarDecList:C1 EnumDeclList:E2 {: RESULT=new ConVarDecList_enum(C1, E2); RESULT.setLine(C1left); :}
+					(ConVarDecList_enum) EnumDeclList:E1 ConVarDecList:C2 {: RESULT=new ConVarDecList_enum(E1, C2); RESULT.setLine(E1left); :}
 					|
 					(ConVarDecList_e) {: RESULT=new ConVarDecList_e(); :} /* epsilon */
 					;
@@ -263,12 +263,12 @@ StatementList ::= 	(StatementList_rec) StatementList:S1 Statement:S2 {: RESULT=n
 				  	(StatementList_e) {: RESULT=new StatementList_e(); :} /* epsilon */
 				   	;
 
-Statement ::= (MatchedStatement) MatchedStatement:M1 {: RESULT=new MatchedStatement(M1); RESULT.setLine(M1left); :}
+Statement ::= (MatchedStat) MatchedStatement:M1 {: RESULT=new MatchedStat(M1); RESULT.setLine(M1left); :}
 			  |
-			  (UnmatchedStatement) UnmatchedStatement:U1 {: RESULT=new UnmatchedStatement(U1); RESULT.setLine(U1left); :}
+			  (UnmatchedStat) UnmatchedStatement:U1 {: RESULT=new UnmatchedStat(U1); RESULT.setLine(U1left); :}
 			  ;
 			   
-MatchedStatement ::=  (DesignatorStatement) DesignatorStatement:D1 SEMI {: RESULT=new DesignatorStatement(D1); RESULT.setLine(D1left); :}
+MatchedStatement ::=  (DesignStatement) DesignatorStatement:D1 SEMI {: RESULT=new DesignStatement(D1); RESULT.setLine(D1left); :}
 					  |
 					  (IfElseStatement) IF LPAREN Condition:C1 RPAREN MatchedStatement:M2 ELSE MatchedStatement:M3 {: RESULT=new IfElseStatement(C1, M2, M3); RESULT.setLine(C1left); :}
 					  |

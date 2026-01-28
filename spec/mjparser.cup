@@ -114,11 +114,11 @@ Program ::= (Program) PROG ProgramName ConVarDecList LBRACE MethodDeclList RBRAC
 
 ProgramName ::= (ProgramName) IDENT;
 
-ConVarDecList ::= 	(ConVarDecList_con) ConVarDecList ConDecList
+ConVarDecList ::= 	(ConVarDecList_con) ConDecList ConVarDecList
 					|
-					(ConVarDecList_var) ConVarDecList VarDeclList
+					(ConVarDecList_var) VarDeclList ConVarDecList
 					|
-					(ConVarDecList_enum) ConVarDecList EnumDeclList
+					(ConVarDecList_enum) EnumDeclList ConVarDecList
 					|
 					(ConVarDecList_e) /* epsilon */
 					;
@@ -215,12 +215,12 @@ StatementList ::= 	(StatementList_rec) StatementList Statement
 				  	(StatementList_e) /* epsilon */
 				   	;
 
-Statement ::= (MatchedStatement) MatchedStatement
+Statement ::= (MatchedStat) MatchedStatement
 			  |
-			  (UnmatchedStatement) UnmatchedStatement
+			  (UnmatchedStat) UnmatchedStatement
 			  ;
 			   
-MatchedStatement ::=  (DesignatorStatement) DesignatorStatement SEMI
+MatchedStatement ::=  (DesignStatement) DesignatorStatement SEMI
 					  |
 					  (IfElseStatement) IF LPAREN Condition RPAREN MatchedStatement ELSE MatchedStatement
 					  |

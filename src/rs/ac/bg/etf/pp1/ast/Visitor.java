@@ -1,9 +1,9 @@
 // generated with ast extension for cup
 // version 0.8
-// 26/0/2026 20:56:5
+// 28/0/2026 15:26:29
 
 
-package src.rs.ac.bg.etf.pp1.ast;
+package rs.ac.bg.etf.pp1.ast;
 
 public interface Visitor { 
 
@@ -112,9 +112,9 @@ public interface Visitor {
     public void visit(ContinueStatement ContinueStatement);
     public void visit(BreakStatement BreakStatement);
     public void visit(IfElseStatement IfElseStatement);
-    public void visit(DesignatorStatement DesignatorStatement);
-    public void visit(UnmatchedStatement UnmatchedStatement);
-    public void visit(MatchedStatement MatchedStatement);
+    public void visit(DesignStatement DesignStatement);
+    public void visit(UnmatchedStat UnmatchedStat);
+    public void visit(MatchedStat MatchedStat);
     public void visit(StatementList_e StatementList_e);
     public void visit(StatementList_rec StatementList_rec);
     public void visit(VarDeclListRec_e VarDeclListRec_e);
