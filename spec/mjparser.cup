@@ -106,7 +106,8 @@ nonterminal Program,
 			UnmatchedStatement,
 			ReturnExpression,
 			NonTernaryExpr,
-			FactorUnar;
+			FactorUnar,
+			MethodName;
 
 
 
@@ -183,10 +184,12 @@ MethodDeclList ::= 	(MethodDeclList_rec) MethodDeclList  MethodDecl
 
 MethodDecl ::= (MethodDecl) MethRetAndName LPAREN FormParList RPAREN VarDeclListRec LBRACE StatementList RBRACE;
 
-MethRetAndName ::= (MethRetAndName_type) Type IDENT
+MethRetAndName ::= (MethRetAndName_type) Type MethodName
 					  |
-					(MethRetAndName_void) VOID IDENT
+					(MethRetAndName_void) VOID MethodName
 					;
+
+MethodName ::= (MethodName) IDENT;
 
 FormParList ::= (FormParList_rec) FormPar FormParMore
 				|
