@@ -1,0 +1,106 @@
+INFO  18:53:27,409 - Compiling source file: /home/rembrant/EclipseWorkspace3/MJCompiler/test/progtest.mj
+INFO  18:53:27,529 - #2 program
+INFO  18:53:27,529 - #48 Figi
+INFO  18:53:27,530 - #3 const
+INFO  18:53:27,531 - #48 int
+INFO  18:53:27,532 - #48 nula
+INFO  18:53:27,533 - #33 =
+INFO  18:53:27,534 - #45 0
+INFO  18:53:27,534 - #34 ;
+INFO  18:53:27,538 - #3 const
+INFO  18:53:27,541 - #48 int
+INFO  18:53:27,542 - #48 jedan
+INFO  18:53:27,542 - #33 =
+INFO  18:53:27,542 - #45 1
+INFO  18:53:27,542 - #34 ;
+INFO  18:53:27,543 - #3 const
+INFO  18:53:27,543 - #48 int
+INFO  18:53:27,543 - #48 a
+INFO  18:53:27,543 - #33 =
+INFO  18:53:27,543 - #47 b
+INFO  18:53:27,544 - #34 ;
+INFO  18:53:27,544 - #40 {
+INFO  18:53:27,545 - #4 void
+INFO  18:53:27,547 - #48 main
+INFO  18:53:27,548 - #38 (
+INFO  18:53:27,548 - #39 )
+INFO  18:53:27,550 - #40 {
+INFO  18:53:27,551 - #41 }
+INFO  18:53:27,553 - #41 }
+INFO  18:53:27,564 - Program(
+  ProgramName(
+   Figi
+  ) [ProgramName]
+  ConVarDecList_con(
+    ConDecList(
+      Type(
+       int
+      ) [Type]
+      ConDecl(
+       nula
+        Constant_n(
+         0
+        ) [Constant_n]
+      ) [ConDecl]
+      ConDeclMore_e(
+      ) [ConDeclMore_e]
+    ) [ConDecList]
+    ConVarDecList_con(
+      ConDecList(
+        Type(
+         int
+        ) [Type]
+        ConDecl(
+         jedan
+          Constant_n(
+           1
+          ) [Constant_n]
+        ) [ConDecl]
+        ConDeclMore_e(
+        ) [ConDeclMore_e]
+      ) [ConDecList]
+      ConVarDecList_con(
+        ConDecList(
+          Type(
+           int
+          ) [Type]
+          ConDecl(
+           a
+            Constant_c(
+             b
+            ) [Constant_c]
+          ) [ConDecl]
+          ConDeclMore_e(
+          ) [ConDeclMore_e]
+        ) [ConDecList]
+        ConVarDecList_e(
+        ) [ConVarDecList_e]
+      ) [ConVarDecList_con]
+    ) [ConVarDecList_con]
+  ) [ConVarDecList_con]
+  MethodDeclList_rec(
+    MethodDeclList_e(
+    ) [MethodDeclList_e]
+    MethodDecl(
+      MethRetAndName_void(
+       main
+      ) [MethRetAndName_void]
+      FormParList_e(
+      ) [FormParList_e]
+      VarDeclListRec_e(
+      ) [VarDeclListRec_e]
+      StatementList_e(
+      ) [StatementList_e]
+    ) [MethodDecl]
+  ) [MethodDeclList_rec]
+) [Program]
+INFO  18:53:27,564 - -------------------------------------------
+ERROR 18:53:27,578 - Compilation error
+java.lang.NullPointerException: Cannot invoke "rs.etf.pp1.symboltable.concepts.Struct.assignableTo(rs.etf.pp1.symboltable.concepts.Struct)" because "this.constantType" is null
+	at rs.ac.bg.etf.pp1.SemAnalyzer.visit(SemAnalyzer.java:59)
+	at rs.ac.bg.etf.pp1.ast.ConDecl.accept(ConDecl.java:54)
+	at rs.ac.bg.etf.pp1.ast.ConDecl.traverseBottomUp(ConDecl.java:68)
+	at rs.ac.bg.etf.pp1.ast.ConDecList.traverseBottomUp(ConDecList.java:84)
+	at rs.ac.bg.etf.pp1.ast.ConVarDecList_con.traverseBottomUp(ConVarDecList_con.java:52)
+	at rs.ac.bg.etf.pp1.ast.Program.traverseBottomUp(Program.java:84)
+	at rs.ac.bg.etf.pp1.Compiler.main(Compiler.java:48)

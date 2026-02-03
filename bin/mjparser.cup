@@ -106,7 +106,8 @@ nonterminal Program,
 			UnmatchedStatement,
 			ReturnExpression,
 			NonTernaryExpr,
-			FactorUnar;
+			FactorUnar,
+			EnumName;
 
 
 
@@ -125,7 +126,9 @@ ConVarDecList ::= 	(ConVarDecList_con) ConDecList ConVarDecList
 					
 /* ENUM */
 
-EnumDeclList ::= (EnumDeclList) ENUM IDENT LBRACE EnumList RBRACE ;
+EnumDeclList ::= (EnumDeclList) ENUM EnumName LBRACE EnumList RBRACE ;
+
+EnumName ::= (EnumName) IDENT;
 
 EnumList ::= (EnumList_comma) EnumList COMMA EnumItem
 			| 
@@ -187,6 +190,7 @@ MethRetAndName ::= (MethRetAndName_type) Type IDENT
 					  |
 					(MethRetAndName_void) VOID IDENT
 					;
+
 
 FormParList ::= (FormParList_rec) FormPar FormParMore
 				|
@@ -379,4 +383,3 @@ Assignop ::= (Assignop) ASSIGN;
 Addop ::= (Addop_plus) PLUS | (Addop_minus) MINUS ;
 
 Mulop ::= (Mulop_mul) MUL | (Mulop_div) DIV | (Mulop_mod) MOD;
-

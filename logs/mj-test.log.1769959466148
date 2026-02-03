@@ -1,0 +1,218 @@
+INFO  16:15:18,856 - Compiling source file: /home/rembrant/EclipseWorkspace3/MJCompiler/test/progtest.mj
+INFO  16:15:18,886 - #2 program
+INFO  16:15:18,886 - #48 Figi
+INFO  16:15:18,886 - #3 const
+INFO  16:15:18,886 - #48 int
+INFO  16:15:18,887 - #48 nula
+INFO  16:15:18,887 - #33 =
+INFO  16:15:18,887 - #45 0
+INFO  16:15:18,887 - #34 ;
+INFO  16:15:18,888 - #3 const
+INFO  16:15:18,888 - #48 int
+INFO  16:15:18,889 - #48 jedan
+INFO  16:15:18,889 - #33 =
+INFO  16:15:18,889 - #45 1
+INFO  16:15:18,889 - #34 ;
+INFO  16:15:18,889 - #48 int
+INFO  16:15:18,889 - #48 a
+INFO  16:15:18,889 - #34 ;
+INFO  16:15:18,890 - #48 char
+INFO  16:15:18,890 - #48 c
+INFO  16:15:18,890 - #37 ,
+INFO  16:15:18,890 - #48 z
+INFO  16:15:18,890 - #42 [
+INFO  16:15:18,890 - #43 ]
+INFO  16:15:18,891 - #34 ;
+INFO  16:15:18,891 - #40 {
+INFO  16:15:18,891 - #4 void
+INFO  16:15:18,892 - #48 main
+INFO  16:15:18,892 - #38 (
+INFO  16:15:18,892 - #39 )
+INFO  16:15:18,893 - #48 int
+INFO  16:15:18,893 - #48 a
+INFO  16:15:18,893 - #34 ;
+INFO  16:15:18,893 - #40 {
+INFO  16:15:18,894 - #41 }
+INFO  16:15:18,894 - #48 int
+INFO  16:15:18,895 - #48 bet
+INFO  16:15:18,895 - #38 (
+INFO  16:15:18,895 - #39 )
+INFO  16:15:18,895 - #40 {
+INFO  16:15:18,896 - #41 }
+INFO  16:15:18,896 - #4 void
+INFO  16:15:18,896 - #48 add
+INFO  16:15:18,896 - #38 (
+INFO  16:15:18,896 - #39 )
+INFO  16:15:18,896 - #48 int
+INFO  16:15:18,896 - #48 a
+INFO  16:15:18,896 - #34 ;
+INFO  16:15:18,896 - #48 int
+INFO  16:15:18,896 - #48 b
+INFO  16:15:18,896 - #34 ;
+INFO  16:15:18,896 - #48 int
+INFO  16:15:18,896 - #48 c
+INFO  16:15:18,897 - #34 ;
+INFO  16:15:18,897 - #40 {
+INFO  16:15:18,897 - #41 }
+INFO  16:15:18,897 - #41 }
+INFO  16:15:18,901 - Program(
+  ProgramName(
+   Figi
+  ) [ProgramName]
+  ConVarDecList_con(
+    ConDecList(
+      Type(
+       int
+      ) [Type]
+      ConDecl(
+       nula
+        Constant_n(
+         0
+        ) [Constant_n]
+      ) [ConDecl]
+      ConDeclMore_e(
+      ) [ConDeclMore_e]
+    ) [ConDecList]
+    ConVarDecList_con(
+      ConDecList(
+        Type(
+         int
+        ) [Type]
+        ConDecl(
+         jedan
+          Constant_n(
+           1
+          ) [Constant_n]
+        ) [ConDecl]
+        ConDeclMore_e(
+        ) [ConDeclMore_e]
+      ) [ConDecList]
+      ConVarDecList_var(
+        VarDeclList(
+          Type(
+           int
+          ) [Type]
+          VarDecl_var(
+           a
+          ) [VarDecl_var]
+          VarDeclMore_e(
+          ) [VarDeclMore_e]
+        ) [VarDeclList]
+        ConVarDecList_var(
+          VarDeclList(
+            Type(
+             char
+            ) [Type]
+            VarDecl_var(
+             c
+            ) [VarDecl_var]
+            VarDeclMore_comma(
+              VarDecl_array(
+               z
+              ) [VarDecl_array]
+              VarDeclMore_e(
+              ) [VarDeclMore_e]
+            ) [VarDeclMore_comma]
+          ) [VarDeclList]
+          ConVarDecList_e(
+          ) [ConVarDecList_e]
+        ) [ConVarDecList_var]
+      ) [ConVarDecList_var]
+    ) [ConVarDecList_con]
+  ) [ConVarDecList_con]
+  MethodDeclList_rec(
+    MethodDeclList_rec(
+      MethodDeclList_rec(
+        MethodDeclList_e(
+        ) [MethodDeclList_e]
+        MethodDecl(
+          MethRetAndName_void(
+           main
+          ) [MethRetAndName_void]
+          FormParList_e(
+          ) [FormParList_e]
+          VarDeclListRec_rec(
+            VarDeclListRec_e(
+            ) [VarDeclListRec_e]
+            VarDeclList(
+              Type(
+               int
+              ) [Type]
+              VarDecl_var(
+               a
+              ) [VarDecl_var]
+              VarDeclMore_e(
+              ) [VarDeclMore_e]
+            ) [VarDeclList]
+          ) [VarDeclListRec_rec]
+          StatementList_e(
+          ) [StatementList_e]
+        ) [MethodDecl]
+      ) [MethodDeclList_rec]
+      MethodDecl(
+        MethRetAndName_type(
+          Type(
+           int
+          ) [Type]
+         bet
+        ) [MethRetAndName_type]
+        FormParList_e(
+        ) [FormParList_e]
+        VarDeclListRec_e(
+        ) [VarDeclListRec_e]
+        StatementList_e(
+        ) [StatementList_e]
+      ) [MethodDecl]
+    ) [MethodDeclList_rec]
+    MethodDecl(
+      MethRetAndName_void(
+       add
+      ) [MethRetAndName_void]
+      FormParList_e(
+      ) [FormParList_e]
+      VarDeclListRec_rec(
+        VarDeclListRec_rec(
+          VarDeclListRec_rec(
+            VarDeclListRec_e(
+            ) [VarDeclListRec_e]
+            VarDeclList(
+              Type(
+               int
+              ) [Type]
+              VarDecl_var(
+               a
+              ) [VarDecl_var]
+              VarDeclMore_e(
+              ) [VarDeclMore_e]
+            ) [VarDeclList]
+          ) [VarDeclListRec_rec]
+          VarDeclList(
+            Type(
+             int
+            ) [Type]
+            VarDecl_var(
+             b
+            ) [VarDecl_var]
+            VarDeclMore_e(
+            ) [VarDeclMore_e]
+          ) [VarDeclList]
+        ) [VarDeclListRec_rec]
+        VarDeclList(
+          Type(
+           int
+          ) [Type]
+          VarDecl_var(
+           c
+          ) [VarDecl_var]
+          VarDeclMore_e(
+          ) [VarDeclMore_e]
+        ) [VarDeclList]
+      ) [VarDeclListRec_rec]
+      StatementList_e(
+      ) [StatementList_e]
+    ) [MethodDecl]
+  ) [MethodDeclList_rec]
+) [Program]
+INFO  16:15:18,902 - -------------------------------------------
+INFO  16:15:18,907 - ============================================
+INFO  16:15:18,908 - Parsiranje uspesno zavrseno!

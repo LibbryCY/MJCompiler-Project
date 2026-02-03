@@ -1,0 +1,100 @@
+INFO  18:59:12,668 - Compiling source file: /home/rembrant/EclipseWorkspace3/MJCompiler/test/progtest.mj
+INFO  18:59:12,700 - #2 program
+INFO  18:59:12,700 - #48 Figi
+INFO  18:59:12,700 - #3 const
+INFO  18:59:12,701 - #48 int
+INFO  18:59:12,701 - #48 nula
+INFO  18:59:12,701 - #33 =
+INFO  18:59:12,701 - #45 0
+INFO  18:59:12,702 - #34 ;
+INFO  18:59:12,703 - #3 const
+INFO  18:59:12,703 - #48 int
+INFO  18:59:12,703 - #48 jedan
+INFO  18:59:12,704 - #33 =
+INFO  18:59:12,704 - #45 1
+INFO  18:59:12,704 - #34 ;
+INFO  18:59:12,704 - #3 const
+INFO  18:59:12,704 - #48 int
+INFO  18:59:12,704 - #48 a
+INFO  18:59:12,704 - #33 =
+INFO  18:59:12,704 - #47 b
+INFO  18:59:12,704 - #34 ;
+INFO  18:59:12,705 - #40 {
+INFO  18:59:12,705 - #4 void
+INFO  18:59:12,706 - #48 main
+INFO  18:59:12,706 - #38 (
+INFO  18:59:12,706 - #39 )
+INFO  18:59:12,706 - #40 {
+INFO  18:59:12,707 - #41 }
+INFO  18:59:12,708 - #41 }
+INFO  18:59:12,711 - Program(
+  ProgramName(
+   Figi
+  ) [ProgramName]
+  ConVarDecList_con(
+    ConDecList(
+      Type(
+       int
+      ) [Type]
+      ConDecl(
+       nula
+        Constant_n(
+         0
+        ) [Constant_n]
+      ) [ConDecl]
+      ConDeclMore_e(
+      ) [ConDeclMore_e]
+    ) [ConDecList]
+    ConVarDecList_con(
+      ConDecList(
+        Type(
+         int
+        ) [Type]
+        ConDecl(
+         jedan
+          Constant_n(
+           1
+          ) [Constant_n]
+        ) [ConDecl]
+        ConDeclMore_e(
+        ) [ConDeclMore_e]
+      ) [ConDecList]
+      ConVarDecList_con(
+        ConDecList(
+          Type(
+           int
+          ) [Type]
+          ConDecl(
+           a
+            Constant_c(
+             b
+            ) [Constant_c]
+          ) [ConDecl]
+          ConDeclMore_e(
+          ) [ConDeclMore_e]
+        ) [ConDecList]
+        ConVarDecList_e(
+        ) [ConVarDecList_e]
+      ) [ConVarDecList_con]
+    ) [ConVarDecList_con]
+  ) [ConVarDecList_con]
+  MethodDeclList_rec(
+    MethodDeclList_e(
+    ) [MethodDeclList_e]
+    MethodDecl(
+      MethRetAndName_void(
+       main
+      ) [MethRetAndName_void]
+      FormParList_e(
+      ) [FormParList_e]
+      VarDeclListRec_e(
+      ) [VarDeclListRec_e]
+      StatementList_e(
+      ) [StatementList_e]
+    ) [MethodDecl]
+  ) [MethodDeclList_rec]
+) [Program]
+INFO  18:59:12,711 - -------------------------------------------
+ERROR 18:59:12,716 - Neadekvatna dodela konstanti: a na liniji 8
+INFO  18:59:12,716 - ============================================
+ERROR 18:59:12,717 - Parsiranje NIJE uspesno!

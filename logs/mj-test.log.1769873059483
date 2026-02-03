@@ -1,0 +1,123 @@
+INFO  16:23:52,918 - Compiling source file: /home/rembrant/EclipseWorkspace3/MJCompiler/test/progtest.mj
+INFO  16:23:52,970 - #2 program
+INFO  16:23:52,970 - #48 Figi
+INFO  16:23:52,970 - #3 const
+INFO  16:23:52,971 - #48 int
+INFO  16:23:52,971 - #48 nula
+INFO  16:23:52,972 - #33 =
+INFO  16:23:52,972 - #45 0
+INFO  16:23:52,972 - #34 ;
+INFO  16:23:52,974 - #3 const
+INFO  16:23:52,976 - #48 int
+INFO  16:23:52,976 - #48 jedan
+INFO  16:23:52,976 - #33 =
+INFO  16:23:52,976 - #45 1
+INFO  16:23:52,976 - #34 ;
+INFO  16:23:52,977 - #3 const
+INFO  16:23:52,977 - #48 char
+INFO  16:23:52,977 - #48 c
+INFO  16:23:52,977 - #33 =
+INFO  16:23:52,978 - #47 c
+INFO  16:23:52,978 - #34 ;
+INFO  16:23:52,978 - #48 int
+INFO  16:23:52,978 - #48 a
+INFO  16:23:52,978 - #34 ;
+INFO  16:23:52,980 - #40 {
+INFO  16:23:52,983 - #4 void
+INFO  16:23:52,984 - #48 main
+INFO  16:23:52,985 - #38 (
+INFO  16:23:52,985 - #39 )
+INFO  16:23:52,986 - #40 {
+INFO  16:23:52,989 - #41 }
+INFO  16:23:52,990 - #41 }
+INFO  16:23:53,004 - Program(
+  ProgramName(
+   Figi
+  ) [ProgramName]
+  ConVarDecList_con(
+    ConDecList(
+      Type(
+       int
+      ) [Type]
+      ConDecl(
+       nula
+        Constant_n(
+         0
+        ) [Constant_n]
+      ) [ConDecl]
+      ConDeclMore_e(
+      ) [ConDeclMore_e]
+    ) [ConDecList]
+    ConVarDecList_con(
+      ConDecList(
+        Type(
+         int
+        ) [Type]
+        ConDecl(
+         jedan
+          Constant_n(
+           1
+          ) [Constant_n]
+        ) [ConDecl]
+        ConDeclMore_e(
+        ) [ConDeclMore_e]
+      ) [ConDecList]
+      ConVarDecList_con(
+        ConDecList(
+          Type(
+           char
+          ) [Type]
+          ConDecl(
+           c
+            Constant_c(
+             c
+            ) [Constant_c]
+          ) [ConDecl]
+          ConDeclMore_e(
+          ) [ConDeclMore_e]
+        ) [ConDecList]
+        ConVarDecList_var(
+          VarDeclList(
+            Type(
+             int
+            ) [Type]
+            VarDecl_var(
+             a
+            ) [VarDecl_var]
+            VarDeclMore_e(
+            ) [VarDeclMore_e]
+          ) [VarDeclList]
+          ConVarDecList_e(
+          ) [ConVarDecList_e]
+        ) [ConVarDecList_var]
+      ) [ConVarDecList_con]
+    ) [ConVarDecList_con]
+  ) [ConVarDecList_con]
+  MethodDeclList_rec(
+    MethodDeclList_e(
+    ) [MethodDeclList_e]
+    MethodDecl(
+      MethRetAndName_void(
+       main
+      ) [MethRetAndName_void]
+      FormParList_e(
+      ) [FormParList_e]
+      VarDeclListRec_e(
+      ) [VarDeclListRec_e]
+      StatementList_e(
+      ) [StatementList_e]
+    ) [MethodDecl]
+  ) [MethodDeclList_rec]
+) [Program]
+INFO  16:23:53,005 - -------------------------------------------
+ERROR 16:23:53,017 - Compilation error
+java.lang.ClassCastException: class java.lang.Character cannot be cast to class java.lang.Integer (java.lang.Character and java.lang.Integer are in module java.base of loader 'bootstrap')
+	at rs.ac.bg.etf.pp1.SemAnalyzer.visit(SemAnalyzer.java:55)
+	at rs.ac.bg.etf.pp1.ast.ConDecl.accept(ConDecl.java:54)
+	at rs.ac.bg.etf.pp1.ast.ConDecl.traverseBottomUp(ConDecl.java:68)
+	at rs.ac.bg.etf.pp1.ast.ConDecList.traverseBottomUp(ConDecList.java:84)
+	at rs.ac.bg.etf.pp1.ast.ConVarDecList_con.traverseBottomUp(ConVarDecList_con.java:52)
+	at rs.ac.bg.etf.pp1.ast.ConVarDecList_con.traverseBottomUp(ConVarDecList_con.java:53)
+	at rs.ac.bg.etf.pp1.ast.ConVarDecList_con.traverseBottomUp(ConVarDecList_con.java:53)
+	at rs.ac.bg.etf.pp1.ast.Program.traverseBottomUp(Program.java:84)
+	at rs.ac.bg.etf.pp1.Compiler.main(Compiler.java:48)

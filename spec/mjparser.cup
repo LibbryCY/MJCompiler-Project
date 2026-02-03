@@ -107,7 +107,7 @@ nonterminal Program,
 			ReturnExpression,
 			NonTernaryExpr,
 			FactorUnar,
-			MethodName;
+			EnumName;
 
 
 
@@ -126,7 +126,9 @@ ConVarDecList ::= 	(ConVarDecList_con) ConDecList ConVarDecList
 					
 /* ENUM */
 
-EnumDeclList ::= (EnumDeclList) ENUM IDENT LBRACE EnumList RBRACE ;
+EnumDeclList ::= (EnumDeclList) ENUM EnumName LBRACE EnumList RBRACE ;
+
+EnumName ::= (EnumName) IDENT;
 
 EnumList ::= (EnumList_comma) EnumList COMMA EnumItem
 			| 
@@ -184,12 +186,11 @@ MethodDeclList ::= 	(MethodDeclList_rec) MethodDeclList  MethodDecl
 
 MethodDecl ::= (MethodDecl) MethRetAndName LPAREN FormParList RPAREN VarDeclListRec LBRACE StatementList RBRACE;
 
-MethRetAndName ::= (MethRetAndName_type) Type MethodName
+MethRetAndName ::= (MethRetAndName_type) Type IDENT
 					  |
-					(MethRetAndName_void) VOID MethodName
+					(MethRetAndName_void) VOID IDENT
 					;
 
-MethodName ::= (MethodName) IDENT;
 
 FormParList ::= (FormParList_rec) FormPar FormParMore
 				|
@@ -382,4 +383,3 @@ Assignop ::= (Assignop) ASSIGN;
 Addop ::= (Addop_plus) PLUS | (Addop_minus) MINUS ;
 
 Mulop ::= (Mulop_mul) MUL | (Mulop_div) DIV | (Mulop_mod) MOD;
-

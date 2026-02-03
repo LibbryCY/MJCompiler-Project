@@ -155,6 +155,8 @@ nonterminal
 			NonTernaryExpr NonTernaryExpr;
 nonterminal
 			FactorUnar FactorUnar;
+nonterminal
+			EnumName EnumName;
 
 
 
@@ -173,7 +175,9 @@ ConVarDecList ::= 	(ConVarDecList_con) ConDecList:C1 ConVarDecList:C2 {: RESULT=
 					
 /* ENUM */
 
-EnumDeclList ::= (EnumDeclList) ENUM IDENT:I1 LBRACE EnumList:E2 RBRACE {: RESULT=new EnumDeclList(I1, E2); RESULT.setLine(I1left); :} ;
+EnumDeclList ::= (EnumDeclList) ENUM EnumName:E1 LBRACE EnumList:E2 RBRACE {: RESULT=new EnumDeclList(E1, E2); RESULT.setLine(E1left); :} ;
+
+EnumName ::= (EnumName) IDENT:I1 {: RESULT=new EnumName(I1); RESULT.setLine(I1left); :};
 
 EnumList ::= (EnumList_comma) EnumList:E1 COMMA EnumItem:E2 {: RESULT=new EnumList_comma(E1, E2); RESULT.setLine(E1left); :}
 			| 
@@ -235,6 +239,7 @@ MethRetAndName ::= (MethRetAndName_type) Type:T1 IDENT:I2 {: RESULT=new MethRetA
 					  |
 					(MethRetAndName_void) VOID IDENT:I1 {: RESULT=new MethRetAndName_void(I1); RESULT.setLine(I1left); :}
 					;
+
 
 FormParList ::= (FormParList_rec) FormPar:F1 FormParMore:F2 {: RESULT=new FormParList_rec(F1, F2); RESULT.setLine(F1left); :}
 				|
@@ -427,4 +432,3 @@ Assignop ::= (Assignop) ASSIGN {: RESULT=new Assignop(); :};
 Addop ::= (Addop_plus) PLUS {: RESULT=new Addop_plus(); :} | (Addop_minus) MINUS {: RESULT=new Addop_minus(); :} ;
 
 Mulop ::= (Mulop_mul) MUL {: RESULT=new Mulop_mul(); :} | (Mulop_div) DIV {: RESULT=new Mulop_div(); :} | (Mulop_mod) MOD {: RESULT=new Mulop_mod(); :};
-

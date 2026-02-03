@@ -1,0 +1,22 @@
+INFO  23:21:01,910 - Compiling source file: /home/rembrant/EclipseWorkspace3/MJCompiler/test/test303.mj
+INFO  23:21:01,978 - #2 program
+INFO  23:21:01,979 - #48 test_303
+INFO  23:21:01,979 - #3 const
+INFO  23:21:01,980 - #48 int
+INFO  23:21:01,980 - #48 cinilac
+INFO  23:21:01,981 - #33 =
+INFO  23:21:01,982 - #45 4
+INFO  23:21:01,982 - #37 ,
+INFO  23:21:01,984 - #48 delilac
+INFO  23:21:01,985 - #33 =
+INFO  23:21:01,985 - #45 3
+INFO  23:21:01,985 - #34 ;
+INFO  23:21:01,986 - #48 abstract
+INFO  23:21:01,988 - #48 class
+INFO  23:21:01,989 - #48 AbsPredmet
+ERROR 23:21:01,989 - 
+Sintaksna greska na liniji 6
+ERROR 23:21:01,990 - Fatalna greska, parsiranje se ne moze nastaviti na liniji 6
+ERROR 23:21:01,992 - Compilation error
+java.lang.ClassCastException: class rs.ac.bg.etf.pp1.ast.Type cannot be cast to class rs.ac.bg.etf.pp1.ast.Program (rs.ac.bg.etf.pp1.ast.Type and rs.ac.bg.etf.pp1.ast.Program are in unnamed module of loader 'app')
+	at rs.ac.bg.etf.pp1.Compiler.main(Compiler.java:31)

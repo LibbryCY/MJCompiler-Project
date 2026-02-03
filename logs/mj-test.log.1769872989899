@@ -1,0 +1,93 @@
+INFO  16:14:16,625 - Compiling source file: /home/rembrant/EclipseWorkspace3/MJCompiler/test/progtest.mj
+INFO  16:14:16,682 - #2 program
+INFO  16:14:16,683 - #48 Figi
+INFO  16:14:16,683 - #3 const
+INFO  16:14:16,685 - #48 int
+INFO  16:14:16,685 - #48 nula
+INFO  16:14:16,686 - #33 =
+INFO  16:14:16,687 - #45 0
+INFO  16:14:16,687 - #34 ;
+INFO  16:14:16,688 - #3 const
+INFO  16:14:16,690 - #48 int
+INFO  16:14:16,690 - #48 jedan
+INFO  16:14:16,690 - #33 =
+INFO  16:14:16,690 - #45 1
+INFO  16:14:16,690 - #34 ;
+INFO  16:14:16,690 - #48 int
+INFO  16:14:16,691 - #48 a
+INFO  16:14:16,691 - #34 ;
+INFO  16:14:16,692 - #40 {
+INFO  16:14:16,694 - #4 void
+INFO  16:14:16,695 - #48 main
+INFO  16:14:16,695 - #38 (
+INFO  16:14:16,696 - #39 )
+INFO  16:14:16,697 - #40 {
+INFO  16:14:16,699 - #41 }
+INFO  16:14:16,700 - #41 }
+INFO  16:14:16,708 - Program(
+  ProgramName(
+   Figi
+  ) [ProgramName]
+  ConVarDecList_con(
+    ConDecList(
+      Type(
+       int
+      ) [Type]
+      ConDecl(
+       nula
+        Constant_n(
+         0
+        ) [Constant_n]
+      ) [ConDecl]
+      ConDeclMore_e(
+      ) [ConDeclMore_e]
+    ) [ConDecList]
+    ConVarDecList_con(
+      ConDecList(
+        Type(
+         int
+        ) [Type]
+        ConDecl(
+         jedan
+          Constant_n(
+           1
+          ) [Constant_n]
+        ) [ConDecl]
+        ConDeclMore_e(
+        ) [ConDeclMore_e]
+      ) [ConDecList]
+      ConVarDecList_var(
+        VarDeclList(
+          Type(
+           int
+          ) [Type]
+          VarDecl_var(
+           a
+          ) [VarDecl_var]
+          VarDeclMore_e(
+          ) [VarDeclMore_e]
+        ) [VarDeclList]
+        ConVarDecList_e(
+        ) [ConVarDecList_e]
+      ) [ConVarDecList_var]
+    ) [ConVarDecList_con]
+  ) [ConVarDecList_con]
+  MethodDeclList_rec(
+    MethodDeclList_e(
+    ) [MethodDeclList_e]
+    MethodDecl(
+      MethRetAndName_void(
+       main
+      ) [MethRetAndName_void]
+      FormParList_e(
+      ) [FormParList_e]
+      VarDeclListRec_e(
+      ) [VarDeclListRec_e]
+      StatementList_e(
+      ) [StatementList_e]
+    ) [MethodDecl]
+  ) [MethodDeclList_rec]
+) [Program]
+INFO  16:14:16,709 - -------------------------------------------
+INFO  16:14:16,718 - ============================================
+INFO  16:14:16,719 - Parsiranje uspesno zavrseno!

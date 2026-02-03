@@ -1,0 +1,34 @@
+INFO  01:50:08,485 - Compiling source file: /home/rembrant/EclipseWorkspace3/MJCompiler/test/progtest.mj
+INFO  01:50:08,534 - #2 program
+INFO  01:50:08,535 - #48 Figi
+INFO  01:50:08,535 - #3 const
+INFO  01:50:08,536 - #48 int
+INFO  01:50:08,536 - #48 nula
+INFO  01:50:08,537 - #33 =
+INFO  01:50:08,537 - #45 0
+INFO  01:50:08,538 - #34 ;
+INFO  01:50:08,540 - #3 const
+INFO  01:50:08,541 - #48 int
+INFO  01:50:08,541 - #48 jedan
+INFO  01:50:08,542 - #33 =
+INFO  01:50:08,542 - #45 1
+INFO  01:50:08,542 - #34 ;
+INFO  01:50:08,542 - #48 int
+INFO  01:50:08,542 - #48 a
+INFO  01:50:08,542 - #34 ;
+INFO  01:50:08,543 - #48 char
+INFO  01:50:08,545 - #48 c
+INFO  01:50:08,545 - #37 ,
+INFO  01:50:08,545 - #48 z
+INFO  01:50:08,545 - #42 [
+INFO  01:50:08,545 - #43 ]
+INFO  01:50:08,545 - #34 ;
+INFO  01:50:08,546 - #14 enum
+INFO  01:50:08,546 - #48 Days
+INFO  01:50:08,546 - #33 =
+ERROR 01:50:08,547 - 
+Sintaksna greska na liniji 11
+ERROR 01:50:08,547 - Fatalna greska, parsiranje se ne moze nastaviti na liniji 11
+ERROR 01:50:08,550 - Compilation error
+java.lang.ClassCastException: class rs.ac.bg.etf.pp1.ast.VarDeclList cannot be cast to class rs.ac.bg.etf.pp1.ast.Program (rs.ac.bg.etf.pp1.ast.VarDeclList and rs.ac.bg.etf.pp1.ast.Program are in unnamed module of loader 'app')
+	at rs.ac.bg.etf.pp1.Compiler.main(Compiler.java:37)
