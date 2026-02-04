@@ -267,13 +267,15 @@ public class SemAnalyzer extends VisitorAdaptor {
 			report_error("Pristup nedefinisanoj promenjivi: " + designator_var.getI1(), designator_var);
 			designator_var.obj = Tab.noObj;
 	    }
-	    else if(varObj.getKind()!= Obj.Con  && varObj.getKind()!= Obj.Var ) {
+	    else if(varObj.getKind()!= Obj.Con  && varObj.getKind()!= Obj.Meth && varObj.getKind()!= Obj.Var ) {
 	    	report_error("Neadekvatna promenjiva: " + designator_var.getI1(), designator_var);
 	    	designator_var.obj = Tab.noObj;
+	    }else if (varObj.getKind()== Obj.Meth) {
+	    	report_info("Obrada design_var, metoda [Designator_var]: "+ designator_var.getI1() + " varObj.kind: "+ varObj.getKind(), designator_var);
+	    	designator_var.obj = varObj;
 	    }
 	    else {
-			//report_info("Obrada cvora factor_methnopars, metoda [Designator_var]: "+ designator_var.getI1(), designator_var);
-
+	    	report_info("Obrada design_var, varijabla [Designator_var]: "+ designator_var.getI1() + " varObj.kind: "+ varObj.getKind(), designator_var);
 	    	designator_var.obj = varObj;
 	    }
 	}
@@ -352,13 +354,31 @@ public class SemAnalyzer extends VisitorAdaptor {
 	
 	@Override
 	public void visit(Factor_methnopars factor_methnopars) {
-		Obj methObj = Tab.find(factor_methnopars.getDesignator().obj.getName());
-		if(methObj == Tab.noObj) {
-			report_error("Nedefinisana metoda [Factor_methnopars]: " + factor_methnopars.getDesignator().obj.getName(), factor_methnopars);
+		Obj metObj = factor_methnopars.getDesignator().obj;
+		if(metObj.getKind() != Obj.Meth) {
+			report_error("Poziv neadekvatne metode: " + factor_methnopars.getDesignator().obj.getKind(), factor_methnopars);
 			factor_methnopars.struct = Tab.noType;
-	    }
-		report_info("Obrada cvora factor_methnopars, metoda: "+ factor_methnopars.getDesignator().obj.getName(), factor_methnopars);
-		factor_methnopars.struct = methObj.getType();
+		}else {
+			report_info("Obrada cvora factor_methnopars, metoda: "+ factor_methnopars.getDesignator().obj.getName(), factor_methnopars);
+			factor_methnopars.struct = metObj.getType();
+		}
+			
+	}
+		
+	
+	@Override
+	public void visit(Factor_methpars factor_methpars) {
+		Obj metObj = factor_methpars.getDesignator().obj;
+		if(metObj.getKind() != Obj.Meth) {
+			report_error("Poziv neadekvatne metode: " + factor_methpars.getDesignator().obj.getName(), factor_methpars);
+			factor_methpars.struct = Tab.noType;
+		}else if (metObj.getLevel() != 0 ) { // != list.size() umesto 0
+	        report_error("Metoda prima parametre [Factor_methpars]", factor_methpars);
+	        factor_methpars.struct = Tab.noType;
+	    }else {
+			report_info("Obrada cvora factor_methpars, metoda: "+ factor_methpars.getDesignator().obj.getName(), factor_methpars);
+			factor_methpars.struct = metObj.getType();
+		}
 	}
 	
 	
