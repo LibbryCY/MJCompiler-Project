@@ -1,6 +1,6 @@
 // generated with ast extension for cup
 // version 0.8
-// 3/1/2026 14:41:21
+// 4/1/2026 18:26:2
 
 
 package rs.ac.bg.etf.pp1.ast;
@@ -55,7 +55,8 @@ public interface Visitor {
     public void visit(Relop_grt Relop_grt);
     public void visit(Relop_neq Relop_neq);
     public void visit(Relop_eq Relop_eq);
-    public void visit(Designator_expr Designator_expr);
+    public void visit(DesignatorArrayName DesignatorArrayName);
+    public void visit(Designator_elem Designator_elem);
     public void visit(Designator_len Designator_len);
     public void visit(Designator_enum Designator_enum);
     public void visit(Designator_var Designator_var);
@@ -66,7 +67,7 @@ public interface Visitor {
     public void visit(Factor_n Factor_n);
     public void visit(Factor_methnopars Factor_methnopars);
     public void visit(Factor_methpars Factor_methpars);
-    public void visit(Factor_var Factor_var);
+    public void visit(Factor_des Factor_des);
     public void visit(Unary_e Unary_e);
     public void visit(Unary_m Unary_m);
     public void visit(Factor Factor);
@@ -75,7 +76,6 @@ public interface Visitor {
     public void visit(Term Term);
     public void visit(SingleTerm SingleTerm);
     public void visit(TermList_addop TermList_addop);
-    public void visit(NonTernaryExpr NonTernaryExpr);
     public void visit(Expr_tern Expr_tern);
     public void visit(Expr_notern Expr_notern);
     public void visit(CondFact_relop CondFact_relop);

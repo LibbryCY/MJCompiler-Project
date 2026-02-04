@@ -90,13 +90,7 @@ nonterminal Program,
 			Mulop,
 			Addop,
 			ActPars,
-			Unary,
-			Term,
-			TermList,
-			Factor,
-			FactorList,
-			Designator,
-			Expr,
+			Unary,			
 			CaseStatements,
 			CaseList,
 			Case,
@@ -105,10 +99,10 @@ nonterminal Program,
 			MatchedStatement,
 			UnmatchedStatement,
 			ReturnExpression,
-			NonTernaryExpr,
-			FactorUnar,
 			EnumName;
 
+nonterminal rs.etf.pp1.symboltable.concepts.Struct Factor, FactorUnar, FactorList, TermList, Term, Expr;
+nonterminal rs.etf.pp1.symboltable.concepts.Obj Designator, DesignatorArrayName;
 
 
 Program ::= (Program) PROG ProgramName ConVarDecList LBRACE MethodDeclList RBRACE;
@@ -306,18 +300,17 @@ CondTerm ::= (CondTermList) CondTerm AND CondFact
 			 (SingleCondTerm) CondFact
 			 ;
 			 
-CondFact ::= (CondFact_norelop) NonTernaryExpr
+CondFact ::= (CondFact_norelop) TermList
              |
-             (CondFact_relop) NonTernaryExpr Relop NonTernaryExpr
+             (CondFact_relop) TermList Relop TermList
              ;
 
-Expr ::= (Expr_notern) NonTernaryExpr
+Expr ::= (Expr_notern) TermList
 		 |
 	     (Expr_tern) Condition QMARK Expr COL Expr
 		  ;
 
-NonTernaryExpr ::= (NonTernaryExpr) TermList
-				  ;
+/* NonTernaryExpr ::= (NonTernaryExpr) TermList; */
 
 
 TermList ::= (TermList_addop) TermList Addop Term
@@ -339,7 +332,7 @@ Unary ::= 	(Unary_m) MINUS
 			(Unary_e) /* epsilon */
 			;
 
-FactorUnar ::= (Factor_var) Designator
+FactorUnar ::=  (Factor_des) Designator
 				|
 				(Factor_methpars) Designator LPAREN ActPars RPAREN
 		   		|
@@ -358,12 +351,15 @@ FactorUnar ::= (Factor_var) Designator
 
 Designator ::= (Designator_var) IDENT 
                |
-			   (Designator_enum) Designator DOT IDENT
+			   (Designator_enum) IDENT DOT IDENT
 			   |
-			   (Designator_len) Designator DOT LENGTH
+			   (Designator_len) IDENT DOT LENGTH
 			   |
-			   (Designator_expr) Designator LBRACKET Expr RBRACKET
-			   ;	
+			   (Designator_elem) DesignatorArrayName LBRACKET Expr RBRACKET
+			   ;
+			   
+DesignatorArrayName ::= (DesignatorArrayName) IDENT;
+	
 			  
 Relop ::= (Relop_eq) EQUAL
           |

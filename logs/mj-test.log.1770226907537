@@ -1,0 +1,56 @@
+INFO  18:40:40,469 - Compiling source file: /home/rembrant/EclipseWorkspace3/MJCompiler/test/progtest.mj
+INFO  18:40:40,559 - #2 program
+INFO  18:40:40,559 - #48 Figi
+INFO  18:40:40,560 - #3 const
+INFO  18:40:40,561 - #48 int
+INFO  18:40:40,562 - #48 nula
+INFO  18:40:40,563 - #33 =
+INFO  18:40:40,564 - #45 0
+INFO  18:40:40,564 - #34 ;
+INFO  18:40:40,567 - #3 const
+INFO  18:40:40,569 - #48 int
+INFO  18:40:40,569 - #48 jedan
+INFO  18:40:40,570 - #33 =
+INFO  18:40:40,570 - #45 1
+INFO  18:40:40,570 - #34 ;
+INFO  18:40:40,570 - #48 int
+INFO  18:40:40,570 - #48 a
+INFO  18:40:40,570 - #34 ;
+INFO  18:40:40,572 - #48 char
+INFO  18:40:40,573 - #48 c
+INFO  18:40:40,573 - #37 ,
+INFO  18:40:40,574 - #48 z
+INFO  18:40:40,574 - #42 [
+INFO  18:40:40,574 - #43 ]
+INFO  18:40:40,574 - #34 ;
+INFO  18:40:40,575 - #14 enum
+INFO  18:40:40,575 - #48 Days
+INFO  18:40:40,575 - #40 {
+INFO  18:40:40,577 - #48 MONDAY
+INFO  18:40:40,577 - #33 =
+INFO  18:40:40,578 - #45 1
+INFO  18:40:40,578 - #37 ,
+INFO  18:40:40,579 - #48 FRIDAY
+INFO  18:40:40,579 - #33 =
+INFO  18:40:40,579 - #45 10
+INFO  18:40:40,579 - #37 ,
+INFO  18:40:40,580 - #48 SUNDAY
+INFO  18:40:40,580 - #41 }
+INFO  18:40:40,581 - #40 {
+INFO  18:40:40,585 - #4 void
+INFO  18:40:40,586 - #48 main
+INFO  18:40:40,587 - #38 (
+INFO  18:40:40,587 - #39 )
+INFO  18:40:40,589 - #48 int
+INFO  18:40:40,591 - #48 a
+INFO  18:40:40,591 - #34 ;
+INFO  18:40:40,592 - #40 {
+INFO  18:40:40,592 - #11 print
+INFO  18:40:40,593 - #38 (
+INFO  18:40:40,594 - #39 )
+ERROR 18:40:40,594 - 
+Sintaksna greska na liniji 16
+ERROR 18:40:40,595 - Fatalna greska, parsiranje se ne moze nastaviti na liniji 16
+ERROR 18:40:40,598 - Compilation error
+java.lang.ClassCastException: class rs.ac.bg.etf.pp1.ast.StatementList_e cannot be cast to class rs.ac.bg.etf.pp1.ast.Program (rs.ac.bg.etf.pp1.ast.StatementList_e and rs.ac.bg.etf.pp1.ast.Program are in unnamed module of loader 'app')
+	at rs.ac.bg.etf.pp1.Compiler.main(Compiler.java:37)

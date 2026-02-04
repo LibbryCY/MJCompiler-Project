@@ -1,0 +1,64 @@
+INFO  17:52:28,330 - Compiling source file: /home/rembrant/EclipseWorkspace3/MJCompiler/test/progtest.mj
+INFO  17:52:28,378 - #2 program
+INFO  17:52:28,378 - #48 Figi
+INFO  17:52:28,378 - #3 const
+INFO  17:52:28,379 - #48 int
+INFO  17:52:28,379 - #48 nula
+INFO  17:52:28,380 - #33 =
+INFO  17:52:28,380 - #45 0
+INFO  17:52:28,381 - #34 ;
+INFO  17:52:28,382 - #3 const
+INFO  17:52:28,383 - #48 int
+INFO  17:52:28,383 - #48 jedan
+INFO  17:52:28,383 - #33 =
+INFO  17:52:28,383 - #45 1
+INFO  17:52:28,384 - #34 ;
+INFO  17:52:28,384 - #48 int
+INFO  17:52:28,384 - #48 a
+INFO  17:52:28,384 - #34 ;
+INFO  17:52:28,385 - #48 char
+INFO  17:52:28,386 - #48 c
+INFO  17:52:28,386 - #37 ,
+INFO  17:52:28,386 - #48 z
+INFO  17:52:28,386 - #42 [
+INFO  17:52:28,386 - #43 ]
+INFO  17:52:28,386 - #34 ;
+INFO  17:52:28,386 - #14 enum
+INFO  17:52:28,387 - #48 Days
+INFO  17:52:28,387 - #40 {
+INFO  17:52:28,388 - #48 MONDAY
+INFO  17:52:28,388 - #33 =
+INFO  17:52:28,388 - #45 1
+INFO  17:52:28,388 - #37 ,
+INFO  17:52:28,388 - #48 FRIDAY
+INFO  17:52:28,389 - #33 =
+INFO  17:52:28,389 - #45 10
+INFO  17:52:28,389 - #37 ,
+INFO  17:52:28,389 - #48 SUNDAY
+INFO  17:52:28,389 - #41 }
+INFO  17:52:28,389 - #40 {
+INFO  17:52:28,391 - #4 void
+INFO  17:52:28,392 - #48 main
+INFO  17:52:28,392 - #38 (
+INFO  17:52:28,392 - #39 )
+INFO  17:52:28,393 - #48 int
+INFO  17:52:28,394 - #48 a
+INFO  17:52:28,394 - #34 ;
+INFO  17:52:28,394 - #40 {
+INFO  17:52:28,394 - #11 print
+INFO  17:52:28,395 - #38 (
+INFO  17:52:28,395 - #48 z
+INFO  17:52:28,396 - #42 [
+INFO  17:52:28,397 - #45 1
+INFO  17:52:28,398 - #43 ]
+INFO  17:52:28,400 - #39 )
+INFO  17:52:28,400 - #34 ;
+INFO  17:52:28,401 - #41 }
+INFO  17:52:28,401 - #4 void
+INFO  17:52:28,402 - #38 (
+ERROR 17:52:28,402 - 
+Sintaksna greska na liniji 20
+ERROR 17:52:28,403 - Fatalna greska, parsiranje se ne moze nastaviti na liniji 20
+ERROR 17:52:28,404 - Compilation error
+java.lang.ClassCastException: class rs.ac.bg.etf.pp1.ast.MethodDeclList_rec cannot be cast to class rs.ac.bg.etf.pp1.ast.Program (rs.ac.bg.etf.pp1.ast.MethodDeclList_rec and rs.ac.bg.etf.pp1.ast.Program are in unnamed module of loader 'app')
+	at rs.ac.bg.etf.pp1.Compiler.main(Compiler.java:37)

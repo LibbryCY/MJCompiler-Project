@@ -1,28 +1,28 @@
 // generated with ast extension for cup
 // version 0.8
-// 3/1/2026 14:41:21
+// 4/1/2026 18:26:2
 
 
 package rs.ac.bg.etf.pp1.ast;
 
-public class Designator_expr extends Designator {
+public class Designator_elem extends Designator {
 
-    private Designator Designator;
+    private DesignatorArrayName DesignatorArrayName;
     private Expr Expr;
 
-    public Designator_expr (Designator Designator, Expr Expr) {
-        this.Designator=Designator;
-        if(Designator!=null) Designator.setParent(this);
+    public Designator_elem (DesignatorArrayName DesignatorArrayName, Expr Expr) {
+        this.DesignatorArrayName=DesignatorArrayName;
+        if(DesignatorArrayName!=null) DesignatorArrayName.setParent(this);
         this.Expr=Expr;
         if(Expr!=null) Expr.setParent(this);
     }
 
-    public Designator getDesignator() {
-        return Designator;
+    public DesignatorArrayName getDesignatorArrayName() {
+        return DesignatorArrayName;
     }
 
-    public void setDesignator(Designator Designator) {
-        this.Designator=Designator;
+    public void setDesignatorArrayName(DesignatorArrayName DesignatorArrayName) {
+        this.DesignatorArrayName=DesignatorArrayName;
     }
 
     public Expr getExpr() {
@@ -38,18 +38,18 @@ public class Designator_expr extends Designator {
     }
 
     public void childrenAccept(Visitor visitor) {
-        if(Designator!=null) Designator.accept(visitor);
+        if(DesignatorArrayName!=null) DesignatorArrayName.accept(visitor);
         if(Expr!=null) Expr.accept(visitor);
     }
 
     public void traverseTopDown(Visitor visitor) {
         accept(visitor);
-        if(Designator!=null) Designator.traverseTopDown(visitor);
+        if(DesignatorArrayName!=null) DesignatorArrayName.traverseTopDown(visitor);
         if(Expr!=null) Expr.traverseTopDown(visitor);
     }
 
     public void traverseBottomUp(Visitor visitor) {
-        if(Designator!=null) Designator.traverseBottomUp(visitor);
+        if(DesignatorArrayName!=null) DesignatorArrayName.traverseBottomUp(visitor);
         if(Expr!=null) Expr.traverseBottomUp(visitor);
         accept(visitor);
     }
@@ -57,10 +57,10 @@ public class Designator_expr extends Designator {
     public String toString(String tab) {
         StringBuffer buffer=new StringBuffer();
         buffer.append(tab);
-        buffer.append("Designator_expr(\n");
+        buffer.append("Designator_elem(\n");
 
-        if(Designator!=null)
-            buffer.append(Designator.toString("  "+tab));
+        if(DesignatorArrayName!=null)
+            buffer.append(DesignatorArrayName.toString("  "+tab));
         else
             buffer.append(tab+"  null");
         buffer.append("\n");
@@ -72,7 +72,7 @@ public class Designator_expr extends Designator {
         buffer.append("\n");
 
         buffer.append(tab);
-        buffer.append(") [Designator_expr]");
+        buffer.append(") [Designator_elem]");
         return buffer.toString();
     }
 }

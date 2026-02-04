@@ -1,27 +1,28 @@
 // generated with ast extension for cup
 // version 0.8
-// 3/1/2026 14:41:21
+// 4/1/2026 18:26:2
 
 
 package rs.ac.bg.etf.pp1.ast;
 
-public class NonTernaryExpr implements SyntaxNode {
+public class DesignatorArrayName implements SyntaxNode {
 
     private SyntaxNode parent;
     private int line;
-    private TermList TermList;
+    public rs.etf.pp1.symboltable.concepts.Obj obj = null;
 
-    public NonTernaryExpr (TermList TermList) {
-        this.TermList=TermList;
-        if(TermList!=null) TermList.setParent(this);
+    private String I1;
+
+    public DesignatorArrayName (String I1) {
+        this.I1=I1;
     }
 
-    public TermList getTermList() {
-        return TermList;
+    public String getI1() {
+        return I1;
     }
 
-    public void setTermList(TermList TermList) {
-        this.TermList=TermList;
+    public void setI1(String I1) {
+        this.I1=I1;
     }
 
     public SyntaxNode getParent() {
@@ -45,32 +46,26 @@ public class NonTernaryExpr implements SyntaxNode {
     }
 
     public void childrenAccept(Visitor visitor) {
-        if(TermList!=null) TermList.accept(visitor);
     }
 
     public void traverseTopDown(Visitor visitor) {
         accept(visitor);
-        if(TermList!=null) TermList.traverseTopDown(visitor);
     }
 
     public void traverseBottomUp(Visitor visitor) {
-        if(TermList!=null) TermList.traverseBottomUp(visitor);
         accept(visitor);
     }
 
     public String toString(String tab) {
         StringBuffer buffer=new StringBuffer();
         buffer.append(tab);
-        buffer.append("NonTernaryExpr(\n");
+        buffer.append("DesignatorArrayName(\n");
 
-        if(TermList!=null)
-            buffer.append(TermList.toString("  "+tab));
-        else
-            buffer.append(tab+"  null");
+        buffer.append(" "+tab+I1);
         buffer.append("\n");
 
         buffer.append(tab);
-        buffer.append(") [NonTernaryExpr]");
+        buffer.append(") [DesignatorArrayName]");
         return buffer.toString();
     }
 }

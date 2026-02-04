@@ -256,6 +256,130 @@ public class SemAnalyzer extends VisitorAdaptor {
 	}
 	
 	
+	/* CONTEXT CONDITIONS */
+	
+	// Designator
+	
+	@Override
+	public void visit(Designator_var designator_var) {
+	    Obj varObj = Tab.find(designator_var.getI1());
+	    if(varObj == Tab.noObj) {
+			report_error("Pristup nedefinisanoj promenjivi: " + designator_var.getI1(), designator_var);
+			designator_var.obj = Tab.noObj;
+	    }
+	    else if(varObj.getKind()!= Obj.Con  && varObj.getKind()!= Obj.Var ) {
+	    	report_error("Neadekvatna promenjiva: " + designator_var.getI1(), designator_var);
+	    	designator_var.obj = Tab.noObj;
+	    }
+	    else {
+			//report_info("Obrada cvora factor_methnopars, metoda [Designator_var]: "+ designator_var.getI1(), designator_var);
+
+	    	designator_var.obj = varObj;
+	    }
+	}
+	
+	@Override
+	public void visit(DesignatorArrayName designatorArrayName) {
+		Obj arrObj = Tab.find(designatorArrayName.getI1());
+	    if(arrObj == Tab.noObj) {
+			report_error("Pristup nedefinisanoj promenjivi niza: " + designatorArrayName.getI1(), designatorArrayName);
+			designatorArrayName.obj = Tab.noObj;
+	    }
+	    else if(arrObj.getType().getKind() != Struct.Array || arrObj.getKind()!= Obj.Var ) {
+	    	report_error("Neadekvatna promenjiva niza: " + designatorArrayName.getI1(), designatorArrayName);
+	    	designatorArrayName.obj = Tab.noObj;
+	    }
+	    else {
+	    	designatorArrayName.obj = arrObj;
+	    }
+	}
+	
+	@Override
+	public void visit(Designator_elem designator_elem) {
+	    Obj arrObj = designator_elem.getDesignatorArrayName().obj;
+	    if(arrObj == Tab.noObj) {
+	    	designator_elem.obj = Tab.noObj;
+	 
+	    }
+	    else if(designator_elem.getExpr().struct.equals(Tab.intType)) {
+	    	report_error("Indeksiranje sa neint vrednoscu [Designator_elem] ", designator_elem);
+	    	designator_elem.obj = Tab.noObj;
+	    }
+	    else {
+	    	designator_elem.obj = new Obj(Obj.Elem,arrObj.getName()+"[$]" , arrObj.getType().getElemType());
+	    }
+	    
+	}
+	
+
+	// FactorUnar
+	@Override
+	public void visit(Factor_c factor_c) {
+	    factor_c.struct = Tab.charType; 
+	}
+	
+	@Override
+	public void visit(Factor_b factor_b) {
+	    factor_b.struct = boolType;
+	}
+	
+	@Override
+	public void visit(Factor_n factor_n) {
+	    factor_n.struct = Tab.intType;
+	    
+	}
+	
+	@Override
+	public void visit(Factor_des factor_des) {
+	    factor_des.struct = factor_des.getDesignator().obj.getType();
+	}
+	
+	@Override
+	public void visit(Factor_new_array factor_new_array) {
+		if(factor_new_array.getExpr().struct.equals(Tab.intType)) {
+			report_error("Indeksiranje neint tipom [Factor_new_array]", factor_new_array);
+			factor_new_array.struct = Tab.noType;
+		}
+		else {
+			factor_new_array.struct = new Struct(Struct.Array, currentType); 
+		}
+	}
+	
+	@Override
+	public void visit(Factor_expr factor_expr) {
+		factor_expr.struct = factor_expr.getExpr().struct;
+	}
+	
+	@Override
+	public void visit(Factor_methnopars factor_methnopars) {
+		Obj methObj = Tab.find(factor_methnopars.getDesignator().obj.getName());
+		if(methObj == Tab.noObj) {
+			report_error("Nedefinisana metoda [Factor_methnopars]: " + factor_methnopars.getDesignator().obj.getName(), factor_methnopars);
+			factor_methnopars.struct = Tab.noType;
+	    }
+		report_info("Obrada cvora factor_methnopars, metoda: "+ factor_methnopars.getDesignator().obj.getName(), factor_methnopars);
+		factor_methnopars.struct = methObj.getType();
+	}
+	
+	
+	// Factor
+	@Override
+	public void visit(Factor factor) {
+	    if(factor.getUnary() instanceof Unary_m) {
+	      if(factor.getFactorUnar().struct.equals(Tab.intType)) {
+	    	  factor.struct = Tab.intType;
+	      }	else {
+			   report_error("Negacija neint vrednosti", factor);
+			   factor.struct = Tab.noType;
+	      }
+	    }
+	    else {
+	    	factor.struct = factor.getFactorUnar().struct;
+	    }
+	    
+	}
+	
+	
 	@Override
 	public void visit(Type type) {
 		Obj typeObj = Tab.find(type.getI1());

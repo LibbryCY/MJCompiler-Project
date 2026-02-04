@@ -1,0 +1,58 @@
+INFO  15:20:36,736 - Compiling source file: /home/rembrant/EclipseWorkspace3/MJCompiler/test/progtest.mj
+INFO  15:20:36,770 - #2 program
+INFO  15:20:36,770 - #48 Figi
+INFO  15:20:36,770 - #3 const
+INFO  15:20:36,770 - #48 int
+INFO  15:20:36,770 - #48 nula
+INFO  15:20:36,771 - #33 =
+INFO  15:20:36,771 - #45 0
+INFO  15:20:36,771 - #34 ;
+INFO  15:20:36,772 - #3 const
+INFO  15:20:36,772 - #48 int
+INFO  15:20:36,772 - #48 jedan
+INFO  15:20:36,772 - #33 =
+INFO  15:20:36,773 - #45 1
+INFO  15:20:36,773 - #34 ;
+INFO  15:20:36,773 - #48 int
+INFO  15:20:36,773 - #48 a
+INFO  15:20:36,773 - #34 ;
+INFO  15:20:36,773 - #48 char
+INFO  15:20:36,774 - #48 c
+INFO  15:20:36,774 - #37 ,
+INFO  15:20:36,774 - #48 z
+INFO  15:20:36,774 - #42 [
+INFO  15:20:36,774 - #43 ]
+INFO  15:20:36,774 - #34 ;
+INFO  15:20:36,775 - #14 enum
+INFO  15:20:36,775 - #48 Days
+INFO  15:20:36,775 - #40 {
+INFO  15:20:36,775 - #48 MONDAY
+INFO  15:20:36,776 - #33 =
+INFO  15:20:36,776 - #45 1
+INFO  15:20:36,776 - #37 ,
+INFO  15:20:36,776 - #48 FRIDAY
+INFO  15:20:36,776 - #33 =
+INFO  15:20:36,776 - #45 10
+INFO  15:20:36,776 - #37 ,
+INFO  15:20:36,777 - #48 SUNDAY
+INFO  15:20:36,777 - #41 }
+INFO  15:20:36,777 - #40 {
+INFO  15:20:36,778 - #4 void
+INFO  15:20:36,779 - #48 main
+INFO  15:20:36,779 - #38 (
+INFO  15:20:36,779 - #39 )
+INFO  15:20:36,780 - #48 int
+INFO  15:20:36,780 - #48 a
+INFO  15:20:36,780 - #34 ;
+INFO  15:20:36,780 - #40 {
+INFO  15:20:36,780 - #11 print
+INFO  15:20:36,781 - #38 (
+INFO  15:20:36,781 - #48 z
+INFO  15:20:36,782 - #42 [
+INFO  15:20:36,782 - #43 ]
+ERROR 15:20:36,782 - 
+Sintaksna greska na liniji 16
+ERROR 15:20:36,782 - Fatalna greska, parsiranje se ne moze nastaviti na liniji 16
+ERROR 15:20:36,783 - Compilation error
+java.lang.ClassCastException: class rs.ac.bg.etf.pp1.ast.DesignatorArrayName cannot be cast to class rs.ac.bg.etf.pp1.ast.Program (rs.ac.bg.etf.pp1.ast.DesignatorArrayName and rs.ac.bg.etf.pp1.ast.Program are in unnamed module of loader 'app')
+	at rs.ac.bg.etf.pp1.Compiler.main(Compiler.java:37)

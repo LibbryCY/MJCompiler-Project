@@ -1,6 +1,6 @@
 // generated with ast extension for cup
 // version 0.8
-// 3/1/2026 14:41:21
+// 4/1/2026 18:26:2
 
 
 package rs.ac.bg.etf.pp1.ast;
@@ -55,7 +55,8 @@ public abstract class VisitorAdaptor implements Visitor {
     public void visit(Relop_grt Relop_grt) { visit(); }
     public void visit(Relop_neq Relop_neq) { visit(); }
     public void visit(Relop_eq Relop_eq) { visit(); }
-    public void visit(Designator_expr Designator_expr) { visit(); }
+    public void visit(DesignatorArrayName DesignatorArrayName) { visit(); }
+    public void visit(Designator_elem Designator_elem) { visit(); }
     public void visit(Designator_len Designator_len) { visit(); }
     public void visit(Designator_enum Designator_enum) { visit(); }
     public void visit(Designator_var Designator_var) { visit(); }
@@ -66,7 +67,7 @@ public abstract class VisitorAdaptor implements Visitor {
     public void visit(Factor_n Factor_n) { visit(); }
     public void visit(Factor_methnopars Factor_methnopars) { visit(); }
     public void visit(Factor_methpars Factor_methpars) { visit(); }
-    public void visit(Factor_var Factor_var) { visit(); }
+    public void visit(Factor_des Factor_des) { visit(); }
     public void visit(Unary_e Unary_e) { visit(); }
     public void visit(Unary_m Unary_m) { visit(); }
     public void visit(Factor Factor) { visit(); }
@@ -75,7 +76,6 @@ public abstract class VisitorAdaptor implements Visitor {
     public void visit(Term Term) { visit(); }
     public void visit(SingleTerm SingleTerm) { visit(); }
     public void visit(TermList_addop TermList_addop) { visit(); }
-    public void visit(NonTernaryExpr NonTernaryExpr) { visit(); }
     public void visit(Expr_tern Expr_tern) { visit(); }
     public void visit(Expr_notern Expr_notern) { visit(); }
     public void visit(CondFact_relop CondFact_relop) { visit(); }

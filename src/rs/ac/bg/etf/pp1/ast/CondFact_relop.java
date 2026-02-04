@@ -1,31 +1,31 @@
 // generated with ast extension for cup
 // version 0.8
-// 3/1/2026 14:41:21
+// 4/1/2026 18:26:2
 
 
 package rs.ac.bg.etf.pp1.ast;
 
 public class CondFact_relop extends CondFact {
 
-    private NonTernaryExpr NonTernaryExpr;
+    private TermList TermList;
     private Relop Relop;
-    private NonTernaryExpr NonTernaryExpr1;
+    private TermList TermList1;
 
-    public CondFact_relop (NonTernaryExpr NonTernaryExpr, Relop Relop, NonTernaryExpr NonTernaryExpr1) {
-        this.NonTernaryExpr=NonTernaryExpr;
-        if(NonTernaryExpr!=null) NonTernaryExpr.setParent(this);
+    public CondFact_relop (TermList TermList, Relop Relop, TermList TermList1) {
+        this.TermList=TermList;
+        if(TermList!=null) TermList.setParent(this);
         this.Relop=Relop;
         if(Relop!=null) Relop.setParent(this);
-        this.NonTernaryExpr1=NonTernaryExpr1;
-        if(NonTernaryExpr1!=null) NonTernaryExpr1.setParent(this);
+        this.TermList1=TermList1;
+        if(TermList1!=null) TermList1.setParent(this);
     }
 
-    public NonTernaryExpr getNonTernaryExpr() {
-        return NonTernaryExpr;
+    public TermList getTermList() {
+        return TermList;
     }
 
-    public void setNonTernaryExpr(NonTernaryExpr NonTernaryExpr) {
-        this.NonTernaryExpr=NonTernaryExpr;
+    public void setTermList(TermList TermList) {
+        this.TermList=TermList;
     }
 
     public Relop getRelop() {
@@ -36,12 +36,12 @@ public class CondFact_relop extends CondFact {
         this.Relop=Relop;
     }
 
-    public NonTernaryExpr getNonTernaryExpr1() {
-        return NonTernaryExpr1;
+    public TermList getTermList1() {
+        return TermList1;
     }
 
-    public void setNonTernaryExpr1(NonTernaryExpr NonTernaryExpr1) {
-        this.NonTernaryExpr1=NonTernaryExpr1;
+    public void setTermList1(TermList TermList1) {
+        this.TermList1=TermList1;
     }
 
     public void accept(Visitor visitor) {
@@ -49,22 +49,22 @@ public class CondFact_relop extends CondFact {
     }
 
     public void childrenAccept(Visitor visitor) {
-        if(NonTernaryExpr!=null) NonTernaryExpr.accept(visitor);
+        if(TermList!=null) TermList.accept(visitor);
         if(Relop!=null) Relop.accept(visitor);
-        if(NonTernaryExpr1!=null) NonTernaryExpr1.accept(visitor);
+        if(TermList1!=null) TermList1.accept(visitor);
     }
 
     public void traverseTopDown(Visitor visitor) {
         accept(visitor);
-        if(NonTernaryExpr!=null) NonTernaryExpr.traverseTopDown(visitor);
+        if(TermList!=null) TermList.traverseTopDown(visitor);
         if(Relop!=null) Relop.traverseTopDown(visitor);
-        if(NonTernaryExpr1!=null) NonTernaryExpr1.traverseTopDown(visitor);
+        if(TermList1!=null) TermList1.traverseTopDown(visitor);
     }
 
     public void traverseBottomUp(Visitor visitor) {
-        if(NonTernaryExpr!=null) NonTernaryExpr.traverseBottomUp(visitor);
+        if(TermList!=null) TermList.traverseBottomUp(visitor);
         if(Relop!=null) Relop.traverseBottomUp(visitor);
-        if(NonTernaryExpr1!=null) NonTernaryExpr1.traverseBottomUp(visitor);
+        if(TermList1!=null) TermList1.traverseBottomUp(visitor);
         accept(visitor);
     }
 
@@ -73,8 +73,8 @@ public class CondFact_relop extends CondFact {
         buffer.append(tab);
         buffer.append("CondFact_relop(\n");
 
-        if(NonTernaryExpr!=null)
-            buffer.append(NonTernaryExpr.toString("  "+tab));
+        if(TermList!=null)
+            buffer.append(TermList.toString("  "+tab));
         else
             buffer.append(tab+"  null");
         buffer.append("\n");
@@ -85,8 +85,8 @@ public class CondFact_relop extends CondFact {
             buffer.append(tab+"  null");
         buffer.append("\n");
 
-        if(NonTernaryExpr1!=null)
-            buffer.append(NonTernaryExpr1.toString("  "+tab));
+        if(TermList1!=null)
+            buffer.append(TermList1.toString("  "+tab));
         else
             buffer.append(tab+"  null");
         buffer.append("\n");

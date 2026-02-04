@@ -123,19 +123,7 @@ nonterminal
 			ActPars ActPars;
 nonterminal
 			Unary Unary;
-nonterminal
-			Term Term;
-nonterminal
-			TermList TermList;
-nonterminal
-			Factor Factor;
-nonterminal
-			FactorList FactorList;
-nonterminal
-			Designator Designator;
-nonterminal
-			Expr Expr;
-nonterminal
+nonterminal			
 			CaseStatements CaseStatements;
 nonterminal
 			CaseList CaseList;
@@ -152,12 +140,10 @@ nonterminal
 nonterminal
 			ReturnExpression ReturnExpression;
 nonterminal
-			NonTernaryExpr NonTernaryExpr;
-nonterminal
-			FactorUnar FactorUnar;
-nonterminal
 			EnumName EnumName;
 
+nonterminal rs.etf.pp1.symboltable.concepts.Struct Factor, FactorUnar, FactorList, TermList, Term, Expr;
+nonterminal rs.etf.pp1.symboltable.concepts.Obj Designator, DesignatorArrayName;
 
 
 Program ::= (Program) PROG ProgramName:P1 ConVarDecList:C2 LBRACE MethodDeclList:M3 RBRACE {: RESULT=new Program(P1, C2, M3); RESULT.setLine(P1left); :};
@@ -355,18 +341,17 @@ CondTerm ::= (CondTermList) CondTerm:C1 AND CondFact:C2 {: RESULT=new CondTermLi
 			 (SingleCondTerm) CondFact:C1 {: RESULT=new SingleCondTerm(C1); RESULT.setLine(C1left); :}
 			 ;
 			 
-CondFact ::= (CondFact_norelop) NonTernaryExpr:N1 {: RESULT=new CondFact_norelop(N1); RESULT.setLine(N1left); :}
+CondFact ::= (CondFact_norelop) TermList:T1 {: RESULT=new CondFact_norelop(T1); RESULT.setLine(T1left); :}
              |
-             (CondFact_relop) NonTernaryExpr:N1 Relop:R2 NonTernaryExpr:N3 {: RESULT=new CondFact_relop(N1, R2, N3); RESULT.setLine(N1left); :}
+             (CondFact_relop) TermList:T1 Relop:R2 TermList:T3 {: RESULT=new CondFact_relop(T1, R2, T3); RESULT.setLine(T1left); :}
              ;
 
-Expr ::= (Expr_notern) NonTernaryExpr:N1 {: RESULT=new Expr_notern(N1); RESULT.setLine(N1left); :}
+Expr ::= (Expr_notern) TermList:T1 {: RESULT=new Expr_notern(T1); RESULT.setLine(T1left); :}
 		 |
 	     (Expr_tern) Condition:C1 QMARK Expr:E2 COL Expr:E3 {: RESULT=new Expr_tern(C1, E2, E3); RESULT.setLine(C1left); :}
 		  ;
 
-NonTernaryExpr ::= (NonTernaryExpr) TermList:T1 {: RESULT=new NonTernaryExpr(T1); RESULT.setLine(T1left); :}
-				  ;
+/* NonTernaryExpr ::= (NonTernaryExpr) TermList; */
 
 
 TermList ::= (TermList_addop) TermList:T1 Addop:A2 Term:T3 {: RESULT=new TermList_addop(T1, A2, T3); RESULT.setLine(T1left); :}
@@ -388,7 +373,7 @@ Unary ::= 	(Unary_m) MINUS {: RESULT=new Unary_m(); :}
 			(Unary_e) {: RESULT=new Unary_e(); :} /* epsilon */
 			;
 
-FactorUnar ::= (Factor_var) Designator:D1 {: RESULT=new Factor_var(D1); RESULT.setLine(D1left); :}
+FactorUnar ::=  (Factor_des) Designator:D1 {: RESULT=new Factor_des(D1); RESULT.setLine(D1left); :}
 				|
 				(Factor_methpars) Designator:D1 LPAREN ActPars:A2 RPAREN {: RESULT=new Factor_methpars(D1, A2); RESULT.setLine(D1left); :}
 		   		|
@@ -407,12 +392,15 @@ FactorUnar ::= (Factor_var) Designator:D1 {: RESULT=new Factor_var(D1); RESULT.s
 
 Designator ::= (Designator_var) IDENT:I1 {: RESULT=new Designator_var(I1); RESULT.setLine(I1left); :} 
                |
-			   (Designator_enum) Designator:D1 DOT IDENT:I2 {: RESULT=new Designator_enum(D1, I2); RESULT.setLine(D1left); :}
+			   (Designator_enum) IDENT:I1 DOT IDENT:I2 {: RESULT=new Designator_enum(I1, I2); RESULT.setLine(I1left); :}
 			   |
-			   (Designator_len) Designator:D1 DOT LENGTH {: RESULT=new Designator_len(D1); RESULT.setLine(D1left); :}
+			   (Designator_len) IDENT:I1 DOT LENGTH {: RESULT=new Designator_len(I1); RESULT.setLine(I1left); :}
 			   |
-			   (Designator_expr) Designator:D1 LBRACKET Expr:E2 RBRACKET {: RESULT=new Designator_expr(D1, E2); RESULT.setLine(D1left); :}
-			   ;	
+			   (Designator_elem) DesignatorArrayName:D1 LBRACKET Expr:E2 RBRACKET {: RESULT=new Designator_elem(D1, E2); RESULT.setLine(D1left); :}
+			   ;
+			   
+DesignatorArrayName ::= (DesignatorArrayName) IDENT:I1 {: RESULT=new DesignatorArrayName(I1); RESULT.setLine(I1left); :};
+	
 			  
 Relop ::= (Relop_eq) EQUAL {: RESULT=new Relop_eq(); :}
           |
