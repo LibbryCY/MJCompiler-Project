@@ -5,6 +5,8 @@ program Figi
 const int nula = 0;
 const int jedan = 1;
 
+const bool yes = true;
+
 int a;
 char c, z[];
 
@@ -13,11 +15,11 @@ enum Days {MONDAY=1, FRIDAY=10, SUNDAY}
 {
 	void add() int a; int b; int c;
 	{ 
+		print( yes ? nula : jedan );
 	}
 	
 	void main()	 int a;
 	{
-		print(add(3));
 		
 	}
 		

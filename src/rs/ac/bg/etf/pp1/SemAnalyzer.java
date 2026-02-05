@@ -258,6 +258,75 @@ public class SemAnalyzer extends VisitorAdaptor {
 	
 	/* CONTEXT CONDITIONS */
 	
+	// Expr
+	
+	@Override
+	public void visit(Expr_notern expr_notern) {
+		expr_notern.struct = expr_notern.getTermList().struct; 
+	}
+	
+	@Override
+	public void visit(Expr_tern expr_tern) {
+		if(expr_tern.getCondition().struct.equals(boolType)) {
+			report_error("Uslov u ternarnom operatoru mora biti bool", expr_tern);
+	        expr_tern.struct = Tab.noType;
+		}
+		else if(!expr_tern.getExpr().struct.equals(expr_tern.getExpr1().struct)) {
+			report_error("Tipovi izraza u ternarnom operatoru se ne poklapaju", expr_tern);
+	        expr_tern.struct = Tab.noType;
+		}else {
+			expr_tern.struct = expr_tern.getExpr().struct;
+		}
+	}
+	
+	
+	// TermList 
+	
+	@Override
+	public void visit(TermList_addop tla) {
+		if(!tla.getTermList().struct.equals(Tab.intType) 
+				|| !tla.getTerm().struct.equals(Tab.intType)) {
+			report_error("Sabiranje neint tipova [TermList_addop]", tla);
+			tla.struct = Tab.noType;
+		}else {
+			report_info("TermList addop " , tla);
+			tla.struct = Tab.intType;
+		}
+	}
+	
+	@Override
+	public void visit(SingleTerm singleTerm) {
+		singleTerm.struct = singleTerm.getTerm().struct; 
+	}
+	
+	
+	// Term
+	
+	@Override
+	public void visit(Term term) {
+	   term.struct = term.getFactorList().struct; 
+	}
+	
+	
+	// FactorList
+	
+	@Override
+	public void visit(SingleFactor singleFactor) {
+	   singleFactor.struct = singleFactor.getFactor().struct; 
+	}
+	
+	@Override
+	public void visit(FactorList_mulop flm) {
+		if(!flm.getFactorList().struct.equals(Tab.intType) 
+				|| !flm.getFactor().struct.equals(Tab.intType)) {
+			report_error("Mnozenje neint tipova [FactorList_mulop]", flm);
+			flm.struct = Tab.noType;
+		}else {
+			flm.struct = Tab.intType;
+		}
+	}
+	
+	
 	// Designator
 	
 	@Override
@@ -379,7 +448,7 @@ public class SemAnalyzer extends VisitorAdaptor {
 			report_info("Obrada cvora factor_methpars, metoda: "+ factor_methpars.getDesignator().obj.getName(), factor_methpars);
 			factor_methpars.struct = metObj.getType();
 		}
-	}
+	}	
 	
 	
 	// Factor

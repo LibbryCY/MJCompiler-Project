@@ -82,7 +82,6 @@ nonterminal Program,
 			StatementList,
 			Statement, 
 			DesignatorStatement, 
-			Condition,
 			CondTerm, 
 			CondFact,  
 			Relop,
@@ -101,7 +100,7 @@ nonterminal Program,
 			ReturnExpression,
 			EnumName;
 
-nonterminal rs.etf.pp1.symboltable.concepts.Struct Factor, FactorUnar, FactorList, TermList, Term, Expr;
+nonterminal rs.etf.pp1.symboltable.concepts.Struct Condition, Factor, FactorUnar, FactorList, TermList, Term, Expr;
 nonterminal rs.etf.pp1.symboltable.concepts.Obj Designator, DesignatorArrayName;
 
 
@@ -300,7 +299,7 @@ CondTerm ::= (CondTermList) CondTerm AND CondFact
 			 (SingleCondTerm) CondFact
 			 ;
 			 
-CondFact ::= (CondFact_norelop) TermList
+CondFact ::= (CondFact_norelop) TermList    /* MOZDA TREBA Expr */
              |
              (CondFact_relop) TermList Relop TermList
              ;
@@ -353,7 +352,7 @@ Designator ::= (Designator_var) IDENT
                |
 			   (Designator_enum) IDENT DOT IDENT
 			   |
-			   (Designator_len) IDENT DOT LENGTH
+			   (Designator_len) DesignatorArrayName DOT LENGTH
 			   |
 			   (Designator_elem) DesignatorArrayName LBRACKET Expr RBRACKET
 			   ;

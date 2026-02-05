@@ -106,8 +106,6 @@ nonterminal
 nonterminal 
 			DesignatorStatement DesignatorStatement;
 nonterminal 
-			Condition Condition;
-nonterminal
 			CondTerm CondTerm;
 nonterminal 
 			CondFact CondFact;
@@ -142,7 +140,7 @@ nonterminal
 nonterminal
 			EnumName EnumName;
 
-nonterminal rs.etf.pp1.symboltable.concepts.Struct Factor, FactorUnar, FactorList, TermList, Term, Expr;
+nonterminal rs.etf.pp1.symboltable.concepts.Struct Condition, Factor, FactorUnar, FactorList, TermList, Term, Expr;
 nonterminal rs.etf.pp1.symboltable.concepts.Obj Designator, DesignatorArrayName;
 
 
@@ -341,7 +339,7 @@ CondTerm ::= (CondTermList) CondTerm:C1 AND CondFact:C2 {: RESULT=new CondTermLi
 			 (SingleCondTerm) CondFact:C1 {: RESULT=new SingleCondTerm(C1); RESULT.setLine(C1left); :}
 			 ;
 			 
-CondFact ::= (CondFact_norelop) TermList:T1 {: RESULT=new CondFact_norelop(T1); RESULT.setLine(T1left); :}
+CondFact ::= (CondFact_norelop) TermList:T1 {: RESULT=new CondFact_norelop(T1); RESULT.setLine(T1left); :}    /* MOZDA TREBA Expr */
              |
              (CondFact_relop) TermList:T1 Relop:R2 TermList:T3 {: RESULT=new CondFact_relop(T1, R2, T3); RESULT.setLine(T1left); :}
              ;
