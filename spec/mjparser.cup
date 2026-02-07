@@ -81,9 +81,7 @@ nonterminal Program,
 			EnumItem,
 			StatementList,
 			Statement, 
-			DesignatorStatement, 
-			CondTerm, 
-			CondFact,  
+			DesignatorStatement,  
 			Relop,
 			Assignop,
 			Mulop,
@@ -100,7 +98,7 @@ nonterminal Program,
 			ReturnExpression,
 			EnumName;
 
-nonterminal rs.etf.pp1.symboltable.concepts.Struct Condition, Factor, FactorUnar, FactorList, TermList, Term, Expr;
+nonterminal rs.etf.pp1.symboltable.concepts.Struct Condition, CondTerm, CondFact, Factor, FactorUnar, FactorList, TermList, Term, Expr;
 nonterminal rs.etf.pp1.symboltable.concepts.Obj Designator, DesignatorArrayName;
 
 
@@ -309,7 +307,6 @@ Expr ::= (Expr_notern) TermList
 	     (Expr_tern) Condition QMARK Expr COL Expr
 		  ;
 
-/* NonTernaryExpr ::= (NonTernaryExpr) TermList; */
 
 
 TermList ::= (TermList_addop) TermList Addop Term
@@ -352,7 +349,7 @@ Designator ::= (Designator_var) IDENT
                |
 			   (Designator_enum) IDENT DOT IDENT
 			   |
-			   (Designator_len) DesignatorArrayName DOT LENGTH
+			   (Designator_len) IDENT DOT LENGTH
 			   |
 			   (Designator_elem) DesignatorArrayName LBRACKET Expr RBRACKET
 			   ;

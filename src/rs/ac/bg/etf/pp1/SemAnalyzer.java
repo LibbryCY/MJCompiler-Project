@@ -1,5 +1,7 @@
 package rs.ac.bg.etf.pp1;
 
+import java.util.ArrayList;
+
 import org.apache.log4j.Logger;
 
 import rs.ac.bg.etf.pp1.ast.*;
@@ -20,6 +22,9 @@ public class SemAnalyzer extends VisitorAdaptor {
 	private Obj currentMethod;
 	private Obj currentEnum;
 	private int enumCounter;
+	
+	public ArrayList<Struct> actParsList = new ArrayList<>();
+
 	
 
 	/* LOG MESSAGES */
@@ -172,10 +177,12 @@ public class SemAnalyzer extends VisitorAdaptor {
 			varObj = Tab.insert(Obj.Var, formPar_var.getI2(), currentType);
 			varObj.setFpPos(1);
 			currentMethod.setLevel(currentMethod.getLevel() + 1);
+			report_info("Citanje form parametra, currentLevel: "+currentMethod.getLevel(), formPar_var);
 		}
 		else{
 			report_error("Dvostruka definicija promenljiva: " + formPar_var.getI2(), formPar_var);
 		}
+
 	}
 	
 	@Override
@@ -193,6 +200,23 @@ public class SemAnalyzer extends VisitorAdaptor {
 			report_error("Dvostruka definicija promenljiva: " + formPar_array.getI2(), formPar_array);
 		}
 	}
+	
+	
+	// ActPars 
+	
+	@Override
+	public void visit(ActPars_single aps) {
+		actParsList.clear();
+	    actParsList.add(aps.getExpr().struct);
+	    report_info("Obrada ActParametra: "+actParsList.size(), aps);
+	}
+	
+	@Override
+	public void visit(ActPars_list apl) {
+	    actParsList.add(apl.getExpr().struct);
+	    report_info("Obrada ActParametraList: "+actParsList.size(), apl);
+	}
+
 	
 	/* ENUM DECLARATION */
 	
@@ -256,7 +280,76 @@ public class SemAnalyzer extends VisitorAdaptor {
 	}
 	
 	
-	/* CONTEXT CONDITIONS */
+	
+	/* CONTEXT CONDITIONS */ 
+	
+	// CondTerm
+	
+	@Override
+	public void visit(SingleCondition sc) {
+	    sc.struct = sc.getCondTerm().struct;
+	}
+	
+	@Override
+	public void visit(ConditionList c) {
+	    if (!c.getCondition().struct.equals(boolType) || !c.getCondTerm().struct.equals(boolType)) {
+	        report_error("OR nad nebool elementim [CondTermList]", c);
+	        c.struct = Tab.noType;
+	    }
+	    else {
+	        c.struct = boolType;
+	    }
+	}
+	
+	
+	// ConditionFact
+	
+	@Override
+	public void visit(SingleCondTerm sct) {
+		sct.struct = sct.getCondFact().struct;
+	}
+	
+	@Override
+	public void visit(CondTermList cfl) {
+		if(!cfl.getCondTerm().struct.equals(boolType) || !cfl.getCondFact().struct.equals(boolType)) {
+			report_error("AND nad nebool elementim [CondTermList]", cfl);
+			cfl.struct = Tab.noType;
+		}else{
+			cfl.struct = boolType;
+		}
+	}
+	
+	
+	// ConditionFact
+	
+	@Override
+	public void visit(CondFact_relop cfr) {
+		if(!cfr.getTermList().struct.compatibleWith(cfr.getTermList1().struct)) {
+			report_error("Relop nad nekompatabilnim tipovima [CondFact_relop]", cfr);
+			cfr.struct = Tab.noType;
+		}else if(cfr.getTermList().struct.getKind() == Struct.Array){
+			if(!(cfr.getRelop() instanceof Relop_eq) || !(cfr.getRelop() instanceof Relop_neq)) {
+				report_error("Nedozvoljena relop operacija nad nizom.", cfr);
+				cfr.struct = Tab.noType;
+			}else{
+				cfr.struct = boolType;
+			}
+		}else{
+			cfr.struct = boolType;
+		}
+	}
+	
+	
+	@Override
+	public void visit(CondFact_norelop condFact_norelop) {
+		if(!condFact_norelop.getTermList().struct.equals(boolType)) {
+			report_error("CondFact nije boolT [CondFact_norelop]", condFact_norelop);
+			condFact_norelop.struct = Tab.noType;
+		}else {
+			condFact_norelop.struct = boolType;
+		}
+	}
+	
 	
 	// Expr
 	
@@ -267,11 +360,11 @@ public class SemAnalyzer extends VisitorAdaptor {
 	
 	@Override
 	public void visit(Expr_tern expr_tern) {
-		if(expr_tern.getCondition().struct.equals(boolType)) {
+		if(!expr_tern.getCondition().struct.equals(boolType)) {
 			report_error("Uslov u ternarnom operatoru mora biti bool", expr_tern);
 	        expr_tern.struct = Tab.noType;
 		}
-		else if(!expr_tern.getExpr().struct.equals(expr_tern.getExpr1().struct)) {
+		else if(!expr_tern.getExpr().struct.compatibleWith(expr_tern.getExpr1().struct)) {
 			report_error("Tipovi izraza u ternarnom operatoru se ne poklapaju", expr_tern);
 	        expr_tern.struct = Tab.noType;
 		}else {
@@ -350,6 +443,23 @@ public class SemAnalyzer extends VisitorAdaptor {
 	}
 	
 	@Override
+	public void visit(Designator_enum designator_enum) {
+	    Obj enumObj = Tab.find(designator_enum.getI1());
+	    if(enumObj == Tab.noObj) {
+			report_error("Pristup nedefinisanoj promenjivi enum [Designator_enum]: " + designator_enum.getI1(), designator_enum);
+			designator_enum.obj = Tab.noObj;
+	    }
+	    else if(enumObj.getKind()!= Obj.Type  || enumObj.getType().getKind() != Struct.Enum) {
+	    	report_error("Neadekvatna promenjiva za enum: " + designator_enum.getI1(), designator_enum);
+	    	designator_enum.obj = Tab.noObj;
+	    }
+	    else {
+	    	report_info("Obrada designator_enum, enum [Designator_enum]: "+ designator_enum.getI1() , designator_enum);
+	    	designator_enum.obj = enumObj;
+	    }
+	}
+	
+	@Override
 	public void visit(DesignatorArrayName designatorArrayName) {
 		Obj arrObj = Tab.find(designatorArrayName.getI1());
 	    if(arrObj == Tab.noObj) {
@@ -372,11 +482,12 @@ public class SemAnalyzer extends VisitorAdaptor {
 	    	designator_elem.obj = Tab.noObj;
 	 
 	    }
-	    else if(designator_elem.getExpr().struct.equals(Tab.intType)) {
+	    else if(!designator_elem.getExpr().struct.equals(Tab.intType)) {
 	    	report_error("Indeksiranje sa neint vrednoscu [Designator_elem] ", designator_elem);
 	    	designator_elem.obj = Tab.noObj;
 	    }
 	    else {
+	    	report_info("Pristupanje elementu niza", designator_elem);
 	    	designator_elem.obj = new Obj(Obj.Elem,arrObj.getName()+"[$]" , arrObj.getType().getElemType());
 	    }
 	    
@@ -407,11 +518,12 @@ public class SemAnalyzer extends VisitorAdaptor {
 	
 	@Override
 	public void visit(Factor_new_array factor_new_array) {
-		if(factor_new_array.getExpr().struct.equals(Tab.intType)) {
+		if(!factor_new_array.getExpr().struct.equals(Tab.intType)) {
 			report_error("Indeksiranje neint tipom [Factor_new_array]", factor_new_array);
 			factor_new_array.struct = Tab.noType;
 		}
 		else {
+			report_info("Pravljenje novog niza sa new", factor_new_array);
 			factor_new_array.struct = new Struct(Struct.Array, currentType); 
 		}
 	}
@@ -424,30 +536,56 @@ public class SemAnalyzer extends VisitorAdaptor {
 	@Override
 	public void visit(Factor_methnopars factor_methnopars) {
 		Obj metObj = factor_methnopars.getDesignator().obj;
+		
+		
 		if(metObj.getKind() != Obj.Meth) {
 			report_error("Poziv neadekvatne metode: " + factor_methnopars.getDesignator().obj.getKind(), factor_methnopars);
 			factor_methnopars.struct = Tab.noType;
-		}else {
+		}else if(metObj.getLevel() != 0){
+			report_error("Metoda ima parametre [Factor_methnopars]: "+metObj.getName(), factor_methnopars);
+	        factor_methnopars.struct = Tab.noType;
+		}
+		else {
 			report_info("Obrada cvora factor_methnopars, metoda: "+ factor_methnopars.getDesignator().obj.getName(), factor_methnopars);
 			factor_methnopars.struct = metObj.getType();
 		}
-			
 	}
 		
 	
 	@Override
 	public void visit(Factor_methpars factor_methpars) {
 		Obj metObj = factor_methpars.getDesignator().obj;
+		int argNum = actParsList.size();
+		
 		if(metObj.getKind() != Obj.Meth) {
 			report_error("Poziv neadekvatne metode: " + factor_methpars.getDesignator().obj.getName(), factor_methpars);
 			factor_methpars.struct = Tab.noType;
-		}else if (metObj.getLevel() != 0 ) { // != list.size() umesto 0
-	        report_error("Metoda prima parametre [Factor_methpars]", factor_methpars);
+			return;
+		}else if (metObj.getLevel() != argNum ) { // != list.size() umesto 0
+	        report_error("Metoda prima pogresan broj parametara [Factor_methpars]"+actParsList.size() + " umesto "+ metObj.getLevel()+ " metoda "+ metObj.getName(), factor_methpars);
 	        factor_methpars.struct = Tab.noType;
-	    }else {
-			report_info("Obrada cvora factor_methpars, metoda: "+ factor_methpars.getDesignator().obj.getName(), factor_methpars);
-			factor_methpars.struct = metObj.getType();
+	        return;
+	    }
+
+		ArrayList<Obj> formalArgs = new ArrayList<Obj>();
+		int index = 0;
+		
+		for(Obj o : metObj.getLocalSymbols()) {
+			if(o.getFpPos()>0) {
+				Struct actualType = actParsList.get(index);
+				
+				if(!o.getType().compatibleWith(actualType)) {
+					report_error("Metoda prima argument pogresnog tipa, index: "+ index + " metoda "+ metObj.getName(), factor_methpars);
+			        factor_methpars.struct = Tab.noType;
+				}
+				index++;
+			}
 		}
+		
+    	
+		report_info("Obrada cvora factor_methpars, metoda: "+ factor_methpars.getDesignator().obj.getName(), factor_methpars);
+		factor_methpars.struct = metObj.getType();
+	
 	}	
 	
 	

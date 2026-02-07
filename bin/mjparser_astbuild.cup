@@ -105,10 +105,6 @@ nonterminal
 			Statement Statement;
 nonterminal 
 			DesignatorStatement DesignatorStatement;
-nonterminal 
-			CondTerm CondTerm;
-nonterminal 
-			CondFact CondFact;
 nonterminal  
 			Relop Relop;
 nonterminal
@@ -140,7 +136,7 @@ nonterminal
 nonterminal
 			EnumName EnumName;
 
-nonterminal rs.etf.pp1.symboltable.concepts.Struct Condition, Factor, FactorUnar, FactorList, TermList, Term, Expr;
+nonterminal rs.etf.pp1.symboltable.concepts.Struct Condition, CondTerm, CondFact, Factor, FactorUnar, FactorList, TermList, Term, Expr;
 nonterminal rs.etf.pp1.symboltable.concepts.Obj Designator, DesignatorArrayName;
 
 
@@ -349,7 +345,6 @@ Expr ::= (Expr_notern) TermList:T1 {: RESULT=new Expr_notern(T1); RESULT.setLine
 	     (Expr_tern) Condition:C1 QMARK Expr:E2 COL Expr:E3 {: RESULT=new Expr_tern(C1, E2, E3); RESULT.setLine(C1left); :}
 		  ;
 
-/* NonTernaryExpr ::= (NonTernaryExpr) TermList; */
 
 
 TermList ::= (TermList_addop) TermList:T1 Addop:A2 Term:T3 {: RESULT=new TermList_addop(T1, A2, T3); RESULT.setLine(T1left); :}

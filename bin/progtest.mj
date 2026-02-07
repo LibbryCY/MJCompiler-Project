@@ -3,31 +3,32 @@
 program Figi
 
 const int nula = 0;
-const int jedan = 1;
+const int tri = 3;
 
-const bool yes = true;
+const bool yes = true ,no = false;
 
-int a;
+int i;
 char c, z[];
 
 enum Days {MONDAY=1, FRIDAY=10, SUNDAY}
 	
 {
-	void add() int a; int b; int c;
+	int add(int f, int dst) int a; int b; int c;
 	{ 
-		print( yes ? nula : jedan );
+		//print(Days.MONDAY);
+		//print( false ? 5 : 6);
+		//print(new int [3]);
+		
 	}
 	
-	void main()	 int a;
+	int sub(){}
+	
+	void main()
 	{
-		
+		print(add('5',true));
 	}
 		
 	
-	int bet(int fp1, char afp[], char fp2)
-	char name;
-	char surname;
-	{ }
 	
 }
 
