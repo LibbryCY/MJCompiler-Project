@@ -283,6 +283,102 @@ public class SemAnalyzer extends VisitorAdaptor {
 	
 	/* CONTEXT CONDITIONS */ 
 	
+	// DesignatorStatement 
+	
+	@Override
+	public void visit(DesignatorStatement_ass dsAss) {
+		Obj desObj = dsAss.getDesignator().obj;
+		Struct exprType = dsAss.getExpr().struct;
+		
+		if(desObj.getKind()!=Obj.Var && desObj.getKind()!=Obj.Elem)
+		{
+			report_error("Dodela neadekvatnoj promenljivoj" + desObj.getName(), dsAss);
+			return;
+		}
+		if(!exprType.assignableTo(desObj.getType())){
+			report_info("Assign to "+desObj.getName(), dsAss);
+			report_error("Nekompatabilna dodela promenjivi: " + desObj.getType(), dsAss);
+			return;
+		}
+		report_info("Assign to "+desObj.getName(), dsAss);
+
+	}
+	
+	@Override
+	public void visit(DesignatorStatement_inc dsInc) {
+	    Obj desObj = dsInc.getDesignator().obj;
+	    
+	    if(!desObj.getType().equals(Tab.intType)){
+	    	report_error("Inkrement neint vrednosti!", dsInc);
+	    	return;
+	    }
+	    if(desObj.getKind()!=Obj.Var && desObj.getKind()!=Obj.Elem)
+		{
+			report_error("Dodela neadekvatnoj promenljivoj, increment " + desObj.getName(), dsInc);
+		}
+	}
+	
+	@Override
+	public void visit(DesignatorStatement_dec dsDec) {
+	    Obj desObj = dsDec.getDesignator().obj;
+	    
+	    if(!desObj.getType().equals(Tab.intType)){
+	    	report_error("Dekrement neint vrednosti!", dsDec);
+	    	return;
+	    }
+	    if(desObj.getKind()!=Obj.Var && desObj.getKind()!=Obj.Elem)
+		{
+			report_error("Dodela neadekvatnoj promenljivoj, dekrement " + desObj.getName(), dsDec);
+		}
+	    //report_info("Decrement "+desObj.getName(), dsDec);
+	}
+	
+	@Override
+	public void visit(DesignatorStatement_noactpar dsnoact) {
+		Obj metObj = dsnoact.getDesignator().obj;
+		
+		if(metObj.getKind() != Obj.Meth) {
+			report_error("Poziv neadekvatne metode: " + dsnoact.getDesignator().obj.getName(), dsnoact);
+		}else if(metObj.getLevel() != 0){
+			report_error("Metoda ima parametre [DesignatorStatement]: "+metObj.getName(), dsnoact);
+		}
+		else {
+			report_info("Obrada cvora DesignatorStatement_noactpar, metoda: "+ dsnoact.getDesignator().obj.getName(), dsnoact);
+		}
+	}
+		
+	
+	@Override
+	public void visit(DesignatorStatement_actpar dsact) {
+		Obj metObj = dsact.getDesignator().obj;
+		int argNum = actParsList.size();
+		
+		if(metObj.getKind() != Obj.Meth) {
+			report_error("Poziv neadekvatne metode [DesignatorStatement]: " + dsact.getDesignator().obj.getName(), dsact);
+			return;
+		}else if (metObj.getLevel() != argNum ) { // != list.size() umesto 0
+	        report_error("Metoda prima pogresan broj parametara [DesignatorStatement]"+actParsList.size() + " umesto "+ metObj.getLevel()+ " metoda "+ metObj.getName(), dsact);
+	        return;
+	    }
+
+		ArrayList<Obj> formalArgs = new ArrayList<Obj>();
+		int index = 0;
+		
+		for(Obj o : metObj.getLocalSymbols()) {
+			if(o.getFpPos()>0) {
+				Struct actualType = actParsList.get(index);
+				
+				if(!o.getType().compatibleWith(actualType)) {
+					report_error("Metoda prima argument pogresnog tipa, index: "+ index + " metoda "+ metObj.getName(), dsact);
+				}
+				index++;
+			}
+		}
+		
+		report_info("Obrada cvora DesignatorStatement, metoda: "+ dsact.getDesignator().obj.getName(), dsact);
+	}	
+	
+	
 	// CondTerm
 	
 	@Override

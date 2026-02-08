@@ -7,8 +7,9 @@ const int tri = 3;
 
 const bool yes = true ,no = false;
 
-int i;
-char c, z[];
+int in[];
+bool flag;
+char ch, z[];
 
 enum Days {MONDAY=1, FRIDAY=10, SUNDAY}
 	
@@ -18,14 +19,13 @@ enum Days {MONDAY=1, FRIDAY=10, SUNDAY}
 		//print(Days.MONDAY);
 		//print( false ? 5 : 6);
 		//print(new int [3]);
-		
+		ch = ' ';
 	}
 	
 	int sub(){}
 	
 	void main()
 	{
-		print(add('5',true));
 	}
 		
 	
