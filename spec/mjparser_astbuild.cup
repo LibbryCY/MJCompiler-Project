@@ -132,8 +132,6 @@ nonterminal
 nonterminal
 			UnmatchedStatement UnmatchedStatement;
 nonterminal
-			ReturnExpression ReturnExpression;
-nonterminal
 			EnumName EnumName;
 
 nonterminal rs.etf.pp1.symboltable.concepts.Struct Condition, CondTerm, CondFact, Factor, FactorUnar, FactorList, TermList, Term, Expr;
@@ -261,7 +259,9 @@ MatchedStatement ::=  (DesignStatement) DesignatorStatement:D1 SEMI {: RESULT=ne
 					  |
 					  (ContinueStatement) CONTINUE SEMI {: RESULT=new ContinueStatement(); :}
 					  |
-					  (ReturnStatement) RETURN ReturnExpression:R1 SEMI {: RESULT=new ReturnStatement(R1); RESULT.setLine(R1left); :}
+					  (ReturnStatement_expr) RETURN Expr:E1 SEMI {: RESULT=new ReturnStatement_expr(E1); RESULT.setLine(E1left); :}
+					  |
+					  (ReturnStatement_noexpr) RETURN SEMI {: RESULT=new ReturnStatement_noexpr(); :}
 					  |
 					  (ReadStatement) READ LPAREN Designator:D1 RPAREN SEMI {: RESULT=new ReadStatement(D1); RESULT.setLine(D1left); :}
 					  |
@@ -281,10 +281,6 @@ UnmatchedStatement ::= (IfElseStatement_non_else) IF LPAREN Condition:C1 RPAREN 
 					   (IfElseStatement_else) IF LPAREN Condition:C1 RPAREN MatchedStatement:M2 ELSE UnmatchedStatement:U3 {: RESULT=new IfElseStatement_else(C1, M2, U3); RESULT.setLine(C1left); :}
 					   ;
 
-ReturnExpression ::= (ReturnExpression_expr) Expr:E1 {: RESULT=new ReturnExpression_expr(E1); RESULT.setLine(E1left); :}
-					 |
-					 (ReturnExpression_non_expr) {: RESULT=new ReturnExpression_non_expr(); :} /* epsilon */ 
-					 ;
 
 ForDesignatorStatement ::= (ForDesignatorStatement_for) DesignatorStatement:D1 {: RESULT=new ForDesignatorStatement_for(D1); RESULT.setLine(D1left); :}
                            |

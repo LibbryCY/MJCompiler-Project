@@ -1,6 +1,6 @@
 // generated with ast extension for cup
 // version 0.8
-// 6/1/2026 14:36:46
+// 8/1/2026 14:28:49
 
 
 package rs.ac.bg.etf.pp1.ast;
@@ -26,7 +26,6 @@ public abstract class VisitorAdaptor implements Visitor {
     public void visit(CaseStatements CaseStatements) { }
     public void visit(Condition Condition) { }
     public void visit(VarDeclListRec VarDeclListRec) { }
-    public void visit(ReturnExpression ReturnExpression) { }
     public void visit(CaseList CaseList) { }
     public void visit(EnumList EnumList) { }
     public void visit(EnumItem EnumItem) { }
@@ -100,8 +99,6 @@ public abstract class VisitorAdaptor implements Visitor {
     public void visit(ForCondition_for ForCondition_for) { visit(); }
     public void visit(ForDesignatorStatement_e ForDesignatorStatement_e) { visit(); }
     public void visit(ForDesignatorStatement_for ForDesignatorStatement_for) { visit(); }
-    public void visit(ReturnExpression_non_expr ReturnExpression_non_expr) { visit(); }
-    public void visit(ReturnExpression_expr ReturnExpression_expr) { visit(); }
     public void visit(IfElseStatement_else IfElseStatement_else) { visit(); }
     public void visit(IfElseStatement_non_else IfElseStatement_non_else) { visit(); }
     public void visit(RecStatement RecStatement) { visit(); }
@@ -110,7 +107,8 @@ public abstract class VisitorAdaptor implements Visitor {
     public void visit(PrintStatement2 PrintStatement2) { visit(); }
     public void visit(PrintStatement PrintStatement) { visit(); }
     public void visit(ReadStatement ReadStatement) { visit(); }
-    public void visit(ReturnStatement ReturnStatement) { visit(); }
+    public void visit(ReturnStatement_noexpr ReturnStatement_noexpr) { visit(); }
+    public void visit(ReturnStatement_expr ReturnStatement_expr) { visit(); }
     public void visit(ContinueStatement ContinueStatement) { visit(); }
     public void visit(BreakStatement BreakStatement) { visit(); }
     public void visit(IfElseStatement IfElseStatement) { visit(); }

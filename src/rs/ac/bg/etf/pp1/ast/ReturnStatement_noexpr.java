@@ -1,13 +1,13 @@
 // generated with ast extension for cup
 // version 0.8
-// 6/1/2026 14:36:46
+// 8/1/2026 14:28:48
 
 
 package rs.ac.bg.etf.pp1.ast;
 
-public class ReturnExpression_non_expr extends ReturnExpression {
+public class ReturnStatement_noexpr extends MatchedStatement {
 
-    public ReturnExpression_non_expr () {
+    public ReturnStatement_noexpr () {
     }
 
     public void accept(Visitor visitor) {
@@ -28,10 +28,10 @@ public class ReturnExpression_non_expr extends ReturnExpression {
     public String toString(String tab) {
         StringBuffer buffer=new StringBuffer();
         buffer.append(tab);
-        buffer.append("ReturnExpression_non_expr(\n");
+        buffer.append("ReturnStatement_noexpr(\n");
 
         buffer.append(tab);
-        buffer.append(") [ReturnExpression_non_expr]");
+        buffer.append(") [ReturnStatement_noexpr]");
         return buffer.toString();
     }
 }

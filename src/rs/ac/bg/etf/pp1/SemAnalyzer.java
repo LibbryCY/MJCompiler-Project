@@ -22,6 +22,8 @@ public class SemAnalyzer extends VisitorAdaptor {
 	private Obj currentMethod;
 	private Obj currentEnum;
 	private int enumCounter;
+	private int depthLoop;
+	private Boolean returnFound = false;
 	
 	public ArrayList<Struct> actParsList = new ArrayList<>();
 
@@ -146,6 +148,7 @@ public class SemAnalyzer extends VisitorAdaptor {
 	public void visit(MethRetAndName_void methRetAndName_void) {
 		currentMethod = Tab.insert(Obj.Meth, methRetAndName_void.getI1(), Tab.noType);
 		Tab.openScope();
+		returnFound=false;
 		if(methRetAndName_void.getI1().equalsIgnoreCase("main"))
 			mainMethod = currentMethod;
 	}
@@ -154,10 +157,14 @@ public class SemAnalyzer extends VisitorAdaptor {
 	public void visit(MethRetAndName_type methRetAndName_type) {
 		currentMethod = Tab.insert(Obj.Meth, methRetAndName_type.getI2(), currentType);
 		Tab.openScope();
+		returnFound=false;
 	}
 	
 	@Override
 	public void visit(MethodDecl methodDecl) {
+		if(currentMethod.getType() != Tab.noType && !returnFound) {
+			report_error("Nevoid metoda nema return statement: "+currentMethod.getName(), methodDecl);
+		}
 		Tab.chainLocalSymbols(currentMethod);
 		Tab.closeScope();
 		currentMethod = null;
@@ -282,6 +289,63 @@ public class SemAnalyzer extends VisitorAdaptor {
 	
 	
 	/* CONTEXT CONDITIONS */ 
+	
+	// Statements 
+	
+	@Override
+	public void visit(PrintStatement ps) {
+	    Struct exprType = ps.getExpr().struct;
+	    if(!exprType.equals(boolType) 
+	    		&& !exprType.equals(Tab.charType) 
+	    		&& !exprType.equals(Tab.intType)) {
+	    	report_error("Print1 pokusao da printuje neadekvatan tip ", ps);
+	    }
+	}
+
+	@Override
+	public void visit(PrintStatement2 ps) {
+	    Struct exprType = ps.getExpr().struct;
+	    if(!exprType.equals(boolType) 
+	    		&& !exprType.equals(Tab.charType) 
+	    		&& !exprType.equals(Tab.intType)) {
+	    	report_error("Print2 pokusao da printuje neadekvatan tip ", ps);
+	    }
+	}
+	
+	@Override
+	public void visit(ReadStatement rs) {
+	    Obj desObj = rs.getDesignator().obj;
+	    if(!desObj.getType().equals(boolType) 
+	    		&& !desObj.getType().equals(Tab.charType) 
+	    		&& !desObj.getType().equals(Tab.intType)) {
+	    	report_error("Read pokusao da cita neadekvatan tip "+desObj.getName(), rs);
+	    	return;
+	    }
+	    if(desObj.getKind()!=Obj.Var && desObj.getKind()!=Obj.Elem)
+		{
+			report_error("Read neadekvatnoj promenljivoj " + desObj.getName(), rs);
+			return;
+		}
+	}
+	
+	@Override
+	public void visit(ReturnStatement_noexpr rse) {
+		returnFound = true;
+		if(currentMethod.getType() != Tab.noType)
+		{
+			report_error("Metoda " + currentMethod.getName() + " mora imati povratnu vrednost", rse);
+		}
+	}
+	@Override
+	public void visit(ReturnStatement_expr rsn)
+	{
+		if(!rsn.getExpr().struct.equals(currentMethod.getType()))
+				report_error("Povratna vrednost metode " + currentMethod.getName() + " nije odgovarajuceg tipa", rsn);
+		returnFound = true;
+	}
+	
+	
+	
 	
 	// DesignatorStatement 
 	

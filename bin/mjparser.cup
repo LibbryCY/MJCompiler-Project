@@ -95,7 +95,6 @@ nonterminal Program,
 			ForCondition,
 			MatchedStatement,
 			UnmatchedStatement,
-			ReturnExpression,
 			EnumName;
 
 nonterminal rs.etf.pp1.symboltable.concepts.Struct Condition, CondTerm, CondFact, Factor, FactorUnar, FactorList, TermList, Term, Expr;
@@ -223,7 +222,9 @@ MatchedStatement ::=  (DesignStatement) DesignatorStatement SEMI
 					  |
 					  (ContinueStatement) CONTINUE SEMI
 					  |
-					  (ReturnStatement) RETURN ReturnExpression SEMI
+					  (ReturnStatement_expr) RETURN Expr SEMI
+					  |
+					  (ReturnStatement_noexpr) RETURN SEMI
 					  |
 					  (ReadStatement) READ LPAREN Designator RPAREN SEMI
 					  |
@@ -243,10 +244,6 @@ UnmatchedStatement ::= (IfElseStatement_non_else) IF LPAREN Condition RPAREN Sta
 					   (IfElseStatement_else) IF LPAREN Condition RPAREN MatchedStatement ELSE UnmatchedStatement
 					   ;
 
-ReturnExpression ::= (ReturnExpression_expr) Expr
-					 |
-					 (ReturnExpression_non_expr) /* epsilon */ 
-					 ;
 
 ForDesignatorStatement ::= (ForDesignatorStatement_for) DesignatorStatement
                            |
