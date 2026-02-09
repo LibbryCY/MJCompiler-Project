@@ -133,6 +133,10 @@ nonterminal
 			UnmatchedStatement UnmatchedStatement;
 nonterminal
 			EnumName EnumName;
+nonterminal
+			ForStart ForStart;
+nonterminal
+			SwitchStart SwitchStart;
 
 nonterminal rs.etf.pp1.symboltable.concepts.Struct Condition, CondTerm, CondFact, Factor, FactorUnar, FactorList, TermList, Term, Expr;
 nonterminal rs.etf.pp1.symboltable.concepts.Obj Designator, DesignatorArrayName;
@@ -269,9 +273,9 @@ MatchedStatement ::=  (DesignStatement) DesignatorStatement:D1 SEMI {: RESULT=ne
 					  |
 					  (PrintStatement2) PRINT LPAREN Expr:E1 COMMA NUMBER:N2 RPAREN SEMI {: RESULT=new PrintStatement2(E1, N2); RESULT.setLine(E1left); :}
 			  		  |
-					  (SwitchStatement) SWITCH LPAREN Expr:E1 RPAREN LBRACE CaseList:C2 RBRACE {: RESULT=new SwitchStatement(E1, C2); RESULT.setLine(E1left); :}
+					  (SwitchStatement) SwitchStart:S1 LBRACE CaseList:C2 RBRACE {: RESULT=new SwitchStatement(S1, C2); RESULT.setLine(S1left); :}
 					  |
-					  (ForStatement) FOR LPAREN  ForDesignatorStatement:F1 SEMI ForCondition:F2 SEMI ForDesignatorStatement:F3  RPAREN MatchedStatement:M4 {: RESULT=new ForStatement(F1, F2, F3, M4); RESULT.setLine(F1left); :}
+					  (ForStatement) ForStart:F1 LPAREN  ForDesignatorStatement:F2 SEMI ForCondition:F3 SEMI ForDesignatorStatement:F4  RPAREN MatchedStatement:M5 {: RESULT=new ForStatement(F1, F2, F3, F4, M5); RESULT.setLine(F1left); :}
 					  |
 					  (RecStatement) LBRACE StatementList:S1 RBRACE {: RESULT=new RecStatement(S1); RESULT.setLine(S1left); :}
 					  ;
@@ -281,6 +285,9 @@ UnmatchedStatement ::= (IfElseStatement_non_else) IF LPAREN Condition:C1 RPAREN 
 					   (IfElseStatement_else) IF LPAREN Condition:C1 RPAREN MatchedStatement:M2 ELSE UnmatchedStatement:U3 {: RESULT=new IfElseStatement_else(C1, M2, U3); RESULT.setLine(C1left); :}
 					   ;
 
+ForStart ::= (ForStart) FOR {: RESULT=new ForStart(); :};
+
+SwitchStart ::= (SwitchStart) SWITCH LPAREN Expr:E1 RPAREN {: RESULT=new SwitchStart(E1); RESULT.setLine(E1left); :};
 
 ForDesignatorStatement ::= (ForDesignatorStatement_for) DesignatorStatement:D1 {: RESULT=new ForDesignatorStatement_for(D1); RESULT.setLine(D1left); :}
                            |

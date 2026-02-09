@@ -11,25 +11,31 @@ int in[];
 bool flag;
 char ch, z[];
 
-enum Days {MONDAY=1, FRIDAY=10, SUNDAY}
+enum Days {MONDAY=3, FRIDAY=13, SUNDAY}
 	
 {
-	int add(int f, int dst) int a; int b; int c;
+	int add() int a;
 	{ 
-		//print(Days.MONDAY);
-		//print( false ? 5 : 6);
-		//print(new int [3]);
-		ch = ' ';
+		for(a=0;a<2;a++){
+			continue;
+			break;
+		}
+		
 		return a;
 	}
 	
-	void sub(){
-		return;
+	void sub() int ff; Days d;
+	{
+		switch(d){
+			case 0: 
+				print(ch);
+			case 1: 
+				print(eol);
+		}
 	}
 	
 	void main()
 	{
-	
 	}
 		
 	

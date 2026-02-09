@@ -95,7 +95,9 @@ nonterminal Program,
 			ForCondition,
 			MatchedStatement,
 			UnmatchedStatement,
-			EnumName;
+			EnumName,
+			ForStart,
+			SwitchStart;
 
 nonterminal rs.etf.pp1.symboltable.concepts.Struct Condition, CondTerm, CondFact, Factor, FactorUnar, FactorList, TermList, Term, Expr;
 nonterminal rs.etf.pp1.symboltable.concepts.Obj Designator, DesignatorArrayName;
@@ -232,9 +234,9 @@ MatchedStatement ::=  (DesignStatement) DesignatorStatement SEMI
 					  |
 					  (PrintStatement2) PRINT LPAREN Expr COMMA NUMBER RPAREN SEMI
 			  		  |
-					  (SwitchStatement) SWITCH LPAREN Expr RPAREN LBRACE CaseList RBRACE
+					  (SwitchStatement) SwitchStart LBRACE CaseList RBRACE
 					  |
-					  (ForStatement) FOR LPAREN  ForDesignatorStatement SEMI ForCondition SEMI ForDesignatorStatement  RPAREN MatchedStatement
+					  (ForStatement) ForStart LPAREN  ForDesignatorStatement SEMI ForCondition SEMI ForDesignatorStatement  RPAREN MatchedStatement
 					  |
 					  (RecStatement) LBRACE StatementList RBRACE
 					  ;
@@ -244,6 +246,9 @@ UnmatchedStatement ::= (IfElseStatement_non_else) IF LPAREN Condition RPAREN Sta
 					   (IfElseStatement_else) IF LPAREN Condition RPAREN MatchedStatement ELSE UnmatchedStatement
 					   ;
 
+ForStart ::= (ForStart) FOR;
+
+SwitchStart ::= (SwitchStart) SWITCH LPAREN Expr RPAREN;
 
 ForDesignatorStatement ::= (ForDesignatorStatement_for) DesignatorStatement
                            |
