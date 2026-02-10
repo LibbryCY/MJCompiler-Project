@@ -1,0 +1,30 @@
+INFO  20:08:40,289 - Compiling source file: /home/rembrant/EclipseWorkspace3/MJCompiler/test/test301.mj
+INFO  20:08:40,319 - #2 program
+INFO  20:08:40,320 - #48 test301
+INFO  20:08:40,320 - #14 enum
+INFO  20:08:40,320 - #48 Broj
+INFO  20:08:40,320 - #40 {
+INFO  20:08:40,321 - #48 NULA
+INFO  20:08:40,321 - #37 ,
+INFO  20:08:40,321 - #48 JEDAN
+INFO  20:08:40,321 - #37 ,
+INFO  20:08:40,321 - #48 PET
+INFO  20:08:40,321 - #33 =
+INFO  20:08:40,321 - #45 5
+INFO  20:08:40,322 - #37 ,
+INFO  20:08:40,322 - #48 DESET
+INFO  20:08:40,322 - #33 =
+INFO  20:08:40,322 - #45 10
+INFO  20:08:40,322 - #41 }
+INFO  20:08:40,322 - #3 const
+INFO  20:08:40,323 - #48 int
+INFO  20:08:40,323 - #48 nula
+INFO  20:08:40,323 - #33 =
+INFO  20:08:40,323 - #45 0
+INFO  20:08:40,324 - #34 ;
+ERROR 20:08:40,324 - 
+Sintaksna greska na liniji 7
+ERROR 20:08:40,324 - Fatalna greska, parsiranje se ne moze nastaviti na liniji 7
+ERROR 20:08:40,325 - Compilation error
+java.lang.ClassCastException: class rs.ac.bg.etf.pp1.ast.Type cannot be cast to class rs.ac.bg.etf.pp1.ast.Program (rs.ac.bg.etf.pp1.ast.Type and rs.ac.bg.etf.pp1.ast.Program are in unnamed module of loader 'app')
+	at rs.ac.bg.etf.pp1.Compiler.main(Compiler.java:37)

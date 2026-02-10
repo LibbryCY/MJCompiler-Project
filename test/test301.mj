@@ -14,12 +14,16 @@ char nizch[];
 int a;
 	
 {
+	int add()
+	{
+		return a;
+	}
 	void main()	
 		int bodovi;
 		int temp;
 		Broj nula, jedan;
 		bool bt;
-	{
+	{	
 		nula = Broj.NULA;
 		jedan = Broj.JEDAN;
 		bodovi = 0;

@@ -1,0 +1,15 @@
+INFO  20:03:58,861 - Compiling source file: /home/rembrant/EclipseWorkspace3/MJCompiler/test/progtest.mj
+INFO  20:03:58,891 - #2 program
+INFO  20:03:58,891 - #48 testFull
+INFO  20:03:58,891 - #3 const
+INFO  20:03:58,892 - #48 int
+INFO  20:03:58,892 - #48 jedan
+INFO  20:03:58,893 - #33 =
+INFO  20:03:58,893 - #45 1
+INFO  20:03:58,893 - #34 ;
+ERROR 20:03:58,893 - 
+Sintaksna greska na liniji 5
+ERROR 20:03:58,894 - Fatalna greska, parsiranje se ne moze nastaviti na liniji 5
+ERROR 20:03:58,895 - Compilation error
+java.lang.ClassCastException: class rs.ac.bg.etf.pp1.ast.Type cannot be cast to class rs.ac.bg.etf.pp1.ast.Program (rs.ac.bg.etf.pp1.ast.Type and rs.ac.bg.etf.pp1.ast.Program are in unnamed module of loader 'app')
+	at rs.ac.bg.etf.pp1.Compiler.main(Compiler.java:37)
