@@ -1,6 +1,6 @@
 // generated with ast extension for cup
 // version 0.8
-// 9/1/2026 14:16:23
+// 10/1/2026 14:26:10
 
 
 package rs.ac.bg.etf.pp1.ast;
@@ -19,6 +19,7 @@ public abstract class VisitorAdaptor implements Visitor {
     public void visit(FactorUnar FactorUnar) { }
     public void visit(FormParMore FormParMore) { }
     public void visit(Addop Addop) { }
+    public void visit(ConDecList ConDecList) { }
     public void visit(ForCondition ForCondition) { }
     public void visit(CondTerm CondTerm) { }
     public void visit(ConVarDecList ConVarDecList) { }
@@ -83,6 +84,7 @@ public abstract class VisitorAdaptor implements Visitor {
     public void visit(CondTermList CondTermList) { visit(); }
     public void visit(SingleCondition SingleCondition) { visit(); }
     public void visit(ConditionList ConditionList) { visit(); }
+    public void visit(DesignatorStatement_error DesignatorStatement_error) { visit(); }
     public void visit(DesignatorStatement_dec DesignatorStatement_dec) { visit(); }
     public void visit(DesignatorStatement_inc DesignatorStatement_inc) { visit(); }
     public void visit(DesignatorStatement_noactpar DesignatorStatement_noactpar) { visit(); }
@@ -141,10 +143,12 @@ public abstract class VisitorAdaptor implements Visitor {
     public void visit(Constant_b Constant_b) { visit(); }
     public void visit(Constant_c Constant_c) { visit(); }
     public void visit(Constant_n Constant_n) { visit(); }
+    public void visit(MoreConstError MoreConstError) { visit(); }
     public void visit(ConDeclMore_e ConDeclMore_e) { visit(); }
     public void visit(ConDeclMore_comma ConDeclMore_comma) { visit(); }
     public void visit(ConDecl ConDecl) { visit(); }
-    public void visit(ConDecList ConDecList) { visit(); }
+    public void visit(ConDeclList_error ConDeclList_error) { visit(); }
+    public void visit(ConDecList_l ConDecList_l) { visit(); }
     public void visit(EnumItem_ass EnumItem_ass) { visit(); }
     public void visit(EnumItem_var EnumItem_var) { visit(); }
     public void visit(EnumList_item EnumList_item) { visit(); }

@@ -285,7 +285,7 @@ public class SemAnalyzer extends VisitorAdaptor {
 				// report_info("Enum type : "+ currentEnum.getType() + " ,za currEnum
 				// "+currentEnum.getName()+ " , enumItem_var "+enumItem_var.getI1(),
 				// enumItem_var);
-				enumItem = Tab.insert(Obj.Con, enumItem_ass.getI1(), currentEnum.getType());
+				enumItem = Tab.insert(Obj.Con, enumItem_ass.getI1(), Tab.intType);
 				enumItem.setAdr(enumItem_ass.getN2());
 				enumValues.add(enumItem_ass.getN2());
 				enumCounter = enumItem_ass.getN2() + 1;
@@ -404,7 +404,7 @@ public class SemAnalyzer extends VisitorAdaptor {
 
 	@Override
 	public void visit(ForCondition_for fc) {
-		if (fc.getCondition().struct != boolType) {
+		if (!fc.getCondition().struct.equals(boolType)) {
 			report_error("Uslov u for petlji mora biti bool tipa", fc);
 		}
 	}
@@ -418,7 +418,7 @@ public class SemAnalyzer extends VisitorAdaptor {
 	public void visit(SwitchStart ss) {
 		Struct expr = ss.getExpr().struct;
 		depthSwitch++;
-		if (expr != Tab.intType && expr.getKind() != Struct.Enum) {
+		if (!expr.equals(Tab.intType) && expr.getKind() != Struct.Enum) {
 			report_error("Switch izraz mora biti int/char/enum", ss);
 			return;
 		}
@@ -458,7 +458,7 @@ public class SemAnalyzer extends VisitorAdaptor {
 
 	@Override
 	public void visit(CaseStatements_state cs) {
-		report_info("Posecen caseStatement", cs);
+		//report_info("Posecen caseStatement", cs);
 	}
 
 	// DesignatorStatement
@@ -472,12 +472,10 @@ public class SemAnalyzer extends VisitorAdaptor {
 			report_error("Dodela neadekvatnoj promenljivoj" + desObj.getName(), dsAss);
 			return;
 		}
-		if (!exprType.assignableTo(desObj.getType())) {
-			report_info("Assign to " + desObj.getName(), dsAss);
+		if (!exprType.assignableTo(desObj.getType()) ) {
 			report_error("Nekompatabilna dodela promenjivi: " + desObj.getType(), dsAss);
 			return;
 		}
-		report_info("Assign to " + desObj.getName(), dsAss);
 
 	}
 
@@ -493,7 +491,7 @@ public class SemAnalyzer extends VisitorAdaptor {
 			report_error("Dodela neadekvatnoj promenljivoj, increment " + desObj.getName(), dsInc);
 			return;
 		}
-		report_info("Increment " + desObj.getName(), dsInc);
+		//report_info("Increment " + desObj.getName(), dsInc);
 	}
 
 	@Override
@@ -519,7 +517,7 @@ public class SemAnalyzer extends VisitorAdaptor {
 		} else if (metObj.getLevel() != 0) {
 			report_error("Metoda ima parametre [DesignatorStatement]: " + metObj.getName(), dsnoact);
 		} else {
-			report_info("Obrada cvora DesignatorStatement_noactpar, metoda: " + dsnoact.getDesignator().obj.getName(),
+			report_info("Obrada cvora DesignatorStatement_noactpar, poziv metode: " + dsnoact.getDesignator().obj.getName(),
 					dsnoact);
 		}
 	}
@@ -554,7 +552,7 @@ public class SemAnalyzer extends VisitorAdaptor {
 			}
 		}
 		actParsList.clear();
-		report_info("Obrada cvora DesignatorStatement, metoda: " + dsact.getDesignator().obj.getName(), dsact);
+		report_info("Obrada cvora DesignatorStatement, poziv metode: " + dsact.getDesignator().obj.getName(), dsact);
 	}
 
 	// CondTerm
@@ -648,7 +646,7 @@ public class SemAnalyzer extends VisitorAdaptor {
 			report_error("Sabiranje neint tipova [TermList_addop]", tla);
 			tla.struct = Tab.noType;
 		} else {
-			report_info("TermList addop ", tla);
+			//report_info("TermList addop ", tla);
 			tla.struct = Tab.intType;
 		}
 	}
@@ -694,11 +692,11 @@ public class SemAnalyzer extends VisitorAdaptor {
 			report_error("Neadekvatna promenjiva: " + designator_var.getI1(), designator_var);
 			designator_var.obj = Tab.noObj;
 		} else if (varObj.getKind() == Obj.Meth) {
-			report_info("Obrada design_var, metoda [Designator_var]: " + designator_var.getI1() + " varObj.kind: "
+			report_info("Obrada design_var, metoda: " + designator_var.getI1() + " varObj.kind: "
 					+ varObj.getKind(), designator_var);
 			designator_var.obj = varObj;
 		} else {
-			report_info("Obrada design_var, varijabla [Designator_var]: " + designator_var.getI1() + " varObj.kind: "
+			report_info("Obrada design_var, varijabla: " + designator_var.getI1() + " varObj.kind: "
 					+ varObj.getKind(), designator_var);
 			designator_var.obj = varObj;
 		}
@@ -720,32 +718,36 @@ public class SemAnalyzer extends VisitorAdaptor {
 	    }
 	    
 		designator_len.obj = new Obj(Obj.Con, designator_len.getI1()+".length", Tab.intType);
-		report_info("###Napravljen obj "+designator_len.getI1()+".length", designator_len);
 	}
 
 	@Override
 	public void visit(Designator_enum designator_enum) {
 		Obj enumObj = Tab.find(designator_enum.getI1());
 		Boolean found = false;
-		for (Obj o : enumObj.getLocalSymbols()) {
-			if (o.getName().contentEquals(designator_enum.getI2())) {
-				found = true;
-				break;
-			}
-		}
+		
 		if (enumObj == Tab.noObj) {
 			report_error("Pristup nedefinisanoj promenjivi enum [Designator_enum]: " + designator_enum.getI1(),
 					designator_enum);
 			designator_enum.obj = Tab.noObj;
+			return;
 		} else if (enumObj.getKind() != Obj.Type || enumObj.getType().getKind() != Struct.Enum) {
 			report_error("Neadekvatna promenjiva za enum: " + designator_enum.getI1(), designator_enum);
 			designator_enum.obj = Tab.noObj;
-		} else if (!found) {
+			return;
+		} 
+		for (Obj o : enumObj.getLocalSymbols()) {
+			if (o.getName().contentEquals(designator_enum.getI2())) {
+				found = true;
+				designator_enum.obj = o;
+				break;
+			}
+		}
+		if (!found) {
 			report_error("Neadekvatna clan enuma: " + designator_enum.getI2(), designator_enum);
 			designator_enum.obj = Tab.noObj;
 		} else {
-			report_info("Obrada designator_enum, enum [Designator_enum]: " + designator_enum.getI1(), designator_enum);
-			designator_enum.obj = enumObj;
+			//report_info("Obrada designator_enum, enum [Designator_enum]: " + designator_enum.getI1(), designator_enum);
+			//designator_enum.obj = o;
 		}
 	}
 
@@ -768,12 +770,11 @@ public class SemAnalyzer extends VisitorAdaptor {
 		Obj arrObj = designator_elem.getDesignatorArrayName().obj;
 		if (arrObj == Tab.noObj) {
 			designator_elem.obj = Tab.noObj;
-
 		} else if (!designator_elem.getExpr().struct.equals(Tab.intType)) {
 			report_error("Indeksiranje sa neint vrednoscu [Designator_elem] ", designator_elem);
 			designator_elem.obj = Tab.noObj;
 		} else {
-			report_info("Pristupanje elementu niza", designator_elem);
+			report_info("Pristupanje elementu niza "+ arrObj.getName(), designator_elem);
 			designator_elem.obj = new Obj(Obj.Elem, arrObj.getName() + "[$]", arrObj.getType().getElemType());
 		}
 
@@ -798,8 +799,14 @@ public class SemAnalyzer extends VisitorAdaptor {
 
 	@Override
 	public void visit(Factor_des factor_des) {
-		report_info("Factor_des za "+factor_des.getDesignator().obj.getName(), factor_des);
-		factor_des.struct = factor_des.getDesignator().obj.getType();
+		//report_info("Factor_des za "+factor_des.getDesignator().obj.getName(), factor_des);
+		Obj obj = factor_des.getDesignator().obj;
+
+		if(obj == null || obj == Tab.noObj) {
+		    factor_des.struct = Tab.noType;
+		    return;
+		}
+		factor_des.struct = obj.getType();
 	}
 
 	@Override
@@ -808,7 +815,6 @@ public class SemAnalyzer extends VisitorAdaptor {
 			report_error("Indeksiranje neint tipom [Factor_new_array]", factor_new_array);
 			factor_new_array.struct = Tab.noType;
 		} else {
-			report_info("Pravljenje novog niza sa new", factor_new_array);
 			factor_new_array.struct = new Struct(Struct.Array, currentType);
 		}
 	}
@@ -830,7 +836,7 @@ public class SemAnalyzer extends VisitorAdaptor {
 			report_error("Metoda ima parametre [Factor_methnopars]: " + metObj.getName(), factor_methnopars);
 			factor_methnopars.struct = Tab.noType;
 		} else {
-			report_info("Obrada cvora factor_methnopars, metoda: " + factor_methnopars.getDesignator().obj.getName(),
+			report_info("Obrada cvora factor_methnopars, poziv metode: "+ factor_methnopars.getDesignator().obj.getName(),
 					factor_methnopars);
 			factor_methnopars.struct = metObj.getType();
 		}
@@ -868,7 +874,7 @@ public class SemAnalyzer extends VisitorAdaptor {
 			}
 		}
 
-		report_info("Obrada cvora factor_methpars, metoda: " + factor_methpars.getDesignator().obj.getName(),
+		report_info("Obrada cvora factor_methpars, poziv metode: " + factor_methpars.getDesignator().obj.getName(),
 				factor_methpars);
 		factor_methpars.struct = metObj.getType();
 		actParsList.clear();

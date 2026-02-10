@@ -134,13 +134,18 @@ EnumItem ::= (EnumItem_var) IDENT
 				
 /* CONST */
 
-ConDecList ::= (ConDecList) CONST Type ConDecl ConDeclMore SEMI;
+ConDecList ::= (ConDecList_l) CONST Type ConDecl ConDeclMore SEMI
+				| (ConDeclList_error) error :e 
+				{: parser.report_error("Izvrsen oporavak do ; u liniji " + eleft, null); :}
+				;
 
 ConDecl ::= (ConDecl) IDENT ASSIGN Constant;
 
 ConDeclMore ::= (ConDeclMore_comma) COMMA ConDecl ConDeclMore
 				|
 				(ConDeclMore_e) /* epsilon */
+				| (MoreConstError) error COMMA:e 
+				{: parser.report_error("Izvrsen oporavak do , u liniji " + eleft, null); :}
 				;
 
 Constant ::= 	(Constant_n) NUMBER
@@ -285,6 +290,9 @@ DesignatorStatement ::= (DesignatorStatement_ass) Designator Assignop Expr
 						(DesignatorStatement_inc) Designator INC
 						|
 						(DesignatorStatement_dec) Designator DEC
+						|
+						(DesignatorStatement_error) error:e 
+						{: parser.report_error("Oporavak od greske u DesSttmnt.Linija: "+eleft,null); :}
 						;
 
 /* CONDITION */

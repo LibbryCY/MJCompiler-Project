@@ -1,0 +1,30 @@
+INFO  01:15:04,431 - Compiling source file: /home/rembrant/EclipseWorkspace3/MJCompiler/test/progtest.mj
+INFO  01:15:04,489 - #2 program
+INFO  01:15:04,489 - #48 Test
+INFO  01:15:04,489 - #14 enum
+INFO  01:15:04,490 - #48 Days
+INFO  01:15:04,490 - #40 {
+INFO  01:15:04,491 - #48 MONDAY
+INFO  01:15:04,491 - #33 =
+INFO  01:15:04,492 - #45 1
+INFO  01:15:04,492 - #37 ,
+INFO  01:15:04,492 - #48 TUESDAY
+INFO  01:15:04,493 - #37 ,
+INFO  01:15:04,493 - #48 FRIDAY
+INFO  01:15:04,493 - #33 =
+INFO  01:15:04,493 - #45 10
+INFO  01:15:04,493 - #41 }
+INFO  01:15:04,493 - #48 int
+INFO  01:15:04,494 - #48 glob
+INFO  01:15:04,495 - #34 ;
+INFO  01:15:04,497 - #48 bool
+INFO  01:15:04,498 - #48 flag
+INFO  01:15:04,498 - #34 ;
+INFO  01:15:04,498 - #48 int
+INFO  01:15:04,498 - #42 [
+ERROR 01:15:04,498 - 
+Sintaksna greska na liniji 11
+ERROR 01:15:04,498 - Fatalna greska, parsiranje se ne moze nastaviti na liniji 11
+ERROR 01:15:04,500 - Compilation error
+java.lang.ClassCastException: class rs.ac.bg.etf.pp1.ast.Type cannot be cast to class rs.ac.bg.etf.pp1.ast.Program (rs.ac.bg.etf.pp1.ast.Type and rs.ac.bg.etf.pp1.ast.Program are in unnamed module of loader 'app')
+	at rs.ac.bg.etf.pp1.Compiler.main(Compiler.java:37)

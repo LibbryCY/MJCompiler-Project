@@ -173,13 +173,18 @@ EnumItem ::= (EnumItem_var) IDENT:I1 {: RESULT=new EnumItem_var(I1); RESULT.setL
 				
 /* CONST */
 
-ConDecList ::= (ConDecList) CONST Type:T1 ConDecl:C2 ConDeclMore:C3 SEMI {: RESULT=new ConDecList(T1, C2, C3); RESULT.setLine(T1left); :};
+ConDecList ::= (ConDecList_l) CONST Type:T1 ConDecl:C2 ConDeclMore:C3 SEMI {: RESULT=new ConDecList_l(T1, C2, C3); RESULT.setLine(T1left); :}
+				| (ConDeclList_error) error :e 
+				{: parser.report_error("Izvrsen oporavak do ; u liniji " + eleft, null); :} {: RESULT=new ConDeclList_error(); :}
+				;
 
 ConDecl ::= (ConDecl) IDENT:I1 ASSIGN Constant:C2 {: RESULT=new ConDecl(I1, C2); RESULT.setLine(I1left); :};
 
 ConDeclMore ::= (ConDeclMore_comma) COMMA ConDecl:C1 ConDeclMore:C2 {: RESULT=new ConDeclMore_comma(C1, C2); RESULT.setLine(C1left); :}
 				|
 				(ConDeclMore_e) {: RESULT=new ConDeclMore_e(); :} /* epsilon */
+				| (MoreConstError) error COMMA:e 
+				{: parser.report_error("Izvrsen oporavak do , u liniji " + eleft, null); :} {: RESULT=new MoreConstError(); :}
 				;
 
 Constant ::= 	(Constant_n) NUMBER:N1 {: RESULT=new Constant_n(N1); RESULT.setLine(N1left); :}
@@ -324,6 +329,9 @@ DesignatorStatement ::= (DesignatorStatement_ass) Designator:D1 Assignop:A2 Expr
 						(DesignatorStatement_inc) Designator:D1 INC {: RESULT=new DesignatorStatement_inc(D1); RESULT.setLine(D1left); :}
 						|
 						(DesignatorStatement_dec) Designator:D1 DEC {: RESULT=new DesignatorStatement_dec(D1); RESULT.setLine(D1left); :}
+						|
+						(DesignatorStatement_error) error:e 
+						{: parser.report_error("Oporavak od greske u DesSttmnt.Linija: "+eleft,null); :} {: RESULT=new DesignatorStatement_error(); :}
 						;
 
 /* CONDITION */

@@ -1,6 +1,6 @@
 // generated with ast extension for cup
 // version 0.8
-// 9/1/2026 14:16:23
+// 10/1/2026 14:26:10
 
 
 package rs.ac.bg.etf.pp1.ast;
@@ -19,6 +19,7 @@ public interface Visitor {
     public void visit(FactorUnar FactorUnar);
     public void visit(FormParMore FormParMore);
     public void visit(Addop Addop);
+    public void visit(ConDecList ConDecList);
     public void visit(ForCondition ForCondition);
     public void visit(CondTerm CondTerm);
     public void visit(ConVarDecList ConVarDecList);
@@ -83,6 +84,7 @@ public interface Visitor {
     public void visit(CondTermList CondTermList);
     public void visit(SingleCondition SingleCondition);
     public void visit(ConditionList ConditionList);
+    public void visit(DesignatorStatement_error DesignatorStatement_error);
     public void visit(DesignatorStatement_dec DesignatorStatement_dec);
     public void visit(DesignatorStatement_inc DesignatorStatement_inc);
     public void visit(DesignatorStatement_noactpar DesignatorStatement_noactpar);
@@ -141,10 +143,12 @@ public interface Visitor {
     public void visit(Constant_b Constant_b);
     public void visit(Constant_c Constant_c);
     public void visit(Constant_n Constant_n);
+    public void visit(MoreConstError MoreConstError);
     public void visit(ConDeclMore_e ConDeclMore_e);
     public void visit(ConDeclMore_comma ConDeclMore_comma);
     public void visit(ConDecl ConDecl);
-    public void visit(ConDecList ConDecList);
+    public void visit(ConDeclList_error ConDeclList_error);
+    public void visit(ConDecList_l ConDecList_l);
     public void visit(EnumItem_ass EnumItem_ass);
     public void visit(EnumItem_var EnumItem_var);
     public void visit(EnumList_item EnumList_item);

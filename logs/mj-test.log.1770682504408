@@ -1,0 +1,11 @@
+INFO  01:14:12,539 - Compiling source file: /home/rembrant/EclipseWorkspace3/MJCompiler/test/progtest.mj
+INFO  01:14:12,607 - #2 program
+INFO  01:14:12,608 - #48 Test
+INFO  01:14:12,608 - #40 {
+INFO  01:14:12,610 - #14 enum
+ERROR 01:14:12,610 - 
+Sintaksna greska na liniji 3
+ERROR 01:14:12,611 - Fatalna greska, parsiranje se ne moze nastaviti na liniji 3
+ERROR 01:14:12,613 - Compilation error
+java.lang.ClassCastException: class rs.ac.bg.etf.pp1.ast.ConVarDecList_e cannot be cast to class rs.ac.bg.etf.pp1.ast.Program (rs.ac.bg.etf.pp1.ast.ConVarDecList_e and rs.ac.bg.etf.pp1.ast.Program are in unnamed module of loader 'app')
+	at rs.ac.bg.etf.pp1.Compiler.main(Compiler.java:37)

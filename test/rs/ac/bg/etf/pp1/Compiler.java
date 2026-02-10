@@ -27,7 +27,7 @@ public class Compiler {
         Logger log = Logger.getLogger(Compiler.class);
         Reader br = null;
         try {
-            File sourceCode = new File("test/test302.mj");
+            File sourceCode = new File("test/progtest.mj");
             log.info("Compiling source file: " + sourceCode.getAbsolutePath());
             br = new BufferedReader(new FileReader(sourceCode));
             Yylex lexer = new Yylex(br);

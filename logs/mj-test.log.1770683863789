@@ -1,0 +1,46 @@
+INFO  01:15:43,827 - Compiling source file: /home/rembrant/EclipseWorkspace3/MJCompiler/test/progtest.mj
+INFO  01:15:43,893 - #2 program
+INFO  01:15:43,894 - #48 Test
+INFO  01:15:43,894 - #14 enum
+INFO  01:15:43,895 - #48 Days
+INFO  01:15:43,895 - #40 {
+INFO  01:15:43,896 - #48 MONDAY
+INFO  01:15:43,897 - #33 =
+INFO  01:15:43,897 - #45 1
+INFO  01:15:43,897 - #37 ,
+INFO  01:15:43,898 - #48 TUESDAY
+INFO  01:15:43,898 - #37 ,
+INFO  01:15:43,899 - #48 FRIDAY
+INFO  01:15:43,899 - #33 =
+INFO  01:15:43,899 - #45 10
+INFO  01:15:43,899 - #41 }
+INFO  01:15:43,900 - #48 int
+INFO  01:15:43,901 - #48 glob
+INFO  01:15:43,903 - #34 ;
+INFO  01:15:43,904 - #48 bool
+INFO  01:15:43,906 - #48 flag
+INFO  01:15:43,906 - #34 ;
+INFO  01:15:43,906 - #48 int
+INFO  01:15:43,906 - #48 arr
+INFO  01:15:43,906 - #42 [
+INFO  01:15:43,907 - #43 ]
+INFO  01:15:43,907 - #34 ;
+INFO  01:15:43,907 - #40 {
+INFO  01:15:43,908 - #48 int
+INFO  01:15:43,909 - #48 sum
+INFO  01:15:43,909 - #38 (
+INFO  01:15:43,909 - #48 int
+INFO  01:15:43,909 - #48 a
+INFO  01:15:43,909 - #37 ,
+INFO  01:15:43,910 - #48 int
+INFO  01:15:43,910 - #48 b
+INFO  01:15:43,910 - #39 )
+INFO  01:15:43,911 - #40 {
+INFO  01:15:43,912 - #48 int
+INFO  01:15:43,912 - #48 r
+ERROR 01:15:43,913 - 
+Sintaksna greska na liniji 15
+ERROR 01:15:43,913 - Fatalna greska, parsiranje se ne moze nastaviti na liniji 15
+ERROR 01:15:43,915 - Compilation error
+java.lang.ClassCastException: class rs.ac.bg.etf.pp1.ast.StatementList_e cannot be cast to class rs.ac.bg.etf.pp1.ast.Program (rs.ac.bg.etf.pp1.ast.StatementList_e and rs.ac.bg.etf.pp1.ast.Program are in unnamed module of loader 'app')
+	at rs.ac.bg.etf.pp1.Compiler.main(Compiler.java:37)
