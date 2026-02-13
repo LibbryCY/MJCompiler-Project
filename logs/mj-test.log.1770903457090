@@ -1,0 +1,198 @@
+INFO  14:37:03,924 - Compiling source file: /home/rembrant/EclipseWorkspace3/MJCompiler/test/program.mj
+INFO  14:37:03,986 - #2 program
+INFO  14:37:03,987 - #48 testFull
+INFO  14:37:03,987 - #3 const
+INFO  14:37:03,987 - #48 int
+INFO  14:37:03,988 - #48 pi
+INFO  14:37:03,992 - #33 =
+INFO  14:37:03,992 - #45 3
+INFO  14:37:03,992 - #34 ;
+INFO  14:37:03,993 - #48 int
+INFO  14:37:03,994 - #48 i
+INFO  14:37:03,994 - #37 ,
+INFO  14:37:03,994 - #48 j
+INFO  14:37:03,994 - #34 ;
+INFO  14:37:03,995 - #40 {
+INFO  14:37:03,996 - #4 void
+INFO  14:37:03,998 - #48 main
+INFO  14:37:03,998 - #38 (
+INFO  14:37:03,998 - #39 )
+INFO  14:37:03,999 - #48 int
+INFO  14:37:04,000 - #48 a
+INFO  14:37:04,000 - #37 ,
+INFO  14:37:04,001 - #48 b
+INFO  14:37:04,002 - #34 ;
+INFO  14:37:04,002 - #48 char
+INFO  14:37:04,002 - #48 carr
+INFO  14:37:04,002 - #42 [
+INFO  14:37:04,002 - #43 ]
+INFO  14:37:04,002 - #34 ;
+INFO  14:37:04,003 - #40 {
+INFO  14:37:04,003 - #48 a
+INFO  14:37:04,004 - #33 =
+INFO  14:37:04,005 - #45 3
+INFO  14:37:04,007 - #18 +
+INFO  14:37:04,009 - #45 4
+INFO  14:37:04,010 - #20 *
+INFO  14:37:04,010 - #45 5
+INFO  14:37:04,011 - #34 ;
+INFO  14:37:04,012 - #11 print
+INFO  14:37:04,012 - #38 (
+INFO  14:37:04,012 - #48 a
+INFO  14:37:04,013 - #31 ++
+ERROR 14:37:04,013 - 
+Sintaksna greska na liniji 13
+INFO  14:37:04,013 - #39 )
+INFO  14:37:04,013 - #34 ;
+INFO  14:37:04,013 - #41 }
+INFO  14:37:04,014 - #41 }
+ERROR 14:37:04,014 - Oporavak od greske u DesSttmnt.Linija: 4
+INFO  14:37:04,023 - Program(
+  ProgramName(
+   testFull
+  ) [ProgramName]
+  ConVarDecList_con(
+    ConDecList_l(
+      Type(
+       int
+      ) [Type]
+      ConDecl(
+       pi
+        Constant_n(
+         3
+        ) [Constant_n]
+      ) [ConDecl]
+      ConDeclMore_e(
+      ) [ConDeclMore_e]
+    ) [ConDecList_l]
+    ConVarDecList_var(
+      VarDeclList(
+        Type(
+         int
+        ) [Type]
+        VarDecl_var(
+         i
+        ) [VarDecl_var]
+        VarDeclMore_comma(
+          VarDecl_var(
+           j
+          ) [VarDecl_var]
+          VarDeclMore_e(
+          ) [VarDeclMore_e]
+        ) [VarDeclMore_comma]
+      ) [VarDeclList]
+      ConVarDecList_e(
+      ) [ConVarDecList_e]
+    ) [ConVarDecList_var]
+  ) [ConVarDecList_con]
+  MethodDeclList_rec(
+    MethodDeclList_e(
+    ) [MethodDeclList_e]
+    MethodDecl(
+      MethRetAndName_void(
+       main
+      ) [MethRetAndName_void]
+      FormParList_e(
+      ) [FormParList_e]
+      VarDeclListRec_rec(
+        VarDeclListRec_rec(
+          VarDeclListRec_e(
+          ) [VarDeclListRec_e]
+          VarDeclList(
+            Type(
+             int
+            ) [Type]
+            VarDecl_var(
+             a
+            ) [VarDecl_var]
+            VarDeclMore_comma(
+              VarDecl_var(
+               b
+              ) [VarDecl_var]
+              VarDeclMore_e(
+              ) [VarDeclMore_e]
+            ) [VarDeclMore_comma]
+          ) [VarDeclList]
+        ) [VarDeclListRec_rec]
+        VarDeclList(
+          Type(
+           char
+          ) [Type]
+          VarDecl_array(
+           carr
+          ) [VarDecl_array]
+          VarDeclMore_e(
+          ) [VarDeclMore_e]
+        ) [VarDeclList]
+      ) [VarDeclListRec_rec]
+      StatementList_rec(
+        StatementList_rec(
+          StatementList_e(
+          ) [StatementList_e]
+          MatchedStat(
+            DesignStatement(
+              DesignatorStatement_ass(
+                Designator_var(
+                 a
+                ) [Designator_var]
+                Assignop(
+                ) [Assignop]
+                Expr_notern(
+                  TermList_addop(
+                    SingleTerm(
+                      Term(
+                        SingleFactor(
+                          Factor(
+                            Unary_e(
+                            ) [Unary_e]
+                            Factor_n(
+                             3
+                            ) [Factor_n]
+                          ) [Factor]
+                        ) [SingleFactor]
+                      ) [Term]
+                    ) [SingleTerm]
+                    Addop_plus(
+                    ) [Addop_plus]
+                    Term(
+                      FactorList_mulop(
+                        SingleFactor(
+                          Factor(
+                            Unary_e(
+                            ) [Unary_e]
+                            Factor_n(
+                             4
+                            ) [Factor_n]
+                          ) [Factor]
+                        ) [SingleFactor]
+                        Mulop_mul(
+                        ) [Mulop_mul]
+                        Factor(
+                          Unary_e(
+                          ) [Unary_e]
+                          Factor_n(
+                           5
+                          ) [Factor_n]
+                        ) [Factor]
+                      ) [FactorList_mulop]
+                    ) [Term]
+                  ) [TermList_addop]
+                ) [Expr_notern]
+              ) [DesignatorStatement_ass]
+            ) [DesignStatement]
+          ) [MatchedStat]
+        ) [StatementList_rec]
+        MatchedStat(
+          DesignStatement(
+            DesignatorStatement_error(
+            ) [DesignatorStatement_error]
+          ) [DesignStatement]
+        ) [MatchedStat]
+      ) [StatementList_rec]
+    ) [MethodDecl]
+  ) [MethodDeclList_rec]
+) [Program]
+INFO  14:37:04,024 - -------------------------------------------
+INFO  14:37:04,048 - Pristupanje varijabli: a, Obj: 1, 1, 0 na liniji 12
+INFO  14:37:04,048 - ============================================
+ERROR 14:37:04,049 - Parsiranje NIJE uspesno!

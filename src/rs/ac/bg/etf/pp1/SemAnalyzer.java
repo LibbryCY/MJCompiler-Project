@@ -37,9 +37,10 @@ public class SemAnalyzer extends VisitorAdaptor {
 	Stack<HashSet<Integer>> caseValueStack = new Stack<>();
 
 	public ArrayList<Struct> actParsList = new ArrayList<>();
-	
+	int nVars;
+
 	private boolean isIntLike(Struct s) {
-	    return s == Tab.intType || s.getKind() == Struct.Enum;
+		return s == Tab.intType || s.getKind() == Struct.Enum;
 	}
 
 	/* LOG MESSAGES */
@@ -74,6 +75,7 @@ public class SemAnalyzer extends VisitorAdaptor {
 
 	@Override
 	public void visit(Program program) {
+		nVars = Tab.currentScope().getnVars();
 		Tab.chainLocalSymbols(currentProgam);
 		Tab.closeScope();
 		currentProgam = null;
@@ -154,7 +156,7 @@ public class SemAnalyzer extends VisitorAdaptor {
 	/* METHOD DECLARATIONS */
 	@Override
 	public void visit(MethRetAndName_void methRetAndName_void) {
-		currentMethod = Tab.insert(Obj.Meth, methRetAndName_void.getI1(), Tab.noType);
+		methRetAndName_void.obj = currentMethod = Tab.insert(Obj.Meth, methRetAndName_void.getI1(), Tab.noType);
 		Tab.openScope();
 		returnFound = false;
 		if (methRetAndName_void.getI1().equalsIgnoreCase("main"))
@@ -163,7 +165,7 @@ public class SemAnalyzer extends VisitorAdaptor {
 
 	@Override
 	public void visit(MethRetAndName_type methRetAndName_type) {
-		currentMethod = Tab.insert(Obj.Meth, methRetAndName_type.getI2(), currentType);
+		methRetAndName_type.obj = currentMethod = Tab.insert(Obj.Meth, methRetAndName_type.getI2(), currentType);
 		Tab.openScope();
 		returnFound = false;
 	}
@@ -220,13 +222,13 @@ public class SemAnalyzer extends VisitorAdaptor {
 	public void visit(ActPars_single aps) {
 		actParsList.clear();
 		actParsList.add(aps.getExpr().struct);
-		//report_info("Obrada ActParametra: " + actParsList.size(), aps);
+		// report_info("Obrada ActParametra: " + actParsList.size(), aps);
 	}
 
 	@Override
 	public void visit(ActPars_list apl) {
 		actParsList.add(apl.getExpr().struct);
-		//report_info("Obrada ActParametraList: " + actParsList.size(), apl);
+		// report_info("Obrada ActParametraList: " + actParsList.size(), apl);
 	}
 
 	/* ENUM DECLARATION */
@@ -398,7 +400,7 @@ public class SemAnalyzer extends VisitorAdaptor {
 			report_error("Poziv continue izvan FOR petlje", cs);
 			return;
 		}
-		
+
 	}
 
 	@Override
@@ -462,7 +464,7 @@ public class SemAnalyzer extends VisitorAdaptor {
 
 	@Override
 	public void visit(CaseStatements_state cs) {
-		//report_info("Posecen caseStatement", cs);
+		// report_info("Posecen caseStatement", cs);
 	}
 
 	// DesignatorStatement
@@ -476,15 +478,16 @@ public class SemAnalyzer extends VisitorAdaptor {
 			report_error("Dodela neadekvatnoj promenljivoj" + desObj.getName(), dsAss);
 			return;
 		}
-		
+
 		Boolean isAssignable = exprType.assignableTo(desObj.getType())
-		        || (desObj.getType().getKind() == Struct.Enum && exprType == Tab.intType);
+				|| (desObj.getType().getKind() == Struct.Enum && exprType == Tab.intType);
 		if (!isAssignable) {
 			report_error("Nekompatabilna dodela promenjivi: " + desObj.getName(), dsAss);
 			return;
 		}
+		// report_info("DS assign", dsAss);
 
-	}	
+	}
 
 	@Override
 	public void visit(DesignatorStatement_inc dsInc) {
@@ -498,7 +501,7 @@ public class SemAnalyzer extends VisitorAdaptor {
 			report_error("Dodela neadekvatnoj promenljivoj, increment " + desObj.getName(), dsInc);
 			return;
 		}
-		//report_info("Increment " + desObj.getName(), dsInc);
+		// report_info("Increment " + desObj.getName(), dsInc);
 	}
 
 	@Override
@@ -524,9 +527,8 @@ public class SemAnalyzer extends VisitorAdaptor {
 		} else if (metObj.getLevel() != 0) {
 			report_error("Metoda ima parametre [DesignatorStatement]: " + metObj.getName(), dsnoact);
 		} else {
-			report_info("Poziv metode [DS_noactpar]: " + dsnoact.getDesignator().obj.getName()+
-					", Obj: "+metObj.getKind()+", "+metObj.getLevel()+", "+metObj.getAdr(),
-					dsnoact);
+			report_info("Poziv metode [DS_noactpar]: " + dsnoact.getDesignator().obj.getName() + ", Obj: "
+					+ metObj.getKind() + ", " + metObj.getLevel() + ", " + metObj.getAdr(), dsnoact);
 		}
 	}
 
@@ -560,11 +562,15 @@ public class SemAnalyzer extends VisitorAdaptor {
 			}
 		}
 		actParsList.clear();
-		report_info("Poziv metode [DS_actpars]: " + dsact.getDesignator().obj.getName()+
-				", Obj: "+metObj.getKind()+", "+metObj.getLevel()+", "+metObj.getAdr(), dsact);
+		report_info("Poziv metode [DS_actpars]: " + dsact.getDesignator().obj.getName() + ", Obj: " + metObj.getKind()
+				+ ", " + metObj.getLevel() + ", " + metObj.getAdr(), dsact);
 	}
 
 	// CondTerm
+
+	public void visit(TernaryCondition sc) {
+		sc.struct = sc.getCondition().struct;
+	}
 
 	@Override
 	public void visit(SingleCondition sc) {
@@ -630,20 +636,29 @@ public class SemAnalyzer extends VisitorAdaptor {
 	// Expr
 
 	@Override
+	public void visit(TernExpr1 te1) {
+		te1.struct = te1.getExpr().struct;
+	}
+
+	@Override
+	public void visit(TernExpr2 te1) {
+		te1.struct = te1.getExpr().struct;
+	}
+
 	public void visit(Expr_notern expr_notern) {
 		expr_notern.struct = expr_notern.getTermList().struct;
 	}
 
 	@Override
 	public void visit(Expr_tern expr_tern) {
-		if (!expr_tern.getCondition().struct.equals(boolType)) {
+		if (!expr_tern.getTernaryCondition().struct.equals(boolType)) {
 			report_error("Uslov u ternarnom operatoru mora biti bool", expr_tern);
 			expr_tern.struct = Tab.noType;
-		} else if (!expr_tern.getExpr().struct.compatibleWith(expr_tern.getExpr1().struct)) {
+		} else if (!expr_tern.getTernExpr1().struct.compatibleWith(expr_tern.getTernExpr2().struct)) {
 			report_error("Tipovi izraza u ternarnom operatoru se ne poklapaju", expr_tern);
 			expr_tern.struct = Tab.noType;
 		} else {
-			expr_tern.struct = expr_tern.getExpr().struct;
+			expr_tern.struct = expr_tern.getTernExpr1().struct;
 		}
 	}
 
@@ -655,7 +670,7 @@ public class SemAnalyzer extends VisitorAdaptor {
 			report_error("Sabiranje neint tipova [TermList_addop]", tla);
 			tla.struct = Tab.noType;
 		} else {
-			//report_info("TermList addop ", tla);
+			// report_info("TermList addop ", tla);
 			tla.struct = Tab.intType;
 		}
 	}
@@ -681,8 +696,7 @@ public class SemAnalyzer extends VisitorAdaptor {
 
 	@Override
 	public void visit(FactorList_mulop flm) {
-		if (!isIntLike(flm.getFactorList().struct) 
-				 || !isIntLike(flm.getFactor().struct)) {
+		if (!isIntLike(flm.getFactorList().struct) || !isIntLike(flm.getFactor().struct)) {
 			report_error("Mnozenje neint tipova [FactorList_mulop]", flm);
 			flm.struct = Tab.noType;
 		} else {
@@ -702,39 +716,42 @@ public class SemAnalyzer extends VisitorAdaptor {
 			report_error("Neadekvatna promenjiva: " + designator_var.getI1(), designator_var);
 			designator_var.obj = Tab.noObj;
 		} else if (varObj.getKind() == Obj.Meth) {
-			report_info("Obrada design_var, metoda: " + designator_var.getI1() + 
-					", Obj: "+varObj.getKind()+", "+varObj.getLevel()+", "+varObj.getAdr(), designator_var);
+			report_info("Obrada design_var, metoda: " + designator_var.getI1() + ", Obj: " + varObj.getKind() + ", "
+					+ varObj.getLevel() + ", " + varObj.getAdr(), designator_var);
 			designator_var.obj = varObj;
 		} else {
-			report_info("Pristupanje varijabli: " + designator_var.getI1() + 
-					", Obj: "+varObj.getKind()+", "+varObj.getLevel()+", "+varObj.getAdr(), designator_var);
+			report_info("Pristupanje varijabli: " + designator_var.getI1() + ", Obj: " + varObj.getKind() + ", "
+					+ varObj.getLevel() + ", " + varObj.getAdr(), designator_var);
 			designator_var.obj = varObj;
 		}
 	}
-	
+
 	@Override
 	public void visit(Designator_len designator_len) {
-		Obj arrObj =Tab.find(designator_len.getI1());
+		Obj arrObj = Tab.find(designator_len.getI1());
 
-	    if(arrObj == Tab.noObj) {
-	        designator_len.obj = Tab.noObj;
-	        report_error("Poziv .lenght nad nepostojecim nizom", designator_len);
-	        return;
-	    }
-	    if(arrObj.getType().getKind() != Struct.Array) {
-	        designator_len.obj = Tab.noObj;
-	        report_error("Poziv .lenght nad nenizovskom promenjivom", designator_len);
-	        return;
-	    }
-	    
-		designator_len.obj = new Obj(Obj.Con, designator_len.getI1()+".length", Tab.intType);
+		if (arrObj == Tab.noObj) {
+			designator_len.obj = Tab.noObj;
+			report_error("Poziv .lenght nad nepostojecim nizom", designator_len);
+			return;
+		}
+		if (arrObj.getType().getKind() != Struct.Array) {
+			designator_len.obj = Tab.noObj;
+			report_error("Poziv .lenght nad nenizovskom promenjivom", designator_len);
+			return;
+		}
+
+		designator_len.obj = new Obj(Obj.Var, designator_len.getI1() + ".length", Tab.intType);
+		designator_len.obj.setAdr(arrObj.getAdr());
+		designator_len.obj.setLevel(arrObj.getLevel());
+		// designator_len.obj = arrObj;
 	}
 
 	@Override
 	public void visit(Designator_enum designator_enum) {
 		Obj enumObj = Tab.find(designator_enum.getI1());
 		Boolean found = false;
-		
+
 		if (enumObj == Tab.noObj) {
 			report_error("Pristup nedefinisanoj promenjivi enum [Designator_enum]: " + designator_enum.getI1(),
 					designator_enum);
@@ -744,7 +761,7 @@ public class SemAnalyzer extends VisitorAdaptor {
 			report_error("Neadekvatna promenjiva za enum: " + designator_enum.getI1(), designator_enum);
 			designator_enum.obj = Tab.noObj;
 			return;
-		} 
+		}
 		for (Obj o : enumObj.getLocalSymbols()) {
 			if (o.getName().contentEquals(designator_enum.getI2())) {
 				found = true;
@@ -756,8 +773,9 @@ public class SemAnalyzer extends VisitorAdaptor {
 			report_error("Neadekvatna clan enuma: " + designator_enum.getI2(), designator_enum);
 			designator_enum.obj = Tab.noObj;
 		} else {
-			//report_info("Obrada designator_enum, enum [Designator_enum]: " + designator_enum.getI1(), designator_enum);
-			//designator_enum.obj = o;
+			// report_info("Obrada designator_enum, enum [Designator_enum]: " +
+			// designator_enum.getI1(), designator_enum);
+			// designator_enum.obj = o;
 		}
 	}
 
@@ -784,8 +802,8 @@ public class SemAnalyzer extends VisitorAdaptor {
 			report_error("Indeksiranje sa neint vrednoscu [Designator_elem] ", designator_elem);
 			designator_elem.obj = Tab.noObj;
 		} else {
-			report_info("Pristupanje elementu niza "+ arrObj.getName()+
-					", Obj: "+arrObj.getKind()+", "+arrObj.getLevel()+", "+arrObj.getAdr(), designator_elem);
+			report_info("Pristupanje elementu niza " + arrObj.getName() + ", Obj: " + arrObj.getKind() + ", "
+					+ arrObj.getLevel() + ", " + arrObj.getAdr(), designator_elem);
 			designator_elem.obj = new Obj(Obj.Elem, arrObj.getName() + "[$]", arrObj.getType().getElemType());
 		}
 	}
@@ -809,18 +827,19 @@ public class SemAnalyzer extends VisitorAdaptor {
 
 	@Override
 	public void visit(Factor_des factor_des) {
-		//report_info("Factor_des za "+factor_des.getDesignator().obj.getName(), factor_des);
+		// report_info("Factor_des za "+factor_des.getDesignator().obj.getName(),
+		// factor_des);
 		Obj obj = factor_des.getDesignator().obj;
 
-		if(obj == null || obj == Tab.noObj) {
-		    factor_des.struct = Tab.noType;
-		    return;
+		if (obj == null || obj == Tab.noObj) {
+			factor_des.struct = Tab.noType;
+			return;
 		}
 		if (obj.getKind() == Obj.Meth) {
-	        report_error("Funkcija mora biti pozvana", factor_des);
-	        factor_des.struct = Tab.noType;
-	        return;
-	    }
+			report_error("Funkcija mora biti pozvana", factor_des);
+			factor_des.struct = Tab.noType;
+			return;
+		}
 		factor_des.struct = obj.getType();
 	}
 
@@ -851,9 +870,8 @@ public class SemAnalyzer extends VisitorAdaptor {
 			report_error("Metoda ima parametre [Factor_methnopars]: " + metObj.getName(), factor_methnopars);
 			factor_methnopars.struct = Tab.noType;
 		} else {
-			report_info("Poziv metode: "+ factor_methnopars.getDesignator().obj.getName()+
-					", Obj: "+metObj.getKind()+", "+metObj.getLevel()+", "+metObj.getAdr(),
-					factor_methnopars);
+			report_info("Poziv metode: " + factor_methnopars.getDesignator().obj.getName() + ", Obj: "
+					+ metObj.getKind() + ", " + metObj.getLevel() + ", " + metObj.getAdr(), factor_methnopars);
 			factor_methnopars.struct = metObj.getType();
 		}
 	}
@@ -890,9 +908,8 @@ public class SemAnalyzer extends VisitorAdaptor {
 			}
 		}
 
-		report_info("Poziv metode: " + factor_methpars.getDesignator().obj.getName()+
-				", Obj: "+metObj.getKind()+", "+metObj.getLevel()+", "+metObj.getAdr(),
-				factor_methpars);
+		report_info("Poziv metode: " + factor_methpars.getDesignator().obj.getName() + ", Obj: " + metObj.getKind()
+				+ ", " + metObj.getLevel() + ", " + metObj.getAdr(), factor_methpars);
 		factor_methpars.struct = metObj.getType();
 		actParsList.clear();
 
@@ -919,11 +936,11 @@ public class SemAnalyzer extends VisitorAdaptor {
 		Obj typeObj = Tab.find(type.getI1());
 		if (typeObj == Tab.noObj) {
 			report_error("Nepostojeci tip podatka: " + type.getI1(), type);
-			currentType = Tab.noType;
+			type.struct = currentType = Tab.noType;
 		} else if (typeObj.getKind() != Obj.Type) {
 			report_error("Neadekvatan tip podatka: " + type.getI1(), type);
-			currentType = Tab.noType;
+			type.struct = currentType = Tab.noType;
 		} else
-			currentType = typeObj.getType();
+			type.struct = currentType = typeObj.getType();
 	}
 }

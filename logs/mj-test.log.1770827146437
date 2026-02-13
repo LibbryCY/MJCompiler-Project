@@ -1,0 +1,106 @@
+INFO  17:24:37,984 - Compiling source file: /home/rembrant/EclipseWorkspace3/MJCompiler/test/program.mj
+INFO  17:24:38,021 - #2 program
+INFO  17:24:38,021 - #48 testFull
+INFO  17:24:38,021 - #3 const
+INFO  17:24:38,022 - #48 int
+INFO  17:24:38,022 - #48 pi
+INFO  17:24:38,022 - #33 =
+INFO  17:24:38,022 - #45 3
+INFO  17:24:38,023 - #34 ;
+INFO  17:24:38,023 - #48 int
+INFO  17:24:38,024 - #48 i
+INFO  17:24:38,024 - #37 ,
+INFO  17:24:38,024 - #48 j
+INFO  17:24:38,024 - #34 ;
+INFO  17:24:38,025 - #40 {
+INFO  17:24:38,026 - #4 void
+INFO  17:24:38,026 - #48 main
+INFO  17:24:38,026 - #38 (
+INFO  17:24:38,026 - #39 )
+INFO  17:24:38,027 - #40 {
+INFO  17:24:38,027 - #11 print
+INFO  17:24:38,028 - #38 (
+INFO  17:24:38,028 - #47 a
+INFO  17:24:38,028 - #39 )
+INFO  17:24:38,029 - #34 ;
+INFO  17:24:38,030 - #41 }
+INFO  17:24:38,030 - #41 }
+INFO  17:24:38,036 - Program(
+  ProgramName(
+   testFull
+  ) [ProgramName]
+  ConVarDecList_con(
+    ConDecList_l(
+      Type(
+       int
+      ) [Type]
+      ConDecl(
+       pi
+        Constant_n(
+         3
+        ) [Constant_n]
+      ) [ConDecl]
+      ConDeclMore_e(
+      ) [ConDeclMore_e]
+    ) [ConDecList_l]
+    ConVarDecList_var(
+      VarDeclList(
+        Type(
+         int
+        ) [Type]
+        VarDecl_var(
+         i
+        ) [VarDecl_var]
+        VarDeclMore_comma(
+          VarDecl_var(
+           j
+          ) [VarDecl_var]
+          VarDeclMore_e(
+          ) [VarDeclMore_e]
+        ) [VarDeclMore_comma]
+      ) [VarDeclList]
+      ConVarDecList_e(
+      ) [ConVarDecList_e]
+    ) [ConVarDecList_var]
+  ) [ConVarDecList_con]
+  MethodDeclList_rec(
+    MethodDeclList_e(
+    ) [MethodDeclList_e]
+    MethodDecl(
+      MethRetAndName_void(
+       main
+      ) [MethRetAndName_void]
+      FormParList_e(
+      ) [FormParList_e]
+      VarDeclListRec_e(
+      ) [VarDeclListRec_e]
+      StatementList_rec(
+        StatementList_e(
+        ) [StatementList_e]
+        MatchedStat(
+          PrintStatement(
+            Expr_notern(
+              SingleTerm(
+                Term(
+                  SingleFactor(
+                    Factor(
+                      Unary_e(
+                      ) [Unary_e]
+                      Factor_c(
+                       a
+                      ) [Factor_c]
+                    ) [Factor]
+                  ) [SingleFactor]
+                ) [Term]
+              ) [SingleTerm]
+            ) [Expr_notern]
+          ) [PrintStatement]
+        ) [MatchedStat]
+      ) [StatementList_rec]
+    ) [MethodDecl]
+  ) [MethodDeclList_rec]
+) [Program]
+INFO  17:24:38,036 - -------------------------------------------
+INFO  17:24:38,043 - ============================================
+INFO  17:24:38,044 - Generating bytecode file: /home/rembrant/EclipseWorkspace3/MJCompiler/test/program.obj
+INFO  17:24:38,046 - Parsiranje uspesno zavrseno!

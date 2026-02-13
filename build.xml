@@ -6,6 +6,7 @@
 			<fileset dir="src/rs/ac/bg/etf/pp1">
 				<exclude name="sym.java"/>
 				<exclude name="SemAnalyzer.java"/>
+				<exclude name="CodeGenerator.java"/>
 				<exclude name="util/Log4JUtils.java"/>
 			</fileset>
 		</delete>
@@ -51,4 +52,31 @@
 		</javac>
 	</target>
 	
+
+	<target name="disasm">
+		<java classname="rs.etf.pp1.mj.runtime.disasm">
+			<arg value="test/program.obj"/>
+			<classpath>
+				<pathelement path="lib/mj-runtime-1.1.jar"/>
+			</classpath>
+		</java>
+	</target>
+	
+	<target name="runObj" depends="debugObj" >
+		<java classname="rs.etf.pp1.mj.runtime.Run" input="test/input.txt">
+			<arg value="test/program.obj"/>
+			<classpath>
+				<pathelement path="lib/mj-runtime-1.1.jar"/>
+			</classpath>
+		</java>
+	</target>
+	<target name="debugObj" depends="disasm" >
+			<java classname="rs.etf.pp1.mj.runtime.Run" input="test/input.txt">
+				<arg value="test/program.obj"/>
+				<arg value="-debug"/>
+				<classpath>
+					<pathelement path="lib/mj-runtime-1.1.jar"/>
+				</classpath>
+			</java>
+		</target>
 </project>

@@ -1,0 +1,109 @@
+INFO  14:12:14,577 - Compiling source file: /home/rembrant/EclipseWorkspace3/MJCompiler/test/program.mj
+INFO  14:12:14,610 - #2 program
+INFO  14:12:14,610 - #48 testFull
+INFO  14:12:14,610 - #3 const
+INFO  14:12:14,611 - #48 int
+INFO  14:12:14,611 - #48 pi
+INFO  14:12:14,612 - #33 =
+INFO  14:12:14,612 - #45 3
+INFO  14:12:14,612 - #34 ;
+INFO  14:12:14,613 - #48 int
+INFO  14:12:14,614 - #48 i
+INFO  14:12:14,614 - #37 ,
+INFO  14:12:14,614 - #48 j
+INFO  14:12:14,614 - #34 ;
+INFO  14:12:14,615 - #40 {
+INFO  14:12:14,616 - #4 void
+INFO  14:12:14,616 - #48 main
+INFO  14:12:14,617 - #38 (
+INFO  14:12:14,617 - #39 )
+INFO  14:12:14,617 - #40 {
+INFO  14:12:14,618 - #11 print
+INFO  14:12:14,618 - #38 (
+INFO  14:12:14,618 - #48 pi
+INFO  14:12:14,619 - #39 )
+INFO  14:12:14,620 - #34 ;
+INFO  14:12:14,620 - #41 }
+INFO  14:12:14,621 - #41 }
+INFO  14:12:14,626 - Program(
+  ProgramName(
+   testFull
+  ) [ProgramName]
+  ConVarDecList_con(
+    ConDecList_l(
+      Type(
+       int
+      ) [Type]
+      ConDecl(
+       pi
+        Constant_n(
+         3
+        ) [Constant_n]
+      ) [ConDecl]
+      ConDeclMore_e(
+      ) [ConDeclMore_e]
+    ) [ConDecList_l]
+    ConVarDecList_var(
+      VarDeclList(
+        Type(
+         int
+        ) [Type]
+        VarDecl_var(
+         i
+        ) [VarDecl_var]
+        VarDeclMore_comma(
+          VarDecl_var(
+           j
+          ) [VarDecl_var]
+          VarDeclMore_e(
+          ) [VarDeclMore_e]
+        ) [VarDeclMore_comma]
+      ) [VarDeclList]
+      ConVarDecList_e(
+      ) [ConVarDecList_e]
+    ) [ConVarDecList_var]
+  ) [ConVarDecList_con]
+  MethodDeclList_rec(
+    MethodDeclList_e(
+    ) [MethodDeclList_e]
+    MethodDecl(
+      MethRetAndName_void(
+       main
+      ) [MethRetAndName_void]
+      FormParList_e(
+      ) [FormParList_e]
+      VarDeclListRec_e(
+      ) [VarDeclListRec_e]
+      StatementList_rec(
+        StatementList_e(
+        ) [StatementList_e]
+        MatchedStat(
+          PrintStatement(
+            Expr_notern(
+              SingleTerm(
+                Term(
+                  SingleFactor(
+                    Factor(
+                      Unary_e(
+                      ) [Unary_e]
+                      Factor_des(
+                        Designator_var(
+                         pi
+                        ) [Designator_var]
+                      ) [Factor_des]
+                    ) [Factor]
+                  ) [SingleFactor]
+                ) [Term]
+              ) [SingleTerm]
+            ) [Expr_notern]
+          ) [PrintStatement]
+        ) [MatchedStat]
+      ) [StatementList_rec]
+    ) [MethodDecl]
+  ) [MethodDeclList_rec]
+) [Program]
+INFO  14:12:14,626 - -------------------------------------------
+INFO  14:12:14,644 - Pristupanje varijabli: pi, Obj: 0, 0, 3 na liniji 14
+INFO  14:12:14,645 - ============================================
+INFO  14:12:14,646 - Generating bytecode file: /home/rembrant/EclipseWorkspace3/MJCompiler/test/program.obj
+INFO  14:12:14,647 - Parsiranje uspesno zavrseno!

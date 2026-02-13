@@ -1,0 +1,409 @@
+INFO  17:31:49,356 - Compiling source file: /home/rembrant/EclipseWorkspace3/MJCompiler/test/program.mj
+INFO  17:31:49,427 - #2 program
+INFO  17:31:49,428 - #48 testFull
+INFO  17:31:49,428 - #3 const
+INFO  17:31:49,429 - #48 int
+INFO  17:31:49,430 - #48 pi
+INFO  17:31:49,431 - #33 =
+INFO  17:31:49,431 - #45 3
+INFO  17:31:49,431 - #34 ;
+INFO  17:31:49,433 - #48 int
+INFO  17:31:49,433 - #48 i
+INFO  17:31:49,434 - #37 ,
+INFO  17:31:49,434 - #48 j
+INFO  17:31:49,434 - #34 ;
+INFO  17:31:49,435 - #40 {
+INFO  17:31:49,436 - #4 void
+INFO  17:31:49,437 - #48 main
+INFO  17:31:49,437 - #38 (
+INFO  17:31:49,437 - #39 )
+INFO  17:31:49,438 - #48 int
+INFO  17:31:49,439 - #48 a
+INFO  17:31:49,439 - #37 ,
+INFO  17:31:49,439 - #48 b
+INFO  17:31:49,440 - #34 ;
+INFO  17:31:49,440 - #48 char
+INFO  17:31:49,440 - #48 carr
+INFO  17:31:49,440 - #42 [
+INFO  17:31:49,440 - #43 ]
+INFO  17:31:49,440 - #34 ;
+INFO  17:31:49,441 - #48 int
+INFO  17:31:49,441 - #48 arr
+INFO  17:31:49,441 - #42 [
+INFO  17:31:49,441 - #43 ]
+INFO  17:31:49,441 - #34 ;
+INFO  17:31:49,441 - #40 {
+INFO  17:31:49,442 - #11 print
+INFO  17:31:49,443 - #38 (
+INFO  17:31:49,443 - #46 1
+INFO  17:31:49,445 - #44 ?
+INFO  17:31:49,447 - #45 1
+INFO  17:31:49,448 - #36 :
+INFO  17:31:49,449 - #45 2
+INFO  17:31:49,449 - #39 )
+INFO  17:31:49,451 - #34 ;
+INFO  17:31:49,451 - #11 print
+INFO  17:31:49,452 - #38 (
+INFO  17:31:49,452 - #46 0
+INFO  17:31:49,452 - #44 ?
+INFO  17:31:49,452 - #45 1
+INFO  17:31:49,452 - #36 :
+INFO  17:31:49,453 - #45 2
+INFO  17:31:49,453 - #39 )
+INFO  17:31:49,453 - #34 ;
+INFO  17:31:49,453 - #11 print
+INFO  17:31:49,453 - #38 (
+INFO  17:31:49,453 - #45 13
+INFO  17:31:49,454 - #25 >
+INFO  17:31:49,454 - #48 pi
+INFO  17:31:49,455 - #44 ?
+INFO  17:31:49,456 - #45 1
+INFO  17:31:49,456 - #18 +
+INFO  17:31:49,457 - #45 10
+INFO  17:31:49,458 - #36 :
+INFO  17:31:49,459 - #45 2
+INFO  17:31:49,459 - #18 +
+INFO  17:31:49,459 - #48 pi
+INFO  17:31:49,459 - #39 )
+INFO  17:31:49,460 - #34 ;
+INFO  17:31:49,460 - #41 }
+INFO  17:31:49,460 - #41 }
+INFO  17:31:49,474 - Program(
+  ProgramName(
+   testFull
+  ) [ProgramName]
+  ConVarDecList_con(
+    ConDecList_l(
+      Type(
+       int
+      ) [Type]
+      ConDecl(
+       pi
+        Constant_n(
+         3
+        ) [Constant_n]
+      ) [ConDecl]
+      ConDeclMore_e(
+      ) [ConDeclMore_e]
+    ) [ConDecList_l]
+    ConVarDecList_var(
+      VarDeclList(
+        Type(
+         int
+        ) [Type]
+        VarDecl_var(
+         i
+        ) [VarDecl_var]
+        VarDeclMore_comma(
+          VarDecl_var(
+           j
+          ) [VarDecl_var]
+          VarDeclMore_e(
+          ) [VarDeclMore_e]
+        ) [VarDeclMore_comma]
+      ) [VarDeclList]
+      ConVarDecList_e(
+      ) [ConVarDecList_e]
+    ) [ConVarDecList_var]
+  ) [ConVarDecList_con]
+  MethodDeclList_rec(
+    MethodDeclList_e(
+    ) [MethodDeclList_e]
+    MethodDecl(
+      MethRetAndName_void(
+       main
+      ) [MethRetAndName_void]
+      FormParList_e(
+      ) [FormParList_e]
+      VarDeclListRec_rec(
+        VarDeclListRec_rec(
+          VarDeclListRec_rec(
+            VarDeclListRec_e(
+            ) [VarDeclListRec_e]
+            VarDeclList(
+              Type(
+               int
+              ) [Type]
+              VarDecl_var(
+               a
+              ) [VarDecl_var]
+              VarDeclMore_comma(
+                VarDecl_var(
+                 b
+                ) [VarDecl_var]
+                VarDeclMore_e(
+                ) [VarDeclMore_e]
+              ) [VarDeclMore_comma]
+            ) [VarDeclList]
+          ) [VarDeclListRec_rec]
+          VarDeclList(
+            Type(
+             char
+            ) [Type]
+            VarDecl_array(
+             carr
+            ) [VarDecl_array]
+            VarDeclMore_e(
+            ) [VarDeclMore_e]
+          ) [VarDeclList]
+        ) [VarDeclListRec_rec]
+        VarDeclList(
+          Type(
+           int
+          ) [Type]
+          VarDecl_array(
+           arr
+          ) [VarDecl_array]
+          VarDeclMore_e(
+          ) [VarDeclMore_e]
+        ) [VarDeclList]
+      ) [VarDeclListRec_rec]
+      StatementList_rec(
+        StatementList_rec(
+          StatementList_rec(
+            StatementList_e(
+            ) [StatementList_e]
+            MatchedStat(
+              PrintStatement(
+                Expr_tern(
+                  TernaryCondition(
+                    SingleCondition(
+                      SingleCondTerm(
+                        CondFact_norelop(
+                          SingleTerm(
+                            Term(
+                              SingleFactor(
+                                Factor(
+                                  Unary_e(
+                                  ) [Unary_e]
+                                  Factor_b(
+                                   1
+                                  ) [Factor_b]
+                                ) [Factor]
+                              ) [SingleFactor]
+                            ) [Term]
+                          ) [SingleTerm]
+                        ) [CondFact_norelop]
+                      ) [SingleCondTerm]
+                    ) [SingleCondition]
+                  ) [TernaryCondition]
+                  TernExpr1(
+                    Expr_notern(
+                      SingleTerm(
+                        Term(
+                          SingleFactor(
+                            Factor(
+                              Unary_e(
+                              ) [Unary_e]
+                              Factor_n(
+                               1
+                              ) [Factor_n]
+                            ) [Factor]
+                          ) [SingleFactor]
+                        ) [Term]
+                      ) [SingleTerm]
+                    ) [Expr_notern]
+                  ) [TernExpr1]
+                  TernExpr2(
+                    Expr_notern(
+                      SingleTerm(
+                        Term(
+                          SingleFactor(
+                            Factor(
+                              Unary_e(
+                              ) [Unary_e]
+                              Factor_n(
+                               2
+                              ) [Factor_n]
+                            ) [Factor]
+                          ) [SingleFactor]
+                        ) [Term]
+                      ) [SingleTerm]
+                    ) [Expr_notern]
+                  ) [TernExpr2]
+                ) [Expr_tern]
+              ) [PrintStatement]
+            ) [MatchedStat]
+          ) [StatementList_rec]
+          MatchedStat(
+            PrintStatement(
+              Expr_tern(
+                TernaryCondition(
+                  SingleCondition(
+                    SingleCondTerm(
+                      CondFact_norelop(
+                        SingleTerm(
+                          Term(
+                            SingleFactor(
+                              Factor(
+                                Unary_e(
+                                ) [Unary_e]
+                                Factor_b(
+                                 0
+                                ) [Factor_b]
+                              ) [Factor]
+                            ) [SingleFactor]
+                          ) [Term]
+                        ) [SingleTerm]
+                      ) [CondFact_norelop]
+                    ) [SingleCondTerm]
+                  ) [SingleCondition]
+                ) [TernaryCondition]
+                TernExpr1(
+                  Expr_notern(
+                    SingleTerm(
+                      Term(
+                        SingleFactor(
+                          Factor(
+                            Unary_e(
+                            ) [Unary_e]
+                            Factor_n(
+                             1
+                            ) [Factor_n]
+                          ) [Factor]
+                        ) [SingleFactor]
+                      ) [Term]
+                    ) [SingleTerm]
+                  ) [Expr_notern]
+                ) [TernExpr1]
+                TernExpr2(
+                  Expr_notern(
+                    SingleTerm(
+                      Term(
+                        SingleFactor(
+                          Factor(
+                            Unary_e(
+                            ) [Unary_e]
+                            Factor_n(
+                             2
+                            ) [Factor_n]
+                          ) [Factor]
+                        ) [SingleFactor]
+                      ) [Term]
+                    ) [SingleTerm]
+                  ) [Expr_notern]
+                ) [TernExpr2]
+              ) [Expr_tern]
+            ) [PrintStatement]
+          ) [MatchedStat]
+        ) [StatementList_rec]
+        MatchedStat(
+          PrintStatement(
+            Expr_tern(
+              TernaryCondition(
+                SingleCondition(
+                  SingleCondTerm(
+                    CondFact_relop(
+                      SingleTerm(
+                        Term(
+                          SingleFactor(
+                            Factor(
+                              Unary_e(
+                              ) [Unary_e]
+                              Factor_n(
+                               13
+                              ) [Factor_n]
+                            ) [Factor]
+                          ) [SingleFactor]
+                        ) [Term]
+                      ) [SingleTerm]
+                      Relop_grt(
+                      ) [Relop_grt]
+                      SingleTerm(
+                        Term(
+                          SingleFactor(
+                            Factor(
+                              Unary_e(
+                              ) [Unary_e]
+                              Factor_des(
+                                Designator_var(
+                                 pi
+                                ) [Designator_var]
+                              ) [Factor_des]
+                            ) [Factor]
+                          ) [SingleFactor]
+                        ) [Term]
+                      ) [SingleTerm]
+                    ) [CondFact_relop]
+                  ) [SingleCondTerm]
+                ) [SingleCondition]
+              ) [TernaryCondition]
+              TernExpr1(
+                Expr_notern(
+                  TermList_addop(
+                    SingleTerm(
+                      Term(
+                        SingleFactor(
+                          Factor(
+                            Unary_e(
+                            ) [Unary_e]
+                            Factor_n(
+                             1
+                            ) [Factor_n]
+                          ) [Factor]
+                        ) [SingleFactor]
+                      ) [Term]
+                    ) [SingleTerm]
+                    Addop_plus(
+                    ) [Addop_plus]
+                    Term(
+                      SingleFactor(
+                        Factor(
+                          Unary_e(
+                          ) [Unary_e]
+                          Factor_n(
+                           10
+                          ) [Factor_n]
+                        ) [Factor]
+                      ) [SingleFactor]
+                    ) [Term]
+                  ) [TermList_addop]
+                ) [Expr_notern]
+              ) [TernExpr1]
+              TernExpr2(
+                Expr_notern(
+                  TermList_addop(
+                    SingleTerm(
+                      Term(
+                        SingleFactor(
+                          Factor(
+                            Unary_e(
+                            ) [Unary_e]
+                            Factor_n(
+                             2
+                            ) [Factor_n]
+                          ) [Factor]
+                        ) [SingleFactor]
+                      ) [Term]
+                    ) [SingleTerm]
+                    Addop_plus(
+                    ) [Addop_plus]
+                    Term(
+                      SingleFactor(
+                        Factor(
+                          Unary_e(
+                          ) [Unary_e]
+                          Factor_des(
+                            Designator_var(
+                             pi
+                            ) [Designator_var]
+                          ) [Factor_des]
+                        ) [Factor]
+                      ) [SingleFactor]
+                    ) [Term]
+                  ) [TermList_addop]
+                ) [Expr_notern]
+              ) [TernExpr2]
+            ) [Expr_tern]
+          ) [PrintStatement]
+        ) [MatchedStat]
+      ) [StatementList_rec]
+    ) [MethodDecl]
+  ) [MethodDeclList_rec]
+) [Program]
+INFO  17:31:49,475 - -------------------------------------------
+INFO  17:31:49,507 - Pristupanje varijabli: pi, Obj: 0, 0, 3 na liniji 15
+INFO  17:31:49,508 - Pristupanje varijabli: pi, Obj: 0, 0, 3 na liniji 15
+INFO  17:31:49,508 - ============================================
+INFO  17:31:49,509 - Generating bytecode file: /home/rembrant/EclipseWorkspace3/MJCompiler/test/program.obj
+INFO  17:31:49,515 - Parsiranje uspesno zavrseno!

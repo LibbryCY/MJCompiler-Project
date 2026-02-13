@@ -1,0 +1,135 @@
+INFO  00:29:38,564 - Compiling source file: /home/rembrant/EclipseWorkspace3/MJCompiler/test/program.mj
+INFO  00:29:38,648 - #2 program
+INFO  00:29:38,649 - #48 testFull
+INFO  00:29:38,649 - #3 const
+INFO  00:29:38,650 - #48 int
+INFO  00:29:38,651 - #48 pi
+INFO  00:29:38,652 - #33 =
+INFO  00:29:38,652 - #45 3
+INFO  00:29:38,652 - #34 ;
+INFO  00:29:38,655 - #48 int
+INFO  00:29:38,655 - #48 i
+INFO  00:29:38,656 - #37 ,
+INFO  00:29:38,656 - #48 j
+INFO  00:29:38,657 - #34 ;
+INFO  00:29:38,658 - #40 {
+INFO  00:29:38,661 - #4 void
+INFO  00:29:38,663 - #48 main
+INFO  00:29:38,663 - #38 (
+INFO  00:29:38,663 - #39 )
+INFO  00:29:38,665 - #48 int
+INFO  00:29:38,666 - #48 a
+INFO  00:29:38,666 - #37 ,
+INFO  00:29:38,666 - #48 b
+INFO  00:29:38,666 - #34 ;
+INFO  00:29:38,667 - #48 char
+INFO  00:29:38,667 - #48 carr
+INFO  00:29:38,667 - #42 [
+INFO  00:29:38,667 - #43 ]
+INFO  00:29:38,667 - #34 ;
+INFO  00:29:38,668 - #40 {
+INFO  00:29:38,668 - #11 print
+INFO  00:29:38,669 - #38 (
+INFO  00:29:38,669 - #32 --
+ERROR 00:29:38,670 - 
+Sintaksna greska na liniji 12
+INFO  00:29:38,670 - #45 4
+INFO  00:29:38,670 - #39 )
+INFO  00:29:38,670 - #34 ;
+INFO  00:29:38,673 - #41 }
+INFO  00:29:38,673 - #41 }
+ERROR 00:29:38,675 - Oporavak od greske u DesSttmnt.Linija: 4
+INFO  00:29:38,686 - Program(
+  ProgramName(
+   testFull
+  ) [ProgramName]
+  ConVarDecList_con(
+    ConDecList_l(
+      Type(
+       int
+      ) [Type]
+      ConDecl(
+       pi
+        Constant_n(
+         3
+        ) [Constant_n]
+      ) [ConDecl]
+      ConDeclMore_e(
+      ) [ConDeclMore_e]
+    ) [ConDecList_l]
+    ConVarDecList_var(
+      VarDeclList(
+        Type(
+         int
+        ) [Type]
+        VarDecl_var(
+         i
+        ) [VarDecl_var]
+        VarDeclMore_comma(
+          VarDecl_var(
+           j
+          ) [VarDecl_var]
+          VarDeclMore_e(
+          ) [VarDeclMore_e]
+        ) [VarDeclMore_comma]
+      ) [VarDeclList]
+      ConVarDecList_e(
+      ) [ConVarDecList_e]
+    ) [ConVarDecList_var]
+  ) [ConVarDecList_con]
+  MethodDeclList_rec(
+    MethodDeclList_e(
+    ) [MethodDeclList_e]
+    MethodDecl(
+      MethRetAndName_void(
+       main
+      ) [MethRetAndName_void]
+      FormParList_e(
+      ) [FormParList_e]
+      VarDeclListRec_rec(
+        VarDeclListRec_rec(
+          VarDeclListRec_e(
+          ) [VarDeclListRec_e]
+          VarDeclList(
+            Type(
+             int
+            ) [Type]
+            VarDecl_var(
+             a
+            ) [VarDecl_var]
+            VarDeclMore_comma(
+              VarDecl_var(
+               b
+              ) [VarDecl_var]
+              VarDeclMore_e(
+              ) [VarDeclMore_e]
+            ) [VarDeclMore_comma]
+          ) [VarDeclList]
+        ) [VarDeclListRec_rec]
+        VarDeclList(
+          Type(
+           char
+          ) [Type]
+          VarDecl_array(
+           carr
+          ) [VarDecl_array]
+          VarDeclMore_e(
+          ) [VarDeclMore_e]
+        ) [VarDeclList]
+      ) [VarDeclListRec_rec]
+      StatementList_rec(
+        StatementList_e(
+        ) [StatementList_e]
+        MatchedStat(
+          DesignStatement(
+            DesignatorStatement_error(
+            ) [DesignatorStatement_error]
+          ) [DesignStatement]
+        ) [MatchedStat]
+      ) [StatementList_rec]
+    ) [MethodDecl]
+  ) [MethodDeclList_rec]
+) [Program]
+INFO  00:29:38,686 - -------------------------------------------
+INFO  00:29:38,706 - ============================================
+ERROR 00:29:38,708 - Parsiranje NIJE uspesno!

@@ -1,47 +1,47 @@
 // generated with ast extension for cup
 // version 0.8
-// 10/1/2026 20:16:45
+// 13/1/2026 15:4:11
 
 
 package rs.ac.bg.etf.pp1.ast;
 
 public class Expr_tern extends Expr {
 
-    private Condition Condition;
-    private Expr Expr;
-    private Expr Expr1;
+    private TernaryCondition TernaryCondition;
+    private TernExpr1 TernExpr1;
+    private TernExpr2 TernExpr2;
 
-    public Expr_tern (Condition Condition, Expr Expr, Expr Expr1) {
-        this.Condition=Condition;
-        if(Condition!=null) Condition.setParent(this);
-        this.Expr=Expr;
-        if(Expr!=null) Expr.setParent(this);
-        this.Expr1=Expr1;
-        if(Expr1!=null) Expr1.setParent(this);
+    public Expr_tern (TernaryCondition TernaryCondition, TernExpr1 TernExpr1, TernExpr2 TernExpr2) {
+        this.TernaryCondition=TernaryCondition;
+        if(TernaryCondition!=null) TernaryCondition.setParent(this);
+        this.TernExpr1=TernExpr1;
+        if(TernExpr1!=null) TernExpr1.setParent(this);
+        this.TernExpr2=TernExpr2;
+        if(TernExpr2!=null) TernExpr2.setParent(this);
     }
 
-    public Condition getCondition() {
-        return Condition;
+    public TernaryCondition getTernaryCondition() {
+        return TernaryCondition;
     }
 
-    public void setCondition(Condition Condition) {
-        this.Condition=Condition;
+    public void setTernaryCondition(TernaryCondition TernaryCondition) {
+        this.TernaryCondition=TernaryCondition;
     }
 
-    public Expr getExpr() {
-        return Expr;
+    public TernExpr1 getTernExpr1() {
+        return TernExpr1;
     }
 
-    public void setExpr(Expr Expr) {
-        this.Expr=Expr;
+    public void setTernExpr1(TernExpr1 TernExpr1) {
+        this.TernExpr1=TernExpr1;
     }
 
-    public Expr getExpr1() {
-        return Expr1;
+    public TernExpr2 getTernExpr2() {
+        return TernExpr2;
     }
 
-    public void setExpr1(Expr Expr1) {
-        this.Expr1=Expr1;
+    public void setTernExpr2(TernExpr2 TernExpr2) {
+        this.TernExpr2=TernExpr2;
     }
 
     public void accept(Visitor visitor) {
@@ -49,22 +49,22 @@ public class Expr_tern extends Expr {
     }
 
     public void childrenAccept(Visitor visitor) {
-        if(Condition!=null) Condition.accept(visitor);
-        if(Expr!=null) Expr.accept(visitor);
-        if(Expr1!=null) Expr1.accept(visitor);
+        if(TernaryCondition!=null) TernaryCondition.accept(visitor);
+        if(TernExpr1!=null) TernExpr1.accept(visitor);
+        if(TernExpr2!=null) TernExpr2.accept(visitor);
     }
 
     public void traverseTopDown(Visitor visitor) {
         accept(visitor);
-        if(Condition!=null) Condition.traverseTopDown(visitor);
-        if(Expr!=null) Expr.traverseTopDown(visitor);
-        if(Expr1!=null) Expr1.traverseTopDown(visitor);
+        if(TernaryCondition!=null) TernaryCondition.traverseTopDown(visitor);
+        if(TernExpr1!=null) TernExpr1.traverseTopDown(visitor);
+        if(TernExpr2!=null) TernExpr2.traverseTopDown(visitor);
     }
 
     public void traverseBottomUp(Visitor visitor) {
-        if(Condition!=null) Condition.traverseBottomUp(visitor);
-        if(Expr!=null) Expr.traverseBottomUp(visitor);
-        if(Expr1!=null) Expr1.traverseBottomUp(visitor);
+        if(TernaryCondition!=null) TernaryCondition.traverseBottomUp(visitor);
+        if(TernExpr1!=null) TernExpr1.traverseBottomUp(visitor);
+        if(TernExpr2!=null) TernExpr2.traverseBottomUp(visitor);
         accept(visitor);
     }
 
@@ -73,20 +73,20 @@ public class Expr_tern extends Expr {
         buffer.append(tab);
         buffer.append("Expr_tern(\n");
 
-        if(Condition!=null)
-            buffer.append(Condition.toString("  "+tab));
+        if(TernaryCondition!=null)
+            buffer.append(TernaryCondition.toString("  "+tab));
         else
             buffer.append(tab+"  null");
         buffer.append("\n");
 
-        if(Expr!=null)
-            buffer.append(Expr.toString("  "+tab));
+        if(TernExpr1!=null)
+            buffer.append(TernExpr1.toString("  "+tab));
         else
             buffer.append(tab+"  null");
         buffer.append("\n");
 
-        if(Expr1!=null)
-            buffer.append(Expr1.toString("  "+tab));
+        if(TernExpr2!=null)
+            buffer.append(TernExpr2.toString("  "+tab));
         else
             buffer.append(tab+"  null");
         buffer.append("\n");

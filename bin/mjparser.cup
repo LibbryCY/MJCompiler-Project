@@ -63,7 +63,6 @@ nonterminal Program,
 			ConVarDecList,
 			ConDecList,
 			VarDeclList,
-			Type,
 			ConDecl,
 			Constant,
 			MethodDeclList, 
@@ -71,7 +70,6 @@ nonterminal Program,
 			VarDecl, 
 			VarDeclMore,
 			MethodDecl,
-			MethRetAndName,
 			FormParList,
 			FormParMore,
 			FormPar,
@@ -99,8 +97,8 @@ nonterminal Program,
 			ForStart,
 			SwitchStart;
 
-nonterminal rs.etf.pp1.symboltable.concepts.Struct Condition, CondTerm, CondFact, Factor, FactorUnar, FactorList, TermList, Term, Expr;
-nonterminal rs.etf.pp1.symboltable.concepts.Obj Designator, DesignatorArrayName;
+nonterminal rs.etf.pp1.symboltable.concepts.Struct Condition, CondTerm, CondFact, Factor, FactorUnar, FactorList, TermList, Term, Expr, Type, TernaryCondition, TernExpr1, TernExpr2;
+nonterminal rs.etf.pp1.symboltable.concepts.Obj Designator, DesignatorArrayName, MethRetAndName;
 
 
 Program ::= (Program) PROG ProgramName ConVarDecList LBRACE MethodDeclList RBRACE;
@@ -314,10 +312,14 @@ CondFact ::= (CondFact_norelop) TermList    /* MOZDA TREBA Expr */
 
 Expr ::= (Expr_notern) TermList
 		 |
-	     (Expr_tern) Condition QMARK Expr COL Expr
+	     (Expr_tern) TernaryCondition QMARK TernExpr1 COL TernExpr2
 		  ;
 
+TernaryCondition ::= (TernaryCondition)Condition;
 
+TernExpr1 ::= (TernExpr1) Expr;
+
+TernExpr2 ::= (TernExpr2) Expr;
 
 TermList ::= (TermList_addop) TermList Addop Term
              |

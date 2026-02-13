@@ -1,0 +1,180 @@
+INFO  21:05:11,364 - Compiling source file: /home/rembrant/EclipseWorkspace3/MJCompiler/test/program.mj
+INFO  21:05:11,411 - #2 program
+INFO  21:05:11,412 - #48 testFull
+INFO  21:05:11,412 - #3 const
+INFO  21:05:11,413 - #48 int
+INFO  21:05:11,414 - #48 pi
+INFO  21:05:11,415 - #33 =
+INFO  21:05:11,415 - #45 3
+INFO  21:05:11,415 - #34 ;
+INFO  21:05:11,418 - #48 int
+INFO  21:05:11,418 - #48 i
+INFO  21:05:11,418 - #37 ,
+INFO  21:05:11,419 - #48 j
+INFO  21:05:11,419 - #34 ;
+INFO  21:05:11,420 - #40 {
+INFO  21:05:11,423 - #4 void
+INFO  21:05:11,424 - #48 main
+INFO  21:05:11,424 - #38 (
+INFO  21:05:11,425 - #39 )
+INFO  21:05:11,426 - #48 int
+INFO  21:05:11,427 - #48 a
+INFO  21:05:11,427 - #37 ,
+INFO  21:05:11,428 - #48 b
+INFO  21:05:11,428 - #34 ;
+INFO  21:05:11,428 - #48 char
+INFO  21:05:11,429 - #48 carr
+INFO  21:05:11,429 - #42 [
+INFO  21:05:11,429 - #43 ]
+INFO  21:05:11,429 - #34 ;
+INFO  21:05:11,429 - #48 int
+INFO  21:05:11,430 - #48 arr
+INFO  21:05:11,430 - #42 [
+INFO  21:05:11,430 - #43 ]
+INFO  21:05:11,430 - #34 ;
+INFO  21:05:11,431 - #40 {
+INFO  21:05:11,431 - #10 read
+INFO  21:05:11,432 - #38 (
+INFO  21:05:11,432 - #48 a
+INFO  21:05:11,432 - #39 )
+INFO  21:05:11,433 - #34 ;
+INFO  21:05:11,433 - #11 print
+INFO  21:05:11,434 - #38 (
+INFO  21:05:11,434 - #48 a
+INFO  21:05:11,435 - #39 )
+INFO  21:05:11,438 - #34 ;
+INFO  21:05:11,439 - #41 }
+INFO  21:05:11,439 - #41 }
+INFO  21:05:11,454 - Program(
+  ProgramName(
+   testFull
+  ) [ProgramName]
+  ConVarDecList_con(
+    ConDecList_l(
+      Type(
+       int
+      ) [Type]
+      ConDecl(
+       pi
+        Constant_n(
+         3
+        ) [Constant_n]
+      ) [ConDecl]
+      ConDeclMore_e(
+      ) [ConDeclMore_e]
+    ) [ConDecList_l]
+    ConVarDecList_var(
+      VarDeclList(
+        Type(
+         int
+        ) [Type]
+        VarDecl_var(
+         i
+        ) [VarDecl_var]
+        VarDeclMore_comma(
+          VarDecl_var(
+           j
+          ) [VarDecl_var]
+          VarDeclMore_e(
+          ) [VarDeclMore_e]
+        ) [VarDeclMore_comma]
+      ) [VarDeclList]
+      ConVarDecList_e(
+      ) [ConVarDecList_e]
+    ) [ConVarDecList_var]
+  ) [ConVarDecList_con]
+  MethodDeclList_rec(
+    MethodDeclList_e(
+    ) [MethodDeclList_e]
+    MethodDecl(
+      MethRetAndName_void(
+       main
+      ) [MethRetAndName_void]
+      FormParList_e(
+      ) [FormParList_e]
+      VarDeclListRec_rec(
+        VarDeclListRec_rec(
+          VarDeclListRec_rec(
+            VarDeclListRec_e(
+            ) [VarDeclListRec_e]
+            VarDeclList(
+              Type(
+               int
+              ) [Type]
+              VarDecl_var(
+               a
+              ) [VarDecl_var]
+              VarDeclMore_comma(
+                VarDecl_var(
+                 b
+                ) [VarDecl_var]
+                VarDeclMore_e(
+                ) [VarDeclMore_e]
+              ) [VarDeclMore_comma]
+            ) [VarDeclList]
+          ) [VarDeclListRec_rec]
+          VarDeclList(
+            Type(
+             char
+            ) [Type]
+            VarDecl_array(
+             carr
+            ) [VarDecl_array]
+            VarDeclMore_e(
+            ) [VarDeclMore_e]
+          ) [VarDeclList]
+        ) [VarDeclListRec_rec]
+        VarDeclList(
+          Type(
+           int
+          ) [Type]
+          VarDecl_array(
+           arr
+          ) [VarDecl_array]
+          VarDeclMore_e(
+          ) [VarDeclMore_e]
+        ) [VarDeclList]
+      ) [VarDeclListRec_rec]
+      StatementList_rec(
+        StatementList_rec(
+          StatementList_e(
+          ) [StatementList_e]
+          MatchedStat(
+            ReadStatement(
+              Designator_var(
+               a
+              ) [Designator_var]
+            ) [ReadStatement]
+          ) [MatchedStat]
+        ) [StatementList_rec]
+        MatchedStat(
+          PrintStatement(
+            Expr_notern(
+              SingleTerm(
+                Term(
+                  SingleFactor(
+                    Factor(
+                      Unary_e(
+                      ) [Unary_e]
+                      Factor_des(
+                        Designator_var(
+                         a
+                        ) [Designator_var]
+                      ) [Factor_des]
+                    ) [Factor]
+                  ) [SingleFactor]
+                ) [Term]
+              ) [SingleTerm]
+            ) [Expr_notern]
+          ) [PrintStatement]
+        ) [MatchedStat]
+      ) [StatementList_rec]
+    ) [MethodDecl]
+  ) [MethodDeclList_rec]
+) [Program]
+INFO  21:05:11,455 - -------------------------------------------
+INFO  21:05:11,488 - Pristupanje varijabli: a, Obj: 1, 1, 0 na liniji 12
+INFO  21:05:11,489 - Pristupanje varijabli: a, Obj: 1, 1, 0 na liniji 13
+INFO  21:05:11,490 - ============================================
+INFO  21:05:11,493 - Generating bytecode file: /home/rembrant/EclipseWorkspace3/MJCompiler/test/program.obj
+INFO  21:05:11,497 - Parsiranje uspesno zavrseno!

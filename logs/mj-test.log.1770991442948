@@ -1,0 +1,209 @@
+INFO  14:42:17,513 - Compiling source file: /home/rembrant/EclipseWorkspace3/MJCompiler/test/program.mj
+INFO  14:42:17,571 - #2 program
+INFO  14:42:17,571 - #48 testFull
+INFO  14:42:17,571 - #3 const
+INFO  14:42:17,573 - #48 int
+INFO  14:42:17,573 - #48 pi
+INFO  14:42:17,574 - #33 =
+INFO  14:42:17,575 - #45 3
+INFO  14:42:17,575 - #34 ;
+INFO  14:42:17,577 - #48 int
+INFO  14:42:17,578 - #48 i
+INFO  14:42:17,578 - #37 ,
+INFO  14:42:17,579 - #48 j
+INFO  14:42:17,579 - #34 ;
+INFO  14:42:17,580 - #40 {
+INFO  14:42:17,583 - #4 void
+INFO  14:42:17,584 - #48 main
+INFO  14:42:17,584 - #38 (
+INFO  14:42:17,585 - #39 )
+INFO  14:42:17,586 - #48 int
+INFO  14:42:17,588 - #48 a
+INFO  14:42:17,588 - #37 ,
+INFO  14:42:17,588 - #48 b
+INFO  14:42:17,588 - #34 ;
+INFO  14:42:17,588 - #48 char
+INFO  14:42:17,589 - #48 carr
+INFO  14:42:17,589 - #42 [
+INFO  14:42:17,589 - #43 ]
+INFO  14:42:17,589 - #34 ;
+INFO  14:42:17,590 - #48 int
+INFO  14:42:17,590 - #48 arr
+INFO  14:42:17,590 - #42 [
+INFO  14:42:17,590 - #43 ]
+INFO  14:42:17,590 - #34 ;
+INFO  14:42:17,591 - #40 {
+INFO  14:42:17,591 - #11 print
+INFO  14:42:17,592 - #38 (
+INFO  14:42:17,593 - #46 1
+INFO  14:42:17,595 - #44 ?
+INFO  14:42:17,598 - #45 44
+INFO  14:42:17,598 - #36 :
+INFO  14:42:17,600 - #45 66
+INFO  14:42:17,601 - #39 )
+INFO  14:42:17,602 - #34 ;
+INFO  14:42:17,603 - #41 }
+INFO  14:42:17,604 - #41 }
+INFO  14:42:17,616 - Program(
+  ProgramName(
+   testFull
+  ) [ProgramName]
+  ConVarDecList_con(
+    ConDecList_l(
+      Type(
+       int
+      ) [Type]
+      ConDecl(
+       pi
+        Constant_n(
+         3
+        ) [Constant_n]
+      ) [ConDecl]
+      ConDeclMore_e(
+      ) [ConDeclMore_e]
+    ) [ConDecList_l]
+    ConVarDecList_var(
+      VarDeclList(
+        Type(
+         int
+        ) [Type]
+        VarDecl_var(
+         i
+        ) [VarDecl_var]
+        VarDeclMore_comma(
+          VarDecl_var(
+           j
+          ) [VarDecl_var]
+          VarDeclMore_e(
+          ) [VarDeclMore_e]
+        ) [VarDeclMore_comma]
+      ) [VarDeclList]
+      ConVarDecList_e(
+      ) [ConVarDecList_e]
+    ) [ConVarDecList_var]
+  ) [ConVarDecList_con]
+  MethodDeclList_rec(
+    MethodDeclList_e(
+    ) [MethodDeclList_e]
+    MethodDecl(
+      MethRetAndName_void(
+       main
+      ) [MethRetAndName_void]
+      FormParList_e(
+      ) [FormParList_e]
+      VarDeclListRec_rec(
+        VarDeclListRec_rec(
+          VarDeclListRec_rec(
+            VarDeclListRec_e(
+            ) [VarDeclListRec_e]
+            VarDeclList(
+              Type(
+               int
+              ) [Type]
+              VarDecl_var(
+               a
+              ) [VarDecl_var]
+              VarDeclMore_comma(
+                VarDecl_var(
+                 b
+                ) [VarDecl_var]
+                VarDeclMore_e(
+                ) [VarDeclMore_e]
+              ) [VarDeclMore_comma]
+            ) [VarDeclList]
+          ) [VarDeclListRec_rec]
+          VarDeclList(
+            Type(
+             char
+            ) [Type]
+            VarDecl_array(
+             carr
+            ) [VarDecl_array]
+            VarDeclMore_e(
+            ) [VarDeclMore_e]
+          ) [VarDeclList]
+        ) [VarDeclListRec_rec]
+        VarDeclList(
+          Type(
+           int
+          ) [Type]
+          VarDecl_array(
+           arr
+          ) [VarDecl_array]
+          VarDeclMore_e(
+          ) [VarDeclMore_e]
+        ) [VarDeclList]
+      ) [VarDeclListRec_rec]
+      StatementList_rec(
+        StatementList_e(
+        ) [StatementList_e]
+        MatchedStat(
+          PrintStatement(
+            Expr_tern(
+              TernaryCondition(
+                SingleCondition(
+                  SingleCondTerm(
+                    CondFact_norelop(
+                      SingleTerm(
+                        Term(
+                          SingleFactor(
+                            Factor(
+                              Unary_e(
+                              ) [Unary_e]
+                              Factor_b(
+                               1
+                              ) [Factor_b]
+                            ) [Factor]
+                          ) [SingleFactor]
+                        ) [Term]
+                      ) [SingleTerm]
+                    ) [CondFact_norelop]
+                  ) [SingleCondTerm]
+                ) [SingleCondition]
+              ) [TernaryCondition]
+              TernExpr1(
+                Expr_notern(
+                  SingleTerm(
+                    Term(
+                      SingleFactor(
+                        Factor(
+                          Unary_e(
+                          ) [Unary_e]
+                          Factor_n(
+                           44
+                          ) [Factor_n]
+                        ) [Factor]
+                      ) [SingleFactor]
+                    ) [Term]
+                  ) [SingleTerm]
+                ) [Expr_notern]
+              ) [TernExpr1]
+              TernExpr2(
+                Expr_notern(
+                  SingleTerm(
+                    Term(
+                      SingleFactor(
+                        Factor(
+                          Unary_e(
+                          ) [Unary_e]
+                          Factor_n(
+                           66
+                          ) [Factor_n]
+                        ) [Factor]
+                      ) [SingleFactor]
+                    ) [Term]
+                  ) [SingleTerm]
+                ) [Expr_notern]
+              ) [TernExpr2]
+            ) [Expr_tern]
+          ) [PrintStatement]
+        ) [MatchedStat]
+      ) [StatementList_rec]
+    ) [MethodDecl]
+  ) [MethodDeclList_rec]
+) [Program]
+INFO  14:42:17,617 - -------------------------------------------
+INFO  14:42:17,636 - TernExpr2: 1 na liniji 15
+INFO  14:42:17,636 - ============================================
+INFO  14:42:17,638 - Generating bytecode file: /home/rembrant/EclipseWorkspace3/MJCompiler/test/program.obj
+INFO  14:42:17,642 - Parsiranje uspesno zavrseno!

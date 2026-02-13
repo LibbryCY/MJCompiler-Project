@@ -1,0 +1,148 @@
+INFO  00:22:06,329 - Compiling source file: /home/rembrant/EclipseWorkspace3/MJCompiler/test/program.mj
+INFO  00:22:06,413 - #2 program
+INFO  00:22:06,414 - #48 testFull
+INFO  00:22:06,414 - #3 const
+INFO  00:22:06,416 - #48 int
+INFO  00:22:06,416 - #48 pi
+INFO  00:22:06,417 - #33 =
+INFO  00:22:06,418 - #45 3
+INFO  00:22:06,418 - #34 ;
+INFO  00:22:06,421 - #48 int
+INFO  00:22:06,422 - #48 i
+INFO  00:22:06,422 - #37 ,
+INFO  00:22:06,423 - #48 j
+INFO  00:22:06,423 - #34 ;
+INFO  00:22:06,425 - #40 {
+INFO  00:22:06,427 - #4 void
+INFO  00:22:06,428 - #48 main
+INFO  00:22:06,428 - #38 (
+INFO  00:22:06,429 - #39 )
+INFO  00:22:06,430 - #48 int
+INFO  00:22:06,431 - #48 a
+INFO  00:22:06,432 - #37 ,
+INFO  00:22:06,432 - #48 b
+INFO  00:22:06,432 - #34 ;
+INFO  00:22:06,432 - #48 char
+INFO  00:22:06,432 - #48 carr
+INFO  00:22:06,433 - #42 [
+INFO  00:22:06,433 - #43 ]
+INFO  00:22:06,433 - #34 ;
+INFO  00:22:06,433 - #40 {
+INFO  00:22:06,433 - #11 print
+INFO  00:22:06,435 - #38 (
+INFO  00:22:06,435 - #48 j
+INFO  00:22:06,438 - #39 )
+INFO  00:22:06,442 - #34 ;
+INFO  00:22:06,442 - #41 }
+INFO  00:22:06,443 - #41 }
+INFO  00:22:06,456 - Program(
+  ProgramName(
+   testFull
+  ) [ProgramName]
+  ConVarDecList_con(
+    ConDecList_l(
+      Type(
+       int
+      ) [Type]
+      ConDecl(
+       pi
+        Constant_n(
+         3
+        ) [Constant_n]
+      ) [ConDecl]
+      ConDeclMore_e(
+      ) [ConDeclMore_e]
+    ) [ConDecList_l]
+    ConVarDecList_var(
+      VarDeclList(
+        Type(
+         int
+        ) [Type]
+        VarDecl_var(
+         i
+        ) [VarDecl_var]
+        VarDeclMore_comma(
+          VarDecl_var(
+           j
+          ) [VarDecl_var]
+          VarDeclMore_e(
+          ) [VarDeclMore_e]
+        ) [VarDeclMore_comma]
+      ) [VarDeclList]
+      ConVarDecList_e(
+      ) [ConVarDecList_e]
+    ) [ConVarDecList_var]
+  ) [ConVarDecList_con]
+  MethodDeclList_rec(
+    MethodDeclList_e(
+    ) [MethodDeclList_e]
+    MethodDecl(
+      MethRetAndName_void(
+       main
+      ) [MethRetAndName_void]
+      FormParList_e(
+      ) [FormParList_e]
+      VarDeclListRec_rec(
+        VarDeclListRec_rec(
+          VarDeclListRec_e(
+          ) [VarDeclListRec_e]
+          VarDeclList(
+            Type(
+             int
+            ) [Type]
+            VarDecl_var(
+             a
+            ) [VarDecl_var]
+            VarDeclMore_comma(
+              VarDecl_var(
+               b
+              ) [VarDecl_var]
+              VarDeclMore_e(
+              ) [VarDeclMore_e]
+            ) [VarDeclMore_comma]
+          ) [VarDeclList]
+        ) [VarDeclListRec_rec]
+        VarDeclList(
+          Type(
+           char
+          ) [Type]
+          VarDecl_array(
+           carr
+          ) [VarDecl_array]
+          VarDeclMore_e(
+          ) [VarDeclMore_e]
+        ) [VarDeclList]
+      ) [VarDeclListRec_rec]
+      StatementList_rec(
+        StatementList_e(
+        ) [StatementList_e]
+        MatchedStat(
+          PrintStatement(
+            Expr_notern(
+              SingleTerm(
+                Term(
+                  SingleFactor(
+                    Factor(
+                      Unary_e(
+                      ) [Unary_e]
+                      Factor_des(
+                        Designator_var(
+                         j
+                        ) [Designator_var]
+                      ) [Factor_des]
+                    ) [Factor]
+                  ) [SingleFactor]
+                ) [Term]
+              ) [SingleTerm]
+            ) [Expr_notern]
+          ) [PrintStatement]
+        ) [MatchedStat]
+      ) [StatementList_rec]
+    ) [MethodDecl]
+  ) [MethodDeclList_rec]
+) [Program]
+INFO  00:22:06,457 - -------------------------------------------
+INFO  00:22:06,500 - Pristupanje varijabli: j, Obj: 1, 0, 1 na liniji 12
+INFO  00:22:06,502 - ============================================
+INFO  00:22:06,504 - Generating bytecode file: /home/rembrant/EclipseWorkspace3/MJCompiler/test/program.obj
+INFO  00:22:06,509 - Parsiranje uspesno zavrseno!

@@ -1,0 +1,214 @@
+INFO  13:55:10,885 - Compiling source file: /home/rembrant/EclipseWorkspace3/MJCompiler/test/program.mj
+INFO  13:55:10,919 - #2 program
+INFO  13:55:10,920 - #48 testFull
+INFO  13:55:10,920 - #3 const
+INFO  13:55:10,920 - #48 int
+INFO  13:55:10,920 - #48 pi
+INFO  13:55:10,921 - #33 =
+INFO  13:55:10,921 - #45 3
+INFO  13:55:10,921 - #34 ;
+INFO  13:55:10,922 - #48 int
+INFO  13:55:10,923 - #48 i
+INFO  13:55:10,923 - #37 ,
+INFO  13:55:10,923 - #48 j
+INFO  13:55:10,923 - #34 ;
+INFO  13:55:10,923 - #40 {
+INFO  13:55:10,924 - #4 void
+INFO  13:55:10,925 - #48 main
+INFO  13:55:10,925 - #38 (
+INFO  13:55:10,925 - #39 )
+INFO  13:55:10,925 - #48 int
+INFO  13:55:10,926 - #48 a
+INFO  13:55:10,926 - #37 ,
+INFO  13:55:10,926 - #48 b
+INFO  13:55:10,926 - #34 ;
+INFO  13:55:10,926 - #48 char
+INFO  13:55:10,927 - #48 carr
+INFO  13:55:10,927 - #42 [
+INFO  13:55:10,927 - #43 ]
+INFO  13:55:10,927 - #34 ;
+INFO  13:55:10,927 - #48 int
+INFO  13:55:10,927 - #48 arr
+INFO  13:55:10,927 - #42 [
+INFO  13:55:10,927 - #43 ]
+INFO  13:55:10,927 - #34 ;
+INFO  13:55:10,927 - #40 {
+INFO  13:55:10,928 - #11 print
+INFO  13:55:10,928 - #38 (
+INFO  13:55:10,928 - #46 1
+INFO  13:55:10,929 - #44 ?
+INFO  13:55:10,930 - #45 44
+INFO  13:55:10,930 - #36 :
+INFO  13:55:10,930 - #45 66
+INFO  13:55:10,930 - #39 )
+INFO  13:55:10,930 - #34 ;
+INFO  13:55:10,930 - #41 }
+INFO  13:55:10,931 - #41 }
+INFO  13:55:10,937 - Program(
+  ProgramName(
+   testFull
+  ) [ProgramName]
+  ConVarDecList_con(
+    ConDecList_l(
+      Type(
+       int
+      ) [Type]
+      ConDecl(
+       pi
+        Constant_n(
+         3
+        ) [Constant_n]
+      ) [ConDecl]
+      ConDeclMore_e(
+      ) [ConDeclMore_e]
+    ) [ConDecList_l]
+    ConVarDecList_var(
+      VarDeclList(
+        Type(
+         int
+        ) [Type]
+        VarDecl_var(
+         i
+        ) [VarDecl_var]
+        VarDeclMore_comma(
+          VarDecl_var(
+           j
+          ) [VarDecl_var]
+          VarDeclMore_e(
+          ) [VarDeclMore_e]
+        ) [VarDeclMore_comma]
+      ) [VarDeclList]
+      ConVarDecList_e(
+      ) [ConVarDecList_e]
+    ) [ConVarDecList_var]
+  ) [ConVarDecList_con]
+  MethodDeclList_rec(
+    MethodDeclList_e(
+    ) [MethodDeclList_e]
+    MethodDecl(
+      MethRetAndName_void(
+       main
+      ) [MethRetAndName_void]
+      FormParList_e(
+      ) [FormParList_e]
+      VarDeclListRec_rec(
+        VarDeclListRec_rec(
+          VarDeclListRec_rec(
+            VarDeclListRec_e(
+            ) [VarDeclListRec_e]
+            VarDeclList(
+              Type(
+               int
+              ) [Type]
+              VarDecl_var(
+               a
+              ) [VarDecl_var]
+              VarDeclMore_comma(
+                VarDecl_var(
+                 b
+                ) [VarDecl_var]
+                VarDeclMore_e(
+                ) [VarDeclMore_e]
+              ) [VarDeclMore_comma]
+            ) [VarDeclList]
+          ) [VarDeclListRec_rec]
+          VarDeclList(
+            Type(
+             char
+            ) [Type]
+            VarDecl_array(
+             carr
+            ) [VarDecl_array]
+            VarDeclMore_e(
+            ) [VarDeclMore_e]
+          ) [VarDeclList]
+        ) [VarDeclListRec_rec]
+        VarDeclList(
+          Type(
+           int
+          ) [Type]
+          VarDecl_array(
+           arr
+          ) [VarDecl_array]
+          VarDeclMore_e(
+          ) [VarDeclMore_e]
+        ) [VarDeclList]
+      ) [VarDeclListRec_rec]
+      StatementList_rec(
+        StatementList_e(
+        ) [StatementList_e]
+        MatchedStat(
+          PrintStatement(
+            Expr_tern(
+              SingleCondition(
+                SingleCondTerm(
+                  CondFact_norelop(
+                    SingleTerm(
+                      Term(
+                        SingleFactor(
+                          Factor(
+                            Unary_e(
+                            ) [Unary_e]
+                            Factor_b(
+                             1
+                            ) [Factor_b]
+                          ) [Factor]
+                        ) [SingleFactor]
+                      ) [Term]
+                    ) [SingleTerm]
+                  ) [CondFact_norelop]
+                ) [SingleCondTerm]
+              ) [SingleCondition]
+              Expr_notern(
+                SingleTerm(
+                  Term(
+                    SingleFactor(
+                      Factor(
+                        Unary_e(
+                        ) [Unary_e]
+                        Factor_n(
+                         44
+                        ) [Factor_n]
+                      ) [Factor]
+                    ) [SingleFactor]
+                  ) [Term]
+                ) [SingleTerm]
+              ) [Expr_notern]
+              Expr_notern(
+                SingleTerm(
+                  Term(
+                    SingleFactor(
+                      Factor(
+                        Unary_e(
+                        ) [Unary_e]
+                        Factor_n(
+                         66
+                        ) [Factor_n]
+                      ) [Factor]
+                    ) [SingleFactor]
+                  ) [Term]
+                ) [SingleTerm]
+              ) [Expr_notern]
+            ) [Expr_tern]
+          ) [PrintStatement]
+        ) [MatchedStat]
+      ) [StatementList_rec]
+    ) [MethodDecl]
+  ) [MethodDeclList_rec]
+) [Program]
+INFO  13:55:10,938 - -------------------------------------------
+INFO  13:55:10,944 - ============================================
+INFO  13:55:10,945 - Generating bytecode file: /home/rembrant/EclipseWorkspace3/MJCompiler/test/program.obj
+ERROR 13:55:10,947 - Compilation error
+java.lang.ArrayIndexOutOfBoundsException: Index -1 out of bounds for length 8192
+	at rs.etf.pp1.mj.runtime.Code.get(Code.java:99)
+	at rs.ac.bg.etf.pp1.CodeGenerator.visit(CodeGenerator.java:114)
+	at rs.ac.bg.etf.pp1.ast.Expr_tern.accept(Expr_tern.java:48)
+	at rs.ac.bg.etf.pp1.ast.Expr_tern.traverseBottomUp(Expr_tern.java:68)
+	at rs.ac.bg.etf.pp1.ast.PrintStatement.traverseBottomUp(PrintStatement.java:39)
+	at rs.ac.bg.etf.pp1.ast.MatchedStat.traverseBottomUp(MatchedStat.java:39)
+	at rs.ac.bg.etf.pp1.ast.StatementList_rec.traverseBottomUp(StatementList_rec.java:53)
+	at rs.ac.bg.etf.pp1.ast.MethodDecl.traverseBottomUp(MethodDecl.java:99)
+	at rs.ac.bg.etf.pp1.ast.MethodDeclList_rec.traverseBottomUp(MethodDeclList_rec.java:53)
+	at rs.ac.bg.etf.pp1.ast.Program.traverseBottomUp(Program.java:85)
+	at rs.ac.bg.etf.pp1.Compiler.main(Compiler.java:66)

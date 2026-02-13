@@ -68,8 +68,6 @@ nonterminal
 nonterminal
 			VarDeclList VarDeclList;
 nonterminal
-			Type Type;
-nonterminal
 			ConDecl ConDecl;
 nonterminal
 			Constant Constant;
@@ -83,8 +81,6 @@ nonterminal
 			VarDeclMore VarDeclMore;
 nonterminal
 			MethodDecl MethodDecl;
-nonterminal
-			MethRetAndName MethRetAndName;
 nonterminal
 			FormParList FormParList;
 nonterminal
@@ -138,8 +134,8 @@ nonterminal
 nonterminal
 			SwitchStart SwitchStart;
 
-nonterminal rs.etf.pp1.symboltable.concepts.Struct Condition, CondTerm, CondFact, Factor, FactorUnar, FactorList, TermList, Term, Expr;
-nonterminal rs.etf.pp1.symboltable.concepts.Obj Designator, DesignatorArrayName;
+nonterminal rs.etf.pp1.symboltable.concepts.Struct Condition, CondTerm, CondFact, Factor, FactorUnar, FactorList, TermList, Term, Expr, Type, TernaryCondition, TernExpr1, TernExpr2;
+nonterminal rs.etf.pp1.symboltable.concepts.Obj Designator, DesignatorArrayName, MethRetAndName;
 
 
 Program ::= (Program) PROG ProgramName:P1 ConVarDecList:C2 LBRACE MethodDeclList:M3 RBRACE {: RESULT=new Program(P1, C2, M3); RESULT.setLine(P1left); :};
@@ -353,10 +349,14 @@ CondFact ::= (CondFact_norelop) TermList:T1 {: RESULT=new CondFact_norelop(T1); 
 
 Expr ::= (Expr_notern) TermList:T1 {: RESULT=new Expr_notern(T1); RESULT.setLine(T1left); :}
 		 |
-	     (Expr_tern) Condition:C1 QMARK Expr:E2 COL Expr:E3 {: RESULT=new Expr_tern(C1, E2, E3); RESULT.setLine(C1left); :}
+	     (Expr_tern) TernaryCondition:T1 QMARK TernExpr1:T2 COL TernExpr2:T3 {: RESULT=new Expr_tern(T1, T2, T3); RESULT.setLine(T1left); :}
 		  ;
 
+TernaryCondition ::= (TernaryCondition)Condition:C1 {: RESULT=new TernaryCondition(C1); RESULT.setLine(C1left); :};
 
+TernExpr1 ::= (TernExpr1) Expr:E1 {: RESULT=new TernExpr1(E1); RESULT.setLine(E1left); :};
+
+TernExpr2 ::= (TernExpr2) Expr:E1 {: RESULT=new TernExpr2(E1); RESULT.setLine(E1left); :};
 
 TermList ::= (TermList_addop) TermList:T1 Addop:A2 Term:T3 {: RESULT=new TermList_addop(T1, A2, T3); RESULT.setLine(T1left); :}
              |

@@ -1,0 +1,203 @@
+INFO  13:56:46,611 - Compiling source file: /home/rembrant/EclipseWorkspace3/MJCompiler/test/program.mj
+INFO  13:56:46,647 - #2 program
+INFO  13:56:46,647 - #48 testFull
+INFO  13:56:46,647 - #3 const
+INFO  13:56:46,648 - #48 int
+INFO  13:56:46,648 - #48 pi
+INFO  13:56:46,649 - #33 =
+INFO  13:56:46,649 - #45 3
+INFO  13:56:46,649 - #34 ;
+INFO  13:56:46,650 - #48 int
+INFO  13:56:46,650 - #48 i
+INFO  13:56:46,650 - #37 ,
+INFO  13:56:46,650 - #48 j
+INFO  13:56:46,650 - #34 ;
+INFO  13:56:46,651 - #40 {
+INFO  13:56:46,652 - #4 void
+INFO  13:56:46,653 - #48 main
+INFO  13:56:46,653 - #38 (
+INFO  13:56:46,653 - #39 )
+INFO  13:56:46,653 - #48 int
+INFO  13:56:46,654 - #48 a
+INFO  13:56:46,654 - #37 ,
+INFO  13:56:46,654 - #48 b
+INFO  13:56:46,654 - #34 ;
+INFO  13:56:46,654 - #48 char
+INFO  13:56:46,654 - #48 carr
+INFO  13:56:46,654 - #42 [
+INFO  13:56:46,654 - #43 ]
+INFO  13:56:46,654 - #34 ;
+INFO  13:56:46,655 - #48 int
+INFO  13:56:46,655 - #48 arr
+INFO  13:56:46,655 - #42 [
+INFO  13:56:46,655 - #43 ]
+INFO  13:56:46,655 - #34 ;
+INFO  13:56:46,655 - #40 {
+INFO  13:56:46,655 - #11 print
+INFO  13:56:46,656 - #38 (
+INFO  13:56:46,656 - #46 1
+INFO  13:56:46,656 - #44 ?
+INFO  13:56:46,657 - #45 44
+INFO  13:56:46,657 - #36 :
+INFO  13:56:46,657 - #45 66
+INFO  13:56:46,658 - #39 )
+INFO  13:56:46,658 - #34 ;
+INFO  13:56:46,658 - #41 }
+INFO  13:56:46,658 - #41 }
+INFO  13:56:46,665 - Program(
+  ProgramName(
+   testFull
+  ) [ProgramName]
+  ConVarDecList_con(
+    ConDecList_l(
+      Type(
+       int
+      ) [Type]
+      ConDecl(
+       pi
+        Constant_n(
+         3
+        ) [Constant_n]
+      ) [ConDecl]
+      ConDeclMore_e(
+      ) [ConDeclMore_e]
+    ) [ConDecList_l]
+    ConVarDecList_var(
+      VarDeclList(
+        Type(
+         int
+        ) [Type]
+        VarDecl_var(
+         i
+        ) [VarDecl_var]
+        VarDeclMore_comma(
+          VarDecl_var(
+           j
+          ) [VarDecl_var]
+          VarDeclMore_e(
+          ) [VarDeclMore_e]
+        ) [VarDeclMore_comma]
+      ) [VarDeclList]
+      ConVarDecList_e(
+      ) [ConVarDecList_e]
+    ) [ConVarDecList_var]
+  ) [ConVarDecList_con]
+  MethodDeclList_rec(
+    MethodDeclList_e(
+    ) [MethodDeclList_e]
+    MethodDecl(
+      MethRetAndName_void(
+       main
+      ) [MethRetAndName_void]
+      FormParList_e(
+      ) [FormParList_e]
+      VarDeclListRec_rec(
+        VarDeclListRec_rec(
+          VarDeclListRec_rec(
+            VarDeclListRec_e(
+            ) [VarDeclListRec_e]
+            VarDeclList(
+              Type(
+               int
+              ) [Type]
+              VarDecl_var(
+               a
+              ) [VarDecl_var]
+              VarDeclMore_comma(
+                VarDecl_var(
+                 b
+                ) [VarDecl_var]
+                VarDeclMore_e(
+                ) [VarDeclMore_e]
+              ) [VarDeclMore_comma]
+            ) [VarDeclList]
+          ) [VarDeclListRec_rec]
+          VarDeclList(
+            Type(
+             char
+            ) [Type]
+            VarDecl_array(
+             carr
+            ) [VarDecl_array]
+            VarDeclMore_e(
+            ) [VarDeclMore_e]
+          ) [VarDeclList]
+        ) [VarDeclListRec_rec]
+        VarDeclList(
+          Type(
+           int
+          ) [Type]
+          VarDecl_array(
+           arr
+          ) [VarDecl_array]
+          VarDeclMore_e(
+          ) [VarDeclMore_e]
+        ) [VarDeclList]
+      ) [VarDeclListRec_rec]
+      StatementList_rec(
+        StatementList_e(
+        ) [StatementList_e]
+        MatchedStat(
+          PrintStatement(
+            Expr_tern(
+              SingleCondition(
+                SingleCondTerm(
+                  CondFact_norelop(
+                    SingleTerm(
+                      Term(
+                        SingleFactor(
+                          Factor(
+                            Unary_e(
+                            ) [Unary_e]
+                            Factor_b(
+                             1
+                            ) [Factor_b]
+                          ) [Factor]
+                        ) [SingleFactor]
+                      ) [Term]
+                    ) [SingleTerm]
+                  ) [CondFact_norelop]
+                ) [SingleCondTerm]
+              ) [SingleCondition]
+              Expr_notern(
+                SingleTerm(
+                  Term(
+                    SingleFactor(
+                      Factor(
+                        Unary_e(
+                        ) [Unary_e]
+                        Factor_n(
+                         44
+                        ) [Factor_n]
+                      ) [Factor]
+                    ) [SingleFactor]
+                  ) [Term]
+                ) [SingleTerm]
+              ) [Expr_notern]
+              Expr_notern(
+                SingleTerm(
+                  Term(
+                    SingleFactor(
+                      Factor(
+                        Unary_e(
+                        ) [Unary_e]
+                        Factor_n(
+                         66
+                        ) [Factor_n]
+                      ) [Factor]
+                    ) [SingleFactor]
+                  ) [Term]
+                ) [SingleTerm]
+              ) [Expr_notern]
+            ) [Expr_tern]
+          ) [PrintStatement]
+        ) [MatchedStat]
+      ) [StatementList_rec]
+    ) [MethodDecl]
+  ) [MethodDeclList_rec]
+) [Program]
+INFO  13:56:46,665 - -------------------------------------------
+INFO  13:56:46,672 - ============================================
+INFO  13:56:46,672 - Generating bytecode file: /home/rembrant/EclipseWorkspace3/MJCompiler/test/program.obj
+INFO  13:56:46,682 - Code get: 0 ? 44 : 66 na liniji 7
+INFO  13:56:46,683 - Parsiranje uspesno zavrseno!
