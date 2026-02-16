@@ -363,7 +363,7 @@ public class SemAnalyzer extends VisitorAdaptor {
 
 	@Override
 	public void visit(IfElseStatement ies) {
-		if (!ies.getCondition().struct.equals(boolType)) {
+		if (!ies.getIfCondition().struct.equals(boolType)) {
 			report_error("Uslov nije boolType u IfElse Matched ", ies);
 			return;
 		}
@@ -372,7 +372,7 @@ public class SemAnalyzer extends VisitorAdaptor {
 
 	@Override
 	public void visit(IfElseStatement_non_else ifStmt) {
-		if (!ifStmt.getCondition().struct.equals(boolType)) {
+		if (!ifStmt.getIfCondition().struct.equals(boolType)) {
 			report_error("Uslov u if naredbi mora biti bool", ifStmt);
 		}
 		// report_info("If UnMatched", ifStmt);
@@ -380,7 +380,7 @@ public class SemAnalyzer extends VisitorAdaptor {
 
 	@Override
 	public void visit(IfElseStatement_else ifElseStmt) {
-		if (!ifElseStmt.getCondition().struct.equals(boolType)) {
+		if (!ifElseStmt.getIfCondition().struct.equals(boolType)) {
 			report_error("Uslov u if naredbi mora biti bool", ifElseStmt);
 		}
 		// report_info("IfElse UnMatched", ifElseStmt);
@@ -480,7 +480,8 @@ public class SemAnalyzer extends VisitorAdaptor {
 		}
 
 		Boolean isAssignable = exprType.assignableTo(desObj.getType())
-				|| (desObj.getType().getKind() == Struct.Enum && exprType == Tab.intType);
+				|| (desObj.getType().getKind() == Struct.Enum && exprType == Tab.intType)
+				|| (desObj.getType().getKind() == Struct.Int && exprType.getKind() == Struct.Enum);
 		if (!isAssignable) {
 			report_error("Nekompatabilna dodela promenjivi: " + desObj.getName(), dsAss);
 			return;
@@ -567,8 +568,14 @@ public class SemAnalyzer extends VisitorAdaptor {
 	}
 
 	// CondTerm
-
+	
+	@Override
 	public void visit(TernaryCondition sc) {
+		sc.struct = sc.getCondition().struct;
+	}
+	
+	@Override
+	public void visit(IfCondition sc) {
 		sc.struct = sc.getCondition().struct;
 	}
 

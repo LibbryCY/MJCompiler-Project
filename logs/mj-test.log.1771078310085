@@ -1,0 +1,213 @@
+INFO  15:11:35,667 - Compiling source file: /home/rembrant/EclipseWorkspace3/MJCompiler/test/program.mj
+INFO  15:11:35,703 - #2 program
+INFO  15:11:35,703 - #48 testFull
+INFO  15:11:35,703 - #3 const
+INFO  15:11:35,704 - #48 int
+INFO  15:11:35,704 - #48 pi
+INFO  15:11:35,704 - #33 =
+INFO  15:11:35,704 - #45 3
+INFO  15:11:35,704 - #34 ;
+INFO  15:11:35,705 - #14 enum
+INFO  15:11:35,706 - #48 Days
+INFO  15:11:35,706 - #40 {
+INFO  15:11:35,706 - #48 MONDAY
+INFO  15:11:35,707 - #33 =
+INFO  15:11:35,707 - #45 6
+INFO  15:11:35,707 - #37 ,
+INFO  15:11:35,707 - #48 FRIDAY
+INFO  15:11:35,707 - #37 ,
+INFO  15:11:35,707 - #48 SUNDAY
+INFO  15:11:35,707 - #41 }
+INFO  15:11:35,707 - #34 ;
+ERROR 15:11:35,708 - 
+Sintaksna greska na liniji 7
+INFO  15:11:35,708 - #14 enum
+INFO  15:11:35,708 - #48 Broj
+INFO  15:11:35,708 - #40 {
+INFO  15:11:35,709 - #48 NULA
+ERROR 15:11:35,710 - Izvrsen oporavak do ; u liniji 5
+INFO  15:11:35,710 - #37 ,
+INFO  15:11:35,710 - #48 JEDAN
+INFO  15:11:35,710 - #37 ,
+INFO  15:11:35,710 - #48 PET
+INFO  15:11:35,711 - #33 =
+INFO  15:11:35,711 - #45 5
+INFO  15:11:35,711 - #37 ,
+INFO  15:11:35,711 - #48 DESET
+INFO  15:11:35,711 - #33 =
+INFO  15:11:35,711 - #45 10
+INFO  15:11:35,711 - #41 }
+INFO  15:11:35,711 - #48 int
+INFO  15:11:35,712 - #48 i
+INFO  15:11:35,712 - #37 ,
+INFO  15:11:35,712 - #48 j
+INFO  15:11:35,712 - #34 ;
+INFO  15:11:35,713 - #40 {
+INFO  15:11:35,713 - #4 void
+INFO  15:11:35,714 - #48 main
+INFO  15:11:35,714 - #38 (
+INFO  15:11:35,714 - #39 )
+INFO  15:11:35,715 - #48 int
+INFO  15:11:35,715 - #48 a
+INFO  15:11:35,715 - #37 ,
+INFO  15:11:35,716 - #48 b
+INFO  15:11:35,716 - #34 ;
+INFO  15:11:35,716 - #48 char
+INFO  15:11:35,716 - #48 carr
+INFO  15:11:35,716 - #42 [
+INFO  15:11:35,716 - #43 ]
+INFO  15:11:35,716 - #34 ;
+INFO  15:11:35,716 - #48 int
+INFO  15:11:35,716 - #48 arr
+INFO  15:11:35,717 - #42 [
+INFO  15:11:35,717 - #43 ]
+INFO  15:11:35,717 - #34 ;
+INFO  15:11:35,717 - #48 Broj
+INFO  15:11:35,717 - #48 d
+INFO  15:11:35,717 - #34 ;
+INFO  15:11:35,717 - #40 {
+INFO  15:11:35,717 - #41 }
+INFO  15:11:35,718 - #41 }
+INFO  15:11:35,724 - Program(
+  ProgramName(
+   testFull
+  ) [ProgramName]
+  ConVarDecList_con(
+    ConDecList_l(
+      Type(
+       int
+      ) [Type]
+      ConDecl(
+       pi
+        Constant_n(
+         3
+        ) [Constant_n]
+      ) [ConDecl]
+      ConDeclMore_e(
+      ) [ConDeclMore_e]
+    ) [ConDecList_l]
+    ConVarDecList_con(
+      ConDeclList_error(
+      ) [ConDeclList_error]
+      ConVarDecList_enum(
+        EnumDeclList(
+          EnumName(
+           Broj
+          ) [EnumName]
+          EnumList_comma(
+            EnumList_comma(
+              EnumList_comma(
+                EnumList_item(
+                  EnumItem_var(
+                   NULA
+                  ) [EnumItem_var]
+                ) [EnumList_item]
+                EnumItem_var(
+                 JEDAN
+                ) [EnumItem_var]
+              ) [EnumList_comma]
+              EnumItem_ass(
+               PET
+               5
+              ) [EnumItem_ass]
+            ) [EnumList_comma]
+            EnumItem_ass(
+             DESET
+             10
+            ) [EnumItem_ass]
+          ) [EnumList_comma]
+        ) [EnumDeclList]
+        ConVarDecList_var(
+          VarDeclList(
+            Type(
+             int
+            ) [Type]
+            VarDecl_var(
+             i
+            ) [VarDecl_var]
+            VarDeclMore_comma(
+              VarDecl_var(
+               j
+              ) [VarDecl_var]
+              VarDeclMore_e(
+              ) [VarDeclMore_e]
+            ) [VarDeclMore_comma]
+          ) [VarDeclList]
+          ConVarDecList_e(
+          ) [ConVarDecList_e]
+        ) [ConVarDecList_var]
+      ) [ConVarDecList_enum]
+    ) [ConVarDecList_con]
+  ) [ConVarDecList_con]
+  MethodDeclList_rec(
+    MethodDeclList_e(
+    ) [MethodDeclList_e]
+    MethodDecl(
+      MethRetAndName_void(
+       main
+      ) [MethRetAndName_void]
+      FormParList_e(
+      ) [FormParList_e]
+      VarDeclListRec_rec(
+        VarDeclListRec_rec(
+          VarDeclListRec_rec(
+            VarDeclListRec_rec(
+              VarDeclListRec_e(
+              ) [VarDeclListRec_e]
+              VarDeclList(
+                Type(
+                 int
+                ) [Type]
+                VarDecl_var(
+                 a
+                ) [VarDecl_var]
+                VarDeclMore_comma(
+                  VarDecl_var(
+                   b
+                  ) [VarDecl_var]
+                  VarDeclMore_e(
+                  ) [VarDeclMore_e]
+                ) [VarDeclMore_comma]
+              ) [VarDeclList]
+            ) [VarDeclListRec_rec]
+            VarDeclList(
+              Type(
+               char
+              ) [Type]
+              VarDecl_array(
+               carr
+              ) [VarDecl_array]
+              VarDeclMore_e(
+              ) [VarDeclMore_e]
+            ) [VarDeclList]
+          ) [VarDeclListRec_rec]
+          VarDeclList(
+            Type(
+             int
+            ) [Type]
+            VarDecl_array(
+             arr
+            ) [VarDecl_array]
+            VarDeclMore_e(
+            ) [VarDeclMore_e]
+          ) [VarDeclList]
+        ) [VarDeclListRec_rec]
+        VarDeclList(
+          Type(
+           Broj
+          ) [Type]
+          VarDecl_var(
+           d
+          ) [VarDecl_var]
+          VarDeclMore_e(
+          ) [VarDeclMore_e]
+        ) [VarDeclList]
+      ) [VarDeclListRec_rec]
+      StatementList_e(
+      ) [StatementList_e]
+    ) [MethodDecl]
+  ) [MethodDeclList_rec]
+) [Program]
+INFO  15:11:35,725 - -------------------------------------------
+INFO  15:11:35,732 - ============================================
+ERROR 15:11:35,732 - Parsiranje NIJE uspesno!

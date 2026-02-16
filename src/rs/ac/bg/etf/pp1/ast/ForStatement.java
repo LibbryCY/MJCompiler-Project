@@ -1,6 +1,6 @@
 // generated with ast extension for cup
 // version 0.8
-// 13/1/2026 15:4:11
+// 16/1/2026 1:42:26
 
 
 package rs.ac.bg.etf.pp1.ast;
@@ -10,18 +10,18 @@ public class ForStatement extends MatchedStatement {
     private ForStart ForStart;
     private ForDesignatorStatement ForDesignatorStatement;
     private ForCondition ForCondition;
-    private ForDesignatorStatement ForDesignatorStatement1;
+    private ForStep ForStep;
     private MatchedStatement MatchedStatement;
 
-    public ForStatement (ForStart ForStart, ForDesignatorStatement ForDesignatorStatement, ForCondition ForCondition, ForDesignatorStatement ForDesignatorStatement1, MatchedStatement MatchedStatement) {
+    public ForStatement (ForStart ForStart, ForDesignatorStatement ForDesignatorStatement, ForCondition ForCondition, ForStep ForStep, MatchedStatement MatchedStatement) {
         this.ForStart=ForStart;
         if(ForStart!=null) ForStart.setParent(this);
         this.ForDesignatorStatement=ForDesignatorStatement;
         if(ForDesignatorStatement!=null) ForDesignatorStatement.setParent(this);
         this.ForCondition=ForCondition;
         if(ForCondition!=null) ForCondition.setParent(this);
-        this.ForDesignatorStatement1=ForDesignatorStatement1;
-        if(ForDesignatorStatement1!=null) ForDesignatorStatement1.setParent(this);
+        this.ForStep=ForStep;
+        if(ForStep!=null) ForStep.setParent(this);
         this.MatchedStatement=MatchedStatement;
         if(MatchedStatement!=null) MatchedStatement.setParent(this);
     }
@@ -50,12 +50,12 @@ public class ForStatement extends MatchedStatement {
         this.ForCondition=ForCondition;
     }
 
-    public ForDesignatorStatement getForDesignatorStatement1() {
-        return ForDesignatorStatement1;
+    public ForStep getForStep() {
+        return ForStep;
     }
 
-    public void setForDesignatorStatement1(ForDesignatorStatement ForDesignatorStatement1) {
-        this.ForDesignatorStatement1=ForDesignatorStatement1;
+    public void setForStep(ForStep ForStep) {
+        this.ForStep=ForStep;
     }
 
     public MatchedStatement getMatchedStatement() {
@@ -74,7 +74,7 @@ public class ForStatement extends MatchedStatement {
         if(ForStart!=null) ForStart.accept(visitor);
         if(ForDesignatorStatement!=null) ForDesignatorStatement.accept(visitor);
         if(ForCondition!=null) ForCondition.accept(visitor);
-        if(ForDesignatorStatement1!=null) ForDesignatorStatement1.accept(visitor);
+        if(ForStep!=null) ForStep.accept(visitor);
         if(MatchedStatement!=null) MatchedStatement.accept(visitor);
     }
 
@@ -83,7 +83,7 @@ public class ForStatement extends MatchedStatement {
         if(ForStart!=null) ForStart.traverseTopDown(visitor);
         if(ForDesignatorStatement!=null) ForDesignatorStatement.traverseTopDown(visitor);
         if(ForCondition!=null) ForCondition.traverseTopDown(visitor);
-        if(ForDesignatorStatement1!=null) ForDesignatorStatement1.traverseTopDown(visitor);
+        if(ForStep!=null) ForStep.traverseTopDown(visitor);
         if(MatchedStatement!=null) MatchedStatement.traverseTopDown(visitor);
     }
 
@@ -91,7 +91,7 @@ public class ForStatement extends MatchedStatement {
         if(ForStart!=null) ForStart.traverseBottomUp(visitor);
         if(ForDesignatorStatement!=null) ForDesignatorStatement.traverseBottomUp(visitor);
         if(ForCondition!=null) ForCondition.traverseBottomUp(visitor);
-        if(ForDesignatorStatement1!=null) ForDesignatorStatement1.traverseBottomUp(visitor);
+        if(ForStep!=null) ForStep.traverseBottomUp(visitor);
         if(MatchedStatement!=null) MatchedStatement.traverseBottomUp(visitor);
         accept(visitor);
     }
@@ -119,8 +119,8 @@ public class ForStatement extends MatchedStatement {
             buffer.append(tab+"  null");
         buffer.append("\n");
 
-        if(ForDesignatorStatement1!=null)
-            buffer.append(ForDesignatorStatement1.toString("  "+tab));
+        if(ForStep!=null)
+            buffer.append(ForStep.toString("  "+tab));
         else
             buffer.append(tab+"  null");
         buffer.append("\n");

@@ -124,6 +124,8 @@ nonterminal
 nonterminal
 			ForCondition ForCondition;
 nonterminal
+			ForStep ForStep;
+nonterminal
 			MatchedStatement MatchedStatement;
 nonterminal
 			UnmatchedStatement UnmatchedStatement;
@@ -134,7 +136,7 @@ nonterminal
 nonterminal
 			SwitchStart SwitchStart;
 
-nonterminal rs.etf.pp1.symboltable.concepts.Struct Condition, CondTerm, CondFact, Factor, FactorUnar, FactorList, TermList, Term, Expr, Type, TernaryCondition, TernExpr1, TernExpr2;
+nonterminal rs.etf.pp1.symboltable.concepts.Struct Condition, CondTerm, CondFact, Factor, FactorUnar, FactorList, TermList, Term, Expr, Type, TernaryCondition, TernExpr1, TernExpr2, IfCondition;
 nonterminal rs.etf.pp1.symboltable.concepts.Obj Designator, DesignatorArrayName, MethRetAndName;
 
 
@@ -258,7 +260,7 @@ Statement ::= (MatchedStat) MatchedStatement:M1 {: RESULT=new MatchedStat(M1); R
 			   
 MatchedStatement ::=  (DesignStatement) DesignatorStatement:D1 SEMI {: RESULT=new DesignStatement(D1); RESULT.setLine(D1left); :}
 					  |
-					  (IfElseStatement) IF LPAREN Condition:C1 RPAREN MatchedStatement:M2 ELSE MatchedStatement:M3 {: RESULT=new IfElseStatement(C1, M2, M3); RESULT.setLine(C1left); :}
+					  (IfElseStatement) IF LPAREN IfCondition:I1 RPAREN MatchedStatement:M2 ELSE MatchedStatement:M3 {: RESULT=new IfElseStatement(I1, M2, M3); RESULT.setLine(I1left); :}
 					  |
 					  (BreakStatement) BREAK SEMI {: RESULT=new BreakStatement(); :}
 					  |
@@ -276,17 +278,25 @@ MatchedStatement ::=  (DesignStatement) DesignatorStatement:D1 SEMI {: RESULT=ne
 			  		  |
 					  (SwitchStatement) SwitchStart:S1 LBRACE CaseList:C2 RBRACE {: RESULT=new SwitchStatement(S1, C2); RESULT.setLine(S1left); :}
 					  |
-					  (ForStatement) ForStart:F1 LPAREN  ForDesignatorStatement:F2 SEMI ForCondition:F3 SEMI ForDesignatorStatement:F4  RPAREN MatchedStatement:M5 {: RESULT=new ForStatement(F1, F2, F3, F4, M5); RESULT.setLine(F1left); :}
+					  (ForStatement) ForStart:F1 LPAREN  ForDesignatorStatement:F2 SEMI ForCondition:F3 SEMI ForStep:F4  RPAREN MatchedStatement:M5 {: RESULT=new ForStatement(F1, F2, F3, F4, M5); RESULT.setLine(F1left); :}
 					  |
 					  (RecStatement) LBRACE StatementList:S1 RBRACE {: RESULT=new RecStatement(S1); RESULT.setLine(S1left); :}
 					  ;
 
-UnmatchedStatement ::= (IfElseStatement_non_else) IF LPAREN Condition:C1 RPAREN Statement:S2 {: RESULT=new IfElseStatement_non_else(C1, S2); RESULT.setLine(C1left); :}
+UnmatchedStatement ::= (IfElseStatement_non_else) IF LPAREN IfCondition:I1 RPAREN Statement:S2 {: RESULT=new IfElseStatement_non_else(I1, S2); RESULT.setLine(I1left); :}
 					   |
-					   (IfElseStatement_else) IF LPAREN Condition:C1 RPAREN MatchedStatement:M2 ELSE UnmatchedStatement:U3 {: RESULT=new IfElseStatement_else(C1, M2, U3); RESULT.setLine(C1left); :}
+					   (IfElseStatement_else) IF LPAREN IfCondition:I1 RPAREN MatchedStatement:M2 ELSE UnmatchedStatement:U3 {: RESULT=new IfElseStatement_else(I1, M2, U3); RESULT.setLine(I1left); :}
 					   ;
+					   
+IfCondition ::= (IfCondition) Condition:C1 {: RESULT=new IfCondition(C1); RESULT.setLine(C1left); :};
+
 
 ForStart ::= (ForStart) FOR {: RESULT=new ForStart(); :};
+
+ForStep ::= (ForStep_step) DesignatorStatement:D1 {: RESULT=new ForStep_step(D1); RESULT.setLine(D1left); :}
+           |
+		   (ForStep_e) {: RESULT=new ForStep_e(); :} /* epsilon */
+		   ; 
 
 SwitchStart ::= (SwitchStart) SWITCH LPAREN Expr:E1 RPAREN {: RESULT=new SwitchStart(E1); RESULT.setLine(E1left); :};
 

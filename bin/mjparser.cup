@@ -91,13 +91,14 @@ nonterminal Program,
 			Case,
 			ForDesignatorStatement,
 			ForCondition,
+			ForStep,
 			MatchedStatement,
 			UnmatchedStatement,
 			EnumName,
 			ForStart,
 			SwitchStart;
 
-nonterminal rs.etf.pp1.symboltable.concepts.Struct Condition, CondTerm, CondFact, Factor, FactorUnar, FactorList, TermList, Term, Expr, Type, TernaryCondition, TernExpr1, TernExpr2;
+nonterminal rs.etf.pp1.symboltable.concepts.Struct Condition, CondTerm, CondFact, Factor, FactorUnar, FactorList, TermList, Term, Expr, Type, TernaryCondition, TernExpr1, TernExpr2, IfCondition;
 nonterminal rs.etf.pp1.symboltable.concepts.Obj Designator, DesignatorArrayName, MethRetAndName;
 
 
@@ -221,7 +222,7 @@ Statement ::= (MatchedStat) MatchedStatement
 			   
 MatchedStatement ::=  (DesignStatement) DesignatorStatement SEMI
 					  |
-					  (IfElseStatement) IF LPAREN Condition RPAREN MatchedStatement ELSE MatchedStatement
+					  (IfElseStatement) IF LPAREN IfCondition RPAREN MatchedStatement ELSE MatchedStatement
 					  |
 					  (BreakStatement) BREAK SEMI
 					  |
@@ -239,17 +240,25 @@ MatchedStatement ::=  (DesignStatement) DesignatorStatement SEMI
 			  		  |
 					  (SwitchStatement) SwitchStart LBRACE CaseList RBRACE
 					  |
-					  (ForStatement) ForStart LPAREN  ForDesignatorStatement SEMI ForCondition SEMI ForDesignatorStatement  RPAREN MatchedStatement
+					  (ForStatement) ForStart LPAREN  ForDesignatorStatement SEMI ForCondition SEMI ForStep  RPAREN MatchedStatement
 					  |
 					  (RecStatement) LBRACE StatementList RBRACE
 					  ;
 
-UnmatchedStatement ::= (IfElseStatement_non_else) IF LPAREN Condition RPAREN Statement
+UnmatchedStatement ::= (IfElseStatement_non_else) IF LPAREN IfCondition RPAREN Statement
 					   |
-					   (IfElseStatement_else) IF LPAREN Condition RPAREN MatchedStatement ELSE UnmatchedStatement
+					   (IfElseStatement_else) IF LPAREN IfCondition RPAREN MatchedStatement ELSE UnmatchedStatement
 					   ;
+					   
+IfCondition ::= (IfCondition) Condition;
+
 
 ForStart ::= (ForStart) FOR;
+
+ForStep ::= (ForStep_step) DesignatorStatement
+           |
+		   (ForStep_e) /* epsilon */
+		   ; 
 
 SwitchStart ::= (SwitchStart) SWITCH LPAREN Expr RPAREN;
 

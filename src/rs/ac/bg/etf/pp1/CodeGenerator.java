@@ -4,7 +4,6 @@ import rs.ac.bg.etf.pp1.ast.*;
 import rs.etf.pp1.mj.runtime.Code;
 import rs.etf.pp1.symboltable.Tab;
 import rs.etf.pp1.symboltable.concepts.Obj;
-import rs.etf.pp1.symboltable.concepts.Struct;
 
 import java.util.Stack;
 
@@ -22,7 +21,10 @@ public class CodeGenerator extends VisitorAdaptor {
 	
 
 	private Stack<Integer> ternaryElseFixup = new Stack<>();
-	private Stack<Integer> ternaryEndFixup = new Stack<>();
+	private Stack<Integer> ternaryEndFixup  = new Stack<>();
+	
+	private Stack<Integer> condFalse = new Stack<>();
+	private Stack<Integer> condTrue = new Stack<>();
 	
 	Logger log = Logger.getLogger(getClass());
 
@@ -41,9 +43,10 @@ public class CodeGenerator extends VisitorAdaptor {
 	public void visit(MethRetAndName_type methRetAndName_type) {
 
 		methRetAndName_type.obj.setAdr(Code.pc);
+		
 		Code.put(Code.enter);
-		Code.put(methRetAndName_type.obj.getLevel()); //b1
-		Code.put(methRetAndName_type.obj.getLocalSymbols().size()); //b2
+		Code.put(methRetAndName_type.obj.getLevel()); 
+		Code.put(methRetAndName_type.obj.getLocalSymbols().size()); 
 	}
 	
 	@Override
@@ -53,8 +56,8 @@ public class CodeGenerator extends VisitorAdaptor {
 			this.mainPC = Code.pc;
 		
 		Code.put(Code.enter);
-		Code.put(methRetAndName_void.obj.getLevel()); //b1
-		Code.put(methRetAndName_void.obj.getLocalSymbols().size()); //b2
+		Code.put(methRetAndName_void.obj.getLevel()); 
+		Code.put(methRetAndName_void.obj.getLocalSymbols().size());
 	}
 	
 	@Override
@@ -107,6 +110,99 @@ public class CodeGenerator extends VisitorAdaptor {
 		Code.store(desObj);
 	}
 	
+	private Stack<Integer> ifElseFixup = new Stack<>();
+	private Stack<Integer> ifEndFixup  = new Stack<>();
+	
+	@Override
+	public void visit(IfCondition sc) {
+		ifEndFixup.push(Code.pc - 2);
+	}
+	
+	
+	@Override
+	public void visit(IfElseStatement_non_else ine) {
+		Code.fixup(ifEndFixup.pop());
+	}
+	
+	@Override
+	public void visit(IfElseStatement_else ine) {
+		Code.fixup(ifEndFixup.pop());
+	}
+	
+	@Override
+	public void visit(IfElseStatement ies) {
+		Code.fixup(ifEndFixup.pop());
+	}
+	
+	
+	
+	
+//	Stack<Integer> forCondStart = new Stack<>();
+//	private Stack<Integer> forEndFixup  = new Stack<>();
+//	
+//	
+//	@Override
+//	public void visit(ForStart fs) {
+//		forCondStart.push(Code.pc); 
+//		report_info("Poseta ForStart", fs);
+//	}
+//	
+//	@Override
+//	public void visit(ForCondition fc) {		
+//		Code.loadConst(0);
+//		Code.putFalseJump(Code.eq, 0);
+//		
+//		forEndFixup.push(Code.pc-2);
+//		report_info("Poseta ForCondition", fc);
+//	}
+//	
+//	@Override
+//	public void visit(ForStatement fc) {
+//		report_info("Poseta ForStatement", fc);
+//	    if(!forCondStart.isEmpty()) {
+//	        Code.putJump(forCondStart.pop());
+//	        Code.fixup(forEndFixup.pop());
+//	    }
+//	}
+	
+	
+//  init 
+//	START: 
+//	cond 
+//	putFalseJump END
+//	body 
+//	step 
+//	putJump START 
+//	END:
+	
+	/* CONDITION */
+	
+	@Override
+	public void visit(ConditionList cl) {
+		
+	}
+	
+	
+	@Override
+	public void visit(CondFact_relop cf) {
+	    int op = 0;
+		if(cf.getRelop() instanceof Relop_eq) {
+			op = Code.eq;
+		}else if(cf.getRelop() instanceof Relop_leq) {
+			op = Code.le;
+		}else if(cf.getRelop() instanceof Relop_neq) {
+			op = Code.ne;
+		}else if(cf.getRelop() instanceof Relop_Geq) {
+			op = Code.ge;
+		}else if(cf.getRelop() instanceof Relop_grt) {
+			op = Code.gt;
+		}else if(cf.getRelop() instanceof Relop_ls) {
+			op = Code.lt;
+		}
+		
+		Code.putFalseJump(op, 0);
+	}
+	
 	
 	/* FACTOR, TERM, EXPR */
 	
@@ -115,10 +211,6 @@ public class CodeGenerator extends VisitorAdaptor {
 		expr_notern.struct = expr_notern.getTermList().struct;
 	}
 
-	@Override
-	public void visit(Expr_tern expr_tern) {
-		
-	}
 
 	@Override
 	public void visit(TermList_addop tla) {
@@ -148,6 +240,20 @@ public class CodeGenerator extends VisitorAdaptor {
 	    } else {
 	        Code.load(factor_des.getDesignator().obj);
 	    }	
+	}
+	
+	@Override
+	public void visit(Factor_methnopars fd) {
+		int offset = fd.getDesignator().obj.getAdr() - Code.pc;
+		Code.put(Code.call);
+		Code.put2(offset);
+	}
+	
+	@Override
+	public void visit(Factor_methpars fd) {
+		int offset = fd.getDesignator().obj.getAdr() - Code.pc;
+		Code.put(Code.call);
+		Code.put2(offset);
 	}
 	
 	@Override
@@ -216,32 +322,50 @@ public class CodeGenerator extends VisitorAdaptor {
 		Code.store(dsDec.getDesignator().obj);
 	}
 	
+	@Override
+	public void visit(DesignatorStatement_noactpar ds) {
+		int offset = ds.getDesignator().obj.getAdr() - Code.pc;
+		Code.put(Code.call);
+		Code.put2(offset);
+		
+		if(ds.getDesignator().obj.getType() != Tab.noType) {
+			Code.put(Code.pop);
+		}
+	}
+	
+	@Override
+	public void visit(DesignatorStatement_actpar ds) {
+		int offset = ds.getDesignator().obj.getAdr() - Code.pc;
+		
+		Code.put(Code.call);
+		Code.put2(offset);
+		
+		if(ds.getDesignator().obj.getType() != Tab.noType) {
+			Code.put(Code.pop);
+		}
+	}
+	
 	
 	// Designator
-	
 	
 	
 	/* TERNARY */
 	
 	public void visit(TernaryCondition sc) {
-
-	    Code.loadConst(0);
-	    Code.putFalseJump(Code.ne, 0);
-
-	    ternaryElseFixup.push(Code.pc - 2);
+	    ternaryElseFixup.push(Code.pc - 2);   // condition je već napravio putFalseJump
+	    									  // samo zapamtimo adresu za fixup
 	}
 	
 	@Override
 	public void visit(TernExpr1 te1) {
-
 	    Code.putJump(0);
 	    ternaryEndFixup.push(Code.pc - 2);
 
-	    // popravi skok na ELSE
 	    Code.fixup(ternaryElseFixup.pop());
 	}
 	
 	public void visit(TernExpr2 te) {
+
 	    Code.fixup(ternaryEndFixup.pop());
 	}
 	

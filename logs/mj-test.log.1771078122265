@@ -1,0 +1,283 @@
+INFO  15:08:31,679 - Compiling source file: /home/rembrant/EclipseWorkspace3/MJCompiler/test/program.mj
+INFO  15:08:31,716 - #2 program
+INFO  15:08:31,716 - #48 testFull
+INFO  15:08:31,716 - #3 const
+INFO  15:08:31,716 - #48 int
+INFO  15:08:31,717 - #48 pi
+INFO  15:08:31,717 - #33 =
+INFO  15:08:31,717 - #45 3
+INFO  15:08:31,718 - #34 ;
+INFO  15:08:31,719 - #14 enum
+INFO  15:08:31,719 - #48 Days
+INFO  15:08:31,719 - #40 {
+INFO  15:08:31,720 - #48 MONDAY
+INFO  15:08:31,720 - #33 =
+INFO  15:08:31,720 - #45 6
+INFO  15:08:31,720 - #37 ,
+INFO  15:08:31,720 - #48 FRIDAY
+INFO  15:08:31,720 - #37 ,
+INFO  15:08:31,720 - #48 SUNDAY
+INFO  15:08:31,720 - #41 }
+INFO  15:08:31,721 - #34 ;
+ERROR 15:08:31,721 - 
+Sintaksna greska na liniji 7
+INFO  15:08:31,721 - #14 enum
+INFO  15:08:31,721 - #48 Broj
+INFO  15:08:31,721 - #40 {
+INFO  15:08:31,722 - #48 NULA
+ERROR 15:08:31,722 - Izvrsen oporavak do ; u liniji 5
+INFO  15:08:31,723 - #37 ,
+INFO  15:08:31,723 - #48 JEDAN
+INFO  15:08:31,723 - #37 ,
+INFO  15:08:31,723 - #48 PET
+INFO  15:08:31,723 - #33 =
+INFO  15:08:31,723 - #45 5
+INFO  15:08:31,724 - #37 ,
+INFO  15:08:31,724 - #48 DESET
+INFO  15:08:31,724 - #33 =
+INFO  15:08:31,724 - #45 10
+INFO  15:08:31,724 - #41 }
+INFO  15:08:31,724 - #48 int
+INFO  15:08:31,725 - #48 i
+INFO  15:08:31,725 - #37 ,
+INFO  15:08:31,725 - #48 j
+INFO  15:08:31,725 - #34 ;
+INFO  15:08:31,725 - #40 {
+INFO  15:08:31,726 - #4 void
+INFO  15:08:31,727 - #48 main
+INFO  15:08:31,727 - #38 (
+INFO  15:08:31,727 - #39 )
+INFO  15:08:31,728 - #48 int
+INFO  15:08:31,728 - #48 a
+INFO  15:08:31,728 - #37 ,
+INFO  15:08:31,728 - #48 b
+INFO  15:08:31,729 - #34 ;
+INFO  15:08:31,729 - #48 char
+INFO  15:08:31,729 - #48 carr
+INFO  15:08:31,729 - #42 [
+INFO  15:08:31,729 - #43 ]
+INFO  15:08:31,729 - #34 ;
+INFO  15:08:31,729 - #48 int
+INFO  15:08:31,729 - #48 arr
+INFO  15:08:31,730 - #42 [
+INFO  15:08:31,730 - #43 ]
+INFO  15:08:31,730 - #34 ;
+INFO  15:08:31,730 - #48 Brpj
+INFO  15:08:31,730 - #48 d
+INFO  15:08:31,730 - #34 ;
+INFO  15:08:31,730 - #40 {
+INFO  15:08:31,730 - #48 d
+INFO  15:08:31,731 - #33 =
+INFO  15:08:31,731 - #48 Broj
+INFO  15:08:31,733 - #35 .
+INFO  15:08:31,733 - #48 JEDAN
+INFO  15:08:31,733 - #34 ;
+INFO  15:08:31,734 - #11 print
+INFO  15:08:31,735 - #38 (
+INFO  15:08:31,735 - #48 d
+INFO  15:08:31,735 - #39 )
+INFO  15:08:31,735 - #34 ;
+INFO  15:08:31,735 - #41 }
+INFO  15:08:31,735 - #41 }
+INFO  15:08:31,742 - Program(
+  ProgramName(
+   testFull
+  ) [ProgramName]
+  ConVarDecList_con(
+    ConDecList_l(
+      Type(
+       int
+      ) [Type]
+      ConDecl(
+       pi
+        Constant_n(
+         3
+        ) [Constant_n]
+      ) [ConDecl]
+      ConDeclMore_e(
+      ) [ConDeclMore_e]
+    ) [ConDecList_l]
+    ConVarDecList_con(
+      ConDeclList_error(
+      ) [ConDeclList_error]
+      ConVarDecList_enum(
+        EnumDeclList(
+          EnumName(
+           Broj
+          ) [EnumName]
+          EnumList_comma(
+            EnumList_comma(
+              EnumList_comma(
+                EnumList_item(
+                  EnumItem_var(
+                   NULA
+                  ) [EnumItem_var]
+                ) [EnumList_item]
+                EnumItem_var(
+                 JEDAN
+                ) [EnumItem_var]
+              ) [EnumList_comma]
+              EnumItem_ass(
+               PET
+               5
+              ) [EnumItem_ass]
+            ) [EnumList_comma]
+            EnumItem_ass(
+             DESET
+             10
+            ) [EnumItem_ass]
+          ) [EnumList_comma]
+        ) [EnumDeclList]
+        ConVarDecList_var(
+          VarDeclList(
+            Type(
+             int
+            ) [Type]
+            VarDecl_var(
+             i
+            ) [VarDecl_var]
+            VarDeclMore_comma(
+              VarDecl_var(
+               j
+              ) [VarDecl_var]
+              VarDeclMore_e(
+              ) [VarDeclMore_e]
+            ) [VarDeclMore_comma]
+          ) [VarDeclList]
+          ConVarDecList_e(
+          ) [ConVarDecList_e]
+        ) [ConVarDecList_var]
+      ) [ConVarDecList_enum]
+    ) [ConVarDecList_con]
+  ) [ConVarDecList_con]
+  MethodDeclList_rec(
+    MethodDeclList_e(
+    ) [MethodDeclList_e]
+    MethodDecl(
+      MethRetAndName_void(
+       main
+      ) [MethRetAndName_void]
+      FormParList_e(
+      ) [FormParList_e]
+      VarDeclListRec_rec(
+        VarDeclListRec_rec(
+          VarDeclListRec_rec(
+            VarDeclListRec_rec(
+              VarDeclListRec_e(
+              ) [VarDeclListRec_e]
+              VarDeclList(
+                Type(
+                 int
+                ) [Type]
+                VarDecl_var(
+                 a
+                ) [VarDecl_var]
+                VarDeclMore_comma(
+                  VarDecl_var(
+                   b
+                  ) [VarDecl_var]
+                  VarDeclMore_e(
+                  ) [VarDeclMore_e]
+                ) [VarDeclMore_comma]
+              ) [VarDeclList]
+            ) [VarDeclListRec_rec]
+            VarDeclList(
+              Type(
+               char
+              ) [Type]
+              VarDecl_array(
+               carr
+              ) [VarDecl_array]
+              VarDeclMore_e(
+              ) [VarDeclMore_e]
+            ) [VarDeclList]
+          ) [VarDeclListRec_rec]
+          VarDeclList(
+            Type(
+             int
+            ) [Type]
+            VarDecl_array(
+             arr
+            ) [VarDecl_array]
+            VarDeclMore_e(
+            ) [VarDeclMore_e]
+          ) [VarDeclList]
+        ) [VarDeclListRec_rec]
+        VarDeclList(
+          Type(
+           Brpj
+          ) [Type]
+          VarDecl_var(
+           d
+          ) [VarDecl_var]
+          VarDeclMore_e(
+          ) [VarDeclMore_e]
+        ) [VarDeclList]
+      ) [VarDeclListRec_rec]
+      StatementList_rec(
+        StatementList_rec(
+          StatementList_e(
+          ) [StatementList_e]
+          MatchedStat(
+            DesignStatement(
+              DesignatorStatement_ass(
+                Designator_var(
+                 d
+                ) [Designator_var]
+                Assignop(
+                ) [Assignop]
+                Expr_notern(
+                  SingleTerm(
+                    Term(
+                      SingleFactor(
+                        Factor(
+                          Unary_e(
+                          ) [Unary_e]
+                          Factor_des(
+                            Designator_enum(
+                             Broj
+                             JEDAN
+                            ) [Designator_enum]
+                          ) [Factor_des]
+                        ) [Factor]
+                      ) [SingleFactor]
+                    ) [Term]
+                  ) [SingleTerm]
+                ) [Expr_notern]
+              ) [DesignatorStatement_ass]
+            ) [DesignStatement]
+          ) [MatchedStat]
+        ) [StatementList_rec]
+        MatchedStat(
+          PrintStatement(
+            Expr_notern(
+              SingleTerm(
+                Term(
+                  SingleFactor(
+                    Factor(
+                      Unary_e(
+                      ) [Unary_e]
+                      Factor_des(
+                        Designator_var(
+                         d
+                        ) [Designator_var]
+                      ) [Factor_des]
+                    ) [Factor]
+                  ) [SingleFactor]
+                ) [Term]
+              ) [SingleTerm]
+            ) [Expr_notern]
+          ) [PrintStatement]
+        ) [MatchedStat]
+      ) [StatementList_rec]
+    ) [MethodDecl]
+  ) [MethodDeclList_rec]
+) [Program]
+INFO  15:08:31,743 - -------------------------------------------
+ERROR 15:08:31,749 - Nepostojeci tip podatka: Brpj na liniji 12
+INFO  15:08:31,760 - Pristupanje varijabli: d, Obj: 1, 1, 4 na liniji 14
+ERROR 15:08:31,761 - Nekompatabilna dodela promenjivi: d na liniji 14
+INFO  15:08:31,761 - Pristupanje varijabli: d, Obj: 1, 1, 4 na liniji 15
+ERROR 15:08:31,761 - Print1 pokusao da printuje neadekvatan tip  na liniji 7
+INFO  15:08:31,761 - ============================================
+ERROR 15:08:31,762 - Parsiranje NIJE uspesno!

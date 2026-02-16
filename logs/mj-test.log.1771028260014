@@ -1,0 +1,211 @@
+INFO  01:17:16,668 - Compiling source file: /home/rembrant/EclipseWorkspace3/MJCompiler/test/program.mj
+INFO  01:17:16,718 - #2 program
+INFO  01:17:16,718 - #48 testFull
+INFO  01:17:16,718 - #3 const
+INFO  01:17:16,719 - #48 int
+INFO  01:17:16,719 - #48 pi
+INFO  01:17:16,720 - #33 =
+INFO  01:17:16,720 - #45 3
+INFO  01:17:16,720 - #34 ;
+INFO  01:17:16,722 - #48 int
+INFO  01:17:16,723 - #48 i
+INFO  01:17:16,723 - #37 ,
+INFO  01:17:16,724 - #48 j
+INFO  01:17:16,724 - #34 ;
+INFO  01:17:16,726 - #40 {
+INFO  01:17:16,727 - #4 void
+INFO  01:17:16,729 - #48 main
+INFO  01:17:16,729 - #38 (
+INFO  01:17:16,729 - #39 )
+INFO  01:17:16,730 - #48 int
+INFO  01:17:16,732 - #48 a
+INFO  01:17:16,732 - #37 ,
+INFO  01:17:16,732 - #48 b
+INFO  01:17:16,733 - #34 ;
+INFO  01:17:16,733 - #48 char
+INFO  01:17:16,733 - #48 carr
+INFO  01:17:16,734 - #42 [
+INFO  01:17:16,734 - #43 ]
+INFO  01:17:16,734 - #34 ;
+INFO  01:17:16,734 - #48 int
+INFO  01:17:16,734 - #48 arr
+INFO  01:17:16,735 - #42 [
+INFO  01:17:16,735 - #43 ]
+INFO  01:17:16,735 - #34 ;
+INFO  01:17:16,735 - #40 {
+INFO  01:17:16,735 - #11 print
+INFO  01:17:16,736 - #38 (
+INFO  01:17:16,737 - #46 0
+INFO  01:17:16,738 - #44 ?
+INFO  01:17:16,741 - #45 44
+INFO  01:17:16,742 - #36 :
+INFO  01:17:16,743 - #45 77
+INFO  01:17:16,744 - #39 )
+INFO  01:17:16,746 - #34 ;
+INFO  01:17:16,746 - #41 }
+INFO  01:17:16,747 - #41 }
+INFO  01:17:16,758 - Program(
+  ProgramName(
+   testFull
+  ) [ProgramName]
+  ConVarDecList_con(
+    ConDecList_l(
+      Type(
+       int
+      ) [Type]
+      ConDecl(
+       pi
+        Constant_n(
+         3
+        ) [Constant_n]
+      ) [ConDecl]
+      ConDeclMore_e(
+      ) [ConDeclMore_e]
+    ) [ConDecList_l]
+    ConVarDecList_var(
+      VarDeclList(
+        Type(
+         int
+        ) [Type]
+        VarDecl_var(
+         i
+        ) [VarDecl_var]
+        VarDeclMore_comma(
+          VarDecl_var(
+           j
+          ) [VarDecl_var]
+          VarDeclMore_e(
+          ) [VarDeclMore_e]
+        ) [VarDeclMore_comma]
+      ) [VarDeclList]
+      ConVarDecList_e(
+      ) [ConVarDecList_e]
+    ) [ConVarDecList_var]
+  ) [ConVarDecList_con]
+  MethodDeclList_rec(
+    MethodDeclList_e(
+    ) [MethodDeclList_e]
+    MethodDecl(
+      MethRetAndName_void(
+       main
+      ) [MethRetAndName_void]
+      FormParList_e(
+      ) [FormParList_e]
+      VarDeclListRec_rec(
+        VarDeclListRec_rec(
+          VarDeclListRec_rec(
+            VarDeclListRec_e(
+            ) [VarDeclListRec_e]
+            VarDeclList(
+              Type(
+               int
+              ) [Type]
+              VarDecl_var(
+               a
+              ) [VarDecl_var]
+              VarDeclMore_comma(
+                VarDecl_var(
+                 b
+                ) [VarDecl_var]
+                VarDeclMore_e(
+                ) [VarDeclMore_e]
+              ) [VarDeclMore_comma]
+            ) [VarDeclList]
+          ) [VarDeclListRec_rec]
+          VarDeclList(
+            Type(
+             char
+            ) [Type]
+            VarDecl_array(
+             carr
+            ) [VarDecl_array]
+            VarDeclMore_e(
+            ) [VarDeclMore_e]
+          ) [VarDeclList]
+        ) [VarDeclListRec_rec]
+        VarDeclList(
+          Type(
+           int
+          ) [Type]
+          VarDecl_array(
+           arr
+          ) [VarDecl_array]
+          VarDeclMore_e(
+          ) [VarDeclMore_e]
+        ) [VarDeclList]
+      ) [VarDeclListRec_rec]
+      StatementList_rec(
+        StatementList_e(
+        ) [StatementList_e]
+        MatchedStat(
+          PrintStatement(
+            Expr_tern(
+              TernaryCondition(
+                SingleCondition(
+                  SingleCondTerm(
+                    CondFact_norelop(
+                      SingleTerm(
+                        Term(
+                          SingleFactor(
+                            Factor(
+                              Unary_e(
+                              ) [Unary_e]
+                              Factor_b(
+                               0
+                              ) [Factor_b]
+                            ) [Factor]
+                          ) [SingleFactor]
+                        ) [Term]
+                      ) [SingleTerm]
+                    ) [CondFact_norelop]
+                  ) [SingleCondTerm]
+                ) [SingleCondition]
+              ) [TernaryCondition]
+              TernExpr1(
+                Expr_notern(
+                  SingleTerm(
+                    Term(
+                      SingleFactor(
+                        Factor(
+                          Unary_e(
+                          ) [Unary_e]
+                          Factor_n(
+                           44
+                          ) [Factor_n]
+                        ) [Factor]
+                      ) [SingleFactor]
+                    ) [Term]
+                  ) [SingleTerm]
+                ) [Expr_notern]
+              ) [TernExpr1]
+              TernExpr2(
+                Expr_notern(
+                  SingleTerm(
+                    Term(
+                      SingleFactor(
+                        Factor(
+                          Unary_e(
+                          ) [Unary_e]
+                          Factor_n(
+                           77
+                          ) [Factor_n]
+                        ) [Factor]
+                      ) [SingleFactor]
+                    ) [Term]
+                  ) [SingleTerm]
+                ) [Expr_notern]
+              ) [TernExpr2]
+            ) [Expr_tern]
+          ) [PrintStatement]
+        ) [MatchedStat]
+      ) [StatementList_rec]
+    ) [MethodDecl]
+  ) [MethodDeclList_rec]
+) [Program]
+INFO  01:17:16,759 - -------------------------------------------
+INFO  01:17:16,769 - ============================================
+INFO  01:17:16,770 - Generating bytecode file: /home/rembrant/EclipseWorkspace3/MJCompiler/test/program.obj
+INFO  01:17:16,774 - TernCond PC: 4 na liniji 7
+INFO  01:17:16,775 - TernCond PC: 7 na liniji 7
+INFO  01:17:16,775 - TernExpr2 PC: 20 na liniji 16
+INFO  01:17:16,775 - Parsiranje uspesno zavrseno!

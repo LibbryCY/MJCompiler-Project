@@ -1,0 +1,239 @@
+INFO  15:06:34,355 - Compiling source file: /home/rembrant/EclipseWorkspace3/MJCompiler/test/program.mj
+INFO  15:06:34,390 - #2 program
+INFO  15:06:34,390 - #48 testFull
+INFO  15:06:34,390 - #3 const
+INFO  15:06:34,391 - #48 int
+INFO  15:06:34,391 - #48 pi
+INFO  15:06:34,391 - #33 =
+INFO  15:06:34,391 - #45 3
+INFO  15:06:34,391 - #34 ;
+INFO  15:06:34,393 - #14 enum
+INFO  15:06:34,393 - #48 Days
+INFO  15:06:34,393 - #40 {
+INFO  15:06:34,394 - #48 MONDAY
+INFO  15:06:34,394 - #33 =
+INFO  15:06:34,394 - #45 6
+INFO  15:06:34,394 - #37 ,
+INFO  15:06:34,394 - #48 FRIDAY
+INFO  15:06:34,394 - #37 ,
+INFO  15:06:34,395 - #48 SUNDAY
+INFO  15:06:34,395 - #41 }
+INFO  15:06:34,395 - #34 ;
+ERROR 15:06:34,395 - 
+Sintaksna greska na liniji 7
+INFO  15:06:34,395 - #48 int
+INFO  15:06:34,395 - #48 i
+INFO  15:06:34,395 - #37 ,
+INFO  15:06:34,396 - #48 j
+ERROR 15:06:34,397 - Izvrsen oporavak do ; u liniji 5
+INFO  15:06:34,397 - #34 ;
+INFO  15:06:34,398 - #40 {
+INFO  15:06:34,398 - #4 void
+INFO  15:06:34,399 - #48 main
+INFO  15:06:34,399 - #38 (
+INFO  15:06:34,399 - #39 )
+INFO  15:06:34,400 - #48 int
+INFO  15:06:34,400 - #48 a
+INFO  15:06:34,400 - #37 ,
+INFO  15:06:34,401 - #48 b
+INFO  15:06:34,401 - #34 ;
+INFO  15:06:34,401 - #48 char
+INFO  15:06:34,401 - #48 carr
+INFO  15:06:34,401 - #42 [
+INFO  15:06:34,401 - #43 ]
+INFO  15:06:34,401 - #34 ;
+INFO  15:06:34,401 - #48 int
+INFO  15:06:34,402 - #48 arr
+INFO  15:06:34,402 - #42 [
+INFO  15:06:34,402 - #43 ]
+INFO  15:06:34,402 - #34 ;
+INFO  15:06:34,402 - #48 Days
+INFO  15:06:34,402 - #48 d
+INFO  15:06:34,402 - #34 ;
+INFO  15:06:34,402 - #40 {
+INFO  15:06:34,402 - #48 d
+INFO  15:06:34,403 - #33 =
+INFO  15:06:34,403 - #48 Days
+INFO  15:06:34,404 - #35 .
+INFO  15:06:34,405 - #48 FRIDAY
+INFO  15:06:34,405 - #34 ;
+INFO  15:06:34,406 - #11 print
+INFO  15:06:34,406 - #38 (
+INFO  15:06:34,406 - #48 d
+INFO  15:06:34,406 - #39 )
+INFO  15:06:34,406 - #34 ;
+INFO  15:06:34,406 - #41 }
+INFO  15:06:34,407 - #41 }
+INFO  15:06:34,412 - Program(
+  ProgramName(
+   testFull
+  ) [ProgramName]
+  ConVarDecList_con(
+    ConDecList_l(
+      Type(
+       int
+      ) [Type]
+      ConDecl(
+       pi
+        Constant_n(
+         3
+        ) [Constant_n]
+      ) [ConDecl]
+      ConDeclMore_e(
+      ) [ConDeclMore_e]
+    ) [ConDecList_l]
+    ConVarDecList_con(
+      ConDeclList_error(
+      ) [ConDeclList_error]
+      ConVarDecList_var(
+        VarDeclList(
+          Type(
+           int
+          ) [Type]
+          VarDecl_var(
+           i
+          ) [VarDecl_var]
+          VarDeclMore_comma(
+            VarDecl_var(
+             j
+            ) [VarDecl_var]
+            VarDeclMore_e(
+            ) [VarDeclMore_e]
+          ) [VarDeclMore_comma]
+        ) [VarDeclList]
+        ConVarDecList_e(
+        ) [ConVarDecList_e]
+      ) [ConVarDecList_var]
+    ) [ConVarDecList_con]
+  ) [ConVarDecList_con]
+  MethodDeclList_rec(
+    MethodDeclList_e(
+    ) [MethodDeclList_e]
+    MethodDecl(
+      MethRetAndName_void(
+       main
+      ) [MethRetAndName_void]
+      FormParList_e(
+      ) [FormParList_e]
+      VarDeclListRec_rec(
+        VarDeclListRec_rec(
+          VarDeclListRec_rec(
+            VarDeclListRec_rec(
+              VarDeclListRec_e(
+              ) [VarDeclListRec_e]
+              VarDeclList(
+                Type(
+                 int
+                ) [Type]
+                VarDecl_var(
+                 a
+                ) [VarDecl_var]
+                VarDeclMore_comma(
+                  VarDecl_var(
+                   b
+                  ) [VarDecl_var]
+                  VarDeclMore_e(
+                  ) [VarDeclMore_e]
+                ) [VarDeclMore_comma]
+              ) [VarDeclList]
+            ) [VarDeclListRec_rec]
+            VarDeclList(
+              Type(
+               char
+              ) [Type]
+              VarDecl_array(
+               carr
+              ) [VarDecl_array]
+              VarDeclMore_e(
+              ) [VarDeclMore_e]
+            ) [VarDeclList]
+          ) [VarDeclListRec_rec]
+          VarDeclList(
+            Type(
+             int
+            ) [Type]
+            VarDecl_array(
+             arr
+            ) [VarDecl_array]
+            VarDeclMore_e(
+            ) [VarDeclMore_e]
+          ) [VarDeclList]
+        ) [VarDeclListRec_rec]
+        VarDeclList(
+          Type(
+           Days
+          ) [Type]
+          VarDecl_var(
+           d
+          ) [VarDecl_var]
+          VarDeclMore_e(
+          ) [VarDeclMore_e]
+        ) [VarDeclList]
+      ) [VarDeclListRec_rec]
+      StatementList_rec(
+        StatementList_rec(
+          StatementList_e(
+          ) [StatementList_e]
+          MatchedStat(
+            DesignStatement(
+              DesignatorStatement_ass(
+                Designator_var(
+                 d
+                ) [Designator_var]
+                Assignop(
+                ) [Assignop]
+                Expr_notern(
+                  SingleTerm(
+                    Term(
+                      SingleFactor(
+                        Factor(
+                          Unary_e(
+                          ) [Unary_e]
+                          Factor_des(
+                            Designator_enum(
+                             Days
+                             FRIDAY
+                            ) [Designator_enum]
+                          ) [Factor_des]
+                        ) [Factor]
+                      ) [SingleFactor]
+                    ) [Term]
+                  ) [SingleTerm]
+                ) [Expr_notern]
+              ) [DesignatorStatement_ass]
+            ) [DesignStatement]
+          ) [MatchedStat]
+        ) [StatementList_rec]
+        MatchedStat(
+          PrintStatement(
+            Expr_notern(
+              SingleTerm(
+                Term(
+                  SingleFactor(
+                    Factor(
+                      Unary_e(
+                      ) [Unary_e]
+                      Factor_des(
+                        Designator_var(
+                         d
+                        ) [Designator_var]
+                      ) [Factor_des]
+                    ) [Factor]
+                  ) [SingleFactor]
+                ) [Term]
+              ) [SingleTerm]
+            ) [Expr_notern]
+          ) [PrintStatement]
+        ) [MatchedStat]
+      ) [StatementList_rec]
+    ) [MethodDecl]
+  ) [MethodDeclList_rec]
+) [Program]
+INFO  15:06:34,413 - -------------------------------------------
+ERROR 15:06:34,419 - Nepostojeci tip podatka: Days na liniji 11
+INFO  15:06:34,427 - Pristupanje varijabli: d, Obj: 1, 1, 4 na liniji 13
+ERROR 15:06:34,428 - Pristup nedefinisanoj promenjivi enum [Designator_enum]: Days na liniji 13
+INFO  15:06:34,428 - Pristupanje varijabli: d, Obj: 1, 1, 4 na liniji 14
+ERROR 15:06:34,428 - Print1 pokusao da printuje neadekvatan tip  na liniji 7
+INFO  15:06:34,428 - ============================================
+ERROR 15:06:34,429 - Parsiranje NIJE uspesno!

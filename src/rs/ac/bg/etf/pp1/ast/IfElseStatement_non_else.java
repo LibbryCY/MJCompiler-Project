@@ -1,28 +1,28 @@
 // generated with ast extension for cup
 // version 0.8
-// 13/1/2026 15:4:11
+// 16/1/2026 1:42:26
 
 
 package rs.ac.bg.etf.pp1.ast;
 
 public class IfElseStatement_non_else extends UnmatchedStatement {
 
-    private Condition Condition;
+    private IfCondition IfCondition;
     private Statement Statement;
 
-    public IfElseStatement_non_else (Condition Condition, Statement Statement) {
-        this.Condition=Condition;
-        if(Condition!=null) Condition.setParent(this);
+    public IfElseStatement_non_else (IfCondition IfCondition, Statement Statement) {
+        this.IfCondition=IfCondition;
+        if(IfCondition!=null) IfCondition.setParent(this);
         this.Statement=Statement;
         if(Statement!=null) Statement.setParent(this);
     }
 
-    public Condition getCondition() {
-        return Condition;
+    public IfCondition getIfCondition() {
+        return IfCondition;
     }
 
-    public void setCondition(Condition Condition) {
-        this.Condition=Condition;
+    public void setIfCondition(IfCondition IfCondition) {
+        this.IfCondition=IfCondition;
     }
 
     public Statement getStatement() {
@@ -38,18 +38,18 @@ public class IfElseStatement_non_else extends UnmatchedStatement {
     }
 
     public void childrenAccept(Visitor visitor) {
-        if(Condition!=null) Condition.accept(visitor);
+        if(IfCondition!=null) IfCondition.accept(visitor);
         if(Statement!=null) Statement.accept(visitor);
     }
 
     public void traverseTopDown(Visitor visitor) {
         accept(visitor);
-        if(Condition!=null) Condition.traverseTopDown(visitor);
+        if(IfCondition!=null) IfCondition.traverseTopDown(visitor);
         if(Statement!=null) Statement.traverseTopDown(visitor);
     }
 
     public void traverseBottomUp(Visitor visitor) {
-        if(Condition!=null) Condition.traverseBottomUp(visitor);
+        if(IfCondition!=null) IfCondition.traverseBottomUp(visitor);
         if(Statement!=null) Statement.traverseBottomUp(visitor);
         accept(visitor);
     }
@@ -59,8 +59,8 @@ public class IfElseStatement_non_else extends UnmatchedStatement {
         buffer.append(tab);
         buffer.append("IfElseStatement_non_else(\n");
 
-        if(Condition!=null)
-            buffer.append(Condition.toString("  "+tab));
+        if(IfCondition!=null)
+            buffer.append(IfCondition.toString("  "+tab));
         else
             buffer.append(tab+"  null");
         buffer.append("\n");
