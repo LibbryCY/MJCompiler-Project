@@ -1,0 +1,78 @@
+INFO  15:39:00,607 - Compiling source file: /home/rembrant/EclipseWorkspace3/MJCompiler/test/program.mj
+INFO  15:39:00,638 - #2 program
+INFO  15:39:00,638 - #48 test301
+INFO  15:39:00,638 - #14 enum
+INFO  15:39:00,639 - #48 Broj
+INFO  15:39:00,639 - #40 {
+INFO  15:39:00,639 - #48 NULA
+INFO  15:39:00,639 - #37 ,
+INFO  15:39:00,639 - #48 JEDAN
+INFO  15:39:00,640 - #37 ,
+INFO  15:39:00,640 - #48 PET
+INFO  15:39:00,640 - #33 =
+INFO  15:39:00,640 - #45 5
+INFO  15:39:00,640 - #37 ,
+INFO  15:39:00,640 - #48 DESET
+INFO  15:39:00,640 - #33 =
+INFO  15:39:00,640 - #45 10
+INFO  15:39:00,640 - #41 }
+INFO  15:39:00,640 - #48 int
+INFO  15:39:00,641 - #48 a
+INFO  15:39:00,641 - #34 ;
+INFO  15:39:00,642 - #40 {
+INFO  15:39:00,643 - #4 void
+INFO  15:39:00,643 - #48 mul
+INFO  15:39:00,643 - #38 (
+INFO  15:39:00,643 - #39 )
+INFO  15:39:00,644 - #34 ;
+ERROR 15:39:00,644 - 
+Sintaksna greska na liniji 11
+INFO  15:39:00,644 - #4 void
+INFO  15:39:00,644 - #48 add
+INFO  15:39:00,644 - #38 (
+INFO  15:39:00,645 - #39 )
+INFO  15:39:00,645 - #40 {
+INFO  15:39:00,645 - #48 mul
+INFO  15:39:00,645 - #38 (
+INFO  15:39:00,645 - #39 )
+INFO  15:39:00,645 - #34 ;
+INFO  15:39:00,645 - #41 }
+INFO  15:39:00,645 - #4 void
+INFO  15:39:00,645 - #48 sun
+INFO  15:39:00,646 - #38 (
+INFO  15:39:00,646 - #39 )
+INFO  15:39:00,646 - #40 {
+INFO  15:39:00,646 - #41 }
+INFO  15:39:00,646 - #4 void
+INFO  15:39:00,646 - #48 mul
+INFO  15:39:00,646 - #38 (
+INFO  15:39:00,646 - #39 )
+INFO  15:39:00,646 - #40 {
+INFO  15:39:00,646 - #48 add
+INFO  15:39:00,646 - #38 (
+INFO  15:39:00,646 - #39 )
+INFO  15:39:00,646 - #34 ;
+INFO  15:39:00,646 - #41 }
+INFO  15:39:00,647 - #4 void
+INFO  15:39:00,647 - #48 main
+INFO  15:39:00,647 - #38 (
+INFO  15:39:00,647 - #39 )
+INFO  15:39:00,647 - #48 int
+INFO  15:39:00,647 - #48 b
+INFO  15:39:00,647 - #37 ,
+INFO  15:39:00,647 - #48 a
+ERROR 15:39:00,648 - Izvrsen oporavak do ; u liniji 3
+INFO  15:39:00,648 - #34 ;
+INFO  15:39:00,649 - #40 {
+INFO  15:39:00,649 - #48 add
+INFO  15:39:00,649 - #38 (
+ERROR 15:39:00,649 - 
+Sintaksna greska na liniji 26
+INFO  15:39:00,649 - #39 )
+INFO  15:39:00,649 - #34 ;
+INFO  15:39:00,649 - #41 }
+INFO  15:39:00,649 - #41 }
+ERROR 15:39:00,649 - Fatalna greska, parsiranje se ne moze nastaviti na liniji 31
+ERROR 15:39:00,650 - Compilation error
+java.lang.ClassCastException: class rs.ac.bg.etf.pp1.ast.MethodDeclList_e cannot be cast to class rs.ac.bg.etf.pp1.ast.Program (rs.ac.bg.etf.pp1.ast.MethodDeclList_e and rs.ac.bg.etf.pp1.ast.Program are in unnamed module of loader 'app')
+	at rs.ac.bg.etf.pp1.Compiler.main(Compiler.java:39)

@@ -96,7 +96,9 @@ nonterminal Program,
 			UnmatchedStatement,
 			EnumName,
 			ForStart,
-			SwitchStart;
+			SwitchStart,
+			ElseStart,
+			ThenEnd;
 
 nonterminal rs.etf.pp1.symboltable.concepts.Struct Condition, CondTerm, CondFact, Factor, FactorUnar, FactorList, TermList, Term, Expr, Type, TernaryCondition, TernExpr1, TernExpr2, IfCondition;
 nonterminal rs.etf.pp1.symboltable.concepts.Obj Designator, DesignatorArrayName, MethRetAndName;
@@ -222,7 +224,7 @@ Statement ::= (MatchedStat) MatchedStatement
 			   
 MatchedStatement ::=  (DesignStatement) DesignatorStatement SEMI
 					  |
-					  (IfElseStatement) IF LPAREN IfCondition RPAREN MatchedStatement ELSE MatchedStatement
+					  (IfElseStatement) IF LPAREN IfCondition RPAREN MatchedStatement ThenEnd ELSE ElseStart MatchedStatement
 					  |
 					  (BreakStatement) BREAK SEMI
 					  |
@@ -245,12 +247,16 @@ MatchedStatement ::=  (DesignStatement) DesignatorStatement SEMI
 					  (RecStatement) LBRACE StatementList RBRACE
 					  ;
 
-UnmatchedStatement ::= (IfElseStatement_non_else) IF LPAREN IfCondition RPAREN Statement
+UnmatchedStatement ::= (IfElseStatement_non_else) IF LPAREN IfCondition RPAREN Statement ThenEnd
 					   |
-					   (IfElseStatement_else) IF LPAREN IfCondition RPAREN MatchedStatement ELSE UnmatchedStatement
+					   (IfElseStatement_else) IF LPAREN IfCondition RPAREN MatchedStatement ThenEnd ELSE ElseStart UnmatchedStatement
 					   ;
 					   
 IfCondition ::= (IfCondition) Condition;
+
+ElseStart ::= (ElseStart)/* EPSILON */;
+
+ThenEnd ::= (ThenEnd)/* EPSILON */;
 
 
 ForStart ::= (ForStart) FOR;

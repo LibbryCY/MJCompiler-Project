@@ -20,11 +20,6 @@ public class CodeGenerator extends VisitorAdaptor {
 	}
 	
 
-	private Stack<Integer> ternaryElseFixup = new Stack<>();
-	private Stack<Integer> ternaryEndFixup  = new Stack<>();
-	
-	private Stack<Integer> condFalse = new Stack<>();
-	private Stack<Integer> condTrue = new Stack<>();
 	
 	Logger log = Logger.getLogger(getClass());
 
@@ -110,28 +105,120 @@ public class CodeGenerator extends VisitorAdaptor {
 		Code.store(desObj);
 	}
 	
-	private Stack<Integer> ifElseFixup = new Stack<>();
-	private Stack<Integer> ifEndFixup  = new Stack<>();
+	private Stack<Integer> jumpToElseFixup  = new Stack<>();
+	private Stack<Integer> jumpOverElseFixup  = new Stack<>();
+	private Stack<Integer> skipCondFalse = new Stack<>();
+	private Stack<Integer> skipCondition = new Stack<>();
+	
+	
+/* CONDITION */
 	
 	@Override
-	public void visit(IfCondition sc) {
-		ifEndFixup.push(Code.pc - 2);
+	public void visit(ConditionList cl) {
+		if(!(cl.getParent() instanceof ConditionList)) {
+			Code.putJump(0);
+			jumpToElseFixup.push(Code.pc-2);
+			//jmpEndFixup.push(Code.pc-2);   !!!!!!! ispravi
+			
+			while(!skipCondition.isEmpty()) {
+				Code.fixup(skipCondition.pop());
+			}
+		}
+	}
+	
+	@Override
+	public void visit(SingleCondition singleCondition)
+	{
+		if(!(singleCondition.getParent() instanceof ConditionList))
+		{
+			//netacne su dosle do kraja u pokusaju da budu tacne
+			Code.putJump(0); //netacne na ELSE
+			jumpToElseFixup.push(Code.pc - 2);
+			
+			// tacne
+			while(!skipCondition.isEmpty())
+				Code.fixup(skipCondition.pop());
+		}
+	}
+	
+	@Override
+	public void visit(CondTermList cl) {
+//		//true
+		Code.putJump(0);
+		skipCondition.push(Code.pc-2);
+		
+		//ovde vracam netacne - ispod je sledeci OR koji treba da pokusaju da prodju
+		while(!skipCondFalse.isEmpty()) {
+			Code.fixup(skipCondFalse.pop());
+		}
+	}
+
+	@Override
+	public void visit(SingleCondTerm cl) {
+		if(!(cl.getParent() instanceof CondTermList)) {
+			//true
+			Code.putJump(0);
+			skipCondition.push(Code.pc-2);
+			
+			//ovde vracam netacne - ispod je sledeci OR koji treba da pokusaju da prodju
+			while(!skipCondFalse.isEmpty()) {
+				Code.fixup(skipCondFalse.pop());
+			}
+		}
+	}
+	
+	
+	@Override
+	public void visit(CondFact_relop cf) {
+	    int op = 0;
+		if(cf.getRelop() instanceof Relop_eq) {
+			op = Code.eq;
+		}else if(cf.getRelop() instanceof Relop_leq) {
+			op = Code.le;
+		}else if(cf.getRelop() instanceof Relop_neq) {
+			op = Code.ne;
+		}else if(cf.getRelop() instanceof Relop_Geq) {
+			op = Code.ge;
+		}else if(cf.getRelop() instanceof Relop_grt) {
+			op = Code.gt;
+		}else if(cf.getRelop() instanceof Relop_ls) {
+			op = Code.lt;
+		}
+		
+		Code.putFalseJump(op, 0);
+		skipCondFalse.push(Code.pc-2);
+	}
+	
+	@Override
+	public void visit(CondFact_norelop cf) {
+		Code.loadConst(0);
+		Code.putFalseJump(Code.ne, 0);
+		skipCondFalse.push(Code.pc-2);
+		// tacno - nastavlja se izvrsavanje do sledeceg AND ( da bi se skupio tacan OR )
 	}
 	
 	
 	@Override
 	public void visit(IfElseStatement_non_else ine) {
-		Code.fixup(ifEndFixup.pop());
+		 if (!jumpToElseFixup.isEmpty()) Code.fixup(jumpToElseFixup.pop());
 	}
 	
 	@Override
 	public void visit(IfElseStatement_else ine) {
-		Code.fixup(ifEndFixup.pop());
+		if (!jumpOverElseFixup.isEmpty()) Code.fixup(jumpOverElseFixup.pop());
 	}
 	
 	@Override
 	public void visit(IfElseStatement ies) {
-		Code.fixup(ifEndFixup.pop());
+		if (!jumpOverElseFixup.isEmpty()) Code.fixup(jumpOverElseFixup.pop());
+	}
+	
+	@Override
+	public void visit(ElseStart es) {
+		 Code.putJump(0);
+		 jumpOverElseFixup.push(Code.pc - 2);
+		
+		 if (!jumpToElseFixup.isEmpty()) Code.fixup(jumpToElseFixup.pop());
 	}
 	
 	
@@ -175,33 +262,6 @@ public class CodeGenerator extends VisitorAdaptor {
 //	putJump START 
 //	END:
 	
-	/* CONDITION */
-	
-	@Override
-	public void visit(ConditionList cl) {
-		
-	}
-	
-	
-	@Override
-	public void visit(CondFact_relop cf) {
-	    int op = 0;
-		if(cf.getRelop() instanceof Relop_eq) {
-			op = Code.eq;
-		}else if(cf.getRelop() instanceof Relop_leq) {
-			op = Code.le;
-		}else if(cf.getRelop() instanceof Relop_neq) {
-			op = Code.ne;
-		}else if(cf.getRelop() instanceof Relop_Geq) {
-			op = Code.ge;
-		}else if(cf.getRelop() instanceof Relop_grt) {
-			op = Code.gt;
-		}else if(cf.getRelop() instanceof Relop_ls) {
-			op = Code.lt;
-		}
-		
-		Code.putFalseJump(op, 0);
-	}
 	
 	
 	/* FACTOR, TERM, EXPR */
@@ -290,6 +350,7 @@ public class CodeGenerator extends VisitorAdaptor {
 	
 	
 	// Designator statements
+	
 	@Override
 	public void visit(DesignatorStatement_ass dsAss) {
 		Code.store(dsAss.getDesignator().obj);
@@ -346,27 +407,28 @@ public class CodeGenerator extends VisitorAdaptor {
 	}
 	
 	
-	// Designator
 	
 	
 	/* TERNARY */
 	
+	private Stack<Integer> ternEndFixup = new Stack<>();
+	
+	@Override
 	public void visit(TernaryCondition sc) {
-	    ternaryElseFixup.push(Code.pc - 2);   // condition je već napravio putFalseJump
-	    									  // samo zapamtimo adresu za fixup
+	    // condition je već napravio putFalseJump i push na fixup condFalse
+	 
 	}
 	
 	@Override
 	public void visit(TernExpr1 te1) {
 	    Code.putJump(0);
-	    ternaryEndFixup.push(Code.pc - 2);
+	    ternEndFixup.push(Code.pc - 2);
 
-	    Code.fixup(ternaryElseFixup.pop());
+	    if (!skipCondFalse.isEmpty()) Code.fixup(skipCondFalse.pop());
 	}
 	
 	public void visit(TernExpr2 te) {
-
-	    Code.fixup(ternaryEndFixup.pop());
+		if (!ternEndFixup.isEmpty()) Code.fixup(ternEndFixup.pop());
 	}
 	
 	

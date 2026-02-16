@@ -135,6 +135,10 @@ nonterminal
 			ForStart ForStart;
 nonterminal
 			SwitchStart SwitchStart;
+nonterminal
+			ElseStart ElseStart;
+nonterminal
+			ThenEnd ThenEnd;
 
 nonterminal rs.etf.pp1.symboltable.concepts.Struct Condition, CondTerm, CondFact, Factor, FactorUnar, FactorList, TermList, Term, Expr, Type, TernaryCondition, TernExpr1, TernExpr2, IfCondition;
 nonterminal rs.etf.pp1.symboltable.concepts.Obj Designator, DesignatorArrayName, MethRetAndName;
@@ -260,7 +264,7 @@ Statement ::= (MatchedStat) MatchedStatement:M1 {: RESULT=new MatchedStat(M1); R
 			   
 MatchedStatement ::=  (DesignStatement) DesignatorStatement:D1 SEMI {: RESULT=new DesignStatement(D1); RESULT.setLine(D1left); :}
 					  |
-					  (IfElseStatement) IF LPAREN IfCondition:I1 RPAREN MatchedStatement:M2 ELSE MatchedStatement:M3 {: RESULT=new IfElseStatement(I1, M2, M3); RESULT.setLine(I1left); :}
+					  (IfElseStatement) IF LPAREN IfCondition:I1 RPAREN MatchedStatement:M2 ThenEnd:T3 ELSE ElseStart:E4 MatchedStatement:M5 {: RESULT=new IfElseStatement(I1, M2, T3, E4, M5); RESULT.setLine(I1left); :}
 					  |
 					  (BreakStatement) BREAK SEMI {: RESULT=new BreakStatement(); :}
 					  |
@@ -283,12 +287,16 @@ MatchedStatement ::=  (DesignStatement) DesignatorStatement:D1 SEMI {: RESULT=ne
 					  (RecStatement) LBRACE StatementList:S1 RBRACE {: RESULT=new RecStatement(S1); RESULT.setLine(S1left); :}
 					  ;
 
-UnmatchedStatement ::= (IfElseStatement_non_else) IF LPAREN IfCondition:I1 RPAREN Statement:S2 {: RESULT=new IfElseStatement_non_else(I1, S2); RESULT.setLine(I1left); :}
+UnmatchedStatement ::= (IfElseStatement_non_else) IF LPAREN IfCondition:I1 RPAREN Statement:S2 ThenEnd:T3 {: RESULT=new IfElseStatement_non_else(I1, S2, T3); RESULT.setLine(I1left); :}
 					   |
-					   (IfElseStatement_else) IF LPAREN IfCondition:I1 RPAREN MatchedStatement:M2 ELSE UnmatchedStatement:U3 {: RESULT=new IfElseStatement_else(I1, M2, U3); RESULT.setLine(I1left); :}
+					   (IfElseStatement_else) IF LPAREN IfCondition:I1 RPAREN MatchedStatement:M2 ThenEnd:T3 ELSE ElseStart:E4 UnmatchedStatement:U5 {: RESULT=new IfElseStatement_else(I1, M2, T3, E4, U5); RESULT.setLine(I1left); :}
 					   ;
 					   
 IfCondition ::= (IfCondition) Condition:C1 {: RESULT=new IfCondition(C1); RESULT.setLine(C1left); :};
+
+ElseStart ::= (ElseStart) {: RESULT=new ElseStart(); :}/* EPSILON */;
+
+ThenEnd ::= (ThenEnd) {: RESULT=new ThenEnd(); :}/* EPSILON */;
 
 
 ForStart ::= (ForStart) FOR {: RESULT=new ForStart(); :};

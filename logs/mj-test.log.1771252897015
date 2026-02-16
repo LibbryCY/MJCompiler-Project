@@ -1,0 +1,245 @@
+INFO  15:39:39,337 - Compiling source file: /home/rembrant/EclipseWorkspace3/MJCompiler/test/program.mj
+INFO  15:39:39,367 - #2 program
+INFO  15:39:39,368 - #48 test301
+INFO  15:39:39,368 - #14 enum
+INFO  15:39:39,368 - #48 Broj
+INFO  15:39:39,368 - #40 {
+INFO  15:39:39,369 - #48 NULA
+INFO  15:39:39,369 - #37 ,
+INFO  15:39:39,369 - #48 JEDAN
+INFO  15:39:39,369 - #37 ,
+INFO  15:39:39,370 - #48 PET
+INFO  15:39:39,370 - #33 =
+INFO  15:39:39,370 - #45 5
+INFO  15:39:39,370 - #37 ,
+INFO  15:39:39,370 - #48 DESET
+INFO  15:39:39,370 - #33 =
+INFO  15:39:39,370 - #45 10
+INFO  15:39:39,370 - #41 }
+INFO  15:39:39,370 - #48 int
+INFO  15:39:39,371 - #48 a
+INFO  15:39:39,371 - #34 ;
+INFO  15:39:39,372 - #40 {
+INFO  15:39:39,373 - #4 void
+INFO  15:39:39,373 - #48 mul
+INFO  15:39:39,374 - #38 (
+INFO  15:39:39,374 - #39 )
+INFO  15:39:39,374 - #40 {
+INFO  15:39:39,374 - #41 }
+INFO  15:39:39,375 - #4 void
+INFO  15:39:39,375 - #48 add
+INFO  15:39:39,375 - #38 (
+INFO  15:39:39,375 - #39 )
+INFO  15:39:39,375 - #40 {
+INFO  15:39:39,376 - #48 mul
+INFO  15:39:39,376 - #38 (
+INFO  15:39:39,376 - #39 )
+INFO  15:39:39,376 - #34 ;
+INFO  15:39:39,376 - #41 }
+INFO  15:39:39,376 - #4 void
+INFO  15:39:39,376 - #48 sun
+INFO  15:39:39,376 - #38 (
+INFO  15:39:39,377 - #39 )
+INFO  15:39:39,377 - #40 {
+INFO  15:39:39,377 - #41 }
+INFO  15:39:39,377 - #4 void
+INFO  15:39:39,377 - #48 mul
+INFO  15:39:39,377 - #38 (
+INFO  15:39:39,377 - #39 )
+INFO  15:39:39,377 - #40 {
+INFO  15:39:39,377 - #48 add
+INFO  15:39:39,377 - #38 (
+INFO  15:39:39,377 - #39 )
+INFO  15:39:39,377 - #34 ;
+INFO  15:39:39,378 - #41 }
+INFO  15:39:39,378 - #4 void
+INFO  15:39:39,378 - #48 main
+INFO  15:39:39,378 - #38 (
+INFO  15:39:39,378 - #39 )
+INFO  15:39:39,378 - #48 int
+INFO  15:39:39,378 - #48 b
+INFO  15:39:39,378 - #37 ,
+INFO  15:39:39,378 - #48 a
+INFO  15:39:39,378 - #34 ;
+INFO  15:39:39,378 - #40 {
+INFO  15:39:39,379 - #48 add
+INFO  15:39:39,379 - #38 (
+INFO  15:39:39,379 - #39 )
+INFO  15:39:39,379 - #34 ;
+INFO  15:39:39,379 - #41 }
+INFO  15:39:39,379 - #41 }
+INFO  15:39:39,384 - Program(
+  ProgramName(
+   test301
+  ) [ProgramName]
+  ConVarDecList_enum(
+    EnumDeclList(
+      EnumName(
+       Broj
+      ) [EnumName]
+      EnumList_comma(
+        EnumList_comma(
+          EnumList_comma(
+            EnumList_item(
+              EnumItem_var(
+               NULA
+              ) [EnumItem_var]
+            ) [EnumList_item]
+            EnumItem_var(
+             JEDAN
+            ) [EnumItem_var]
+          ) [EnumList_comma]
+          EnumItem_ass(
+           PET
+           5
+          ) [EnumItem_ass]
+        ) [EnumList_comma]
+        EnumItem_ass(
+         DESET
+         10
+        ) [EnumItem_ass]
+      ) [EnumList_comma]
+    ) [EnumDeclList]
+    ConVarDecList_var(
+      VarDeclList(
+        Type(
+         int
+        ) [Type]
+        VarDecl_var(
+         a
+        ) [VarDecl_var]
+        VarDeclMore_e(
+        ) [VarDeclMore_e]
+      ) [VarDeclList]
+      ConVarDecList_e(
+      ) [ConVarDecList_e]
+    ) [ConVarDecList_var]
+  ) [ConVarDecList_enum]
+  MethodDeclList_rec(
+    MethodDeclList_rec(
+      MethodDeclList_rec(
+        MethodDeclList_rec(
+          MethodDeclList_rec(
+            MethodDeclList_e(
+            ) [MethodDeclList_e]
+            MethodDecl(
+              MethRetAndName_void(
+               mul
+              ) [MethRetAndName_void]
+              FormParList_e(
+              ) [FormParList_e]
+              VarDeclListRec_e(
+              ) [VarDeclListRec_e]
+              StatementList_e(
+              ) [StatementList_e]
+            ) [MethodDecl]
+          ) [MethodDeclList_rec]
+          MethodDecl(
+            MethRetAndName_void(
+             add
+            ) [MethRetAndName_void]
+            FormParList_e(
+            ) [FormParList_e]
+            VarDeclListRec_e(
+            ) [VarDeclListRec_e]
+            StatementList_rec(
+              StatementList_e(
+              ) [StatementList_e]
+              MatchedStat(
+                DesignStatement(
+                  DesignatorStatement_noactpar(
+                    Designator_var(
+                     mul
+                    ) [Designator_var]
+                  ) [DesignatorStatement_noactpar]
+                ) [DesignStatement]
+              ) [MatchedStat]
+            ) [StatementList_rec]
+          ) [MethodDecl]
+        ) [MethodDeclList_rec]
+        MethodDecl(
+          MethRetAndName_void(
+           sun
+          ) [MethRetAndName_void]
+          FormParList_e(
+          ) [FormParList_e]
+          VarDeclListRec_e(
+          ) [VarDeclListRec_e]
+          StatementList_e(
+          ) [StatementList_e]
+        ) [MethodDecl]
+      ) [MethodDeclList_rec]
+      MethodDecl(
+        MethRetAndName_void(
+         mul
+        ) [MethRetAndName_void]
+        FormParList_e(
+        ) [FormParList_e]
+        VarDeclListRec_e(
+        ) [VarDeclListRec_e]
+        StatementList_rec(
+          StatementList_e(
+          ) [StatementList_e]
+          MatchedStat(
+            DesignStatement(
+              DesignatorStatement_noactpar(
+                Designator_var(
+                 add
+                ) [Designator_var]
+              ) [DesignatorStatement_noactpar]
+            ) [DesignStatement]
+          ) [MatchedStat]
+        ) [StatementList_rec]
+      ) [MethodDecl]
+    ) [MethodDeclList_rec]
+    MethodDecl(
+      MethRetAndName_void(
+       main
+      ) [MethRetAndName_void]
+      FormParList_e(
+      ) [FormParList_e]
+      VarDeclListRec_rec(
+        VarDeclListRec_e(
+        ) [VarDeclListRec_e]
+        VarDeclList(
+          Type(
+           int
+          ) [Type]
+          VarDecl_var(
+           b
+          ) [VarDecl_var]
+          VarDeclMore_comma(
+            VarDecl_var(
+             a
+            ) [VarDecl_var]
+            VarDeclMore_e(
+            ) [VarDeclMore_e]
+          ) [VarDeclMore_comma]
+        ) [VarDeclList]
+      ) [VarDeclListRec_rec]
+      StatementList_rec(
+        StatementList_e(
+        ) [StatementList_e]
+        MatchedStat(
+          DesignStatement(
+            DesignatorStatement_noactpar(
+              Designator_var(
+               add
+              ) [Designator_var]
+            ) [DesignatorStatement_noactpar]
+          ) [DesignStatement]
+        ) [MatchedStat]
+      ) [StatementList_rec]
+    ) [MethodDecl]
+  ) [MethodDeclList_rec]
+) [Program]
+INFO  15:39:39,385 - -------------------------------------------
+INFO  15:39:39,401 - Obrada design_var, metoda: mul, Obj: 3, 0, 0 na liniji 13
+INFO  15:39:39,401 - Poziv metode [DS_noactpar]: mul, Obj: 3, 0, 0 na liniji 13
+INFO  15:39:39,402 - Obrada design_var, metoda: add, Obj: 3, 0, 0 na liniji 20
+INFO  15:39:39,402 - Poziv metode [DS_noactpar]: add, Obj: 3, 0, 0 na liniji 20
+INFO  15:39:39,402 - Obrada design_var, metoda: add, Obj: 3, 0, 0 na liniji 26
+INFO  15:39:39,402 - Poziv metode [DS_noactpar]: add, Obj: 3, 0, 0 na liniji 26
+INFO  15:39:39,402 - ============================================
+INFO  15:39:39,403 - Generating bytecode file: /home/rembrant/EclipseWorkspace3/MJCompiler/test/program.obj
+INFO  15:39:39,405 - Parsiranje uspesno zavrseno!

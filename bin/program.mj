@@ -8,24 +8,30 @@ enum Broj { NULA, JEDAN, PET=5, DESET=10}
 int a;
 	
 {
-	int add()
-	{
-		return a;
+
+	void sub(){
+		print(33);
 	}
+	void add(){
+		print(77);
+	}
+	
+	int mul2(int x){
+		return x*2;
+	}
+	
+	
 	void main()	
-		int b;
-		int temp;
-		bool cond;
+		int b,a[]; char c;
 	{	
-		b = 9;
-		if(b<10){
-			print(88);
+		if(3<4 && 1==1)
+		{
+			if( false || 2<1 && 3==3 || 9>10){			
+				print(44);
+			}
 		}else{
-			print(99);
+			print(22);
 		}
-		print(44);
-		//print(b>13 ? '+' : '-');
-		
 	}
 }
 
