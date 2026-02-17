@@ -1,196 +1,196 @@
-INFO  22:20:05,989 - Compiling source file: /home/rembrant/EclipseWorkspace3/MJCompiler/test/program.mj
-INFO  22:20:06,039 - #2 program
-INFO  22:20:06,040 - #48 test301
-INFO  22:20:06,040 - #14 enum
-INFO  22:20:06,041 - #48 Broj
-INFO  22:20:06,041 - #40 {
-INFO  22:20:06,041 - #48 NULA
-INFO  22:20:06,042 - #37 ,
-INFO  22:20:06,042 - #48 JEDAN
-INFO  22:20:06,042 - #37 ,
-INFO  22:20:06,042 - #48 PET
-INFO  22:20:06,043 - #33 =
-INFO  22:20:06,043 - #45 5
-INFO  22:20:06,043 - #37 ,
-INFO  22:20:06,043 - #48 DESET
-INFO  22:20:06,043 - #33 =
-INFO  22:20:06,043 - #45 10
-INFO  22:20:06,043 - #41 }
-INFO  22:20:06,044 - #14 enum
-INFO  22:20:06,045 - #48 Broj2
-INFO  22:20:06,045 - #40 {
-INFO  22:20:06,045 - #48 NULA
-INFO  22:20:06,045 - #37 ,
-INFO  22:20:06,045 - #48 JEDAN
-INFO  22:20:06,045 - #37 ,
-INFO  22:20:06,045 - #48 PET
-INFO  22:20:06,046 - #33 =
-INFO  22:20:06,046 - #45 5
-INFO  22:20:06,046 - #37 ,
-INFO  22:20:06,046 - #48 DESET
-INFO  22:20:06,046 - #33 =
-INFO  22:20:06,046 - #45 10
-INFO  22:20:06,046 - #41 }
-INFO  22:20:06,046 - #40 {
-INFO  22:20:06,047 - #4 void
-INFO  22:20:06,048 - #48 sub
-INFO  22:20:06,048 - #38 (
-INFO  22:20:06,048 - #39 )
-INFO  22:20:06,049 - #40 {
-INFO  22:20:06,049 - #11 print
-INFO  22:20:06,050 - #38 (
-INFO  22:20:06,050 - #45 33
-INFO  22:20:06,051 - #39 )
-INFO  22:20:06,053 - #34 ;
-INFO  22:20:06,053 - #41 }
-INFO  22:20:06,053 - #4 void
-INFO  22:20:06,054 - #48 add
-INFO  22:20:06,054 - #38 (
-INFO  22:20:06,054 - #39 )
-INFO  22:20:06,054 - #40 {
-INFO  22:20:06,055 - #11 print
-INFO  22:20:06,055 - #38 (
-INFO  22:20:06,055 - #45 77
-INFO  22:20:06,055 - #39 )
-INFO  22:20:06,055 - #34 ;
-INFO  22:20:06,055 - #41 }
-INFO  22:20:06,055 - #48 int
-INFO  22:20:06,055 - #48 mul2
-INFO  22:20:06,056 - #38 (
-INFO  22:20:06,056 - #48 int
-INFO  22:20:06,056 - #48 x
-INFO  22:20:06,057 - #39 )
-INFO  22:20:06,058 - #40 {
-INFO  22:20:06,058 - #9 return
-INFO  22:20:06,058 - #48 x
-INFO  22:20:06,058 - #20 *
-INFO  22:20:06,059 - #45 2
-INFO  22:20:06,060 - #34 ;
-INFO  22:20:06,060 - #41 }
-INFO  22:20:06,060 - #4 void
-INFO  22:20:06,060 - #48 main
-INFO  22:20:06,061 - #38 (
-INFO  22:20:06,061 - #39 )
-INFO  22:20:06,061 - #48 int
-INFO  22:20:06,061 - #48 i
-INFO  22:20:06,061 - #37 ,
-INFO  22:20:06,061 - #48 j
-INFO  22:20:06,061 - #37 ,
-INFO  22:20:06,062 - #48 a
-INFO  22:20:06,062 - #34 ;
-INFO  22:20:06,062 - #48 char
-INFO  22:20:06,064 - #48 c
-INFO  22:20:06,064 - #34 ;
-INFO  22:20:06,064 - #40 {
-INFO  22:20:06,064 - #48 i
-INFO  22:20:06,064 - #33 =
-INFO  22:20:06,065 - #45 2
-INFO  22:20:06,065 - #34 ;
-INFO  22:20:06,066 - #15 for
-INFO  22:20:06,066 - #38 (
-INFO  22:20:06,066 - #48 i
-INFO  22:20:06,066 - #33 =
-INFO  22:20:06,066 - #45 0
-INFO  22:20:06,066 - #34 ;
-INFO  22:20:06,067 - #48 i
-INFO  22:20:06,067 - #27 <
-INFO  22:20:06,068 - #45 10
-INFO  22:20:06,069 - #34 ;
-INFO  22:20:06,069 - #48 i
-INFO  22:20:06,070 - #31 ++
-INFO  22:20:06,070 - #39 )
-INFO  22:20:06,070 - #40 {
-INFO  22:20:06,071 - #12 switch
-INFO  22:20:06,071 - #38 (
-INFO  22:20:06,071 - #48 i
-INFO  22:20:06,071 - #18 +
-INFO  22:20:06,071 - #45 1
-INFO  22:20:06,072 - #39 )
-INFO  22:20:06,073 - #40 {
-INFO  22:20:06,074 - #13 case
-INFO  22:20:06,075 - #45 1
-INFO  22:20:06,075 - #36 :
-INFO  22:20:06,076 - #11 print
-INFO  22:20:06,076 - #38 (
-INFO  22:20:06,077 - #45 1
-INFO  22:20:06,077 - #39 )
-INFO  22:20:06,077 - #34 ;
-INFO  22:20:06,077 - #15 for
-INFO  22:20:06,077 - #38 (
-INFO  22:20:06,077 - #48 j
-INFO  22:20:06,077 - #33 =
-INFO  22:20:06,078 - #45 0
-INFO  22:20:06,078 - #34 ;
-INFO  22:20:06,078 - #48 j
-INFO  22:20:06,078 - #27 <
-INFO  22:20:06,078 - #45 5
-INFO  22:20:06,078 - #34 ;
-INFO  22:20:06,078 - #48 j
-INFO  22:20:06,079 - #31 ++
-INFO  22:20:06,079 - #39 )
-INFO  22:20:06,079 - #11 print
-INFO  22:20:06,079 - #38 (
-INFO  22:20:06,079 - #48 j
-INFO  22:20:06,079 - #39 )
-INFO  22:20:06,079 - #34 ;
-INFO  22:20:06,079 - #13 case
-INFO  22:20:06,081 - #45 3
-INFO  22:20:06,081 - #36 :
-INFO  22:20:06,081 - #11 print
-INFO  22:20:06,081 - #38 (
-INFO  22:20:06,081 - #45 3
-INFO  22:20:06,081 - #39 )
-INFO  22:20:06,081 - #34 ;
-INFO  22:20:06,081 - #13 case
-INFO  22:20:06,082 - #45 2
-INFO  22:20:06,082 - #36 :
-INFO  22:20:06,082 - #11 print
-INFO  22:20:06,082 - #38 (
-INFO  22:20:06,082 - #45 2
-INFO  22:20:06,082 - #39 )
-INFO  22:20:06,082 - #34 ;
-INFO  22:20:06,082 - #7 break
-INFO  22:20:06,082 - #34 ;
-INFO  22:20:06,082 - #13 case
-INFO  22:20:06,083 - #45 5
-INFO  22:20:06,083 - #36 :
-INFO  22:20:06,083 - #11 print
-INFO  22:20:06,084 - #38 (
-INFO  22:20:06,084 - #45 5
-INFO  22:20:06,084 - #39 )
-INFO  22:20:06,084 - #34 ;
-INFO  22:20:06,084 - #48 i
-INFO  22:20:06,084 - #33 =
-INFO  22:20:06,084 - #48 i
-INFO  22:20:06,084 - #18 +
-INFO  22:20:06,084 - #45 2
-INFO  22:20:06,084 - #34 ;
-INFO  22:20:06,084 - #13 case
-INFO  22:20:06,085 - #45 6
-INFO  22:20:06,085 - #36 :
-INFO  22:20:06,085 - #11 print
-INFO  22:20:06,085 - #38 (
-INFO  22:20:06,085 - #45 6
-INFO  22:20:06,085 - #39 )
-INFO  22:20:06,085 - #34 ;
-INFO  22:20:06,085 - #13 case
-INFO  22:20:06,085 - #45 9
-INFO  22:20:06,085 - #36 :
-INFO  22:20:06,085 - #11 print
-INFO  22:20:06,086 - #38 (
-INFO  22:20:06,086 - #45 9
-INFO  22:20:06,086 - #39 )
-INFO  22:20:06,086 - #34 ;
-INFO  22:20:06,086 - #41 }
-INFO  22:20:06,086 - #11 print
-INFO  22:20:06,086 - #38 (
-INFO  22:20:06,086 - #48 eol
-INFO  22:20:06,087 - #39 )
-INFO  22:20:06,087 - #34 ;
-INFO  22:20:06,087 - #41 }
-INFO  22:20:06,087 - #41 }
-INFO  22:20:06,087 - #41 }
-INFO  22:20:06,103 - Program(
+INFO  22:11:19,169 - Compiling source file: /home/rembrant/EclipseWorkspace3/MJCompiler/test/program.mj
+INFO  22:11:19,217 - #2 program
+INFO  22:11:19,217 - #48 test301
+INFO  22:11:19,217 - #14 enum
+INFO  22:11:19,218 - #48 Broj
+INFO  22:11:19,218 - #40 {
+INFO  22:11:19,219 - #48 NULA
+INFO  22:11:19,219 - #37 ,
+INFO  22:11:19,220 - #48 JEDAN
+INFO  22:11:19,220 - #37 ,
+INFO  22:11:19,220 - #48 PET
+INFO  22:11:19,220 - #33 =
+INFO  22:11:19,221 - #45 5
+INFO  22:11:19,221 - #37 ,
+INFO  22:11:19,221 - #48 DESET
+INFO  22:11:19,221 - #33 =
+INFO  22:11:19,221 - #45 10
+INFO  22:11:19,222 - #41 }
+INFO  22:11:19,222 - #14 enum
+INFO  22:11:19,223 - #48 Broj2
+INFO  22:11:19,223 - #40 {
+INFO  22:11:19,223 - #48 NULA
+INFO  22:11:19,223 - #37 ,
+INFO  22:11:19,223 - #48 JEDAN
+INFO  22:11:19,223 - #37 ,
+INFO  22:11:19,224 - #48 PET
+INFO  22:11:19,224 - #33 =
+INFO  22:11:19,224 - #45 5
+INFO  22:11:19,224 - #37 ,
+INFO  22:11:19,224 - #48 DESET
+INFO  22:11:19,224 - #33 =
+INFO  22:11:19,224 - #45 10
+INFO  22:11:19,224 - #41 }
+INFO  22:11:19,225 - #40 {
+INFO  22:11:19,225 - #4 void
+INFO  22:11:19,226 - #48 sub
+INFO  22:11:19,226 - #38 (
+INFO  22:11:19,227 - #39 )
+INFO  22:11:19,227 - #40 {
+INFO  22:11:19,227 - #11 print
+INFO  22:11:19,228 - #38 (
+INFO  22:11:19,228 - #45 33
+INFO  22:11:19,229 - #39 )
+INFO  22:11:19,230 - #34 ;
+INFO  22:11:19,230 - #41 }
+INFO  22:11:19,231 - #4 void
+INFO  22:11:19,232 - #48 add
+INFO  22:11:19,232 - #38 (
+INFO  22:11:19,232 - #39 )
+INFO  22:11:19,232 - #40 {
+INFO  22:11:19,232 - #11 print
+INFO  22:11:19,232 - #38 (
+INFO  22:11:19,233 - #45 77
+INFO  22:11:19,233 - #39 )
+INFO  22:11:19,233 - #34 ;
+INFO  22:11:19,233 - #41 }
+INFO  22:11:19,233 - #48 int
+INFO  22:11:19,233 - #48 mul2
+INFO  22:11:19,234 - #38 (
+INFO  22:11:19,234 - #48 int
+INFO  22:11:19,235 - #48 x
+INFO  22:11:19,235 - #39 )
+INFO  22:11:19,236 - #40 {
+INFO  22:11:19,236 - #9 return
+INFO  22:11:19,236 - #48 x
+INFO  22:11:19,236 - #20 *
+INFO  22:11:19,237 - #45 2
+INFO  22:11:19,238 - #34 ;
+INFO  22:11:19,238 - #41 }
+INFO  22:11:19,238 - #4 void
+INFO  22:11:19,238 - #48 main
+INFO  22:11:19,238 - #38 (
+INFO  22:11:19,239 - #39 )
+INFO  22:11:19,239 - #48 int
+INFO  22:11:19,239 - #48 i
+INFO  22:11:19,239 - #37 ,
+INFO  22:11:19,239 - #48 j
+INFO  22:11:19,239 - #37 ,
+INFO  22:11:19,239 - #48 a
+INFO  22:11:19,239 - #34 ;
+INFO  22:11:19,240 - #48 char
+INFO  22:11:19,241 - #48 c
+INFO  22:11:19,241 - #34 ;
+INFO  22:11:19,241 - #40 {
+INFO  22:11:19,242 - #48 i
+INFO  22:11:19,242 - #33 =
+INFO  22:11:19,242 - #45 2
+INFO  22:11:19,242 - #34 ;
+INFO  22:11:19,243 - #15 for
+INFO  22:11:19,243 - #38 (
+INFO  22:11:19,243 - #48 i
+INFO  22:11:19,243 - #33 =
+INFO  22:11:19,243 - #45 0
+INFO  22:11:19,243 - #34 ;
+INFO  22:11:19,244 - #48 i
+INFO  22:11:19,244 - #27 <
+INFO  22:11:19,245 - #45 10
+INFO  22:11:19,245 - #34 ;
+INFO  22:11:19,246 - #48 i
+INFO  22:11:19,246 - #31 ++
+INFO  22:11:19,247 - #39 )
+INFO  22:11:19,247 - #40 {
+INFO  22:11:19,248 - #12 switch
+INFO  22:11:19,248 - #38 (
+INFO  22:11:19,248 - #48 i
+INFO  22:11:19,248 - #18 +
+INFO  22:11:19,248 - #45 1
+INFO  22:11:19,249 - #39 )
+INFO  22:11:19,250 - #40 {
+INFO  22:11:19,250 - #13 case
+INFO  22:11:19,251 - #45 1
+INFO  22:11:19,252 - #36 :
+INFO  22:11:19,252 - #11 print
+INFO  22:11:19,253 - #38 (
+INFO  22:11:19,253 - #45 1
+INFO  22:11:19,253 - #39 )
+INFO  22:11:19,254 - #34 ;
+INFO  22:11:19,254 - #15 for
+INFO  22:11:19,254 - #38 (
+INFO  22:11:19,254 - #48 j
+INFO  22:11:19,254 - #33 =
+INFO  22:11:19,254 - #45 0
+INFO  22:11:19,255 - #34 ;
+INFO  22:11:19,255 - #48 j
+INFO  22:11:19,255 - #27 <
+INFO  22:11:19,255 - #45 5
+INFO  22:11:19,255 - #34 ;
+INFO  22:11:19,255 - #48 j
+INFO  22:11:19,256 - #31 ++
+INFO  22:11:19,256 - #39 )
+INFO  22:11:19,256 - #11 print
+INFO  22:11:19,256 - #38 (
+INFO  22:11:19,256 - #48 j
+INFO  22:11:19,256 - #39 )
+INFO  22:11:19,256 - #34 ;
+INFO  22:11:19,257 - #13 case
+INFO  22:11:19,257 - #45 3
+INFO  22:11:19,258 - #36 :
+INFO  22:11:19,258 - #11 print
+INFO  22:11:19,258 - #38 (
+INFO  22:11:19,258 - #45 3
+INFO  22:11:19,258 - #39 )
+INFO  22:11:19,258 - #34 ;
+INFO  22:11:19,258 - #13 case
+INFO  22:11:19,258 - #45 2
+INFO  22:11:19,258 - #36 :
+INFO  22:11:19,258 - #11 print
+INFO  22:11:19,259 - #38 (
+INFO  22:11:19,259 - #45 2
+INFO  22:11:19,259 - #39 )
+INFO  22:11:19,259 - #34 ;
+INFO  22:11:19,259 - #7 break
+INFO  22:11:19,259 - #34 ;
+INFO  22:11:19,259 - #13 case
+INFO  22:11:19,260 - #45 5
+INFO  22:11:19,260 - #36 :
+INFO  22:11:19,260 - #11 print
+INFO  22:11:19,260 - #38 (
+INFO  22:11:19,260 - #45 5
+INFO  22:11:19,260 - #39 )
+INFO  22:11:19,260 - #34 ;
+INFO  22:11:19,260 - #48 i
+INFO  22:11:19,260 - #33 =
+INFO  22:11:19,260 - #48 i
+INFO  22:11:19,260 - #18 +
+INFO  22:11:19,261 - #45 2
+INFO  22:11:19,261 - #34 ;
+INFO  22:11:19,261 - #13 case
+INFO  22:11:19,261 - #45 6
+INFO  22:11:19,261 - #36 :
+INFO  22:11:19,261 - #11 print
+INFO  22:11:19,261 - #38 (
+INFO  22:11:19,261 - #45 6
+INFO  22:11:19,261 - #39 )
+INFO  22:11:19,261 - #34 ;
+INFO  22:11:19,261 - #13 case
+INFO  22:11:19,261 - #45 9
+INFO  22:11:19,262 - #36 :
+INFO  22:11:19,262 - #11 print
+INFO  22:11:19,262 - #38 (
+INFO  22:11:19,262 - #45 9
+INFO  22:11:19,262 - #39 )
+INFO  22:11:19,262 - #34 ;
+INFO  22:11:19,262 - #41 }
+INFO  22:11:19,262 - #11 print
+INFO  22:11:19,262 - #38 (
+INFO  22:11:19,263 - #48 eol
+INFO  22:11:19,263 - #39 )
+INFO  22:11:19,263 - #34 ;
+INFO  22:11:19,263 - #41 }
+INFO  22:11:19,263 - #41 }
+INFO  22:11:19,263 - #41 }
+INFO  22:11:19,278 - Program(
   ProgramName(
    test301
   ) [ProgramName]
@@ -941,21 +941,21 @@ INFO  22:20:06,103 - Program(
     ) [MethodDecl]
   ) [MethodDeclList_rec]
 ) [Program]
-INFO  22:20:06,104 - -------------------------------------------
-INFO  22:20:06,115 - Citanje form parametra, currentLevel: 1 na liniji 17
-INFO  22:20:06,128 - Pristupanje varijabli: x, Obj: 1, 1, 0 na liniji 18
-INFO  22:20:06,129 - Pristupanje varijabli: i, Obj: 1, 1, 0 na liniji 25
-INFO  22:20:06,129 - Pristupanje varijabli: i, Obj: 1, 1, 0 na liniji 26
-INFO  22:20:06,129 - Pristupanje varijabli: i, Obj: 1, 1, 0 na liniji 26
-INFO  22:20:06,129 - Pristupanje varijabli: i, Obj: 1, 1, 0 na liniji 26
-INFO  22:20:06,130 - Pristupanje varijabli: i, Obj: 1, 1, 0 na liniji 27
-INFO  22:20:06,130 - Pristupanje varijabli: j, Obj: 1, 1, 1 na liniji 30
-INFO  22:20:06,130 - Pristupanje varijabli: j, Obj: 1, 1, 1 na liniji 30
-INFO  22:20:06,130 - Pristupanje varijabli: j, Obj: 1, 1, 1 na liniji 30
-INFO  22:20:06,130 - Pristupanje varijabli: j, Obj: 1, 1, 1 na liniji 31
-INFO  22:20:06,130 - Pristupanje varijabli: i, Obj: 1, 1, 0 na liniji 40
-INFO  22:20:06,130 - Pristupanje varijabli: i, Obj: 1, 1, 0 na liniji 40
-INFO  22:20:06,131 - Pristupanje varijabli: eol, Obj: 0, 0, 10 na liniji 46
-INFO  22:20:06,131 - ============================================
-INFO  22:20:06,132 - Generating bytecode file: /home/rembrant/EclipseWorkspace3/MJCompiler/test/program.obj
-INFO  22:20:06,139 - Parsiranje uspesno zavrseno!
+INFO  22:11:19,280 - -------------------------------------------
+INFO  22:11:19,292 - Citanje form parametra, currentLevel: 1 na liniji 17
+INFO  22:11:19,305 - Pristupanje varijabli: x, Obj: 1, 1, 0 na liniji 18
+INFO  22:11:19,305 - Pristupanje varijabli: i, Obj: 1, 1, 0 na liniji 25
+INFO  22:11:19,305 - Pristupanje varijabli: i, Obj: 1, 1, 0 na liniji 26
+INFO  22:11:19,306 - Pristupanje varijabli: i, Obj: 1, 1, 0 na liniji 26
+INFO  22:11:19,306 - Pristupanje varijabli: i, Obj: 1, 1, 0 na liniji 26
+INFO  22:11:19,306 - Pristupanje varijabli: i, Obj: 1, 1, 0 na liniji 27
+INFO  22:11:19,306 - Pristupanje varijabli: j, Obj: 1, 1, 1 na liniji 30
+INFO  22:11:19,306 - Pristupanje varijabli: j, Obj: 1, 1, 1 na liniji 30
+INFO  22:11:19,306 - Pristupanje varijabli: j, Obj: 1, 1, 1 na liniji 30
+INFO  22:11:19,306 - Pristupanje varijabli: j, Obj: 1, 1, 1 na liniji 31
+INFO  22:11:19,307 - Pristupanje varijabli: i, Obj: 1, 1, 0 na liniji 40
+INFO  22:11:19,307 - Pristupanje varijabli: i, Obj: 1, 1, 0 na liniji 40
+INFO  22:11:19,307 - Pristupanje varijabli: eol, Obj: 0, 0, 10 na liniji 46
+INFO  22:11:19,307 - ============================================
+INFO  22:11:19,308 - Generating bytecode file: /home/rembrant/EclipseWorkspace3/MJCompiler/test/program.obj
+INFO  22:11:19,316 - Parsiranje uspesno zavrseno!

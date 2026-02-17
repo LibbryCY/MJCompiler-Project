@@ -7,6 +7,7 @@ import rs.etf.pp1.symboltable.concepts.Obj;
 
 import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.LinkedHashMap;
 import java.util.List;
 import java.util.Stack;
 
@@ -243,6 +244,14 @@ public class CodeGenerator extends VisitorAdaptor {
 	
 	// FOR
 	
+	private enum BreakTarget {
+		FOR, SWITCH
+	}
+
+	private Stack<BreakTarget> breakTargetType = new Stack<>();
+	private Stack<Stack<Integer>> switchBreakFixups = new Stack<>(); // za switch
+
+	
 	private Stack<Integer> jumpToCond = new Stack();
 	private Stack<Integer> jumpToStep = new Stack();
 	private Stack<Stack<Integer>> breakJump = new Stack();
@@ -298,8 +307,15 @@ public class CodeGenerator extends VisitorAdaptor {
 	
 	@Override
 	public void visit(BreakStatement bs) {
+//		Code.putJump(0);
+//		breakJump.peek().add(Code.pc - 2);
+		
 		Code.putJump(0);
-		breakJump.peek().add(Code.pc - 2);
+		if (!switchBreakFixups.isEmpty()) {
+	        switchBreakFixups.peek().push(Code.pc - 2);
+	    } else {
+	        breakJump.peek().push(Code.pc - 2);
+	    }
 	}
 	
 	@Override
@@ -307,49 +323,85 @@ public class CodeGenerator extends VisitorAdaptor {
 		Code.putJump(jumpToStep.peek());
 	}
 	
-	// SWICH SwitchStatement
 	
-	private Stack<HashMap<Integer,Integer>> caseLabelsAddrs = new Stack();
+
+	// polja klase (ako ih već nema)
+	private Stack<HashMap<Integer, Integer>> switchCaseAddr = new Stack<>();
 	private Stack<List<Integer>> switchCaseOrder = new Stack<>();
-	private Stack<Integer> jumpToCase = new Stack();
-	
-	@Override
-	public void visit(SwitchStatement bs) {
-		
-	}
-	
+	private Stack<Integer> switchJumpToDispatch = new Stack<>();
+	//private Stack<Stack<Integer>> switchBreakFixups = new Stack<>();
+
 	@Override
 	public void visit(SwitchStart ss) {
-		
+	    // pripremi strukture za novi switch
+	    switchCaseAddr.push(new HashMap<>());
+	    switchCaseOrder.push(new ArrayList<>());
+	    switchBreakFixups.push(new Stack<>());
 	}
-	
+
 	@Override
-	public void visit(SwitchGoTo bs) {
-		caseLabelsAddrs.push(new HashMap<Integer, Integer>());
-	    switchCaseOrder.push(new ArrayList<>());        // redosled case konstanti
-	    
-		Code.putJump(0);
-		jumpToCase.push(Code.pc-2);		
+	public void visit(SwitchGoTo sg) {
+	    // na mestu gde parser dođe posle "{" (pre case-ova) ubaci skok koji će
+	    // kasnije biti fixovan da vodi na DISPATCH koji generišemo nakon case-ova
+	    Code.putJump(0);
+	    switchJumpToDispatch.push(Code.pc - 2);
 	}
-	
+
 	@Override
 	public void visit(LabelNumber ln) {
-		HashMap<Integer,Integer> map = caseLabelsAddrs.peek();
-		List<Integer> order = switchCaseOrder.peek();
-		
-		
-		map.put(ln.getN1(),Code.pc);
-		order.add(ln.getN1());
-		
-		Code.put(Code.dup);
-		Code.loadConst(ln.getN1());
-		
-		Code.putFalseJump(Code.ne, 0);
-		
-		//if(!jumpToCase.isEmpty()) Code.fixup(jumpToCase.pop());
+	    // samo zapamti adresu početka case-a i redosled konstanti
+	    // (NIJE dobro emitovati dup/compare ovde)
+	    switchCaseAddr.peek().put(ln.getN1(), Code.pc);
+	    switchCaseOrder.peek().add(ln.getN1());
+	}
+
+	@Override
+	public void visit(SwitchStatement ss) {
+	    // 1) ubaci skok koji PRESKAČE dispatcher (ovo mora biti *pre* dispatcha)
+	    Code.putJump(0);
+	    int jumpOverDispatchAddr = Code.pc - 2;
+
+	    // 2) dispatcher počinje ovde -> popravi prethodni jump koji je postavljen
+	    //    u SwitchGoTo (skok na dispatch)
+	    Code.fixup(switchJumpToDispatch.pop());
+
+	    HashMap<Integer, Integer> map = switchCaseAddr.pop();
+	    List<Integer> order = switchCaseOrder.pop();
+	    Stack<Integer> breaks = switchBreakFixups.pop();
+
+	    // 3) BUILD DISPATCH: za svaku konstantu u istom REDOSLEDU kako su
+	    //    defnisane (order), uporedi i u slučaju poklapanja skoči u njegov case
+	    for (Integer val : order) {
+
+	        Code.put(Code.dup);
+	        Code.loadConst(val);
+
+	        Code.putFalseJump(Code.eq, 0);
+	        int nextCmpFixup = Code.pc - 2;
+
+	        Code.put(Code.pop);          // uklanjamo expr jer ulazimo u case
+	        Code.putJump(map.get(val));
+
+	        Code.fixup(nextCmpFixup);
+	    }
+
+	    // nijedan case nije pogođen -> ukloni expr sa stacka (cleanup)
+	    Code.put(Code.pop);
+
+	    // 4) fixuj jump koji preskače dispatcher da vodi na kraj (posle dispatcha)
+	    Code.fixup(jumpOverDispatchAddr);
+
+	    // 5) fixuj eventualne break-ove koji su snimljeni unutar case body-ja
+	    while (!breaks.isEmpty()) {
+	        Code.fixup(breaks.pop());
+	    }
 	}
 
 
+
+
+	
+	
 //  init 
 //	START: 
 //	cond 
@@ -519,3 +571,143 @@ public class CodeGenerator extends VisitorAdaptor {
 	}
 
 }
+
+
+//
+//private Stack<Integer> firstJumpFlag = new Stack();
+//
+//private Stack<Integer> thirdJumpFlag = new Stack();
+//
+//private Stack<Stack<Integer>> forBreakFlag = new Stack();
+//
+//@Override
+//public void visit(Semicolon1 semicolon1) {
+//	firstJumpFlag.push(Code.pc);
+//	System.out.println(firstJumpFlag);
+//}
+//
+//@Override
+//public void visit(Semicolon2 semicolon2) {
+//	Code.putJump(0);
+//	skipFalse.push(Code.pc - 2);
+//
+//	thirdJumpFlag.push(Code.pc);
+//	System.out.println("   " + thirdJumpFlag);
+//}
+//
+//@Override
+//public void visit(ForWord forWord) {
+//	forBreakFlag.push(new Stack());
+//	breakTargetType.push(BreakTarget.FOR);
+//}
+//
+//@Override
+//public void visit(ForWithoutCondition forWithoutCondition) {
+//
+//	Code.putJump(firstJumpFlag.pop());
+//
+//	Code.fixup(skipFalse.pop());
+//	System.out.println(firstJumpFlag);
+//}
+//
+//@Override
+//public void visit(ForWithCondition forWithCondition) {
+//	Code.putJump(firstJumpFlag.pop());
+//
+//	Code.fixup(skipFalse.pop());
+//	System.out.println(firstJumpFlag);
+//}
+//
+//@Override
+//public void visit(ForStatement forStatement) {
+//	Code.putJump(thirdJumpFlag.pop());
+//
+//	Code.fixup(skipTrue.pop());
+//	Stack<Integer> currentBreaks = forBreakFlag.peek();
+//
+//	while (!currentBreaks.isEmpty()) {
+//		Code.fixup(currentBreaks.pop());
+//	}
+//}
+//
+////////////////////////////// switch statement //////////////////////////////
+//
+//////////////////////////////switch statement //////////////////////////////
+//
+//private Stack<HashMap<Integer, Integer>> switchCaseAddr = new Stack<>();
+//private Stack<List<Integer>> switchCaseOrder = new Stack<>();
+//private Stack<Integer> switchJumpToDispatch = new Stack<>();
+//private Stack<Stack<Integer>> switchBreakFlag = new Stack<>();
+//
+//@Override
+//public void visit(SwitchWord ss) {
+//	breakTargetType.push(BreakTarget.SWITCH);
+//	switchCaseAddr.push(new HashMap<>());
+//	switchCaseOrder.push(new ArrayList<>());
+//	switchBreakFlag.push(new Stack<>());
+//}
+//
+//@Override
+//public void visit(CaseEnter caseEnter) {
+//	Code.putJump(0);
+//	switchJumpToDispatch.push(Code.pc - 2);
+//}
+//
+//@Override
+//public void visit(CaseLabel ln) {
+//	switchCaseAddr.peek().put(ln.getN1(), Code.pc);
+//	switchCaseOrder.peek().add(ln.getN1());
+//}
+//
+//@Override
+//public void visit(SwitchStatement ss) {
+//	Code.putJump(0);
+//	int jumpOverDispatchAddr = Code.pc - 2;
+//
+//	Code.fixup(switchJumpToDispatch.pop());
+//
+//	HashMap<Integer, Integer> map = switchCaseAddr.pop();
+//	List<Integer> order = switchCaseOrder.pop();
+//
+//	for (Integer val : order) {
+//		Code.put(Code.dup);
+//		Code.loadConst(val);
+//		Code.putFalseJump(Code.eq, 0);
+//		int nextCmpFixup = Code.pc - 2;
+//		Code.put(Code.pop);
+//		Code.putJump(map.get(val));
+//		Code.fixup(nextCmpFixup);
+//	}
+//
+//	Code.put(Code.pop);
+//	Code.fixup(jumpOverDispatchAddr);
+//
+//	breakTargetType.pop();
+//
+//	Stack<Integer> endJumps = switchBreakFlag.pop();
+//	while (!endJumps.isEmpty()) {
+//		Code.fixup(endJumps.pop());
+//	}
+//}
+//
+/////////////////////////// BREAK and CONTINUE ////////////////////////////////////
+//
+//private enum BreakTarget {
+//	FOR, SWITCH
+//}
+//
+//private Stack<BreakTarget> breakTargetType = new Stack<>();
+//
+//@Override
+//public void visit(BreakStatement breakStatement) {
+//	Code.putJump(0);
+//	if (breakTargetType.peek() == BreakTarget.FOR)
+//		forBreakFlag.peek().push(Code.pc - 2);
+//	else
+//		switchBreakFlag.peek().push(Code.pc - 2);
+//}
+//
+//@Override
+//public void visit(ContinueStatement continueStatement) {
+//	Code.putJump(thirdJumpFlag.peek());
+//}

@@ -1,16 +1,735 @@
-// Test FULL semantic coverage
+package rs.ac.bg.etf.pp1;
 
-program testFull
+import rs.ac.bg.etf.pp1.ast.*;
+import rs.etf.pp1.mj.runtime.Code;
+import rs.etf.pp1.symboltable.Tab;
+import rs.etf.pp1.symboltable.concepts.Obj;
 
-const int pi = 3;
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.LinkedHashMap;
+import java.util.List;
+import java.util.Stack;
 
-int i, j[];
+import org.apache.log4j.Logger;
 
-{
+public class CodeGenerator extends VisitorAdaptor {
+
+	private int mainPC;
+	private final static int fieldSize = 4;
+
+	public int getmainPc() {
+		return this.mainPC;
+	}
+
+	Logger log = Logger.getLogger(getClass());
+
+	public void report_info(String message, SyntaxNode info) {
+		StringBuilder msg = new StringBuilder(message);
+		int line = (info == null) ? 0 : info.getLine();
+		if (line != 0)
+			msg.append(" na liniji ").append(line);
+		log.info(msg.toString());
+	}
+	
+	private void initUniverseMeth() {
+		//generisemo kod za metode ord, chr i len
+		Obj ordMethod = Tab.find("ord");
+		Obj chrMethod = Tab.find("chr");
+		ordMethod.setAdr(Code.pc);
+		chrMethod.setAdr(Code.pc);
+		Code.put(Code.enter);
+		Code.put(1);
+		Code.put(1);
+		Code.put(Code.load_n);
+		Code.put(Code.exit);
+		Code.put(Code.return_);
+		
+		Obj lenMethod = Tab.find("len");
+		lenMethod.setAdr(Code.pc);
+		Code.put(Code.enter);
+		Code.put(1);
+		Code.put(1);
+		Code.put(Code.load_n);
+		Code.put(Code.arraylength);
+		Code.put(Code.exit);
+		Code.put(Code.return_);
+		
+	}
+	
+	CodeGenerator() {
+		this.initUniverseMeth();
+	}
+
+	/* METHOD DECLARATIONS */
+
+	@Override
+	public void visit(MethRetAndName_type methRetAndName_type) {
+
+		methRetAndName_type.obj.setAdr(Code.pc);
+
+		Code.put(Code.enter);
+		Code.put(methRetAndName_type.obj.getLevel());
+		Code.put(methRetAndName_type.obj.getLocalSymbols().size());
+	}
+
+	@Override
+	public void visit(MethRetAndName_void methRetAndName_void) {
+		methRetAndName_void.obj.setAdr(Code.pc);
+		if (methRetAndName_void.getI1().equalsIgnoreCase("main"))
+			this.mainPC = Code.pc;
+
+		Code.put(Code.enter);
+		Code.put(methRetAndName_void.obj.getLevel());
+		Code.put(methRetAndName_void.obj.getLocalSymbols().size());
+	}
+
+	@Override
+	public void visit(MethodDecl methodDecl) {
+		Code.put(Code.exit);
+		Code.put(Code.return_);
+	}
+
+	/* STATEMENTS */
+
+	// Single statements
+	@Override
+	public void visit(PrintStatement ps) {
+		Code.loadConst(0);
+		if (ps.getExpr().struct.equals(Tab.charType))
+			Code.put(Code.bprint);
+		else
+			Code.put(Code.print);
+	}
+
+	@Override
+	public void visit(PrintStatement2 ps) {
+		Code.loadConst(ps.getN2());
+		if (ps.getExpr().struct.equals(Tab.charType))
+			Code.put(Code.bprint);
+		else
+			Code.put(Code.print);
+	}
+
+	@Override
+	public void visit(ReturnStatement_noexpr rse) {
+		Code.put(Code.exit);
+		Code.put(Code.return_);
+	}
+
+	@Override
+	public void visit(ReturnStatement_expr rsn) {
+		Code.put(Code.exit);
+		Code.put(Code.return_);
+	}
+
+	@Override
+	public void visit(ReadStatement rs) {
+		Obj desObj = rs.getDesignator().obj;
+		if (desObj.getType().equals(Tab.charType)) {
+			Code.put(Code.bread);
+		} else {
+			Code.put(Code.read);
+		}
+		Code.store(desObj);
+	}
+
+	private Stack<Integer> skipTrue = new Stack<>();
+	private Stack<Integer> skipFalse = new Stack<>();
+	private Stack<Integer> skipAND = new Stack<>();
+	private Stack<Integer> skipOR = new Stack<>();
+	
+	//private Stack<Integer> forCondFalse = new Stack<>();
+	
 
 
-    void main()
-    {
-      print(pi);
-    }
+	/* CONDITION */
+
+	@Override
+	public void visit(ConditionList cl) {
+//		Code.putJump(0);
+//		skipTrue.push(Code.pc - 2);
+//		
+//		while (!skipOR.isEmpty()) {
+//			Code.fixup(skipOR.pop());
+//		}
+	}
+
+	@Override
+	public void visit(SingleCondition singleCondition) {
+		Code.putJump(0); // netacne na ELSE
+		skipTrue.push(Code.pc - 2);
+		
+		// tacne
+		while (!skipOR.isEmpty())
+			Code.fixup(skipOR.pop());		
+	}
+
+	@Override
+	public void visit(CondTermList cl) {
+//		Code.putJump(0);
+//		skipOR.push(Code.pc - 2);
+//
+//		// ovde vracam netacne - ispod je sledeci OR koji treba da pokusaju da prodju
+//		while (!skipAND.isEmpty()) {
+//			Code.fixup(skipAND.pop());
+//		}
+	}
+
+	@Override
+	public void visit(SingleCondTerm cl) {
+		
+		Code.putJump(0);
+		skipOR.push(Code.pc - 2);
+
+		while (!skipAND.isEmpty()) {
+			Code.fixup(skipAND.pop());
+		}
+	}
+
+	@Override
+	public void visit(CondFact_relop cf) {
+		int op = 0;
+		if (cf.getRelop() instanceof Relop_eq) {
+			op = Code.eq;
+		} else if (cf.getRelop() instanceof Relop_leq) {
+			op = Code.le;
+		} else if (cf.getRelop() instanceof Relop_neq) {
+			op = Code.ne;
+		} else if (cf.getRelop() instanceof Relop_Geq) {
+			op = Code.ge;
+		} else if (cf.getRelop() instanceof Relop_grt) {
+			op = Code.gt;
+		} else if (cf.getRelop() instanceof Relop_ls) {
+			op = Code.lt;
+		}
+
+		Code.putFalseJump(op, 0);
+		skipAND.push(Code.pc - 2);
+	}
+
+	@Override
+	public void visit(CondFact_norelop cf) {
+		Code.loadConst(0);
+		Code.putFalseJump(Code.ne, 0);
+		skipAND.push(Code.pc - 2);
+	}
+
+	@Override
+	public void visit(IfElseStatement_non_else ine) {
+		if (!skipTrue.isEmpty())
+			Code.fixup(skipTrue.pop());
+	}
+
+	@Override
+	public void visit(IfElseStatement_else ine) {
+		if (!skipFalse.isEmpty())
+			Code.fixup(skipFalse.pop());
+	}
+
+	@Override
+	public void visit(IfElseStatement ies) {
+		if (!skipFalse.isEmpty())
+			Code.fixup(skipFalse.pop());
+	}
+
+	@Override
+	public void visit(ElseStart es) {
+		Code.putJump(0);
+		skipFalse.push(Code.pc - 2);
+
+		if (!skipTrue.isEmpty())
+			Code.fixup(skipTrue.pop());
+	}
+	
+	// FOR
+	
+	private enum BreakTarget {
+		FOR, SWITCH
+	}
+
+	private Stack<BreakTarget> breakTargetType = new Stack<>();
+	private Stack<Stack<Integer>> switchBreakJump = new Stack<>(); // za switch
+
+	
+	private Stack<Integer> jumpToCond = new Stack();
+	private Stack<Integer> jumpToStep = new Stack();
+	private Stack<Stack<Integer>> forBreakJump = new Stack();
+
+	
+	@Override
+	public void visit (ForStart fs) {
+		jumpToCond.push(Code.pc);
+		
+		forBreakJump.push(new Stack<Integer>());
+	}
+	
+	@Override
+	public void visit (ForStepStart fss) {
+		Code.putJump(0);
+		skipFalse.push(Code.pc - 2);
+		
+		jumpToStep.push(Code.pc);
+		System.out.println("   " + jumpToStep);
+	}
+
+	@Override
+	public void visit(ForStep_step fs) {
+		Code.putJump(jumpToCond.pop());
+		
+		Code.fixup(skipFalse.pop());
+		System.out.println(jumpToCond);
+	}
+	
+	@Override
+	public void visit(ForStatement forStatement) {
+		Code.putJump(jumpToStep.pop());
+		
+		Code.fixup(skipTrue.pop());
+		
+		while(!forBreakJump.peek().isEmpty()) {
+			Code.fixup(forBreakJump.peek().pop());
+		}
+		forBreakJump.pop();
+	}
+
+
+	@Override
+	public void visit(ForStep_e forStep_e) {
+		Code.putJump(jumpToCond.pop());
+		
+		Code.fixup(skipFalse.pop());
+		System.out.println(jumpToCond);
+	}
+	
+	
+	// BREAK i CONTINUE 
+	
+
+	@Override
+	public void visit(BreakStatement breakStatement) {
+		Code.putJump(0);
+		if (breakTargetType.peek() == BreakTarget.FOR)
+			forBreakJump.peek().push(Code.pc - 2);
+		else
+			switchBreakJump.peek().push(Code.pc - 2);
+	}
+	
+	@Override
+	public void visit(ContinueStatement bs) {
+		Code.putJump(jumpToStep.peek());
+	}
+	
+	
+
+	// polja klase (ako ih već nema)
+	private Stack<HashMap<Integer, Integer>> switchCaseAddr = new Stack<>();
+	private Stack<List<Integer>> switchCaseOrder = new Stack<>();
+	private Stack<Integer> switchJumpToDispatch = new Stack<>();
+	//private Stack<Stack<Integer>> switchBreakFixups = new Stack<>();
+
+	@Override
+	public void visit(SwitchStart ss) {
+		breakTargetType.push(BreakTarget.SWITCH);
+		switchCaseAddr.push(new HashMap<>());
+		switchCaseOrder.push(new ArrayList<>());
+		switchBreakJump.push(new Stack<>());
+	}
+
+	@Override
+	public void visit(SwitchGoTo caseEnter) {
+		Code.putJump(0);
+		switchJumpToDispatch.push(Code.pc - 2);
+	}
+	
+	@Override
+	public void visit(LabelNumber ln) {
+		switchCaseAddr.peek().put(ln.getN1(), Code.pc);
+		switchCaseOrder.peek().add(ln.getN1());
+	}
+
+//	@Override
+//	public void visit(SwitchStatement ss) {
+//	    // 1) ubaci skok koji PRESKAČE dispatcher (ovo mora biti *pre* dispatcha)
+//	    Code.putJump(0);
+//	    int jumpOverDispatchAddr = Code.pc - 2;
+//
+//	    // 2) dispatcher počinje ovde -> popravi prethodni jump koji je postavljen
+//	    //    u SwitchGoTo (skok na dispatch)
+//	    Code.fixup(switchJumpToDispatch.pop());
+//
+//	    HashMap<Integer, Integer> map = switchCaseAddr.pop();
+//	    List<Integer> order = switchCaseOrder.pop();
+//	    Stack<Integer> breaks = switchBreakJump.pop();
+//
+//	    // 3) BUILD DISPATCH: za svaku konstantu u istom REDOSLEDU kako su
+//	    //    defnisane (order), uporedi i u slučaju poklapanja skoči u njegov case
+//	    for (Integer val : order) {
+//
+//	        Code.put(Code.dup);
+//	        Code.loadConst(val);
+//
+//	        Code.putFalseJump(Code.eq, 0);
+//	        int nextCmpFixup = Code.pc - 2;
+//
+//	        Code.put(Code.pop);          // uklanjamo expr jer ulazimo u case
+//	        Code.putJump(map.get(val));
+//
+//	        Code.fixup(nextCmpFixup);
+//	    }
+//
+//	    // nijedan case nije pogođen -> ukloni expr sa stacka (cleanup)
+//	    Code.put(Code.pop);
+//
+//	    // 4) fixuj jump koji preskače dispatcher da vodi na kraj (posle dispatcha)
+//	    Code.fixup(jumpOverDispatchAddr);
+//
+//	    // 5) fixuj eventualne break-ove koji su snimljeni unutar case body-ja
+//	    while (!breaks.isEmpty()) {
+//	        Code.fixup(breaks.pop());
+//	    }
+//	}
+	public void visit(SwitchStatement ss) {
+	Code.putJump(0);
+	int jumpOverDispatchAddr = Code.pc - 2;
+
+	Code.fixup(switchJumpToDispatch.pop());
+
+	HashMap<Integer, Integer> map = switchCaseAddr.pop();
+	List<Integer> order = switchCaseOrder.pop();
+
+	for (Integer val : order) {
+		Code.put(Code.dup);
+		Code.loadConst(val);
+		Code.putFalseJump(Code.eq, 0);
+		int nextCmpFixup = Code.pc - 2;
+		Code.put(Code.pop);
+		Code.putJump(map.get(val));
+		Code.fixup(nextCmpFixup);
+	}
+
+	Code.put(Code.pop);
+	Code.fixup(jumpOverDispatchAddr);
+
+	breakTargetType.pop();
+
+	Stack<Integer> endJumps = switchBreakJump.pop();
+	while (!endJumps.isEmpty()) {
+		Code.fixup(endJumps.pop());
+	}
 }
+
+
+
+	
+	
+//  init 
+//	START: 
+//	cond 
+//	putFalseJump END
+//	body 
+//	step 
+//	putJump START 
+//	END:
+
+	/* FACTOR, TERM, EXPR */
+
+	@Override
+	public void visit(Expr_notern expr_notern) {
+		expr_notern.struct = expr_notern.getTermList().struct;
+	}
+
+	@Override
+	public void visit(TermList_addop tla) {
+		if (tla.getAddop() instanceof Addop_minus) {
+			Code.put(Code.sub);
+		} else if (tla.getAddop() instanceof Addop_plus) {
+			Code.put(Code.add);
+		}
+	}
+
+	@Override
+	public void visit(FactorList_mulop flm) {
+		if (flm.getMulop() instanceof Mulop_mul) {
+			Code.put(Code.mul);
+		} else if (flm.getMulop() instanceof Mulop_div) {
+			Code.put(Code.div);
+		} else if (flm.getMulop() instanceof Mulop_mod) {
+			Code.put(Code.rem);
+		}
+	}
+
+	@Override
+	public void visit(Factor_des factor_des) {
+		if (factor_des.getDesignator() instanceof Designator_len) {
+			Code.load(factor_des.getDesignator().obj);
+			Code.put(Code.arraylength);
+		} else {
+			Code.load(factor_des.getDesignator().obj);
+		}
+	}
+
+	@Override
+	public void visit(Factor_methnopars fd) {
+		int offset = fd.getDesignator().obj.getAdr() - Code.pc;
+		Code.put(Code.call);
+		Code.put2(offset);
+	}
+
+	@Override
+	public void visit(Factor_methpars fd) {
+		int offset = fd.getDesignator().obj.getAdr() - Code.pc;
+		Code.put(Code.call);
+		Code.put2(offset);
+	}
+
+	@Override
+	public void visit(Factor_n factor_n) {
+		Code.loadConst(factor_n.getN1());
+		;
+	}
+
+	@Override
+	public void visit(Factor_c factor_c) {
+		Code.loadConst(factor_c.getC1());
+		;
+	}
+
+	@Override
+	public void visit(Factor_b factor_n) {
+		Code.loadConst(factor_n.getB1());
+		;
+	}
+
+	@Override
+	public void visit(Factor factor) {
+		if (factor.getUnary() instanceof Unary_m) {
+			Code.put(Code.neg);
+		}
+	}
+
+	@Override
+	public void visit(Factor_new_array factor_new_array) {
+		Code.put(Code.newarray);
+		if (factor_new_array.getType().struct.equals(Tab.intType)) {
+			Code.put(1);
+		} else {
+			Code.put(0);
+		}
+	}
+
+	// Designator statements
+
+	@Override
+	public void visit(DesignatorStatement_ass dsAss) {
+		Code.store(dsAss.getDesignator().obj);
+	}
+
+	@Override
+	public void visit(DesignatorArrayName designatorArrayName) {
+		Code.load(designatorArrayName.obj);
+	}
+
+	@Override
+	public void visit(DesignatorStatement_inc dsInc) {
+		if (dsInc.getDesignator().obj.getKind() == Obj.Elem) {
+			Code.put(Code.dup2);
+		}
+		Code.load(dsInc.getDesignator().obj);
+		Code.loadConst(1);
+		Code.put(Code.add);
+		Code.store(dsInc.getDesignator().obj);
+	}
+
+	@Override
+	public void visit(DesignatorStatement_dec dsDec) {
+		if (dsDec.getDesignator().obj.getKind() == Obj.Elem) {
+			Code.put(Code.dup2);
+		}
+		Code.load(dsDec.getDesignator().obj);
+		Code.loadConst(1);
+		Code.put(Code.sub);
+		Code.store(dsDec.getDesignator().obj);
+	}
+
+	@Override
+	public void visit(DesignatorStatement_noactpar ds) {
+		int offset = ds.getDesignator().obj.getAdr() - Code.pc;
+		Code.put(Code.call);
+		Code.put2(offset);
+
+		if (ds.getDesignator().obj.getType() != Tab.noType) {
+			Code.put(Code.pop);
+		}
+	}
+
+	@Override
+	public void visit(DesignatorStatement_actpar ds) {
+		int offset = ds.getDesignator().obj.getAdr() - Code.pc;
+
+		Code.put(Code.call);
+		Code.put2(offset);
+
+		if (ds.getDesignator().obj.getType() != Tab.noType) {
+			Code.put(Code.pop);
+		}
+	}
+
+	/* TERNARY */
+
+	@Override
+	public void visit(TernExpr1 te1) {
+		Code.putJump(0);
+		skipFalse.push(Code.pc - 2);
+
+		if (!skipTrue.isEmpty())
+			Code.fixup(skipTrue.pop());
+	}
+
+	public void visit(TernExpr2 te) {
+		if (!skipFalse.isEmpty())
+			Code.fixup(skipFalse.pop());
+	}
+
+}
+
+
+//
+//private Stack<Integer> firstJumpFlag = new Stack();
+//
+//private Stack<Integer> thirdJumpFlag = new Stack();
+//
+//private Stack<Stack<Integer>> forBreakFlag = new Stack();
+//
+//@Override
+//public void visit(Semicolon1 semicolon1) {
+//	firstJumpFlag.push(Code.pc);
+//	System.out.println(firstJumpFlag);
+//}
+//
+//@Override
+//public void visit(Semicolon2 semicolon2) {
+//	Code.putJump(0);
+//	skipFalse.push(Code.pc - 2);
+//
+//	thirdJumpFlag.push(Code.pc);
+//	System.out.println("   " + thirdJumpFlag);
+//}
+//
+//@Override
+//public void visit(ForWord forWord) {
+//	forBreakFlag.push(new Stack());
+//	breakTargetType.push(BreakTarget.FOR);
+//}
+//
+//@Override
+//public void visit(ForWithoutCondition forWithoutCondition) {
+//
+//	Code.putJump(firstJumpFlag.pop());
+//
+//	Code.fixup(skipFalse.pop());
+//	System.out.println(firstJumpFlag);
+//}
+//
+//@Override
+//public void visit(ForWithCondition forWithCondition) {
+//	Code.putJump(firstJumpFlag.pop());
+//
+//	Code.fixup(skipFalse.pop());
+//	System.out.println(firstJumpFlag);
+//}
+//
+//@Override
+//public void visit(ForStatement forStatement) {
+//	Code.putJump(thirdJumpFlag.pop());
+//
+//	Code.fixup(skipTrue.pop());
+//	Stack<Integer> currentBreaks = forBreakFlag.peek();
+//
+//	while (!currentBreaks.isEmpty()) {
+//		Code.fixup(currentBreaks.pop());
+//	}
+//}
+//
+////////////////////////////// switch statement //////////////////////////////
+//
+//////////////////////////////switch statement //////////////////////////////
+//
+//private Stack<HashMap<Integer, Integer>> switchCaseAddr = new Stack<>();
+//private Stack<List<Integer>> switchCaseOrder = new Stack<>();
+//private Stack<Integer> switchJumpToDispatch = new Stack<>();
+//private Stack<Stack<Integer>> switchBreakFlag = new Stack<>();
+//
+//@Override
+//public void visit(SwitchWord ss) {
+//	breakTargetType.push(BreakTarget.SWITCH);
+//	switchCaseAddr.push(new HashMap<>());
+//	switchCaseOrder.push(new ArrayList<>());
+//	switchBreakFlag.push(new Stack<>());
+//}
+//
+
+//@Override
+//public void visit(CaseEnter caseEnter) {
+//	Code.putJump(0);
+//	switchJumpToDispatch.push(Code.pc - 2);
+//}
+//
+//@Override
+//public void visit(CaseLabel ln) {
+//	switchCaseAddr.peek().put(ln.getN1(), Code.pc);
+//	switchCaseOrder.peek().add(ln.getN1());
+//}
+//
+//@Override
+//public void visit(SwitchStatement ss) {
+//	Code.putJump(0);
+//	int jumpOverDispatchAddr = Code.pc - 2;
+//
+//	Code.fixup(switchJumpToDispatch.pop());
+//
+//	HashMap<Integer, Integer> map = switchCaseAddr.pop();
+//	List<Integer> order = switchCaseOrder.pop();
+//
+//	for (Integer val : order) {
+//		Code.put(Code.dup);
+//		Code.loadConst(val);
+//		Code.putFalseJump(Code.eq, 0);
+//		int nextCmpFixup = Code.pc - 2;
+//		Code.put(Code.pop);
+//		Code.putJump(map.get(val));
+//		Code.fixup(nextCmpFixup);
+//	}
+//
+//	Code.put(Code.pop);
+//	Code.fixup(jumpOverDispatchAddr);
+//
+//	breakTargetType.pop();
+//
+//	Stack<Integer> endJumps = switchBreakFlag.pop();
+//	while (!endJumps.isEmpty()) {
+//		Code.fixup(endJumps.pop());
+//	}
+//}
+//
+/////////////////////////// BREAK and CONTINUE ////////////////////////////////////
+//
+//private enum BreakTarget {
+//	FOR, SWITCH
+//}
+//
+//private Stack<BreakTarget> breakTargetType = new Stack<>();
+//
+//@Override
+//public void visit(BreakStatement breakStatement) {
+//	Code.putJump(0);
+//	if (breakTargetType.peek() == BreakTarget.FOR)
+//		forBreakFlag.peek().push(Code.pc - 2);
+//	else
+//		switchBreakFlag.peek().push(Code.pc - 2);
+//}
+//
+//@Override
+//public void visit(ContinueStatement continueStatement) {
+//	Code.putJump(thirdJumpFlag.peek());
+//}

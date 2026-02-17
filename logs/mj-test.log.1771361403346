@@ -1,196 +1,180 @@
-INFO  22:20:05,989 - Compiling source file: /home/rembrant/EclipseWorkspace3/MJCompiler/test/program.mj
-INFO  22:20:06,039 - #2 program
-INFO  22:20:06,040 - #48 test301
-INFO  22:20:06,040 - #14 enum
-INFO  22:20:06,041 - #48 Broj
-INFO  22:20:06,041 - #40 {
-INFO  22:20:06,041 - #48 NULA
-INFO  22:20:06,042 - #37 ,
-INFO  22:20:06,042 - #48 JEDAN
-INFO  22:20:06,042 - #37 ,
-INFO  22:20:06,042 - #48 PET
-INFO  22:20:06,043 - #33 =
-INFO  22:20:06,043 - #45 5
-INFO  22:20:06,043 - #37 ,
-INFO  22:20:06,043 - #48 DESET
-INFO  22:20:06,043 - #33 =
-INFO  22:20:06,043 - #45 10
-INFO  22:20:06,043 - #41 }
-INFO  22:20:06,044 - #14 enum
-INFO  22:20:06,045 - #48 Broj2
-INFO  22:20:06,045 - #40 {
-INFO  22:20:06,045 - #48 NULA
-INFO  22:20:06,045 - #37 ,
-INFO  22:20:06,045 - #48 JEDAN
-INFO  22:20:06,045 - #37 ,
-INFO  22:20:06,045 - #48 PET
-INFO  22:20:06,046 - #33 =
-INFO  22:20:06,046 - #45 5
-INFO  22:20:06,046 - #37 ,
-INFO  22:20:06,046 - #48 DESET
-INFO  22:20:06,046 - #33 =
-INFO  22:20:06,046 - #45 10
-INFO  22:20:06,046 - #41 }
-INFO  22:20:06,046 - #40 {
-INFO  22:20:06,047 - #4 void
-INFO  22:20:06,048 - #48 sub
-INFO  22:20:06,048 - #38 (
-INFO  22:20:06,048 - #39 )
-INFO  22:20:06,049 - #40 {
-INFO  22:20:06,049 - #11 print
-INFO  22:20:06,050 - #38 (
-INFO  22:20:06,050 - #45 33
-INFO  22:20:06,051 - #39 )
-INFO  22:20:06,053 - #34 ;
-INFO  22:20:06,053 - #41 }
-INFO  22:20:06,053 - #4 void
-INFO  22:20:06,054 - #48 add
-INFO  22:20:06,054 - #38 (
-INFO  22:20:06,054 - #39 )
-INFO  22:20:06,054 - #40 {
-INFO  22:20:06,055 - #11 print
-INFO  22:20:06,055 - #38 (
-INFO  22:20:06,055 - #45 77
-INFO  22:20:06,055 - #39 )
-INFO  22:20:06,055 - #34 ;
-INFO  22:20:06,055 - #41 }
-INFO  22:20:06,055 - #48 int
-INFO  22:20:06,055 - #48 mul2
-INFO  22:20:06,056 - #38 (
-INFO  22:20:06,056 - #48 int
-INFO  22:20:06,056 - #48 x
-INFO  22:20:06,057 - #39 )
-INFO  22:20:06,058 - #40 {
-INFO  22:20:06,058 - #9 return
-INFO  22:20:06,058 - #48 x
-INFO  22:20:06,058 - #20 *
-INFO  22:20:06,059 - #45 2
-INFO  22:20:06,060 - #34 ;
-INFO  22:20:06,060 - #41 }
-INFO  22:20:06,060 - #4 void
-INFO  22:20:06,060 - #48 main
-INFO  22:20:06,061 - #38 (
-INFO  22:20:06,061 - #39 )
-INFO  22:20:06,061 - #48 int
-INFO  22:20:06,061 - #48 i
-INFO  22:20:06,061 - #37 ,
-INFO  22:20:06,061 - #48 j
-INFO  22:20:06,061 - #37 ,
-INFO  22:20:06,062 - #48 a
-INFO  22:20:06,062 - #34 ;
-INFO  22:20:06,062 - #48 char
-INFO  22:20:06,064 - #48 c
-INFO  22:20:06,064 - #34 ;
-INFO  22:20:06,064 - #40 {
-INFO  22:20:06,064 - #48 i
-INFO  22:20:06,064 - #33 =
-INFO  22:20:06,065 - #45 2
-INFO  22:20:06,065 - #34 ;
-INFO  22:20:06,066 - #15 for
-INFO  22:20:06,066 - #38 (
-INFO  22:20:06,066 - #48 i
-INFO  22:20:06,066 - #33 =
-INFO  22:20:06,066 - #45 0
-INFO  22:20:06,066 - #34 ;
-INFO  22:20:06,067 - #48 i
-INFO  22:20:06,067 - #27 <
-INFO  22:20:06,068 - #45 10
-INFO  22:20:06,069 - #34 ;
-INFO  22:20:06,069 - #48 i
-INFO  22:20:06,070 - #31 ++
-INFO  22:20:06,070 - #39 )
-INFO  22:20:06,070 - #40 {
-INFO  22:20:06,071 - #12 switch
-INFO  22:20:06,071 - #38 (
-INFO  22:20:06,071 - #48 i
-INFO  22:20:06,071 - #18 +
-INFO  22:20:06,071 - #45 1
-INFO  22:20:06,072 - #39 )
-INFO  22:20:06,073 - #40 {
-INFO  22:20:06,074 - #13 case
-INFO  22:20:06,075 - #45 1
-INFO  22:20:06,075 - #36 :
-INFO  22:20:06,076 - #11 print
-INFO  22:20:06,076 - #38 (
-INFO  22:20:06,077 - #45 1
-INFO  22:20:06,077 - #39 )
-INFO  22:20:06,077 - #34 ;
-INFO  22:20:06,077 - #15 for
-INFO  22:20:06,077 - #38 (
-INFO  22:20:06,077 - #48 j
-INFO  22:20:06,077 - #33 =
-INFO  22:20:06,078 - #45 0
-INFO  22:20:06,078 - #34 ;
-INFO  22:20:06,078 - #48 j
-INFO  22:20:06,078 - #27 <
-INFO  22:20:06,078 - #45 5
-INFO  22:20:06,078 - #34 ;
-INFO  22:20:06,078 - #48 j
-INFO  22:20:06,079 - #31 ++
-INFO  22:20:06,079 - #39 )
-INFO  22:20:06,079 - #11 print
-INFO  22:20:06,079 - #38 (
-INFO  22:20:06,079 - #48 j
-INFO  22:20:06,079 - #39 )
-INFO  22:20:06,079 - #34 ;
-INFO  22:20:06,079 - #13 case
-INFO  22:20:06,081 - #45 3
-INFO  22:20:06,081 - #36 :
-INFO  22:20:06,081 - #11 print
-INFO  22:20:06,081 - #38 (
-INFO  22:20:06,081 - #45 3
-INFO  22:20:06,081 - #39 )
-INFO  22:20:06,081 - #34 ;
-INFO  22:20:06,081 - #13 case
-INFO  22:20:06,082 - #45 2
-INFO  22:20:06,082 - #36 :
-INFO  22:20:06,082 - #11 print
-INFO  22:20:06,082 - #38 (
-INFO  22:20:06,082 - #45 2
-INFO  22:20:06,082 - #39 )
-INFO  22:20:06,082 - #34 ;
-INFO  22:20:06,082 - #7 break
-INFO  22:20:06,082 - #34 ;
-INFO  22:20:06,082 - #13 case
-INFO  22:20:06,083 - #45 5
-INFO  22:20:06,083 - #36 :
-INFO  22:20:06,083 - #11 print
-INFO  22:20:06,084 - #38 (
-INFO  22:20:06,084 - #45 5
-INFO  22:20:06,084 - #39 )
-INFO  22:20:06,084 - #34 ;
-INFO  22:20:06,084 - #48 i
-INFO  22:20:06,084 - #33 =
-INFO  22:20:06,084 - #48 i
-INFO  22:20:06,084 - #18 +
-INFO  22:20:06,084 - #45 2
-INFO  22:20:06,084 - #34 ;
-INFO  22:20:06,084 - #13 case
-INFO  22:20:06,085 - #45 6
-INFO  22:20:06,085 - #36 :
-INFO  22:20:06,085 - #11 print
-INFO  22:20:06,085 - #38 (
-INFO  22:20:06,085 - #45 6
-INFO  22:20:06,085 - #39 )
-INFO  22:20:06,085 - #34 ;
-INFO  22:20:06,085 - #13 case
-INFO  22:20:06,085 - #45 9
-INFO  22:20:06,085 - #36 :
-INFO  22:20:06,085 - #11 print
-INFO  22:20:06,086 - #38 (
-INFO  22:20:06,086 - #45 9
-INFO  22:20:06,086 - #39 )
-INFO  22:20:06,086 - #34 ;
-INFO  22:20:06,086 - #41 }
-INFO  22:20:06,086 - #11 print
-INFO  22:20:06,086 - #38 (
-INFO  22:20:06,086 - #48 eol
-INFO  22:20:06,087 - #39 )
-INFO  22:20:06,087 - #34 ;
-INFO  22:20:06,087 - #41 }
-INFO  22:20:06,087 - #41 }
-INFO  22:20:06,087 - #41 }
-INFO  22:20:06,103 - Program(
+INFO  21:47:04,569 - Compiling source file: /home/rembrant/EclipseWorkspace3/MJCompiler/test/program.mj
+INFO  21:47:04,601 - #2 program
+INFO  21:47:04,601 - #48 test301
+INFO  21:47:04,601 - #14 enum
+INFO  21:47:04,602 - #48 Broj
+INFO  21:47:04,602 - #40 {
+INFO  21:47:04,602 - #48 NULA
+INFO  21:47:04,603 - #37 ,
+INFO  21:47:04,603 - #48 JEDAN
+INFO  21:47:04,603 - #37 ,
+INFO  21:47:04,603 - #48 PET
+INFO  21:47:04,603 - #33 =
+INFO  21:47:04,603 - #45 5
+INFO  21:47:04,604 - #37 ,
+INFO  21:47:04,604 - #48 DESET
+INFO  21:47:04,604 - #33 =
+INFO  21:47:04,604 - #45 10
+INFO  21:47:04,604 - #41 }
+INFO  21:47:04,604 - #14 enum
+INFO  21:47:04,605 - #48 Broj2
+INFO  21:47:04,605 - #40 {
+INFO  21:47:04,605 - #48 NULA
+INFO  21:47:04,605 - #37 ,
+INFO  21:47:04,605 - #48 JEDAN
+INFO  21:47:04,605 - #37 ,
+INFO  21:47:04,605 - #48 PET
+INFO  21:47:04,605 - #33 =
+INFO  21:47:04,605 - #45 5
+INFO  21:47:04,605 - #37 ,
+INFO  21:47:04,605 - #48 DESET
+INFO  21:47:04,605 - #33 =
+INFO  21:47:04,606 - #45 10
+INFO  21:47:04,606 - #41 }
+INFO  21:47:04,606 - #40 {
+INFO  21:47:04,606 - #4 void
+INFO  21:47:04,607 - #48 sub
+INFO  21:47:04,607 - #38 (
+INFO  21:47:04,607 - #39 )
+INFO  21:47:04,607 - #40 {
+INFO  21:47:04,608 - #11 print
+INFO  21:47:04,608 - #38 (
+INFO  21:47:04,608 - #45 33
+INFO  21:47:04,609 - #39 )
+INFO  21:47:04,610 - #34 ;
+INFO  21:47:04,610 - #41 }
+INFO  21:47:04,610 - #4 void
+INFO  21:47:04,611 - #48 add
+INFO  21:47:04,611 - #38 (
+INFO  21:47:04,611 - #39 )
+INFO  21:47:04,611 - #40 {
+INFO  21:47:04,611 - #11 print
+INFO  21:47:04,611 - #38 (
+INFO  21:47:04,611 - #45 77
+INFO  21:47:04,611 - #39 )
+INFO  21:47:04,611 - #34 ;
+INFO  21:47:04,611 - #41 }
+INFO  21:47:04,612 - #48 int
+INFO  21:47:04,612 - #48 mul2
+INFO  21:47:04,612 - #38 (
+INFO  21:47:04,612 - #48 int
+INFO  21:47:04,613 - #48 x
+INFO  21:47:04,613 - #39 )
+INFO  21:47:04,613 - #40 {
+INFO  21:47:04,614 - #9 return
+INFO  21:47:04,614 - #48 x
+INFO  21:47:04,614 - #20 *
+INFO  21:47:04,614 - #45 2
+INFO  21:47:04,615 - #34 ;
+INFO  21:47:04,615 - #41 }
+INFO  21:47:04,615 - #4 void
+INFO  21:47:04,615 - #48 main
+INFO  21:47:04,615 - #38 (
+INFO  21:47:04,615 - #39 )
+INFO  21:47:04,615 - #48 int
+INFO  21:47:04,615 - #48 i
+INFO  21:47:04,615 - #37 ,
+INFO  21:47:04,616 - #48 a
+INFO  21:47:04,616 - #34 ;
+INFO  21:47:04,616 - #48 char
+INFO  21:47:04,617 - #48 c
+INFO  21:47:04,617 - #34 ;
+INFO  21:47:04,617 - #40 {
+INFO  21:47:04,617 - #48 i
+INFO  21:47:04,617 - #33 =
+INFO  21:47:04,617 - #45 2
+INFO  21:47:04,617 - #34 ;
+INFO  21:47:04,618 - #15 for
+INFO  21:47:04,618 - #38 (
+INFO  21:47:04,618 - #48 i
+INFO  21:47:04,618 - #33 =
+INFO  21:47:04,618 - #45 0
+INFO  21:47:04,618 - #34 ;
+INFO  21:47:04,618 - #48 i
+INFO  21:47:04,619 - #27 <
+INFO  21:47:04,619 - #45 10
+INFO  21:47:04,619 - #34 ;
+INFO  21:47:04,620 - #48 i
+INFO  21:47:04,620 - #31 ++
+INFO  21:47:04,620 - #39 )
+INFO  21:47:04,621 - #40 {
+INFO  21:47:04,621 - #12 switch
+INFO  21:47:04,621 - #38 (
+INFO  21:47:04,621 - #48 i
+INFO  21:47:04,621 - #18 +
+INFO  21:47:04,621 - #45 1
+INFO  21:47:04,622 - #39 )
+INFO  21:47:04,622 - #40 {
+INFO  21:47:04,623 - #13 case
+INFO  21:47:04,623 - #45 1
+INFO  21:47:04,624 - #36 :
+INFO  21:47:04,624 - #11 print
+INFO  21:47:04,624 - #38 (
+INFO  21:47:04,624 - #45 1
+INFO  21:47:04,624 - #39 )
+INFO  21:47:04,625 - #34 ;
+INFO  21:47:04,625 - #7 break
+INFO  21:47:04,625 - #34 ;
+INFO  21:47:04,625 - #13 case
+INFO  21:47:04,626 - #45 3
+INFO  21:47:04,626 - #36 :
+INFO  21:47:04,626 - #11 print
+INFO  21:47:04,626 - #38 (
+INFO  21:47:04,626 - #45 3
+INFO  21:47:04,626 - #39 )
+INFO  21:47:04,626 - #34 ;
+INFO  21:47:04,626 - #13 case
+INFO  21:47:04,626 - #45 2
+INFO  21:47:04,626 - #36 :
+INFO  21:47:04,626 - #11 print
+INFO  21:47:04,626 - #38 (
+INFO  21:47:04,626 - #45 2
+INFO  21:47:04,626 - #39 )
+INFO  21:47:04,627 - #34 ;
+INFO  21:47:04,627 - #7 break
+INFO  21:47:04,627 - #34 ;
+INFO  21:47:04,627 - #13 case
+INFO  21:47:04,627 - #45 5
+INFO  21:47:04,627 - #36 :
+INFO  21:47:04,627 - #11 print
+INFO  21:47:04,627 - #38 (
+INFO  21:47:04,627 - #45 5
+INFO  21:47:04,627 - #39 )
+INFO  21:47:04,627 - #34 ;
+INFO  21:47:04,627 - #48 i
+INFO  21:47:04,627 - #33 =
+INFO  21:47:04,627 - #48 i
+INFO  21:47:04,627 - #18 +
+INFO  21:47:04,627 - #45 2
+INFO  21:47:04,628 - #34 ;
+INFO  21:47:04,628 - #8 continue
+INFO  21:47:04,628 - #34 ;
+INFO  21:47:04,628 - #13 case
+INFO  21:47:04,628 - #45 6
+INFO  21:47:04,629 - #36 :
+INFO  21:47:04,629 - #11 print
+INFO  21:47:04,629 - #38 (
+INFO  21:47:04,629 - #45 6
+INFO  21:47:04,629 - #39 )
+INFO  21:47:04,629 - #34 ;
+INFO  21:47:04,629 - #13 case
+INFO  21:47:04,629 - #45 9
+INFO  21:47:04,629 - #36 :
+INFO  21:47:04,629 - #11 print
+INFO  21:47:04,629 - #38 (
+INFO  21:47:04,630 - #45 9
+INFO  21:47:04,630 - #39 )
+INFO  21:47:04,630 - #34 ;
+INFO  21:47:04,630 - #41 }
+INFO  21:47:04,630 - #11 print
+INFO  21:47:04,630 - #38 (
+INFO  21:47:04,630 - #48 eol
+INFO  21:47:04,630 - #39 )
+INFO  21:47:04,630 - #34 ;
+INFO  21:47:04,630 - #41 }
+INFO  21:47:04,630 - #41 }
+INFO  21:47:04,631 - #41 }
+INFO  21:47:04,644 - Program(
   ProgramName(
    test301
   ) [ProgramName]
@@ -402,15 +386,10 @@ INFO  22:20:06,103 - Program(
             ) [VarDecl_var]
             VarDeclMore_comma(
               VarDecl_var(
-               j
+               a
               ) [VarDecl_var]
-              VarDeclMore_comma(
-                VarDecl_var(
-                 a
-                ) [VarDecl_var]
-                VarDeclMore_e(
-                ) [VarDeclMore_e]
-              ) [VarDeclMore_comma]
+              VarDeclMore_e(
+              ) [VarDeclMore_e]
             ) [VarDeclMore_comma]
           ) [VarDeclList]
         ) [VarDeclListRec_rec]
@@ -613,102 +592,8 @@ INFO  22:20:06,103 - Program(
                                         ) [MatchedStat]
                                       ) [CaseStatements_state]
                                       MatchedStat(
-                                        ForStatement(
-                                          ForDesignatorStatement_for(
-                                            DesignatorStatement_ass(
-                                              Designator_var(
-                                               j
-                                              ) [Designator_var]
-                                              Assignop(
-                                              ) [Assignop]
-                                              Expr_notern(
-                                                SingleTerm(
-                                                  Term(
-                                                    SingleFactor(
-                                                      Factor(
-                                                        Unary_e(
-                                                        ) [Unary_e]
-                                                        Factor_n(
-                                                         0
-                                                        ) [Factor_n]
-                                                      ) [Factor]
-                                                    ) [SingleFactor]
-                                                  ) [Term]
-                                                ) [SingleTerm]
-                                              ) [Expr_notern]
-                                            ) [DesignatorStatement_ass]
-                                          ) [ForDesignatorStatement_for]
-                                          ForStart(
-                                          ) [ForStart]
-                                          ForCondition_for(
-                                            SingleCondition(
-                                              SingleCondTerm(
-                                                CondFact_relop(
-                                                  SingleTerm(
-                                                    Term(
-                                                      SingleFactor(
-                                                        Factor(
-                                                          Unary_e(
-                                                          ) [Unary_e]
-                                                          Factor_des(
-                                                            Designator_var(
-                                                             j
-                                                            ) [Designator_var]
-                                                          ) [Factor_des]
-                                                        ) [Factor]
-                                                      ) [SingleFactor]
-                                                    ) [Term]
-                                                  ) [SingleTerm]
-                                                  Relop_ls(
-                                                  ) [Relop_ls]
-                                                  SingleTerm(
-                                                    Term(
-                                                      SingleFactor(
-                                                        Factor(
-                                                          Unary_e(
-                                                          ) [Unary_e]
-                                                          Factor_n(
-                                                           5
-                                                          ) [Factor_n]
-                                                        ) [Factor]
-                                                      ) [SingleFactor]
-                                                    ) [Term]
-                                                  ) [SingleTerm]
-                                                ) [CondFact_relop]
-                                              ) [SingleCondTerm]
-                                            ) [SingleCondition]
-                                          ) [ForCondition_for]
-                                          ForStepStart(
-                                          ) [ForStepStart]
-                                          ForStep_step(
-                                            DesignatorStatement_inc(
-                                              Designator_var(
-                                               j
-                                              ) [Designator_var]
-                                            ) [DesignatorStatement_inc]
-                                          ) [ForStep_step]
-                                          ForBodyStart(
-                                          ) [ForBodyStart]
-                                          PrintStatement(
-                                            Expr_notern(
-                                              SingleTerm(
-                                                Term(
-                                                  SingleFactor(
-                                                    Factor(
-                                                      Unary_e(
-                                                      ) [Unary_e]
-                                                      Factor_des(
-                                                        Designator_var(
-                                                         j
-                                                        ) [Designator_var]
-                                                      ) [Factor_des]
-                                                    ) [Factor]
-                                                  ) [SingleFactor]
-                                                ) [Term]
-                                              ) [SingleTerm]
-                                            ) [Expr_notern]
-                                          ) [PrintStatement]
-                                        ) [ForStatement]
+                                        BreakStatement(
+                                        ) [BreakStatement]
                                       ) [MatchedStat]
                                     ) [CaseStatements_state]
                                   ) [Case]
@@ -783,70 +668,76 @@ INFO  22:20:06,103 - Program(
                               ) [LabelNumber]
                               CaseStatements_state(
                                 CaseStatements_state(
-                                  CaseStatements_e(
-                                  ) [CaseStatements_e]
-                                  MatchedStat(
-                                    PrintStatement(
-                                      Expr_notern(
-                                        SingleTerm(
-                                          Term(
-                                            SingleFactor(
-                                              Factor(
-                                                Unary_e(
-                                                ) [Unary_e]
-                                                Factor_n(
-                                                 5
-                                                ) [Factor_n]
-                                              ) [Factor]
-                                            ) [SingleFactor]
-                                          ) [Term]
-                                        ) [SingleTerm]
-                                      ) [Expr_notern]
-                                    ) [PrintStatement]
-                                  ) [MatchedStat]
-                                ) [CaseStatements_state]
-                                MatchedStat(
-                                  DesignStatement(
-                                    DesignatorStatement_ass(
-                                      Designator_var(
-                                       i
-                                      ) [Designator_var]
-                                      Assignop(
-                                      ) [Assignop]
-                                      Expr_notern(
-                                        TermList_addop(
+                                  CaseStatements_state(
+                                    CaseStatements_e(
+                                    ) [CaseStatements_e]
+                                    MatchedStat(
+                                      PrintStatement(
+                                        Expr_notern(
                                           SingleTerm(
                                             Term(
                                               SingleFactor(
                                                 Factor(
                                                   Unary_e(
                                                   ) [Unary_e]
-                                                  Factor_des(
-                                                    Designator_var(
-                                                     i
-                                                    ) [Designator_var]
-                                                  ) [Factor_des]
+                                                  Factor_n(
+                                                   5
+                                                  ) [Factor_n]
                                                 ) [Factor]
                                               ) [SingleFactor]
                                             ) [Term]
                                           ) [SingleTerm]
-                                          Addop_plus(
-                                          ) [Addop_plus]
-                                          Term(
-                                            SingleFactor(
-                                              Factor(
-                                                Unary_e(
-                                                ) [Unary_e]
-                                                Factor_n(
-                                                 2
-                                                ) [Factor_n]
-                                              ) [Factor]
-                                            ) [SingleFactor]
-                                          ) [Term]
-                                        ) [TermList_addop]
-                                      ) [Expr_notern]
-                                    ) [DesignatorStatement_ass]
-                                  ) [DesignStatement]
+                                        ) [Expr_notern]
+                                      ) [PrintStatement]
+                                    ) [MatchedStat]
+                                  ) [CaseStatements_state]
+                                  MatchedStat(
+                                    DesignStatement(
+                                      DesignatorStatement_ass(
+                                        Designator_var(
+                                         i
+                                        ) [Designator_var]
+                                        Assignop(
+                                        ) [Assignop]
+                                        Expr_notern(
+                                          TermList_addop(
+                                            SingleTerm(
+                                              Term(
+                                                SingleFactor(
+                                                  Factor(
+                                                    Unary_e(
+                                                    ) [Unary_e]
+                                                    Factor_des(
+                                                      Designator_var(
+                                                       i
+                                                      ) [Designator_var]
+                                                    ) [Factor_des]
+                                                  ) [Factor]
+                                                ) [SingleFactor]
+                                              ) [Term]
+                                            ) [SingleTerm]
+                                            Addop_plus(
+                                            ) [Addop_plus]
+                                            Term(
+                                              SingleFactor(
+                                                Factor(
+                                                  Unary_e(
+                                                  ) [Unary_e]
+                                                  Factor_n(
+                                                   2
+                                                  ) [Factor_n]
+                                                ) [Factor]
+                                              ) [SingleFactor]
+                                            ) [Term]
+                                          ) [TermList_addop]
+                                        ) [Expr_notern]
+                                      ) [DesignatorStatement_ass]
+                                    ) [DesignStatement]
+                                  ) [MatchedStat]
+                                ) [CaseStatements_state]
+                                MatchedStat(
+                                  ContinueStatement(
+                                  ) [ContinueStatement]
                                 ) [MatchedStat]
                               ) [CaseStatements_state]
                             ) [Case]
@@ -941,21 +832,17 @@ INFO  22:20:06,103 - Program(
     ) [MethodDecl]
   ) [MethodDeclList_rec]
 ) [Program]
-INFO  22:20:06,104 - -------------------------------------------
-INFO  22:20:06,115 - Citanje form parametra, currentLevel: 1 na liniji 17
-INFO  22:20:06,128 - Pristupanje varijabli: x, Obj: 1, 1, 0 na liniji 18
-INFO  22:20:06,129 - Pristupanje varijabli: i, Obj: 1, 1, 0 na liniji 25
-INFO  22:20:06,129 - Pristupanje varijabli: i, Obj: 1, 1, 0 na liniji 26
-INFO  22:20:06,129 - Pristupanje varijabli: i, Obj: 1, 1, 0 na liniji 26
-INFO  22:20:06,129 - Pristupanje varijabli: i, Obj: 1, 1, 0 na liniji 26
-INFO  22:20:06,130 - Pristupanje varijabli: i, Obj: 1, 1, 0 na liniji 27
-INFO  22:20:06,130 - Pristupanje varijabli: j, Obj: 1, 1, 1 na liniji 30
-INFO  22:20:06,130 - Pristupanje varijabli: j, Obj: 1, 1, 1 na liniji 30
-INFO  22:20:06,130 - Pristupanje varijabli: j, Obj: 1, 1, 1 na liniji 30
-INFO  22:20:06,130 - Pristupanje varijabli: j, Obj: 1, 1, 1 na liniji 31
-INFO  22:20:06,130 - Pristupanje varijabli: i, Obj: 1, 1, 0 na liniji 40
-INFO  22:20:06,130 - Pristupanje varijabli: i, Obj: 1, 1, 0 na liniji 40
-INFO  22:20:06,131 - Pristupanje varijabli: eol, Obj: 0, 0, 10 na liniji 46
-INFO  22:20:06,131 - ============================================
-INFO  22:20:06,132 - Generating bytecode file: /home/rembrant/EclipseWorkspace3/MJCompiler/test/program.obj
-INFO  22:20:06,139 - Parsiranje uspesno zavrseno!
+INFO  21:47:04,645 - -------------------------------------------
+INFO  21:47:04,654 - Citanje form parametra, currentLevel: 1 na liniji 17
+INFO  21:47:04,668 - Pristupanje varijabli: x, Obj: 1, 1, 0 na liniji 18
+INFO  21:47:04,668 - Pristupanje varijabli: i, Obj: 1, 1, 0 na liniji 25
+INFO  21:47:04,668 - Pristupanje varijabli: i, Obj: 1, 1, 0 na liniji 27
+INFO  21:47:04,668 - Pristupanje varijabli: i, Obj: 1, 1, 0 na liniji 27
+INFO  21:47:04,669 - Pristupanje varijabli: i, Obj: 1, 1, 0 na liniji 27
+INFO  21:47:04,669 - Pristupanje varijabli: i, Obj: 1, 1, 0 na liniji 28
+INFO  21:47:04,669 - Pristupanje varijabli: i, Obj: 1, 1, 0 na liniji 39
+INFO  21:47:04,669 - Pristupanje varijabli: i, Obj: 1, 1, 0 na liniji 39
+INFO  21:47:04,669 - Pristupanje varijabli: eol, Obj: 0, 0, 10 na liniji 46
+INFO  21:47:04,669 - ============================================
+INFO  21:47:04,670 - Generating bytecode file: /home/rembrant/EclipseWorkspace3/MJCompiler/test/program.obj
+INFO  21:47:04,675 - Parsiranje uspesno zavrseno!
