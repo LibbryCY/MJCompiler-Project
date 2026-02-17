@@ -1,28 +1,20 @@
 // generated with ast extension for cup
 // version 0.8
-// 16/1/2026 2:9:38
+// 17/1/2026 14:50:28
 
 
 package rs.ac.bg.etf.pp1.ast;
 
 public class ConditionList extends Condition {
 
-    private Condition Condition;
     private CondTerm CondTerm;
+    private Condition Condition;
 
-    public ConditionList (Condition Condition, CondTerm CondTerm) {
-        this.Condition=Condition;
-        if(Condition!=null) Condition.setParent(this);
+    public ConditionList (CondTerm CondTerm, Condition Condition) {
         this.CondTerm=CondTerm;
         if(CondTerm!=null) CondTerm.setParent(this);
-    }
-
-    public Condition getCondition() {
-        return Condition;
-    }
-
-    public void setCondition(Condition Condition) {
         this.Condition=Condition;
+        if(Condition!=null) Condition.setParent(this);
     }
 
     public CondTerm getCondTerm() {
@@ -33,24 +25,32 @@ public class ConditionList extends Condition {
         this.CondTerm=CondTerm;
     }
 
+    public Condition getCondition() {
+        return Condition;
+    }
+
+    public void setCondition(Condition Condition) {
+        this.Condition=Condition;
+    }
+
     public void accept(Visitor visitor) {
         visitor.visit(this);
     }
 
     public void childrenAccept(Visitor visitor) {
-        if(Condition!=null) Condition.accept(visitor);
         if(CondTerm!=null) CondTerm.accept(visitor);
+        if(Condition!=null) Condition.accept(visitor);
     }
 
     public void traverseTopDown(Visitor visitor) {
         accept(visitor);
-        if(Condition!=null) Condition.traverseTopDown(visitor);
         if(CondTerm!=null) CondTerm.traverseTopDown(visitor);
+        if(Condition!=null) Condition.traverseTopDown(visitor);
     }
 
     public void traverseBottomUp(Visitor visitor) {
-        if(Condition!=null) Condition.traverseBottomUp(visitor);
         if(CondTerm!=null) CondTerm.traverseBottomUp(visitor);
+        if(Condition!=null) Condition.traverseBottomUp(visitor);
         accept(visitor);
     }
 
@@ -59,14 +59,14 @@ public class ConditionList extends Condition {
         buffer.append(tab);
         buffer.append("ConditionList(\n");
 
-        if(Condition!=null)
-            buffer.append(Condition.toString("  "+tab));
+        if(CondTerm!=null)
+            buffer.append(CondTerm.toString("  "+tab));
         else
             buffer.append(tab+"  null");
         buffer.append("\n");
 
-        if(CondTerm!=null)
-            buffer.append(CondTerm.toString("  "+tab));
+        if(Condition!=null)
+            buffer.append(Condition.toString("  "+tab));
         else
             buffer.append(tab+"  null");
         buffer.append("\n");

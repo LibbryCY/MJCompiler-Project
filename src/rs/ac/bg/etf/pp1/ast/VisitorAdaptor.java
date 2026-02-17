@@ -1,6 +1,6 @@
 // generated with ast extension for cup
 // version 0.8
-// 16/1/2026 2:9:38
+// 17/1/2026 14:50:28
 
 
 package rs.ac.bg.etf.pp1.ast;
@@ -101,17 +101,19 @@ public abstract class VisitorAdaptor implements Visitor {
     public void visit(Case Case) { visit(); }
     public void visit(CaseList_e CaseList_e) { visit(); }
     public void visit(CaseList_list CaseList_list) { visit(); }
+    public void visit(SwitchStart SwitchStart) { visit(); }
     public void visit(ForCondition_e ForCondition_e) { visit(); }
     public void visit(ForCondition_for ForCondition_for) { visit(); }
     public void visit(ForDesignatorStatement_e ForDesignatorStatement_e) { visit(); }
     public void visit(ForDesignatorStatement_for ForDesignatorStatement_for) { visit(); }
-    public void visit(SwitchStart SwitchStart) { visit(); }
     public void visit(ForStep_e ForStep_e) { visit(); }
     public void visit(ForStep_step ForStep_step) { visit(); }
     public void visit(ForStart ForStart) { visit(); }
     public void visit(ThenEnd ThenEnd) { visit(); }
     public void visit(ElseStart ElseStart) { visit(); }
     public void visit(IfCondition IfCondition) { visit(); }
+    public void visit(ForStepStart ForStepStart) { visit(); }
+    public void visit(ForBodyStart ForBodyStart) { visit(); }
     public void visit(IfElseStatement_else IfElseStatement_else) { visit(); }
     public void visit(IfElseStatement_non_else IfElseStatement_non_else) { visit(); }
     public void visit(RecStatement RecStatement) { visit(); }

@@ -1,0 +1,463 @@
+INFO  04:15:32,338 - Compiling source file: /home/rembrant/EclipseWorkspace3/MJCompiler/test/program.mj
+INFO  04:15:32,378 - #2 program
+INFO  04:15:32,378 - #48 test301
+INFO  04:15:32,378 - #14 enum
+INFO  04:15:32,379 - #48 Broj
+INFO  04:15:32,379 - #40 {
+INFO  04:15:32,380 - #48 NULA
+INFO  04:15:32,380 - #37 ,
+INFO  04:15:32,380 - #48 JEDAN
+INFO  04:15:32,380 - #37 ,
+INFO  04:15:32,380 - #48 PET
+INFO  04:15:32,380 - #33 =
+INFO  04:15:32,381 - #45 5
+INFO  04:15:32,381 - #37 ,
+INFO  04:15:32,381 - #48 DESET
+INFO  04:15:32,381 - #33 =
+INFO  04:15:32,381 - #45 10
+INFO  04:15:32,381 - #41 }
+INFO  04:15:32,381 - #40 {
+INFO  04:15:32,383 - #4 void
+INFO  04:15:32,384 - #48 sub
+INFO  04:15:32,384 - #38 (
+INFO  04:15:32,384 - #39 )
+INFO  04:15:32,384 - #40 {
+INFO  04:15:32,385 - #11 print
+INFO  04:15:32,385 - #38 (
+INFO  04:15:32,386 - #45 33
+INFO  04:15:32,387 - #39 )
+INFO  04:15:32,388 - #34 ;
+INFO  04:15:32,389 - #41 }
+INFO  04:15:32,389 - #4 void
+INFO  04:15:32,390 - #48 add
+INFO  04:15:32,390 - #38 (
+INFO  04:15:32,390 - #39 )
+INFO  04:15:32,390 - #40 {
+INFO  04:15:32,390 - #11 print
+INFO  04:15:32,390 - #38 (
+INFO  04:15:32,390 - #45 77
+INFO  04:15:32,390 - #39 )
+INFO  04:15:32,390 - #34 ;
+INFO  04:15:32,390 - #41 }
+INFO  04:15:32,390 - #48 int
+INFO  04:15:32,391 - #48 mul2
+INFO  04:15:32,391 - #38 (
+INFO  04:15:32,391 - #48 int
+INFO  04:15:32,392 - #48 x
+INFO  04:15:32,392 - #39 )
+INFO  04:15:32,393 - #40 {
+INFO  04:15:32,393 - #9 return
+INFO  04:15:32,393 - #48 x
+INFO  04:15:32,393 - #20 *
+INFO  04:15:32,393 - #45 2
+INFO  04:15:32,394 - #34 ;
+INFO  04:15:32,394 - #41 }
+INFO  04:15:32,395 - #4 void
+INFO  04:15:32,395 - #48 main
+INFO  04:15:32,395 - #38 (
+INFO  04:15:32,395 - #39 )
+INFO  04:15:32,395 - #48 int
+INFO  04:15:32,395 - #48 i
+INFO  04:15:32,395 - #37 ,
+INFO  04:15:32,395 - #48 a
+INFO  04:15:32,395 - #34 ;
+INFO  04:15:32,396 - #48 char
+INFO  04:15:32,397 - #48 c
+INFO  04:15:32,397 - #34 ;
+INFO  04:15:32,397 - #40 {
+INFO  04:15:32,397 - #15 for
+INFO  04:15:32,397 - #38 (
+INFO  04:15:32,397 - #48 i
+INFO  04:15:32,397 - #33 =
+INFO  04:15:32,397 - #45 0
+INFO  04:15:32,398 - #34 ;
+INFO  04:15:32,398 - #48 i
+INFO  04:15:32,399 - #27 <
+INFO  04:15:32,399 - #45 5
+INFO  04:15:32,400 - #34 ;
+INFO  04:15:32,400 - #48 i
+INFO  04:15:32,401 - #31 ++
+INFO  04:15:32,401 - #39 )
+INFO  04:15:32,401 - #40 {
+INFO  04:15:32,402 - #5 if
+INFO  04:15:32,402 - #38 (
+INFO  04:15:32,402 - #48 i
+INFO  04:15:32,402 - #26 >=
+INFO  04:15:32,402 - #45 2
+INFO  04:15:32,402 - #39 )
+INFO  04:15:32,403 - #11 print
+INFO  04:15:32,404 - #38 (
+INFO  04:15:32,404 - #45 7
+INFO  04:15:32,404 - #39 )
+INFO  04:15:32,404 - #34 ;
+INFO  04:15:32,404 - #41 }
+INFO  04:15:32,405 - #41 }
+INFO  04:15:32,406 - #41 }
+INFO  04:15:32,416 - Program(
+  ProgramName(
+   test301
+  ) [ProgramName]
+  ConVarDecList_enum(
+    EnumDeclList(
+      EnumName(
+       Broj
+      ) [EnumName]
+      EnumList_comma(
+        EnumList_comma(
+          EnumList_comma(
+            EnumList_item(
+              EnumItem_var(
+               NULA
+              ) [EnumItem_var]
+            ) [EnumList_item]
+            EnumItem_var(
+             JEDAN
+            ) [EnumItem_var]
+          ) [EnumList_comma]
+          EnumItem_ass(
+           PET
+           5
+          ) [EnumItem_ass]
+        ) [EnumList_comma]
+        EnumItem_ass(
+         DESET
+         10
+        ) [EnumItem_ass]
+      ) [EnumList_comma]
+    ) [EnumDeclList]
+    ConVarDecList_e(
+    ) [ConVarDecList_e]
+  ) [ConVarDecList_enum]
+  MethodDeclList_rec(
+    MethodDeclList_rec(
+      MethodDeclList_rec(
+        MethodDeclList_rec(
+          MethodDeclList_e(
+          ) [MethodDeclList_e]
+          MethodDecl(
+            MethRetAndName_void(
+             sub
+            ) [MethRetAndName_void]
+            FormParList_e(
+            ) [FormParList_e]
+            VarDeclListRec_e(
+            ) [VarDeclListRec_e]
+            StatementList_rec(
+              StatementList_e(
+              ) [StatementList_e]
+              MatchedStat(
+                PrintStatement(
+                  Expr_notern(
+                    SingleTerm(
+                      Term(
+                        SingleFactor(
+                          Factor(
+                            Unary_e(
+                            ) [Unary_e]
+                            Factor_n(
+                             33
+                            ) [Factor_n]
+                          ) [Factor]
+                        ) [SingleFactor]
+                      ) [Term]
+                    ) [SingleTerm]
+                  ) [Expr_notern]
+                ) [PrintStatement]
+              ) [MatchedStat]
+            ) [StatementList_rec]
+          ) [MethodDecl]
+        ) [MethodDeclList_rec]
+        MethodDecl(
+          MethRetAndName_void(
+           add
+          ) [MethRetAndName_void]
+          FormParList_e(
+          ) [FormParList_e]
+          VarDeclListRec_e(
+          ) [VarDeclListRec_e]
+          StatementList_rec(
+            StatementList_e(
+            ) [StatementList_e]
+            MatchedStat(
+              PrintStatement(
+                Expr_notern(
+                  SingleTerm(
+                    Term(
+                      SingleFactor(
+                        Factor(
+                          Unary_e(
+                          ) [Unary_e]
+                          Factor_n(
+                           77
+                          ) [Factor_n]
+                        ) [Factor]
+                      ) [SingleFactor]
+                    ) [Term]
+                  ) [SingleTerm]
+                ) [Expr_notern]
+              ) [PrintStatement]
+            ) [MatchedStat]
+          ) [StatementList_rec]
+        ) [MethodDecl]
+      ) [MethodDeclList_rec]
+      MethodDecl(
+        MethRetAndName_type(
+          Type(
+           int
+          ) [Type]
+         mul2
+        ) [MethRetAndName_type]
+        FormParList_rec(
+          FormPar_var(
+            Type(
+             int
+            ) [Type]
+           x
+          ) [FormPar_var]
+          FormParMore_e(
+          ) [FormParMore_e]
+        ) [FormParList_rec]
+        VarDeclListRec_e(
+        ) [VarDeclListRec_e]
+        StatementList_rec(
+          StatementList_e(
+          ) [StatementList_e]
+          MatchedStat(
+            ReturnStatement_expr(
+              Expr_notern(
+                SingleTerm(
+                  Term(
+                    FactorList_mulop(
+                      SingleFactor(
+                        Factor(
+                          Unary_e(
+                          ) [Unary_e]
+                          Factor_des(
+                            Designator_var(
+                             x
+                            ) [Designator_var]
+                          ) [Factor_des]
+                        ) [Factor]
+                      ) [SingleFactor]
+                      Mulop_mul(
+                      ) [Mulop_mul]
+                      Factor(
+                        Unary_e(
+                        ) [Unary_e]
+                        Factor_n(
+                         2
+                        ) [Factor_n]
+                      ) [Factor]
+                    ) [FactorList_mulop]
+                  ) [Term]
+                ) [SingleTerm]
+              ) [Expr_notern]
+            ) [ReturnStatement_expr]
+          ) [MatchedStat]
+        ) [StatementList_rec]
+      ) [MethodDecl]
+    ) [MethodDeclList_rec]
+    MethodDecl(
+      MethRetAndName_void(
+       main
+      ) [MethRetAndName_void]
+      FormParList_e(
+      ) [FormParList_e]
+      VarDeclListRec_rec(
+        VarDeclListRec_rec(
+          VarDeclListRec_e(
+          ) [VarDeclListRec_e]
+          VarDeclList(
+            Type(
+             int
+            ) [Type]
+            VarDecl_var(
+             i
+            ) [VarDecl_var]
+            VarDeclMore_comma(
+              VarDecl_var(
+               a
+              ) [VarDecl_var]
+              VarDeclMore_e(
+              ) [VarDeclMore_e]
+            ) [VarDeclMore_comma]
+          ) [VarDeclList]
+        ) [VarDeclListRec_rec]
+        VarDeclList(
+          Type(
+           char
+          ) [Type]
+          VarDecl_var(
+           c
+          ) [VarDecl_var]
+          VarDeclMore_e(
+          ) [VarDeclMore_e]
+        ) [VarDeclList]
+      ) [VarDeclListRec_rec]
+      StatementList_rec(
+        StatementList_e(
+        ) [StatementList_e]
+        MatchedStat(
+          ForStatement(
+            ForDesignatorStatement_for(
+              DesignatorStatement_ass(
+                Designator_var(
+                 i
+                ) [Designator_var]
+                Assignop(
+                ) [Assignop]
+                Expr_notern(
+                  SingleTerm(
+                    Term(
+                      SingleFactor(
+                        Factor(
+                          Unary_e(
+                          ) [Unary_e]
+                          Factor_n(
+                           0
+                          ) [Factor_n]
+                        ) [Factor]
+                      ) [SingleFactor]
+                    ) [Term]
+                  ) [SingleTerm]
+                ) [Expr_notern]
+              ) [DesignatorStatement_ass]
+            ) [ForDesignatorStatement_for]
+            ForStart(
+            ) [ForStart]
+            ForCondition_for(
+              SingleCondition(
+                SingleCondTerm(
+                  CondFact_relop(
+                    SingleTerm(
+                      Term(
+                        SingleFactor(
+                          Factor(
+                            Unary_e(
+                            ) [Unary_e]
+                            Factor_des(
+                              Designator_var(
+                               i
+                              ) [Designator_var]
+                            ) [Factor_des]
+                          ) [Factor]
+                        ) [SingleFactor]
+                      ) [Term]
+                    ) [SingleTerm]
+                    Relop_ls(
+                    ) [Relop_ls]
+                    SingleTerm(
+                      Term(
+                        SingleFactor(
+                          Factor(
+                            Unary_e(
+                            ) [Unary_e]
+                            Factor_n(
+                             5
+                            ) [Factor_n]
+                          ) [Factor]
+                        ) [SingleFactor]
+                      ) [Term]
+                    ) [SingleTerm]
+                  ) [CondFact_relop]
+                ) [SingleCondTerm]
+              ) [SingleCondition]
+            ) [ForCondition_for]
+            ForStepStart(
+            ) [ForStepStart]
+            ForStep_step(
+              DesignatorStatement_inc(
+                Designator_var(
+                 i
+                ) [Designator_var]
+              ) [DesignatorStatement_inc]
+            ) [ForStep_step]
+            ForBodyStart(
+            ) [ForBodyStart]
+            RecStatement(
+              StatementList_rec(
+                StatementList_e(
+                ) [StatementList_e]
+                UnmatchedStat(
+                  IfElseStatement_non_else(
+                    IfCondition(
+                      SingleCondition(
+                        SingleCondTerm(
+                          CondFact_relop(
+                            SingleTerm(
+                              Term(
+                                SingleFactor(
+                                  Factor(
+                                    Unary_e(
+                                    ) [Unary_e]
+                                    Factor_des(
+                                      Designator_var(
+                                       i
+                                      ) [Designator_var]
+                                    ) [Factor_des]
+                                  ) [Factor]
+                                ) [SingleFactor]
+                              ) [Term]
+                            ) [SingleTerm]
+                            Relop_Geq(
+                            ) [Relop_Geq]
+                            SingleTerm(
+                              Term(
+                                SingleFactor(
+                                  Factor(
+                                    Unary_e(
+                                    ) [Unary_e]
+                                    Factor_n(
+                                     2
+                                    ) [Factor_n]
+                                  ) [Factor]
+                                ) [SingleFactor]
+                              ) [Term]
+                            ) [SingleTerm]
+                          ) [CondFact_relop]
+                        ) [SingleCondTerm]
+                      ) [SingleCondition]
+                    ) [IfCondition]
+                    MatchedStat(
+                      PrintStatement(
+                        Expr_notern(
+                          SingleTerm(
+                            Term(
+                              SingleFactor(
+                                Factor(
+                                  Unary_e(
+                                  ) [Unary_e]
+                                  Factor_n(
+                                   7
+                                  ) [Factor_n]
+                                ) [Factor]
+                              ) [SingleFactor]
+                            ) [Term]
+                          ) [SingleTerm]
+                        ) [Expr_notern]
+                      ) [PrintStatement]
+                    ) [MatchedStat]
+                    ThenEnd(
+                    ) [ThenEnd]
+                  ) [IfElseStatement_non_else]
+                ) [UnmatchedStat]
+              ) [StatementList_rec]
+            ) [RecStatement]
+            ForBodyEnd(
+            ) [ForBodyEnd]
+          ) [ForStatement]
+        ) [MatchedStat]
+      ) [StatementList_rec]
+    ) [MethodDecl]
+  ) [MethodDeclList_rec]
+) [Program]
+INFO  04:15:32,416 - -------------------------------------------
+INFO  04:15:32,425 - Citanje form parametra, currentLevel: 1 na liniji 16
+INFO  04:15:32,434 - Pristupanje varijabli: x, Obj: 1, 1, 0 na liniji 17
+INFO  04:15:32,434 - Pristupanje varijabli: i, Obj: 1, 1, 0 na liniji 24
+INFO  04:15:32,434 - Pristupanje varijabli: i, Obj: 1, 1, 0 na liniji 24
+INFO  04:15:32,435 - Pristupanje varijabli: i, Obj: 1, 1, 0 na liniji 24
+INFO  04:15:32,435 - Pristupanje varijabli: i, Obj: 1, 1, 0 na liniji 26
+INFO  04:15:32,435 - ============================================
+INFO  04:15:32,435 - Generating bytecode file: /home/rembrant/EclipseWorkspace3/MJCompiler/test/program.obj
+INFO  04:15:32,440 - Parsiranje uspesno zavrseno!

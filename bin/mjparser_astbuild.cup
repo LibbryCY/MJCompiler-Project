@@ -139,6 +139,10 @@ nonterminal
 			ElseStart ElseStart;
 nonterminal
 			ThenEnd ThenEnd;
+nonterminal
+			ForBodyStart ForBodyStart;
+nonterminal
+			ForStepStart ForStepStart;
 
 nonterminal rs.etf.pp1.symboltable.concepts.Struct Condition, CondTerm, CondFact, Factor, FactorUnar, FactorList, TermList, Term, Expr, Type, TernaryCondition, TernExpr1, TernExpr2, IfCondition;
 nonterminal rs.etf.pp1.symboltable.concepts.Obj Designator, DesignatorArrayName, MethRetAndName;
@@ -282,7 +286,7 @@ MatchedStatement ::=  (DesignStatement) DesignatorStatement:D1 SEMI {: RESULT=ne
 			  		  |
 					  (SwitchStatement) SwitchStart:S1 LBRACE CaseList:C2 RBRACE {: RESULT=new SwitchStatement(S1, C2); RESULT.setLine(S1left); :}
 					  |
-					  (ForStatement) ForStart:F1 LPAREN  ForDesignatorStatement:F2 SEMI ForCondition:F3 SEMI ForStep:F4  RPAREN MatchedStatement:M5 {: RESULT=new ForStatement(F1, F2, F3, F4, M5); RESULT.setLine(F1left); :}
+					  (ForStatement) FOR LPAREN  ForDesignatorStatement:F1 ForStart:F2 ForCondition:F3 ForStepStart:F4 ForStep:F5  RPAREN ForBodyStart:F6 MatchedStatement:M7 {: RESULT=new ForStatement(F1, F2, F3, F4, F5, F6, M7); RESULT.setLine(F1left); :} 
 					  |
 					  (RecStatement) LBRACE StatementList:S1 RBRACE {: RESULT=new RecStatement(S1); RESULT.setLine(S1left); :}
 					  ;
@@ -292,6 +296,11 @@ UnmatchedStatement ::= (IfElseStatement_non_else) IF LPAREN IfCondition:I1 RPARE
 					   (IfElseStatement_else) IF LPAREN IfCondition:I1 RPAREN MatchedStatement:M2 ThenEnd:T3 ELSE ElseStart:E4 UnmatchedStatement:U5 {: RESULT=new IfElseStatement_else(I1, M2, T3, E4, U5); RESULT.setLine(I1left); :}
 					   ;
 					   
+
+ForBodyStart ::= (ForBodyStart) {: RESULT=new ForBodyStart(); :}/* EPSILON */ ;
+
+ForStepStart ::= (ForStepStart) SEMI {: RESULT=new ForStepStart(); :} ;
+					   
 IfCondition ::= (IfCondition) Condition:C1 {: RESULT=new IfCondition(C1); RESULT.setLine(C1left); :};
 
 ElseStart ::= (ElseStart) {: RESULT=new ElseStart(); :}/* EPSILON */;
@@ -299,14 +308,13 @@ ElseStart ::= (ElseStart) {: RESULT=new ElseStart(); :}/* EPSILON */;
 ThenEnd ::= (ThenEnd) {: RESULT=new ThenEnd(); :}/* EPSILON */;
 
 
-ForStart ::= (ForStart) FOR {: RESULT=new ForStart(); :};
+ForStart ::= (ForStart) SEMI {: RESULT=new ForStart(); :};
 
 ForStep ::= (ForStep_step) DesignatorStatement:D1 {: RESULT=new ForStep_step(D1); RESULT.setLine(D1left); :}
            |
 		   (ForStep_e) {: RESULT=new ForStep_e(); :} /* epsilon */
 		   ; 
 
-SwitchStart ::= (SwitchStart) SWITCH LPAREN Expr:E1 RPAREN {: RESULT=new SwitchStart(E1); RESULT.setLine(E1left); :};
 
 ForDesignatorStatement ::= (ForDesignatorStatement_for) DesignatorStatement:D1 {: RESULT=new ForDesignatorStatement_for(D1); RESULT.setLine(D1left); :}
                            |
@@ -317,6 +325,8 @@ ForCondition ::= (ForCondition_for) Condition:C1 {: RESULT=new ForCondition_for(
 				|
 				(ForCondition_e) {: RESULT=new ForCondition_e(); :} /* epsilon */
 				; 
+
+SwitchStart ::= (SwitchStart) SWITCH LPAREN Expr:E1 RPAREN {: RESULT=new SwitchStart(E1); RESULT.setLine(E1left); :};
 
 CaseList ::= (CaseList_list) CaseList:C1 Case:C2 {: RESULT=new CaseList_list(C1, C2); RESULT.setLine(C1left); :}
            | (CaseList_e) {: RESULT=new CaseList_e(); :} /* epsilon */
@@ -350,12 +360,12 @@ DesignatorStatement ::= (DesignatorStatement_ass) Designator:D1 Assignop:A2 Expr
 
 /* CONDITION */
 
-Condition ::= (ConditionList) Condition:C1 OR CondTerm:C2 {: RESULT=new ConditionList(C1, C2); RESULT.setLine(C1left); :}
+Condition ::= (ConditionList) CondTerm:C1 OR Condition:C2 {: RESULT=new ConditionList(C1, C2); RESULT.setLine(C1left); :}
 			  |
 			  (SingleCondition) CondTerm:C1 {: RESULT=new SingleCondition(C1); RESULT.setLine(C1left); :}	
 				;
 
-CondTerm ::= (CondTermList) CondTerm:C1 AND CondFact:C2 {: RESULT=new CondTermList(C1, C2); RESULT.setLine(C1left); :}
+CondTerm ::= (CondTermList) CondFact:C1 AND CondTerm:C2 {: RESULT=new CondTermList(C1, C2); RESULT.setLine(C1left); :}
              |
 			 (SingleCondTerm) CondFact:C1 {: RESULT=new SingleCondTerm(C1); RESULT.setLine(C1left); :}
 			 ;

@@ -5,25 +5,23 @@ import rs.etf.pp1.mj.runtime.Code;
 import rs.etf.pp1.symboltable.Tab;
 import rs.etf.pp1.symboltable.concepts.Obj;
 
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Stack;
 
 import org.apache.log4j.Logger;
 
-
 public class CodeGenerator extends VisitorAdaptor {
-	
+
 	private int mainPC;
 	private final static int fieldSize = 4;
-	
+
 	public int getmainPc() {
 		return this.mainPC;
 	}
-	
 
-	
 	Logger log = Logger.getLogger(getClass());
 
-	
 	public void report_info(String message, SyntaxNode info) {
 		StringBuilder msg = new StringBuilder(message);
 		int line = (info == null) ? 0 : info.getLine();
@@ -32,29 +30,58 @@ public class CodeGenerator extends VisitorAdaptor {
 		log.info(msg.toString());
 	}
 	
-	/* METHOD DECLARATIONS */
+	private void initUniverseMeth() {
+		//generisemo kod za metode ord, chr i len
+		Obj ordMethod = Tab.find("ord");
+		Obj chrMethod = Tab.find("chr");
+		ordMethod.setAdr(Code.pc);
+		chrMethod.setAdr(Code.pc);
+		Code.put(Code.enter);
+		Code.put(1);
+		Code.put(1);
+		Code.put(Code.load_n);
+		Code.put(Code.exit);
+		Code.put(Code.return_);
+		
+		Obj lenMethod = Tab.find("len");
+		lenMethod.setAdr(Code.pc);
+		Code.put(Code.enter);
+		Code.put(1);
+		Code.put(1);
+		Code.put(Code.load_n);
+		Code.put(Code.arraylength);
+		Code.put(Code.exit);
+		Code.put(Code.return_);
+		
+	}
 	
+	CodeGenerator() {
+		this.initUniverseMeth();
+	}
+
+	/* METHOD DECLARATIONS */
+
 	@Override
 	public void visit(MethRetAndName_type methRetAndName_type) {
 
 		methRetAndName_type.obj.setAdr(Code.pc);
-		
+
 		Code.put(Code.enter);
-		Code.put(methRetAndName_type.obj.getLevel()); 
-		Code.put(methRetAndName_type.obj.getLocalSymbols().size()); 
+		Code.put(methRetAndName_type.obj.getLevel());
+		Code.put(methRetAndName_type.obj.getLocalSymbols().size());
 	}
-	
+
 	@Override
 	public void visit(MethRetAndName_void methRetAndName_void) {
 		methRetAndName_void.obj.setAdr(Code.pc);
-		if(methRetAndName_void.getI1().equalsIgnoreCase("main"))
+		if (methRetAndName_void.getI1().equalsIgnoreCase("main"))
 			this.mainPC = Code.pc;
-		
+
 		Code.put(Code.enter);
-		Code.put(methRetAndName_void.obj.getLevel()); 
+		Code.put(methRetAndName_void.obj.getLevel());
 		Code.put(methRetAndName_void.obj.getLocalSymbols().size());
 	}
-	
+
 	@Override
 	public void visit(MethodDecl methodDecl) {
 		Code.put(Code.exit);
@@ -62,197 +89,224 @@ public class CodeGenerator extends VisitorAdaptor {
 	}
 
 	/* STATEMENTS */
-	
-	//Single statements
+
+	// Single statements
 	@Override
 	public void visit(PrintStatement ps) {
 		Code.loadConst(0);
-		if(ps.getExpr().struct.equals(Tab.charType))
+		if (ps.getExpr().struct.equals(Tab.charType))
 			Code.put(Code.bprint);
 		else
 			Code.put(Code.print);
 	}
-	
+
 	@Override
 	public void visit(PrintStatement2 ps) {
 		Code.loadConst(ps.getN2());
-		if(ps.getExpr().struct.equals(Tab.charType))
+		if (ps.getExpr().struct.equals(Tab.charType))
 			Code.put(Code.bprint);
 		else
 			Code.put(Code.print);
 	}
-	
+
 	@Override
 	public void visit(ReturnStatement_noexpr rse) {
 		Code.put(Code.exit);
 		Code.put(Code.return_);
 	}
-	
+
 	@Override
 	public void visit(ReturnStatement_expr rsn) {
 		Code.put(Code.exit);
 		Code.put(Code.return_);
 	}
-	
+
 	@Override
 	public void visit(ReadStatement rs) {
 		Obj desObj = rs.getDesignator().obj;
-		if(desObj.getType().equals(Tab.charType)) {
+		if (desObj.getType().equals(Tab.charType)) {
 			Code.put(Code.bread);
-		}else {
-			Code.put(Code.read);		
+		} else {
+			Code.put(Code.read);
 		}
 		Code.store(desObj);
 	}
+
+	private Stack<Integer> skipTrue = new Stack<>();
+	private Stack<Integer> skipFalse = new Stack<>();
+	private Stack<Integer> skipAND = new Stack<>();
+	private Stack<Integer> skipOR = new Stack<>();
 	
-	private Stack<Integer> jumpToElseFixup  = new Stack<>();
-	private Stack<Integer> jumpOverElseFixup  = new Stack<>();
-	private Stack<Integer> skipCondFalse = new Stack<>();
-	private Stack<Integer> skipCondition = new Stack<>();
+	//private Stack<Integer> forCondFalse = new Stack<>();
 	
-	
-/* CONDITION */
-	
+
+
+	/* CONDITION */
+
 	@Override
 	public void visit(ConditionList cl) {
-		if(!(cl.getParent() instanceof ConditionList)) {
-			Code.putJump(0);
-			jumpToElseFixup.push(Code.pc-2);
-			//jmpEndFixup.push(Code.pc-2);   !!!!!!! ispravi
-			
-			while(!skipCondition.isEmpty()) {
-				Code.fixup(skipCondition.pop());
-			}
+		Code.putJump(0);
+		skipTrue.push(Code.pc - 2);
+		
+		while (!skipOR.isEmpty()) {
+			Code.fixup(skipOR.pop());
 		}
 	}
-	
+
 	@Override
-	public void visit(SingleCondition singleCondition)
-	{
-		if(!(singleCondition.getParent() instanceof ConditionList))
-		{
-			//netacne su dosle do kraja u pokusaju da budu tacne
-			Code.putJump(0); //netacne na ELSE
-			jumpToElseFixup.push(Code.pc - 2);
-			
-			// tacne
-			while(!skipCondition.isEmpty())
-				Code.fixup(skipCondition.pop());
-		}
+	public void visit(SingleCondition singleCondition) {
+		Code.putJump(0); // netacne na ELSE
+		skipTrue.push(Code.pc - 2);
+		
+		// tacne
+		while (!skipOR.isEmpty())
+			Code.fixup(skipOR.pop());		
 	}
-	
+
 	@Override
 	public void visit(CondTermList cl) {
-//		//true
 		Code.putJump(0);
-		skipCondition.push(Code.pc-2);
-		
-		//ovde vracam netacne - ispod je sledeci OR koji treba da pokusaju da prodju
-		while(!skipCondFalse.isEmpty()) {
-			Code.fixup(skipCondFalse.pop());
+		skipOR.push(Code.pc - 2);
+
+		// ovde vracam netacne - ispod je sledeci OR koji treba da pokusaju da prodju
+		while (!skipAND.isEmpty()) {
+			Code.fixup(skipAND.pop());
 		}
 	}
 
 	@Override
 	public void visit(SingleCondTerm cl) {
-		if(!(cl.getParent() instanceof CondTermList)) {
-			//true
-			Code.putJump(0);
-			skipCondition.push(Code.pc-2);
-			
-			//ovde vracam netacne - ispod je sledeci OR koji treba da pokusaju da prodju
-			while(!skipCondFalse.isEmpty()) {
-				Code.fixup(skipCondFalse.pop());
-			}
+		
+		Code.putJump(0);
+		skipOR.push(Code.pc - 2);
+
+		while (!skipAND.isEmpty()) {
+			Code.fixup(skipAND.pop());
 		}
 	}
-	
-	
+
 	@Override
 	public void visit(CondFact_relop cf) {
-	    int op = 0;
-		if(cf.getRelop() instanceof Relop_eq) {
+		int op = 0;
+		if (cf.getRelop() instanceof Relop_eq) {
 			op = Code.eq;
-		}else if(cf.getRelop() instanceof Relop_leq) {
+		} else if (cf.getRelop() instanceof Relop_leq) {
 			op = Code.le;
-		}else if(cf.getRelop() instanceof Relop_neq) {
+		} else if (cf.getRelop() instanceof Relop_neq) {
 			op = Code.ne;
-		}else if(cf.getRelop() instanceof Relop_Geq) {
+		} else if (cf.getRelop() instanceof Relop_Geq) {
 			op = Code.ge;
-		}else if(cf.getRelop() instanceof Relop_grt) {
+		} else if (cf.getRelop() instanceof Relop_grt) {
 			op = Code.gt;
-		}else if(cf.getRelop() instanceof Relop_ls) {
+		} else if (cf.getRelop() instanceof Relop_ls) {
 			op = Code.lt;
 		}
-		
+
 		Code.putFalseJump(op, 0);
-		skipCondFalse.push(Code.pc-2);
+		skipAND.push(Code.pc - 2);
 	}
-	
+
 	@Override
 	public void visit(CondFact_norelop cf) {
 		Code.loadConst(0);
 		Code.putFalseJump(Code.ne, 0);
-		skipCondFalse.push(Code.pc-2);
-		// tacno - nastavlja se izvrsavanje do sledeceg AND ( da bi se skupio tacan OR )
+		skipAND.push(Code.pc - 2);
 	}
-	
-	
+
 	@Override
 	public void visit(IfElseStatement_non_else ine) {
-		 if (!jumpToElseFixup.isEmpty()) Code.fixup(jumpToElseFixup.pop());
+		if (!skipTrue.isEmpty())
+			Code.fixup(skipTrue.pop());
 	}
-	
+
 	@Override
 	public void visit(IfElseStatement_else ine) {
-		if (!jumpOverElseFixup.isEmpty()) Code.fixup(jumpOverElseFixup.pop());
+		if (!skipFalse.isEmpty())
+			Code.fixup(skipFalse.pop());
 	}
-	
+
 	@Override
 	public void visit(IfElseStatement ies) {
-		if (!jumpOverElseFixup.isEmpty()) Code.fixup(jumpOverElseFixup.pop());
+		if (!skipFalse.isEmpty())
+			Code.fixup(skipFalse.pop());
+	}
+
+	@Override
+	public void visit(ElseStart es) {
+		Code.putJump(0);
+		skipFalse.push(Code.pc - 2);
+
+		if (!skipTrue.isEmpty())
+			Code.fixup(skipTrue.pop());
+	}
+	
+	// FOR
+	
+	private Stack<Integer> jumpToCond = new Stack();
+	private Stack<Integer> jumpToStep = new Stack();
+	private Stack<Stack<Integer>> breakJump = new Stack();
+
+	
+	@Override
+	public void visit (ForStart semicolon1) {
+		jumpToCond.push(Code.pc);
+		
+		breakJump.push(new Stack<Integer>());
 	}
 	
 	@Override
-	public void visit(ElseStart es) {
-		 Code.putJump(0);
-		 jumpOverElseFixup.push(Code.pc - 2);
+	public void visit (ForStepStart semicolon2) {
+		Code.putJump(0);
+		skipFalse.push(Code.pc - 2);
 		
-		 if (!jumpToElseFixup.isEmpty()) Code.fixup(jumpToElseFixup.pop());
+		jumpToStep.push(Code.pc);
+		System.out.println("   " + jumpToStep);
+	}
+
+	@Override
+	public void visit(ForStep_step fs) {
+		Code.putJump(jumpToCond.pop());
+		
+		Code.fixup(skipFalse.pop());
+		System.out.println(jumpToCond);
+	}
+	
+	@Override
+	public void visit(ForStatement forStatement) {
+		Code.putJump(jumpToStep.pop());
+		
+		Code.fixup(skipTrue.pop());
+		
+		while(!breakJump.peek().isEmpty()) {
+			Code.fixup(breakJump.peek().pop());
+		}
+		breakJump.pop();
+	}
+
+
+	@Override
+	public void visit(ForStep_e forStep_e) {
+		Code.putJump(jumpToCond.pop());
+		
+		Code.fixup(skipFalse.pop());
+		System.out.println(jumpToCond);
 	}
 	
 	
+	// BREAK i CONTINUE 
 	
+	@Override
+	public void visit(BreakStatement bs) {
+		Code.putJump(0);
+		breakJump.peek().add(Code.pc - 2);
+	}
 	
-//	Stack<Integer> forCondStart = new Stack<>();
-//	private Stack<Integer> forEndFixup  = new Stack<>();
-//	
-//	
-//	@Override
-//	public void visit(ForStart fs) {
-//		forCondStart.push(Code.pc); 
-//		report_info("Poseta ForStart", fs);
-//	}
-//	
-//	@Override
-//	public void visit(ForCondition fc) {		
-//		Code.loadConst(0);
-//		Code.putFalseJump(Code.eq, 0);
-//		
-//		forEndFixup.push(Code.pc-2);
-//		report_info("Poseta ForCondition", fc);
-//	}
-//	
-//	@Override
-//	public void visit(ForStatement fc) {
-//		report_info("Poseta ForStatement", fc);
-//	    if(!forCondStart.isEmpty()) {
-//	        Code.putJump(forCondStart.pop());
-//	        Code.fixup(forEndFixup.pop());
-//	    }
-//	}
-	
-	
+	@Override
+	public void visit(ContinueStatement bs) {
+		Code.putJump(jumpToStep.peek());
+	}
+
+
 //  init 
 //	START: 
 //	cond 
@@ -261,109 +315,108 @@ public class CodeGenerator extends VisitorAdaptor {
 //	step 
 //	putJump START 
 //	END:
-	
-	
-	
+
 	/* FACTOR, TERM, EXPR */
-	
+
 	@Override
 	public void visit(Expr_notern expr_notern) {
 		expr_notern.struct = expr_notern.getTermList().struct;
 	}
 
-
 	@Override
 	public void visit(TermList_addop tla) {
-		if(tla.getAddop() instanceof Addop_minus) {
+		if (tla.getAddop() instanceof Addop_minus) {
 			Code.put(Code.sub);
-		}else if(tla.getAddop() instanceof Addop_plus) {
+		} else if (tla.getAddop() instanceof Addop_plus) {
 			Code.put(Code.add);
 		}
 	}
-	
+
 	@Override
 	public void visit(FactorList_mulop flm) {
-		if(flm.getMulop() instanceof Mulop_mul) {
+		if (flm.getMulop() instanceof Mulop_mul) {
 			Code.put(Code.mul);
-		}else if(flm.getMulop() instanceof Mulop_div) {
+		} else if (flm.getMulop() instanceof Mulop_div) {
 			Code.put(Code.div);
-		}else if(flm.getMulop() instanceof Mulop_mod) {
+		} else if (flm.getMulop() instanceof Mulop_mod) {
 			Code.put(Code.rem);
 		}
 	}
-	
+
 	@Override
 	public void visit(Factor_des factor_des) {
 		if (factor_des.getDesignator() instanceof Designator_len) {
-	        Code.load(factor_des.getDesignator().obj);
-	        Code.put(Code.arraylength);
-	    } else {
-	        Code.load(factor_des.getDesignator().obj);
-	    }	
+			Code.load(factor_des.getDesignator().obj);
+			Code.put(Code.arraylength);
+		} else {
+			Code.load(factor_des.getDesignator().obj);
+		}
 	}
-	
+
 	@Override
 	public void visit(Factor_methnopars fd) {
 		int offset = fd.getDesignator().obj.getAdr() - Code.pc;
 		Code.put(Code.call);
 		Code.put2(offset);
 	}
-	
+
 	@Override
 	public void visit(Factor_methpars fd) {
 		int offset = fd.getDesignator().obj.getAdr() - Code.pc;
 		Code.put(Code.call);
 		Code.put2(offset);
 	}
-	
+
 	@Override
 	public void visit(Factor_n factor_n) {
-		Code.loadConst(factor_n.getN1());;
+		Code.loadConst(factor_n.getN1());
+		;
 	}
-	
+
 	@Override
 	public void visit(Factor_c factor_c) {
-		Code.loadConst(factor_c.getC1());;
+		Code.loadConst(factor_c.getC1());
+		;
 	}
-	
+
 	@Override
 	public void visit(Factor_b factor_n) {
-		Code.loadConst(factor_n.getB1());;
+		Code.loadConst(factor_n.getB1());
+		;
 	}
-	
+
 	@Override
 	public void visit(Factor factor) {
 		if (factor.getUnary() instanceof Unary_m) {
 			Code.put(Code.neg);
-		} 
+		}
 	}
-	
+
 	@Override
 	public void visit(Factor_new_array factor_new_array) {
 		Code.put(Code.newarray);
-		if(factor_new_array.getType().struct.equals(Tab.intType)) {
+		if (factor_new_array.getType().struct.equals(Tab.intType)) {
 			Code.put(1);
-		}else {
+		} else {
 			Code.put(0);
 		}
 	}
-	
-	
+
 	// Designator statements
-	
+
 	@Override
 	public void visit(DesignatorStatement_ass dsAss) {
 		Code.store(dsAss.getDesignator().obj);
-	}	
-	
+	}
+
 	@Override
 	public void visit(DesignatorArrayName designatorArrayName) {
 		Code.load(designatorArrayName.obj);
 	}
-	
+
 	@Override
 	public void visit(DesignatorStatement_inc dsInc) {
-		if(dsInc.getDesignator().obj.getKind() == Obj.Elem) {
+		if (dsInc.getDesignator().obj.getKind() == Obj.Elem) {
 			Code.put(Code.dup2);
 		}
 		Code.load(dsInc.getDesignator().obj);
@@ -371,10 +424,10 @@ public class CodeGenerator extends VisitorAdaptor {
 		Code.put(Code.add);
 		Code.store(dsInc.getDesignator().obj);
 	}
-	
+
 	@Override
 	public void visit(DesignatorStatement_dec dsDec) {
-		if(dsDec.getDesignator().obj.getKind() == Obj.Elem) {
+		if (dsDec.getDesignator().obj.getKind() == Obj.Elem) {
 			Code.put(Code.dup2);
 		}
 		Code.load(dsDec.getDesignator().obj);
@@ -382,54 +435,44 @@ public class CodeGenerator extends VisitorAdaptor {
 		Code.put(Code.sub);
 		Code.store(dsDec.getDesignator().obj);
 	}
-	
+
 	@Override
 	public void visit(DesignatorStatement_noactpar ds) {
 		int offset = ds.getDesignator().obj.getAdr() - Code.pc;
 		Code.put(Code.call);
 		Code.put2(offset);
-		
-		if(ds.getDesignator().obj.getType() != Tab.noType) {
+
+		if (ds.getDesignator().obj.getType() != Tab.noType) {
 			Code.put(Code.pop);
 		}
 	}
-	
+
 	@Override
 	public void visit(DesignatorStatement_actpar ds) {
 		int offset = ds.getDesignator().obj.getAdr() - Code.pc;
-		
+
 		Code.put(Code.call);
 		Code.put2(offset);
-		
-		if(ds.getDesignator().obj.getType() != Tab.noType) {
+
+		if (ds.getDesignator().obj.getType() != Tab.noType) {
 			Code.put(Code.pop);
 		}
 	}
-	
-	
-	
-	
+
 	/* TERNARY */
-	
-	private Stack<Integer> ternEndFixup = new Stack<>();
-	
-	@Override
-	public void visit(TernaryCondition sc) {
-	    // condition je već napravio putFalseJump i push na fixup condFalse
-	 
-	}
-	
+
 	@Override
 	public void visit(TernExpr1 te1) {
-	    Code.putJump(0);
-	    ternEndFixup.push(Code.pc - 2);
+		Code.putJump(0);
+		skipFalse.push(Code.pc - 2);
 
-	    if (!skipCondFalse.isEmpty()) Code.fixup(skipCondFalse.pop());
+		if (!skipTrue.isEmpty())
+			Code.fixup(skipTrue.pop());
 	}
-	
+
 	public void visit(TernExpr2 te) {
-		if (!ternEndFixup.isEmpty()) Code.fixup(ternEndFixup.pop());
+		if (!skipFalse.isEmpty())
+			Code.fixup(skipFalse.pop());
 	}
-	
-	
+
 }

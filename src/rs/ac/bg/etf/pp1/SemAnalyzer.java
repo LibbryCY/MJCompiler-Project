@@ -531,6 +531,16 @@ public class SemAnalyzer extends VisitorAdaptor {
 			report_info("Poziv metode [DS_noactpar]: " + dsnoact.getDesignator().obj.getName() + ", Obj: "
 					+ metObj.getKind() + ", " + metObj.getLevel() + ", " + metObj.getAdr(), dsnoact);
 		}
+		
+		if(metObj.getName().equals("len")) {
+			report_error("Metod len bez parametra", dsnoact);
+		}
+		if(metObj.getName().equals("chr")) {
+			report_error("Metod chr bez parametra", dsnoact);
+		}
+		if(metObj.getName().equals("ord")) {
+			report_error("Metod ord bez parametra", dsnoact);
+		}
 	}
 
 	@Override
@@ -555,13 +565,23 @@ public class SemAnalyzer extends VisitorAdaptor {
 				Struct actualType = actParsList.get(index);
 
 				if (!o.getType().compatibleWith(actualType)) {
-					report_error(
-							"Metoda prima argument pogresnog tipa, index: " + index + " metoda " + metObj.getName(),
+					report_error("Metoda prima argument pogresnog tipa, index: " + index + " metoda " + metObj.getName(),
 							dsact);
+				}
+				
+				index++;
+			}else {
+				Struct actualType = actParsList.get(index);
+				
+				if (!o.getType().compatibleWith(actualType)) {
+					report_error("Metoda prima argument pogresnog tipa, index: " + index + " metoda " + metObj.getName(),
+							dsact);
+					
 				}
 				index++;
 			}
 		}
+		
 		actParsList.clear();
 		report_info("Poziv metode [DS_actpars]: " + dsact.getDesignator().obj.getName() + ", Obj: " + metObj.getKind()
 				+ ", " + metObj.getLevel() + ", " + metObj.getAdr(), dsact);
@@ -869,6 +889,16 @@ public class SemAnalyzer extends VisitorAdaptor {
 	public void visit(Factor_methnopars factor_methnopars) {
 		Obj metObj = factor_methnopars.getDesignator().obj;
 
+		if(metObj.getName().equals("len")) {
+			report_error("Metod len bez parametra", factor_methnopars);
+		}
+		if(metObj.getName().equals("chr")) {
+			report_error("Metod chr bez parametra", factor_methnopars);
+		}
+		if(metObj.getName().equals("ord")) {
+			report_error("Metod ord bez parametra", factor_methnopars);
+		}
+		
 		if (metObj.getKind() != Obj.Meth) {
 			report_error("Poziv neadekvatne metode: " + factor_methnopars.getDesignator().obj.getKind(),
 					factor_methnopars);
@@ -881,6 +911,7 @@ public class SemAnalyzer extends VisitorAdaptor {
 					+ metObj.getKind() + ", " + metObj.getLevel() + ", " + metObj.getAdr(), factor_methnopars);
 			factor_methnopars.struct = metObj.getType();
 		}
+		
 	}
 
 	@Override
@@ -902,12 +933,22 @@ public class SemAnalyzer extends VisitorAdaptor {
 		int index = 0;
 
 		for (Obj o : metObj.getLocalSymbols()) {
+			
 			if (o.getFpPos() > 0) {
 				Struct actualType = actParsList.get(index);
 
 				if (!o.getType().compatibleWith(actualType)) {
 					report_error(
 							"Metoda prima argument pogresnog tipa, index: " + index + " metoda " + metObj.getName(),
+							factor_methpars);
+					factor_methpars.struct = Tab.noType;
+				}
+				index++;
+			}else {
+				Struct actualType = actParsList.get(index);
+				
+				if (!o.getType().compatibleWith(actualType)) {
+					report_error("Metoda prima argument pogresnog tipa, index: " + index + " metoda " + metObj.getName(),
 							factor_methpars);
 					factor_methpars.struct = Tab.noType;
 				}

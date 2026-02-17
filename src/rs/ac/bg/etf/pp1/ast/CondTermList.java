@@ -1,28 +1,20 @@
 // generated with ast extension for cup
 // version 0.8
-// 16/1/2026 2:9:38
+// 17/1/2026 14:50:28
 
 
 package rs.ac.bg.etf.pp1.ast;
 
 public class CondTermList extends CondTerm {
 
-    private CondTerm CondTerm;
     private CondFact CondFact;
+    private CondTerm CondTerm;
 
-    public CondTermList (CondTerm CondTerm, CondFact CondFact) {
-        this.CondTerm=CondTerm;
-        if(CondTerm!=null) CondTerm.setParent(this);
+    public CondTermList (CondFact CondFact, CondTerm CondTerm) {
         this.CondFact=CondFact;
         if(CondFact!=null) CondFact.setParent(this);
-    }
-
-    public CondTerm getCondTerm() {
-        return CondTerm;
-    }
-
-    public void setCondTerm(CondTerm CondTerm) {
         this.CondTerm=CondTerm;
+        if(CondTerm!=null) CondTerm.setParent(this);
     }
 
     public CondFact getCondFact() {
@@ -33,24 +25,32 @@ public class CondTermList extends CondTerm {
         this.CondFact=CondFact;
     }
 
+    public CondTerm getCondTerm() {
+        return CondTerm;
+    }
+
+    public void setCondTerm(CondTerm CondTerm) {
+        this.CondTerm=CondTerm;
+    }
+
     public void accept(Visitor visitor) {
         visitor.visit(this);
     }
 
     public void childrenAccept(Visitor visitor) {
-        if(CondTerm!=null) CondTerm.accept(visitor);
         if(CondFact!=null) CondFact.accept(visitor);
+        if(CondTerm!=null) CondTerm.accept(visitor);
     }
 
     public void traverseTopDown(Visitor visitor) {
         accept(visitor);
-        if(CondTerm!=null) CondTerm.traverseTopDown(visitor);
         if(CondFact!=null) CondFact.traverseTopDown(visitor);
+        if(CondTerm!=null) CondTerm.traverseTopDown(visitor);
     }
 
     public void traverseBottomUp(Visitor visitor) {
-        if(CondTerm!=null) CondTerm.traverseBottomUp(visitor);
         if(CondFact!=null) CondFact.traverseBottomUp(visitor);
+        if(CondTerm!=null) CondTerm.traverseBottomUp(visitor);
         accept(visitor);
     }
 
@@ -59,14 +59,14 @@ public class CondTermList extends CondTerm {
         buffer.append(tab);
         buffer.append("CondTermList(\n");
 
-        if(CondTerm!=null)
-            buffer.append(CondTerm.toString("  "+tab));
+        if(CondFact!=null)
+            buffer.append(CondFact.toString("  "+tab));
         else
             buffer.append(tab+"  null");
         buffer.append("\n");
 
-        if(CondFact!=null)
-            buffer.append(CondFact.toString("  "+tab));
+        if(CondTerm!=null)
+            buffer.append(CondTerm.toString("  "+tab));
         else
             buffer.append(tab+"  null");
         buffer.append("\n");

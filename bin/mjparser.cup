@@ -98,7 +98,9 @@ nonterminal Program,
 			ForStart,
 			SwitchStart,
 			ElseStart,
-			ThenEnd;
+			ThenEnd,
+			ForBodyStart,
+			ForStepStart;
 
 nonterminal rs.etf.pp1.symboltable.concepts.Struct Condition, CondTerm, CondFact, Factor, FactorUnar, FactorList, TermList, Term, Expr, Type, TernaryCondition, TernExpr1, TernExpr2, IfCondition;
 nonterminal rs.etf.pp1.symboltable.concepts.Obj Designator, DesignatorArrayName, MethRetAndName;
@@ -242,7 +244,7 @@ MatchedStatement ::=  (DesignStatement) DesignatorStatement SEMI
 			  		  |
 					  (SwitchStatement) SwitchStart LBRACE CaseList RBRACE
 					  |
-					  (ForStatement) ForStart LPAREN  ForDesignatorStatement SEMI ForCondition SEMI ForStep  RPAREN MatchedStatement
+					  (ForStatement) FOR LPAREN  ForDesignatorStatement ForStart ForCondition ForStepStart ForStep  RPAREN ForBodyStart MatchedStatement 
 					  |
 					  (RecStatement) LBRACE StatementList RBRACE
 					  ;
@@ -252,6 +254,11 @@ UnmatchedStatement ::= (IfElseStatement_non_else) IF LPAREN IfCondition RPAREN S
 					   (IfElseStatement_else) IF LPAREN IfCondition RPAREN MatchedStatement ThenEnd ELSE ElseStart UnmatchedStatement
 					   ;
 					   
+
+ForBodyStart ::= (ForBodyStart)/* EPSILON */ ;
+
+ForStepStart ::= (ForStepStart) SEMI ;
+					   
 IfCondition ::= (IfCondition) Condition;
 
 ElseStart ::= (ElseStart)/* EPSILON */;
@@ -259,14 +266,13 @@ ElseStart ::= (ElseStart)/* EPSILON */;
 ThenEnd ::= (ThenEnd)/* EPSILON */;
 
 
-ForStart ::= (ForStart) FOR;
+ForStart ::= (ForStart) SEMI;
 
 ForStep ::= (ForStep_step) DesignatorStatement
            |
 		   (ForStep_e) /* epsilon */
 		   ; 
 
-SwitchStart ::= (SwitchStart) SWITCH LPAREN Expr RPAREN;
 
 ForDesignatorStatement ::= (ForDesignatorStatement_for) DesignatorStatement
                            |
@@ -277,6 +283,8 @@ ForCondition ::= (ForCondition_for) Condition
 				|
 				(ForCondition_e) /* epsilon */
 				; 
+
+SwitchStart ::= (SwitchStart) SWITCH LPAREN Expr RPAREN;
 
 CaseList ::= (CaseList_list) CaseList Case
            | (CaseList_e) /* epsilon */
@@ -310,12 +318,12 @@ DesignatorStatement ::= (DesignatorStatement_ass) Designator Assignop Expr
 
 /* CONDITION */
 
-Condition ::= (ConditionList) Condition OR CondTerm
+Condition ::= (ConditionList) CondTerm OR Condition
 			  |
 			  (SingleCondition) CondTerm	
 				;
 
-CondTerm ::= (CondTermList) CondTerm AND CondFact
+CondTerm ::= (CondTermList) CondFact AND CondTerm
              |
 			 (SingleCondTerm) CondFact
 			 ;
