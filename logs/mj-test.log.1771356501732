@@ -1,0 +1,2751 @@
+INFO  20:15:16,081 - Compiling source file: /home/rembrant/EclipseWorkspace3/MJCompiler/test/program.mj
+INFO  20:15:16,114 - #2 program
+INFO  20:15:16,114 - #48 test302
+INFO  20:15:16,114 - #3 const
+INFO  20:15:16,114 - #48 int
+INFO  20:15:16,115 - #48 jedan
+INFO  20:15:16,115 - #33 =
+INFO  20:15:16,115 - #45 1
+INFO  20:15:16,115 - #34 ;
+INFO  20:15:16,116 - #48 int
+INFO  20:15:16,116 - #48 i
+INFO  20:15:16,116 - #34 ;
+INFO  20:15:16,117 - #48 bool
+INFO  20:15:16,117 - #48 ibool
+INFO  20:15:16,117 - #34 ;
+INFO  20:15:16,118 - #48 int
+INFO  20:15:16,118 - #48 niz
+INFO  20:15:16,118 - #42 [
+INFO  20:15:16,118 - #43 ]
+INFO  20:15:16,118 - #34 ;
+INFO  20:15:16,118 - #40 {
+INFO  20:15:16,118 - #48 int
+INFO  20:15:16,119 - #48 sum
+INFO  20:15:16,119 - #38 (
+INFO  20:15:16,119 - #48 int
+INFO  20:15:16,119 - #48 z
+INFO  20:15:16,119 - #37 ,
+INFO  20:15:16,119 - #48 int
+INFO  20:15:16,119 - #48 d
+INFO  20:15:16,119 - #39 )
+INFO  20:15:16,120 - #40 {
+INFO  20:15:16,121 - #9 return
+INFO  20:15:16,122 - #48 z
+INFO  20:15:16,122 - #18 +
+INFO  20:15:16,123 - #48 d
+INFO  20:15:16,124 - #34 ;
+INFO  20:15:16,124 - #41 }
+INFO  20:15:16,124 - #48 int
+INFO  20:15:16,125 - #48 inkrement
+INFO  20:15:16,125 - #38 (
+INFO  20:15:16,125 - #48 int
+INFO  20:15:16,125 - #48 a
+INFO  20:15:16,125 - #37 ,
+INFO  20:15:16,125 - #48 int
+INFO  20:15:16,125 - #48 inc
+INFO  20:15:16,125 - #39 )
+INFO  20:15:16,125 - #48 int
+INFO  20:15:16,126 - #48 pom
+INFO  20:15:16,126 - #34 ;
+INFO  20:15:16,126 - #40 {
+INFO  20:15:16,126 - #5 if
+INFO  20:15:16,126 - #38 (
+INFO  20:15:16,126 - #48 inc
+INFO  20:15:16,126 - #23 ==
+INFO  20:15:16,126 - #48 jedan
+INFO  20:15:16,127 - #39 )
+INFO  20:15:16,127 - #48 pom
+INFO  20:15:16,128 - #33 =
+INFO  20:15:16,128 - #45 1
+INFO  20:15:16,128 - #34 ;
+INFO  20:15:16,128 - #6 else
+INFO  20:15:16,129 - #5 if
+INFO  20:15:16,129 - #38 (
+INFO  20:15:16,129 - #48 inc
+INFO  20:15:16,130 - #23 ==
+INFO  20:15:16,130 - #45 2
+INFO  20:15:16,130 - #39 )
+INFO  20:15:16,130 - #48 pom
+INFO  20:15:16,130 - #33 =
+INFO  20:15:16,130 - #48 a
+INFO  20:15:16,130 - #34 ;
+INFO  20:15:16,130 - #9 return
+INFO  20:15:16,131 - #48 sum
+INFO  20:15:16,131 - #38 (
+INFO  20:15:16,131 - #48 a
+INFO  20:15:16,131 - #37 ,
+INFO  20:15:16,131 - #48 pom
+INFO  20:15:16,131 - #39 )
+INFO  20:15:16,131 - #34 ;
+INFO  20:15:16,132 - #41 }
+INFO  20:15:16,132 - #48 bool
+INFO  20:15:16,132 - #48 verify
+INFO  20:15:16,132 - #38 (
+INFO  20:15:16,132 - #39 )
+INFO  20:15:16,133 - #40 {
+INFO  20:15:16,133 - #11 print
+INFO  20:15:16,133 - #38 (
+INFO  20:15:16,133 - #47 v
+INFO  20:15:16,133 - #39 )
+INFO  20:15:16,133 - #34 ;
+INFO  20:15:16,133 - #9 return
+INFO  20:15:16,133 - #46 0
+INFO  20:15:16,133 - #34 ;
+INFO  20:15:16,133 - #41 }
+INFO  20:15:16,134 - #4 void
+INFO  20:15:16,134 - #48 main
+INFO  20:15:16,134 - #38 (
+INFO  20:15:16,134 - #39 )
+INFO  20:15:16,134 - #40 {
+INFO  20:15:16,134 - #5 if
+INFO  20:15:16,134 - #38 (
+INFO  20:15:16,134 - #45 1
+INFO  20:15:16,134 - #24 !=
+INFO  20:15:16,134 - #45 1
+INFO  20:15:16,135 - #39 )
+INFO  20:15:16,135 - #11 print
+INFO  20:15:16,135 - #38 (
+INFO  20:15:16,135 - #19 -
+INFO  20:15:16,135 - #45 6
+INFO  20:15:16,135 - #39 )
+INFO  20:15:16,135 - #34 ;
+INFO  20:15:16,135 - #6 else
+INFO  20:15:16,136 - #11 print
+INFO  20:15:16,136 - #38 (
+INFO  20:15:16,136 - #45 0
+INFO  20:15:16,136 - #39 )
+INFO  20:15:16,136 - #34 ;
+INFO  20:15:16,136 - #48 ibool
+INFO  20:15:16,136 - #33 =
+INFO  20:15:16,136 - #46 0
+INFO  20:15:16,136 - #34 ;
+INFO  20:15:16,136 - #48 i
+INFO  20:15:16,137 - #33 =
+INFO  20:15:16,137 - #45 0
+INFO  20:15:16,137 - #34 ;
+INFO  20:15:16,137 - #15 for
+INFO  20:15:16,137 - #38 (
+INFO  20:15:16,137 - #48 i
+INFO  20:15:16,137 - #33 =
+INFO  20:15:16,137 - #45 0
+INFO  20:15:16,137 - #34 ;
+INFO  20:15:16,138 - #48 i
+INFO  20:15:16,138 - #27 <
+INFO  20:15:16,138 - #45 5
+INFO  20:15:16,138 - #34 ;
+INFO  20:15:16,139 - #48 i
+INFO  20:15:16,139 - #31 ++
+INFO  20:15:16,139 - #39 )
+INFO  20:15:16,139 - #40 {
+INFO  20:15:16,140 - #5 if
+INFO  20:15:16,140 - #38 (
+INFO  20:15:16,140 - #48 i
+INFO  20:15:16,140 - #23 ==
+INFO  20:15:16,140 - #45 2
+INFO  20:15:16,140 - #39 )
+INFO  20:15:16,140 - #48 ibool
+INFO  20:15:16,140 - #33 =
+INFO  20:15:16,140 - #46 1
+INFO  20:15:16,141 - #34 ;
+INFO  20:15:16,141 - #41 }
+INFO  20:15:16,141 - #5 if
+INFO  20:15:16,141 - #38 (
+INFO  20:15:16,141 - #48 ibool
+INFO  20:15:16,141 - #39 )
+INFO  20:15:16,141 - #5 if
+INFO  20:15:16,141 - #38 (
+INFO  20:15:16,141 - #48 i
+INFO  20:15:16,141 - #23 ==
+INFO  20:15:16,141 - #45 5
+INFO  20:15:16,142 - #39 )
+INFO  20:15:16,142 - #11 print
+INFO  20:15:16,142 - #38 (
+INFO  20:15:16,142 - #45 1
+INFO  20:15:16,142 - #39 )
+INFO  20:15:16,142 - #34 ;
+INFO  20:15:16,142 - #6 else
+INFO  20:15:16,142 - #11 print
+INFO  20:15:16,142 - #38 (
+INFO  20:15:16,142 - #19 -
+INFO  20:15:16,142 - #45 1
+INFO  20:15:16,142 - #39 )
+INFO  20:15:16,142 - #34 ;
+INFO  20:15:16,143 - #48 niz
+INFO  20:15:16,143 - #33 =
+INFO  20:15:16,143 - #17 new
+INFO  20:15:16,143 - #48 int
+INFO  20:15:16,143 - #42 [
+INFO  20:15:16,143 - #45 3
+INFO  20:15:16,143 - #43 ]
+INFO  20:15:16,143 - #34 ;
+INFO  20:15:16,143 - #48 niz
+INFO  20:15:16,143 - #42 [
+INFO  20:15:16,144 - #45 0
+INFO  20:15:16,144 - #43 ]
+INFO  20:15:16,144 - #33 =
+INFO  20:15:16,144 - #45 1
+INFO  20:15:16,144 - #34 ;
+INFO  20:15:16,144 - #48 niz
+INFO  20:15:16,144 - #42 [
+INFO  20:15:16,144 - #45 1
+INFO  20:15:16,144 - #43 ]
+INFO  20:15:16,144 - #33 =
+INFO  20:15:16,145 - #45 2
+INFO  20:15:16,145 - #34 ;
+INFO  20:15:16,145 - #48 niz
+INFO  20:15:16,145 - #42 [
+INFO  20:15:16,145 - #45 2
+INFO  20:15:16,145 - #43 ]
+INFO  20:15:16,145 - #33 =
+INFO  20:15:16,145 - #48 sum
+INFO  20:15:16,145 - #38 (
+INFO  20:15:16,145 - #48 niz
+INFO  20:15:16,145 - #42 [
+INFO  20:15:16,145 - #45 1
+INFO  20:15:16,145 - #43 ]
+INFO  20:15:16,145 - #37 ,
+INFO  20:15:16,145 - #48 niz
+INFO  20:15:16,145 - #42 [
+INFO  20:15:16,146 - #45 0
+INFO  20:15:16,146 - #43 ]
+INFO  20:15:16,146 - #39 )
+INFO  20:15:16,146 - #18 +
+INFO  20:15:16,146 - #45 1
+INFO  20:15:16,146 - #34 ;
+INFO  20:15:16,146 - #11 print
+INFO  20:15:16,146 - #38 (
+INFO  20:15:16,146 - #48 niz
+INFO  20:15:16,146 - #42 [
+INFO  20:15:16,146 - #45 2
+INFO  20:15:16,146 - #43 ]
+INFO  20:15:16,146 - #39 )
+INFO  20:15:16,146 - #34 ;
+INFO  20:15:16,147 - #5 if
+INFO  20:15:16,147 - #38 (
+INFO  20:15:16,147 - #48 niz
+INFO  20:15:16,147 - #42 [
+INFO  20:15:16,147 - #45 2
+INFO  20:15:16,147 - #43 ]
+INFO  20:15:16,147 - #23 ==
+INFO  20:15:16,147 - #45 4
+INFO  20:15:16,147 - #30 ||
+INFO  20:15:16,147 - #48 verify
+INFO  20:15:16,147 - #38 (
+INFO  20:15:16,147 - #39 )
+INFO  20:15:16,147 - #39 )
+INFO  20:15:16,148 - #11 print
+INFO  20:15:16,148 - #38 (
+INFO  20:15:16,148 - #48 ord
+INFO  20:15:16,148 - #38 (
+INFO  20:15:16,148 - #47 A
+INFO  20:15:16,148 - #39 )
+INFO  20:15:16,148 - #39 )
+INFO  20:15:16,148 - #34 ;
+INFO  20:15:16,148 - #6 else
+INFO  20:15:16,148 - #11 print
+INFO  20:15:16,148 - #38 (
+INFO  20:15:16,148 - #48 ord
+INFO  20:15:16,148 - #38 (
+INFO  20:15:16,148 - #47 a
+INFO  20:15:16,148 - #39 )
+INFO  20:15:16,149 - #39 )
+INFO  20:15:16,149 - #34 ;
+INFO  20:15:16,149 - #11 print
+INFO  20:15:16,149 - #38 (
+INFO  20:15:16,149 - #48 eol
+INFO  20:15:16,149 - #39 )
+INFO  20:15:16,150 - #34 ;
+INFO  20:15:16,150 - #48 i
+INFO  20:15:16,150 - #33 =
+INFO  20:15:16,150 - #45 0
+INFO  20:15:16,150 - #34 ;
+INFO  20:15:16,150 - #15 for
+INFO  20:15:16,150 - #38 (
+INFO  20:15:16,150 - #34 ;
+INFO  20:15:16,151 - #48 i
+INFO  20:15:16,151 - #27 <
+INFO  20:15:16,151 - #45 10
+INFO  20:15:16,151 - #34 ;
+INFO  20:15:16,151 - #39 )
+INFO  20:15:16,152 - #40 {
+INFO  20:15:16,152 - #5 if
+INFO  20:15:16,152 - #38 (
+INFO  20:15:16,152 - #48 i
+INFO  20:15:16,152 - #23 ==
+INFO  20:15:16,152 - #45 3
+INFO  20:15:16,152 - #39 )
+INFO  20:15:16,152 - #40 {
+INFO  20:15:16,152 - #48 i
+INFO  20:15:16,152 - #31 ++
+INFO  20:15:16,152 - #34 ;
+INFO  20:15:16,153 - #8 continue
+INFO  20:15:16,153 - #34 ;
+INFO  20:15:16,153 - #41 }
+INFO  20:15:16,153 - #5 if
+INFO  20:15:16,154 - #38 (
+INFO  20:15:16,154 - #48 i
+INFO  20:15:16,154 - #23 ==
+INFO  20:15:16,154 - #45 4
+INFO  20:15:16,154 - #39 )
+INFO  20:15:16,154 - #7 break
+INFO  20:15:16,154 - #34 ;
+INFO  20:15:16,154 - #48 i
+INFO  20:15:16,155 - #33 =
+INFO  20:15:16,155 - #48 inkrement
+INFO  20:15:16,155 - #38 (
+INFO  20:15:16,155 - #48 i
+INFO  20:15:16,155 - #37 ,
+INFO  20:15:16,155 - #45 1
+INFO  20:15:16,155 - #39 )
+INFO  20:15:16,155 - #34 ;
+INFO  20:15:16,155 - #41 }
+INFO  20:15:16,155 - #5 if
+INFO  20:15:16,155 - #38 (
+INFO  20:15:16,155 - #48 i
+INFO  20:15:16,155 - #23 ==
+INFO  20:15:16,155 - #45 3
+INFO  20:15:16,156 - #29 &&
+INFO  20:15:16,156 - #48 verify
+INFO  20:15:16,156 - #38 (
+INFO  20:15:16,156 - #39 )
+INFO  20:15:16,156 - #39 )
+INFO  20:15:16,156 - #11 print
+INFO  20:15:16,156 - #38 (
+INFO  20:15:16,156 - #45 4
+INFO  20:15:16,156 - #39 )
+INFO  20:15:16,156 - #34 ;
+INFO  20:15:16,156 - #6 else
+INFO  20:15:16,156 - #11 print
+INFO  20:15:16,156 - #38 (
+INFO  20:15:16,156 - #19 -
+INFO  20:15:16,158 - #45 4
+INFO  20:15:16,158 - #39 )
+INFO  20:15:16,158 - #34 ;
+INFO  20:15:16,158 - #10 read
+INFO  20:15:16,158 - #38 (
+INFO  20:15:16,158 - #48 niz
+INFO  20:15:16,158 - #42 [
+INFO  20:15:16,158 - #45 0
+INFO  20:15:16,158 - #43 ]
+INFO  20:15:16,158 - #39 )
+INFO  20:15:16,158 - #34 ;
+INFO  20:15:16,158 - #10 read
+INFO  20:15:16,159 - #38 (
+INFO  20:15:16,159 - #48 niz
+INFO  20:15:16,159 - #42 [
+INFO  20:15:16,159 - #45 1
+INFO  20:15:16,159 - #43 ]
+INFO  20:15:16,159 - #39 )
+INFO  20:15:16,159 - #34 ;
+INFO  20:15:16,159 - #10 read
+INFO  20:15:16,159 - #38 (
+INFO  20:15:16,159 - #48 niz
+INFO  20:15:16,160 - #42 [
+INFO  20:15:16,160 - #45 2
+INFO  20:15:16,160 - #43 ]
+INFO  20:15:16,160 - #39 )
+INFO  20:15:16,160 - #34 ;
+INFO  20:15:16,160 - #11 print
+INFO  20:15:16,160 - #38 (
+INFO  20:15:16,160 - #48 eol
+INFO  20:15:16,160 - #39 )
+INFO  20:15:16,160 - #34 ;
+INFO  20:15:16,160 - #11 print
+INFO  20:15:16,160 - #38 (
+INFO  20:15:16,160 - #48 sum
+INFO  20:15:16,160 - #38 (
+INFO  20:15:16,160 - #48 sum
+INFO  20:15:16,160 - #38 (
+INFO  20:15:16,160 - #48 niz
+INFO  20:15:16,160 - #42 [
+INFO  20:15:16,161 - #45 0
+INFO  20:15:16,161 - #43 ]
+INFO  20:15:16,161 - #37 ,
+INFO  20:15:16,161 - #48 niz
+INFO  20:15:16,161 - #42 [
+INFO  20:15:16,161 - #45 1
+INFO  20:15:16,161 - #43 ]
+INFO  20:15:16,161 - #39 )
+INFO  20:15:16,161 - #37 ,
+INFO  20:15:16,161 - #48 niz
+INFO  20:15:16,161 - #42 [
+INFO  20:15:16,161 - #45 2
+INFO  20:15:16,161 - #43 ]
+INFO  20:15:16,161 - #39 )
+INFO  20:15:16,162 - #39 )
+INFO  20:15:16,162 - #34 ;
+INFO  20:15:16,162 - #15 for
+INFO  20:15:16,162 - #38 (
+INFO  20:15:16,162 - #48 i
+INFO  20:15:16,162 - #33 =
+INFO  20:15:16,162 - #45 0
+INFO  20:15:16,162 - #34 ;
+INFO  20:15:16,162 - #48 i
+INFO  20:15:16,162 - #27 <
+INFO  20:15:16,162 - #48 niz
+INFO  20:15:16,162 - #35 .
+INFO  20:15:16,162 - #16 length
+INFO  20:15:16,162 - #34 ;
+INFO  20:15:16,163 - #48 i
+INFO  20:15:16,163 - #31 ++
+INFO  20:15:16,163 - #39 )
+INFO  20:15:16,163 - #40 {
+INFO  20:15:16,163 - #11 print
+INFO  20:15:16,163 - #38 (
+INFO  20:15:16,163 - #48 i
+INFO  20:15:16,163 - #39 )
+INFO  20:15:16,163 - #34 ;
+INFO  20:15:16,163 - #41 }
+INFO  20:15:16,163 - #11 print
+INFO  20:15:16,163 - #38 (
+INFO  20:15:16,163 - #48 eol
+INFO  20:15:16,163 - #39 )
+INFO  20:15:16,163 - #34 ;
+INFO  20:15:16,163 - #11 print
+INFO  20:15:16,164 - #38 (
+INFO  20:15:16,164 - #48 inkrement
+INFO  20:15:16,164 - #38 (
+INFO  20:15:16,164 - #48 niz
+INFO  20:15:16,164 - #42 [
+INFO  20:15:16,164 - #45 2
+INFO  20:15:16,164 - #43 ]
+INFO  20:15:16,164 - #37 ,
+INFO  20:15:16,164 - #45 2
+INFO  20:15:16,164 - #39 )
+INFO  20:15:16,164 - #39 )
+INFO  20:15:16,164 - #34 ;
+INFO  20:15:16,164 - #11 print
+INFO  20:15:16,165 - #38 (
+INFO  20:15:16,165 - #48 verify
+INFO  20:15:16,165 - #38 (
+INFO  20:15:16,165 - #39 )
+INFO  20:15:16,165 - #44 ?
+INFO  20:15:16,165 - #47 t
+INFO  20:15:16,166 - #36 :
+INFO  20:15:16,166 - #47 f
+INFO  20:15:16,167 - #39 )
+INFO  20:15:16,167 - #34 ;
+INFO  20:15:16,167 - #41 }
+INFO  20:15:16,168 - #41 }
+INFO  20:15:16,190 - Program(
+  ProgramName(
+   test302
+  ) [ProgramName]
+  ConVarDecList_con(
+    ConDecList_l(
+      Type(
+       int
+      ) [Type]
+      ConDecl(
+       jedan
+        Constant_n(
+         1
+        ) [Constant_n]
+      ) [ConDecl]
+      ConDeclMore_e(
+      ) [ConDeclMore_e]
+    ) [ConDecList_l]
+    ConVarDecList_var(
+      VarDeclList(
+        Type(
+         int
+        ) [Type]
+        VarDecl_var(
+         i
+        ) [VarDecl_var]
+        VarDeclMore_e(
+        ) [VarDeclMore_e]
+      ) [VarDeclList]
+      ConVarDecList_var(
+        VarDeclList(
+          Type(
+           bool
+          ) [Type]
+          VarDecl_var(
+           ibool
+          ) [VarDecl_var]
+          VarDeclMore_e(
+          ) [VarDeclMore_e]
+        ) [VarDeclList]
+        ConVarDecList_var(
+          VarDeclList(
+            Type(
+             int
+            ) [Type]
+            VarDecl_array(
+             niz
+            ) [VarDecl_array]
+            VarDeclMore_e(
+            ) [VarDeclMore_e]
+          ) [VarDeclList]
+          ConVarDecList_e(
+          ) [ConVarDecList_e]
+        ) [ConVarDecList_var]
+      ) [ConVarDecList_var]
+    ) [ConVarDecList_var]
+  ) [ConVarDecList_con]
+  MethodDeclList_rec(
+    MethodDeclList_rec(
+      MethodDeclList_rec(
+        MethodDeclList_rec(
+          MethodDeclList_e(
+          ) [MethodDeclList_e]
+          MethodDecl(
+            MethRetAndName_type(
+              Type(
+               int
+              ) [Type]
+             sum
+            ) [MethRetAndName_type]
+            FormParList_rec(
+              FormPar_var(
+                Type(
+                 int
+                ) [Type]
+               z
+              ) [FormPar_var]
+              FormParMore_comma(
+                FormPar_var(
+                  Type(
+                   int
+                  ) [Type]
+                 d
+                ) [FormPar_var]
+                FormParMore_e(
+                ) [FormParMore_e]
+              ) [FormParMore_comma]
+            ) [FormParList_rec]
+            VarDeclListRec_e(
+            ) [VarDeclListRec_e]
+            StatementList_rec(
+              StatementList_e(
+              ) [StatementList_e]
+              MatchedStat(
+                ReturnStatement_expr(
+                  Expr_notern(
+                    TermList_addop(
+                      SingleTerm(
+                        Term(
+                          SingleFactor(
+                            Factor(
+                              Unary_e(
+                              ) [Unary_e]
+                              Factor_des(
+                                Designator_var(
+                                 z
+                                ) [Designator_var]
+                              ) [Factor_des]
+                            ) [Factor]
+                          ) [SingleFactor]
+                        ) [Term]
+                      ) [SingleTerm]
+                      Addop_plus(
+                      ) [Addop_plus]
+                      Term(
+                        SingleFactor(
+                          Factor(
+                            Unary_e(
+                            ) [Unary_e]
+                            Factor_des(
+                              Designator_var(
+                               d
+                              ) [Designator_var]
+                            ) [Factor_des]
+                          ) [Factor]
+                        ) [SingleFactor]
+                      ) [Term]
+                    ) [TermList_addop]
+                  ) [Expr_notern]
+                ) [ReturnStatement_expr]
+              ) [MatchedStat]
+            ) [StatementList_rec]
+          ) [MethodDecl]
+        ) [MethodDeclList_rec]
+        MethodDecl(
+          MethRetAndName_type(
+            Type(
+             int
+            ) [Type]
+           inkrement
+          ) [MethRetAndName_type]
+          FormParList_rec(
+            FormPar_var(
+              Type(
+               int
+              ) [Type]
+             a
+            ) [FormPar_var]
+            FormParMore_comma(
+              FormPar_var(
+                Type(
+                 int
+                ) [Type]
+               inc
+              ) [FormPar_var]
+              FormParMore_e(
+              ) [FormParMore_e]
+            ) [FormParMore_comma]
+          ) [FormParList_rec]
+          VarDeclListRec_rec(
+            VarDeclListRec_e(
+            ) [VarDeclListRec_e]
+            VarDeclList(
+              Type(
+               int
+              ) [Type]
+              VarDecl_var(
+               pom
+              ) [VarDecl_var]
+              VarDeclMore_e(
+              ) [VarDeclMore_e]
+            ) [VarDeclList]
+          ) [VarDeclListRec_rec]
+          StatementList_rec(
+            StatementList_rec(
+              StatementList_e(
+              ) [StatementList_e]
+              UnmatchedStat(
+                IfElseStatement_else(
+                  IfCondition(
+                    SingleCondition(
+                      SingleCondTerm(
+                        CondFact_relop(
+                          SingleTerm(
+                            Term(
+                              SingleFactor(
+                                Factor(
+                                  Unary_e(
+                                  ) [Unary_e]
+                                  Factor_des(
+                                    Designator_var(
+                                     inc
+                                    ) [Designator_var]
+                                  ) [Factor_des]
+                                ) [Factor]
+                              ) [SingleFactor]
+                            ) [Term]
+                          ) [SingleTerm]
+                          Relop_eq(
+                          ) [Relop_eq]
+                          SingleTerm(
+                            Term(
+                              SingleFactor(
+                                Factor(
+                                  Unary_e(
+                                  ) [Unary_e]
+                                  Factor_des(
+                                    Designator_var(
+                                     jedan
+                                    ) [Designator_var]
+                                  ) [Factor_des]
+                                ) [Factor]
+                              ) [SingleFactor]
+                            ) [Term]
+                          ) [SingleTerm]
+                        ) [CondFact_relop]
+                      ) [SingleCondTerm]
+                    ) [SingleCondition]
+                  ) [IfCondition]
+                  DesignStatement(
+                    DesignatorStatement_ass(
+                      Designator_var(
+                       pom
+                      ) [Designator_var]
+                      Assignop(
+                      ) [Assignop]
+                      Expr_notern(
+                        SingleTerm(
+                          Term(
+                            SingleFactor(
+                              Factor(
+                                Unary_e(
+                                ) [Unary_e]
+                                Factor_n(
+                                 1
+                                ) [Factor_n]
+                              ) [Factor]
+                            ) [SingleFactor]
+                          ) [Term]
+                        ) [SingleTerm]
+                      ) [Expr_notern]
+                    ) [DesignatorStatement_ass]
+                  ) [DesignStatement]
+                  ThenEnd(
+                  ) [ThenEnd]
+                  ElseStart(
+                  ) [ElseStart]
+                  IfElseStatement_non_else(
+                    IfCondition(
+                      SingleCondition(
+                        SingleCondTerm(
+                          CondFact_relop(
+                            SingleTerm(
+                              Term(
+                                SingleFactor(
+                                  Factor(
+                                    Unary_e(
+                                    ) [Unary_e]
+                                    Factor_des(
+                                      Designator_var(
+                                       inc
+                                      ) [Designator_var]
+                                    ) [Factor_des]
+                                  ) [Factor]
+                                ) [SingleFactor]
+                              ) [Term]
+                            ) [SingleTerm]
+                            Relop_eq(
+                            ) [Relop_eq]
+                            SingleTerm(
+                              Term(
+                                SingleFactor(
+                                  Factor(
+                                    Unary_e(
+                                    ) [Unary_e]
+                                    Factor_n(
+                                     2
+                                    ) [Factor_n]
+                                  ) [Factor]
+                                ) [SingleFactor]
+                              ) [Term]
+                            ) [SingleTerm]
+                          ) [CondFact_relop]
+                        ) [SingleCondTerm]
+                      ) [SingleCondition]
+                    ) [IfCondition]
+                    MatchedStat(
+                      DesignStatement(
+                        DesignatorStatement_ass(
+                          Designator_var(
+                           pom
+                          ) [Designator_var]
+                          Assignop(
+                          ) [Assignop]
+                          Expr_notern(
+                            SingleTerm(
+                              Term(
+                                SingleFactor(
+                                  Factor(
+                                    Unary_e(
+                                    ) [Unary_e]
+                                    Factor_des(
+                                      Designator_var(
+                                       a
+                                      ) [Designator_var]
+                                    ) [Factor_des]
+                                  ) [Factor]
+                                ) [SingleFactor]
+                              ) [Term]
+                            ) [SingleTerm]
+                          ) [Expr_notern]
+                        ) [DesignatorStatement_ass]
+                      ) [DesignStatement]
+                    ) [MatchedStat]
+                    ThenEnd(
+                    ) [ThenEnd]
+                  ) [IfElseStatement_non_else]
+                ) [IfElseStatement_else]
+              ) [UnmatchedStat]
+            ) [StatementList_rec]
+            MatchedStat(
+              ReturnStatement_expr(
+                Expr_notern(
+                  SingleTerm(
+                    Term(
+                      SingleFactor(
+                        Factor(
+                          Unary_e(
+                          ) [Unary_e]
+                          Factor_methpars(
+                            Designator_var(
+                             sum
+                            ) [Designator_var]
+                            ActPars_list(
+                              ActPars_single(
+                                Expr_notern(
+                                  SingleTerm(
+                                    Term(
+                                      SingleFactor(
+                                        Factor(
+                                          Unary_e(
+                                          ) [Unary_e]
+                                          Factor_des(
+                                            Designator_var(
+                                             a
+                                            ) [Designator_var]
+                                          ) [Factor_des]
+                                        ) [Factor]
+                                      ) [SingleFactor]
+                                    ) [Term]
+                                  ) [SingleTerm]
+                                ) [Expr_notern]
+                              ) [ActPars_single]
+                              Expr_notern(
+                                SingleTerm(
+                                  Term(
+                                    SingleFactor(
+                                      Factor(
+                                        Unary_e(
+                                        ) [Unary_e]
+                                        Factor_des(
+                                          Designator_var(
+                                           pom
+                                          ) [Designator_var]
+                                        ) [Factor_des]
+                                      ) [Factor]
+                                    ) [SingleFactor]
+                                  ) [Term]
+                                ) [SingleTerm]
+                              ) [Expr_notern]
+                            ) [ActPars_list]
+                          ) [Factor_methpars]
+                        ) [Factor]
+                      ) [SingleFactor]
+                    ) [Term]
+                  ) [SingleTerm]
+                ) [Expr_notern]
+              ) [ReturnStatement_expr]
+            ) [MatchedStat]
+          ) [StatementList_rec]
+        ) [MethodDecl]
+      ) [MethodDeclList_rec]
+      MethodDecl(
+        MethRetAndName_type(
+          Type(
+           bool
+          ) [Type]
+         verify
+        ) [MethRetAndName_type]
+        FormParList_e(
+        ) [FormParList_e]
+        VarDeclListRec_e(
+        ) [VarDeclListRec_e]
+        StatementList_rec(
+          StatementList_rec(
+            StatementList_e(
+            ) [StatementList_e]
+            MatchedStat(
+              PrintStatement(
+                Expr_notern(
+                  SingleTerm(
+                    Term(
+                      SingleFactor(
+                        Factor(
+                          Unary_e(
+                          ) [Unary_e]
+                          Factor_c(
+                           v
+                          ) [Factor_c]
+                        ) [Factor]
+                      ) [SingleFactor]
+                    ) [Term]
+                  ) [SingleTerm]
+                ) [Expr_notern]
+              ) [PrintStatement]
+            ) [MatchedStat]
+          ) [StatementList_rec]
+          MatchedStat(
+            ReturnStatement_expr(
+              Expr_notern(
+                SingleTerm(
+                  Term(
+                    SingleFactor(
+                      Factor(
+                        Unary_e(
+                        ) [Unary_e]
+                        Factor_b(
+                         0
+                        ) [Factor_b]
+                      ) [Factor]
+                    ) [SingleFactor]
+                  ) [Term]
+                ) [SingleTerm]
+              ) [Expr_notern]
+            ) [ReturnStatement_expr]
+          ) [MatchedStat]
+        ) [StatementList_rec]
+      ) [MethodDecl]
+    ) [MethodDeclList_rec]
+    MethodDecl(
+      MethRetAndName_void(
+       main
+      ) [MethRetAndName_void]
+      FormParList_e(
+      ) [FormParList_e]
+      VarDeclListRec_e(
+      ) [VarDeclListRec_e]
+      StatementList_rec(
+        StatementList_rec(
+          StatementList_rec(
+            StatementList_rec(
+              StatementList_rec(
+                StatementList_rec(
+                  StatementList_rec(
+                    StatementList_rec(
+                      StatementList_rec(
+                        StatementList_rec(
+                          StatementList_rec(
+                            StatementList_rec(
+                              StatementList_rec(
+                                StatementList_rec(
+                                  StatementList_rec(
+                                    StatementList_rec(
+                                      StatementList_rec(
+                                        StatementList_rec(
+                                          StatementList_rec(
+                                            StatementList_rec(
+                                              StatementList_rec(
+                                                StatementList_rec(
+                                                  StatementList_rec(
+                                                    StatementList_rec(
+                                                      StatementList_e(
+                                                      ) [StatementList_e]
+                                                      MatchedStat(
+                                                        IfElseStatement(
+                                                          IfCondition(
+                                                            SingleCondition(
+                                                              SingleCondTerm(
+                                                                CondFact_relop(
+                                                                  SingleTerm(
+                                                                    Term(
+                                                                      SingleFactor(
+                                                                        Factor(
+                                                                          Unary_e(
+                                                                          ) [Unary_e]
+                                                                          Factor_n(
+                                                                           1
+                                                                          ) [Factor_n]
+                                                                        ) [Factor]
+                                                                      ) [SingleFactor]
+                                                                    ) [Term]
+                                                                  ) [SingleTerm]
+                                                                  Relop_neq(
+                                                                  ) [Relop_neq]
+                                                                  SingleTerm(
+                                                                    Term(
+                                                                      SingleFactor(
+                                                                        Factor(
+                                                                          Unary_e(
+                                                                          ) [Unary_e]
+                                                                          Factor_n(
+                                                                           1
+                                                                          ) [Factor_n]
+                                                                        ) [Factor]
+                                                                      ) [SingleFactor]
+                                                                    ) [Term]
+                                                                  ) [SingleTerm]
+                                                                ) [CondFact_relop]
+                                                              ) [SingleCondTerm]
+                                                            ) [SingleCondition]
+                                                          ) [IfCondition]
+                                                          PrintStatement(
+                                                            Expr_notern(
+                                                              SingleTerm(
+                                                                Term(
+                                                                  SingleFactor(
+                                                                    Factor(
+                                                                      Unary_m(
+                                                                      ) [Unary_m]
+                                                                      Factor_n(
+                                                                       6
+                                                                      ) [Factor_n]
+                                                                    ) [Factor]
+                                                                  ) [SingleFactor]
+                                                                ) [Term]
+                                                              ) [SingleTerm]
+                                                            ) [Expr_notern]
+                                                          ) [PrintStatement]
+                                                          ThenEnd(
+                                                          ) [ThenEnd]
+                                                          ElseStart(
+                                                          ) [ElseStart]
+                                                          PrintStatement(
+                                                            Expr_notern(
+                                                              SingleTerm(
+                                                                Term(
+                                                                  SingleFactor(
+                                                                    Factor(
+                                                                      Unary_e(
+                                                                      ) [Unary_e]
+                                                                      Factor_n(
+                                                                       0
+                                                                      ) [Factor_n]
+                                                                    ) [Factor]
+                                                                  ) [SingleFactor]
+                                                                ) [Term]
+                                                              ) [SingleTerm]
+                                                            ) [Expr_notern]
+                                                          ) [PrintStatement]
+                                                        ) [IfElseStatement]
+                                                      ) [MatchedStat]
+                                                    ) [StatementList_rec]
+                                                    MatchedStat(
+                                                      DesignStatement(
+                                                        DesignatorStatement_ass(
+                                                          Designator_var(
+                                                           ibool
+                                                          ) [Designator_var]
+                                                          Assignop(
+                                                          ) [Assignop]
+                                                          Expr_notern(
+                                                            SingleTerm(
+                                                              Term(
+                                                                SingleFactor(
+                                                                  Factor(
+                                                                    Unary_e(
+                                                                    ) [Unary_e]
+                                                                    Factor_b(
+                                                                     0
+                                                                    ) [Factor_b]
+                                                                  ) [Factor]
+                                                                ) [SingleFactor]
+                                                              ) [Term]
+                                                            ) [SingleTerm]
+                                                          ) [Expr_notern]
+                                                        ) [DesignatorStatement_ass]
+                                                      ) [DesignStatement]
+                                                    ) [MatchedStat]
+                                                  ) [StatementList_rec]
+                                                  MatchedStat(
+                                                    DesignStatement(
+                                                      DesignatorStatement_ass(
+                                                        Designator_var(
+                                                         i
+                                                        ) [Designator_var]
+                                                        Assignop(
+                                                        ) [Assignop]
+                                                        Expr_notern(
+                                                          SingleTerm(
+                                                            Term(
+                                                              SingleFactor(
+                                                                Factor(
+                                                                  Unary_e(
+                                                                  ) [Unary_e]
+                                                                  Factor_n(
+                                                                   0
+                                                                  ) [Factor_n]
+                                                                ) [Factor]
+                                                              ) [SingleFactor]
+                                                            ) [Term]
+                                                          ) [SingleTerm]
+                                                        ) [Expr_notern]
+                                                      ) [DesignatorStatement_ass]
+                                                    ) [DesignStatement]
+                                                  ) [MatchedStat]
+                                                ) [StatementList_rec]
+                                                MatchedStat(
+                                                  ForStatement(
+                                                    ForDesignatorStatement_for(
+                                                      DesignatorStatement_ass(
+                                                        Designator_var(
+                                                         i
+                                                        ) [Designator_var]
+                                                        Assignop(
+                                                        ) [Assignop]
+                                                        Expr_notern(
+                                                          SingleTerm(
+                                                            Term(
+                                                              SingleFactor(
+                                                                Factor(
+                                                                  Unary_e(
+                                                                  ) [Unary_e]
+                                                                  Factor_n(
+                                                                   0
+                                                                  ) [Factor_n]
+                                                                ) [Factor]
+                                                              ) [SingleFactor]
+                                                            ) [Term]
+                                                          ) [SingleTerm]
+                                                        ) [Expr_notern]
+                                                      ) [DesignatorStatement_ass]
+                                                    ) [ForDesignatorStatement_for]
+                                                    ForStart(
+                                                    ) [ForStart]
+                                                    ForCondition_for(
+                                                      SingleCondition(
+                                                        SingleCondTerm(
+                                                          CondFact_relop(
+                                                            SingleTerm(
+                                                              Term(
+                                                                SingleFactor(
+                                                                  Factor(
+                                                                    Unary_e(
+                                                                    ) [Unary_e]
+                                                                    Factor_des(
+                                                                      Designator_var(
+                                                                       i
+                                                                      ) [Designator_var]
+                                                                    ) [Factor_des]
+                                                                  ) [Factor]
+                                                                ) [SingleFactor]
+                                                              ) [Term]
+                                                            ) [SingleTerm]
+                                                            Relop_ls(
+                                                            ) [Relop_ls]
+                                                            SingleTerm(
+                                                              Term(
+                                                                SingleFactor(
+                                                                  Factor(
+                                                                    Unary_e(
+                                                                    ) [Unary_e]
+                                                                    Factor_n(
+                                                                     5
+                                                                    ) [Factor_n]
+                                                                  ) [Factor]
+                                                                ) [SingleFactor]
+                                                              ) [Term]
+                                                            ) [SingleTerm]
+                                                          ) [CondFact_relop]
+                                                        ) [SingleCondTerm]
+                                                      ) [SingleCondition]
+                                                    ) [ForCondition_for]
+                                                    ForStepStart(
+                                                    ) [ForStepStart]
+                                                    ForStep_step(
+                                                      DesignatorStatement_inc(
+                                                        Designator_var(
+                                                         i
+                                                        ) [Designator_var]
+                                                      ) [DesignatorStatement_inc]
+                                                    ) [ForStep_step]
+                                                    ForBodyStart(
+                                                    ) [ForBodyStart]
+                                                    RecStatement(
+                                                      StatementList_rec(
+                                                        StatementList_e(
+                                                        ) [StatementList_e]
+                                                        UnmatchedStat(
+                                                          IfElseStatement_non_else(
+                                                            IfCondition(
+                                                              SingleCondition(
+                                                                SingleCondTerm(
+                                                                  CondFact_relop(
+                                                                    SingleTerm(
+                                                                      Term(
+                                                                        SingleFactor(
+                                                                          Factor(
+                                                                            Unary_e(
+                                                                            ) [Unary_e]
+                                                                            Factor_des(
+                                                                              Designator_var(
+                                                                               i
+                                                                              ) [Designator_var]
+                                                                            ) [Factor_des]
+                                                                          ) [Factor]
+                                                                        ) [SingleFactor]
+                                                                      ) [Term]
+                                                                    ) [SingleTerm]
+                                                                    Relop_eq(
+                                                                    ) [Relop_eq]
+                                                                    SingleTerm(
+                                                                      Term(
+                                                                        SingleFactor(
+                                                                          Factor(
+                                                                            Unary_e(
+                                                                            ) [Unary_e]
+                                                                            Factor_n(
+                                                                             2
+                                                                            ) [Factor_n]
+                                                                          ) [Factor]
+                                                                        ) [SingleFactor]
+                                                                      ) [Term]
+                                                                    ) [SingleTerm]
+                                                                  ) [CondFact_relop]
+                                                                ) [SingleCondTerm]
+                                                              ) [SingleCondition]
+                                                            ) [IfCondition]
+                                                            MatchedStat(
+                                                              DesignStatement(
+                                                                DesignatorStatement_ass(
+                                                                  Designator_var(
+                                                                   ibool
+                                                                  ) [Designator_var]
+                                                                  Assignop(
+                                                                  ) [Assignop]
+                                                                  Expr_notern(
+                                                                    SingleTerm(
+                                                                      Term(
+                                                                        SingleFactor(
+                                                                          Factor(
+                                                                            Unary_e(
+                                                                            ) [Unary_e]
+                                                                            Factor_b(
+                                                                             1
+                                                                            ) [Factor_b]
+                                                                          ) [Factor]
+                                                                        ) [SingleFactor]
+                                                                      ) [Term]
+                                                                    ) [SingleTerm]
+                                                                  ) [Expr_notern]
+                                                                ) [DesignatorStatement_ass]
+                                                              ) [DesignStatement]
+                                                            ) [MatchedStat]
+                                                            ThenEnd(
+                                                            ) [ThenEnd]
+                                                          ) [IfElseStatement_non_else]
+                                                        ) [UnmatchedStat]
+                                                      ) [StatementList_rec]
+                                                    ) [RecStatement]
+                                                  ) [ForStatement]
+                                                ) [MatchedStat]
+                                              ) [StatementList_rec]
+                                              UnmatchedStat(
+                                                IfElseStatement_non_else(
+                                                  IfCondition(
+                                                    SingleCondition(
+                                                      SingleCondTerm(
+                                                        CondFact_norelop(
+                                                          SingleTerm(
+                                                            Term(
+                                                              SingleFactor(
+                                                                Factor(
+                                                                  Unary_e(
+                                                                  ) [Unary_e]
+                                                                  Factor_des(
+                                                                    Designator_var(
+                                                                     ibool
+                                                                    ) [Designator_var]
+                                                                  ) [Factor_des]
+                                                                ) [Factor]
+                                                              ) [SingleFactor]
+                                                            ) [Term]
+                                                          ) [SingleTerm]
+                                                        ) [CondFact_norelop]
+                                                      ) [SingleCondTerm]
+                                                    ) [SingleCondition]
+                                                  ) [IfCondition]
+                                                  MatchedStat(
+                                                    IfElseStatement(
+                                                      IfCondition(
+                                                        SingleCondition(
+                                                          SingleCondTerm(
+                                                            CondFact_relop(
+                                                              SingleTerm(
+                                                                Term(
+                                                                  SingleFactor(
+                                                                    Factor(
+                                                                      Unary_e(
+                                                                      ) [Unary_e]
+                                                                      Factor_des(
+                                                                        Designator_var(
+                                                                         i
+                                                                        ) [Designator_var]
+                                                                      ) [Factor_des]
+                                                                    ) [Factor]
+                                                                  ) [SingleFactor]
+                                                                ) [Term]
+                                                              ) [SingleTerm]
+                                                              Relop_eq(
+                                                              ) [Relop_eq]
+                                                              SingleTerm(
+                                                                Term(
+                                                                  SingleFactor(
+                                                                    Factor(
+                                                                      Unary_e(
+                                                                      ) [Unary_e]
+                                                                      Factor_n(
+                                                                       5
+                                                                      ) [Factor_n]
+                                                                    ) [Factor]
+                                                                  ) [SingleFactor]
+                                                                ) [Term]
+                                                              ) [SingleTerm]
+                                                            ) [CondFact_relop]
+                                                          ) [SingleCondTerm]
+                                                        ) [SingleCondition]
+                                                      ) [IfCondition]
+                                                      PrintStatement(
+                                                        Expr_notern(
+                                                          SingleTerm(
+                                                            Term(
+                                                              SingleFactor(
+                                                                Factor(
+                                                                  Unary_e(
+                                                                  ) [Unary_e]
+                                                                  Factor_n(
+                                                                   1
+                                                                  ) [Factor_n]
+                                                                ) [Factor]
+                                                              ) [SingleFactor]
+                                                            ) [Term]
+                                                          ) [SingleTerm]
+                                                        ) [Expr_notern]
+                                                      ) [PrintStatement]
+                                                      ThenEnd(
+                                                      ) [ThenEnd]
+                                                      ElseStart(
+                                                      ) [ElseStart]
+                                                      PrintStatement(
+                                                        Expr_notern(
+                                                          SingleTerm(
+                                                            Term(
+                                                              SingleFactor(
+                                                                Factor(
+                                                                  Unary_m(
+                                                                  ) [Unary_m]
+                                                                  Factor_n(
+                                                                   1
+                                                                  ) [Factor_n]
+                                                                ) [Factor]
+                                                              ) [SingleFactor]
+                                                            ) [Term]
+                                                          ) [SingleTerm]
+                                                        ) [Expr_notern]
+                                                      ) [PrintStatement]
+                                                    ) [IfElseStatement]
+                                                  ) [MatchedStat]
+                                                  ThenEnd(
+                                                  ) [ThenEnd]
+                                                ) [IfElseStatement_non_else]
+                                              ) [UnmatchedStat]
+                                            ) [StatementList_rec]
+                                            MatchedStat(
+                                              DesignStatement(
+                                                DesignatorStatement_ass(
+                                                  Designator_var(
+                                                   niz
+                                                  ) [Designator_var]
+                                                  Assignop(
+                                                  ) [Assignop]
+                                                  Expr_notern(
+                                                    SingleTerm(
+                                                      Term(
+                                                        SingleFactor(
+                                                          Factor(
+                                                            Unary_e(
+                                                            ) [Unary_e]
+                                                            Factor_new_array(
+                                                              Type(
+                                                               int
+                                                              ) [Type]
+                                                              Expr_notern(
+                                                                SingleTerm(
+                                                                  Term(
+                                                                    SingleFactor(
+                                                                      Factor(
+                                                                        Unary_e(
+                                                                        ) [Unary_e]
+                                                                        Factor_n(
+                                                                         3
+                                                                        ) [Factor_n]
+                                                                      ) [Factor]
+                                                                    ) [SingleFactor]
+                                                                  ) [Term]
+                                                                ) [SingleTerm]
+                                                              ) [Expr_notern]
+                                                            ) [Factor_new_array]
+                                                          ) [Factor]
+                                                        ) [SingleFactor]
+                                                      ) [Term]
+                                                    ) [SingleTerm]
+                                                  ) [Expr_notern]
+                                                ) [DesignatorStatement_ass]
+                                              ) [DesignStatement]
+                                            ) [MatchedStat]
+                                          ) [StatementList_rec]
+                                          MatchedStat(
+                                            DesignStatement(
+                                              DesignatorStatement_ass(
+                                                Designator_elem(
+                                                  DesignatorArrayName(
+                                                   niz
+                                                  ) [DesignatorArrayName]
+                                                  Expr_notern(
+                                                    SingleTerm(
+                                                      Term(
+                                                        SingleFactor(
+                                                          Factor(
+                                                            Unary_e(
+                                                            ) [Unary_e]
+                                                            Factor_n(
+                                                             0
+                                                            ) [Factor_n]
+                                                          ) [Factor]
+                                                        ) [SingleFactor]
+                                                      ) [Term]
+                                                    ) [SingleTerm]
+                                                  ) [Expr_notern]
+                                                ) [Designator_elem]
+                                                Assignop(
+                                                ) [Assignop]
+                                                Expr_notern(
+                                                  SingleTerm(
+                                                    Term(
+                                                      SingleFactor(
+                                                        Factor(
+                                                          Unary_e(
+                                                          ) [Unary_e]
+                                                          Factor_n(
+                                                           1
+                                                          ) [Factor_n]
+                                                        ) [Factor]
+                                                      ) [SingleFactor]
+                                                    ) [Term]
+                                                  ) [SingleTerm]
+                                                ) [Expr_notern]
+                                              ) [DesignatorStatement_ass]
+                                            ) [DesignStatement]
+                                          ) [MatchedStat]
+                                        ) [StatementList_rec]
+                                        MatchedStat(
+                                          DesignStatement(
+                                            DesignatorStatement_ass(
+                                              Designator_elem(
+                                                DesignatorArrayName(
+                                                 niz
+                                                ) [DesignatorArrayName]
+                                                Expr_notern(
+                                                  SingleTerm(
+                                                    Term(
+                                                      SingleFactor(
+                                                        Factor(
+                                                          Unary_e(
+                                                          ) [Unary_e]
+                                                          Factor_n(
+                                                           1
+                                                          ) [Factor_n]
+                                                        ) [Factor]
+                                                      ) [SingleFactor]
+                                                    ) [Term]
+                                                  ) [SingleTerm]
+                                                ) [Expr_notern]
+                                              ) [Designator_elem]
+                                              Assignop(
+                                              ) [Assignop]
+                                              Expr_notern(
+                                                SingleTerm(
+                                                  Term(
+                                                    SingleFactor(
+                                                      Factor(
+                                                        Unary_e(
+                                                        ) [Unary_e]
+                                                        Factor_n(
+                                                         2
+                                                        ) [Factor_n]
+                                                      ) [Factor]
+                                                    ) [SingleFactor]
+                                                  ) [Term]
+                                                ) [SingleTerm]
+                                              ) [Expr_notern]
+                                            ) [DesignatorStatement_ass]
+                                          ) [DesignStatement]
+                                        ) [MatchedStat]
+                                      ) [StatementList_rec]
+                                      MatchedStat(
+                                        DesignStatement(
+                                          DesignatorStatement_ass(
+                                            Designator_elem(
+                                              DesignatorArrayName(
+                                               niz
+                                              ) [DesignatorArrayName]
+                                              Expr_notern(
+                                                SingleTerm(
+                                                  Term(
+                                                    SingleFactor(
+                                                      Factor(
+                                                        Unary_e(
+                                                        ) [Unary_e]
+                                                        Factor_n(
+                                                         2
+                                                        ) [Factor_n]
+                                                      ) [Factor]
+                                                    ) [SingleFactor]
+                                                  ) [Term]
+                                                ) [SingleTerm]
+                                              ) [Expr_notern]
+                                            ) [Designator_elem]
+                                            Assignop(
+                                            ) [Assignop]
+                                            Expr_notern(
+                                              TermList_addop(
+                                                SingleTerm(
+                                                  Term(
+                                                    SingleFactor(
+                                                      Factor(
+                                                        Unary_e(
+                                                        ) [Unary_e]
+                                                        Factor_methpars(
+                                                          Designator_var(
+                                                           sum
+                                                          ) [Designator_var]
+                                                          ActPars_list(
+                                                            ActPars_single(
+                                                              Expr_notern(
+                                                                SingleTerm(
+                                                                  Term(
+                                                                    SingleFactor(
+                                                                      Factor(
+                                                                        Unary_e(
+                                                                        ) [Unary_e]
+                                                                        Factor_des(
+                                                                          Designator_elem(
+                                                                            DesignatorArrayName(
+                                                                             niz
+                                                                            ) [DesignatorArrayName]
+                                                                            Expr_notern(
+                                                                              SingleTerm(
+                                                                                Term(
+                                                                                  SingleFactor(
+                                                                                    Factor(
+                                                                                      Unary_e(
+                                                                                      ) [Unary_e]
+                                                                                      Factor_n(
+                                                                                       1
+                                                                                      ) [Factor_n]
+                                                                                    ) [Factor]
+                                                                                  ) [SingleFactor]
+                                                                                ) [Term]
+                                                                              ) [SingleTerm]
+                                                                            ) [Expr_notern]
+                                                                          ) [Designator_elem]
+                                                                        ) [Factor_des]
+                                                                      ) [Factor]
+                                                                    ) [SingleFactor]
+                                                                  ) [Term]
+                                                                ) [SingleTerm]
+                                                              ) [Expr_notern]
+                                                            ) [ActPars_single]
+                                                            Expr_notern(
+                                                              SingleTerm(
+                                                                Term(
+                                                                  SingleFactor(
+                                                                    Factor(
+                                                                      Unary_e(
+                                                                      ) [Unary_e]
+                                                                      Factor_des(
+                                                                        Designator_elem(
+                                                                          DesignatorArrayName(
+                                                                           niz
+                                                                          ) [DesignatorArrayName]
+                                                                          Expr_notern(
+                                                                            SingleTerm(
+                                                                              Term(
+                                                                                SingleFactor(
+                                                                                  Factor(
+                                                                                    Unary_e(
+                                                                                    ) [Unary_e]
+                                                                                    Factor_n(
+                                                                                     0
+                                                                                    ) [Factor_n]
+                                                                                  ) [Factor]
+                                                                                ) [SingleFactor]
+                                                                              ) [Term]
+                                                                            ) [SingleTerm]
+                                                                          ) [Expr_notern]
+                                                                        ) [Designator_elem]
+                                                                      ) [Factor_des]
+                                                                    ) [Factor]
+                                                                  ) [SingleFactor]
+                                                                ) [Term]
+                                                              ) [SingleTerm]
+                                                            ) [Expr_notern]
+                                                          ) [ActPars_list]
+                                                        ) [Factor_methpars]
+                                                      ) [Factor]
+                                                    ) [SingleFactor]
+                                                  ) [Term]
+                                                ) [SingleTerm]
+                                                Addop_plus(
+                                                ) [Addop_plus]
+                                                Term(
+                                                  SingleFactor(
+                                                    Factor(
+                                                      Unary_e(
+                                                      ) [Unary_e]
+                                                      Factor_n(
+                                                       1
+                                                      ) [Factor_n]
+                                                    ) [Factor]
+                                                  ) [SingleFactor]
+                                                ) [Term]
+                                              ) [TermList_addop]
+                                            ) [Expr_notern]
+                                          ) [DesignatorStatement_ass]
+                                        ) [DesignStatement]
+                                      ) [MatchedStat]
+                                    ) [StatementList_rec]
+                                    MatchedStat(
+                                      PrintStatement(
+                                        Expr_notern(
+                                          SingleTerm(
+                                            Term(
+                                              SingleFactor(
+                                                Factor(
+                                                  Unary_e(
+                                                  ) [Unary_e]
+                                                  Factor_des(
+                                                    Designator_elem(
+                                                      DesignatorArrayName(
+                                                       niz
+                                                      ) [DesignatorArrayName]
+                                                      Expr_notern(
+                                                        SingleTerm(
+                                                          Term(
+                                                            SingleFactor(
+                                                              Factor(
+                                                                Unary_e(
+                                                                ) [Unary_e]
+                                                                Factor_n(
+                                                                 2
+                                                                ) [Factor_n]
+                                                              ) [Factor]
+                                                            ) [SingleFactor]
+                                                          ) [Term]
+                                                        ) [SingleTerm]
+                                                      ) [Expr_notern]
+                                                    ) [Designator_elem]
+                                                  ) [Factor_des]
+                                                ) [Factor]
+                                              ) [SingleFactor]
+                                            ) [Term]
+                                          ) [SingleTerm]
+                                        ) [Expr_notern]
+                                      ) [PrintStatement]
+                                    ) [MatchedStat]
+                                  ) [StatementList_rec]
+                                  MatchedStat(
+                                    IfElseStatement(
+                                      IfCondition(
+                                        ConditionList(
+                                          SingleCondition(
+                                            SingleCondTerm(
+                                              CondFact_relop(
+                                                SingleTerm(
+                                                  Term(
+                                                    SingleFactor(
+                                                      Factor(
+                                                        Unary_e(
+                                                        ) [Unary_e]
+                                                        Factor_des(
+                                                          Designator_elem(
+                                                            DesignatorArrayName(
+                                                             niz
+                                                            ) [DesignatorArrayName]
+                                                            Expr_notern(
+                                                              SingleTerm(
+                                                                Term(
+                                                                  SingleFactor(
+                                                                    Factor(
+                                                                      Unary_e(
+                                                                      ) [Unary_e]
+                                                                      Factor_n(
+                                                                       2
+                                                                      ) [Factor_n]
+                                                                    ) [Factor]
+                                                                  ) [SingleFactor]
+                                                                ) [Term]
+                                                              ) [SingleTerm]
+                                                            ) [Expr_notern]
+                                                          ) [Designator_elem]
+                                                        ) [Factor_des]
+                                                      ) [Factor]
+                                                    ) [SingleFactor]
+                                                  ) [Term]
+                                                ) [SingleTerm]
+                                                Relop_eq(
+                                                ) [Relop_eq]
+                                                SingleTerm(
+                                                  Term(
+                                                    SingleFactor(
+                                                      Factor(
+                                                        Unary_e(
+                                                        ) [Unary_e]
+                                                        Factor_n(
+                                                         4
+                                                        ) [Factor_n]
+                                                      ) [Factor]
+                                                    ) [SingleFactor]
+                                                  ) [Term]
+                                                ) [SingleTerm]
+                                              ) [CondFact_relop]
+                                            ) [SingleCondTerm]
+                                          ) [SingleCondition]
+                                          SingleCondTerm(
+                                            CondFact_norelop(
+                                              SingleTerm(
+                                                Term(
+                                                  SingleFactor(
+                                                    Factor(
+                                                      Unary_e(
+                                                      ) [Unary_e]
+                                                      Factor_methnopars(
+                                                        Designator_var(
+                                                         verify
+                                                        ) [Designator_var]
+                                                      ) [Factor_methnopars]
+                                                    ) [Factor]
+                                                  ) [SingleFactor]
+                                                ) [Term]
+                                              ) [SingleTerm]
+                                            ) [CondFact_norelop]
+                                          ) [SingleCondTerm]
+                                        ) [ConditionList]
+                                      ) [IfCondition]
+                                      PrintStatement(
+                                        Expr_notern(
+                                          SingleTerm(
+                                            Term(
+                                              SingleFactor(
+                                                Factor(
+                                                  Unary_e(
+                                                  ) [Unary_e]
+                                                  Factor_methpars(
+                                                    Designator_var(
+                                                     ord
+                                                    ) [Designator_var]
+                                                    ActPars_single(
+                                                      Expr_notern(
+                                                        SingleTerm(
+                                                          Term(
+                                                            SingleFactor(
+                                                              Factor(
+                                                                Unary_e(
+                                                                ) [Unary_e]
+                                                                Factor_c(
+                                                                 A
+                                                                ) [Factor_c]
+                                                              ) [Factor]
+                                                            ) [SingleFactor]
+                                                          ) [Term]
+                                                        ) [SingleTerm]
+                                                      ) [Expr_notern]
+                                                    ) [ActPars_single]
+                                                  ) [Factor_methpars]
+                                                ) [Factor]
+                                              ) [SingleFactor]
+                                            ) [Term]
+                                          ) [SingleTerm]
+                                        ) [Expr_notern]
+                                      ) [PrintStatement]
+                                      ThenEnd(
+                                      ) [ThenEnd]
+                                      ElseStart(
+                                      ) [ElseStart]
+                                      PrintStatement(
+                                        Expr_notern(
+                                          SingleTerm(
+                                            Term(
+                                              SingleFactor(
+                                                Factor(
+                                                  Unary_e(
+                                                  ) [Unary_e]
+                                                  Factor_methpars(
+                                                    Designator_var(
+                                                     ord
+                                                    ) [Designator_var]
+                                                    ActPars_single(
+                                                      Expr_notern(
+                                                        SingleTerm(
+                                                          Term(
+                                                            SingleFactor(
+                                                              Factor(
+                                                                Unary_e(
+                                                                ) [Unary_e]
+                                                                Factor_c(
+                                                                 a
+                                                                ) [Factor_c]
+                                                              ) [Factor]
+                                                            ) [SingleFactor]
+                                                          ) [Term]
+                                                        ) [SingleTerm]
+                                                      ) [Expr_notern]
+                                                    ) [ActPars_single]
+                                                  ) [Factor_methpars]
+                                                ) [Factor]
+                                              ) [SingleFactor]
+                                            ) [Term]
+                                          ) [SingleTerm]
+                                        ) [Expr_notern]
+                                      ) [PrintStatement]
+                                    ) [IfElseStatement]
+                                  ) [MatchedStat]
+                                ) [StatementList_rec]
+                                MatchedStat(
+                                  PrintStatement(
+                                    Expr_notern(
+                                      SingleTerm(
+                                        Term(
+                                          SingleFactor(
+                                            Factor(
+                                              Unary_e(
+                                              ) [Unary_e]
+                                              Factor_des(
+                                                Designator_var(
+                                                 eol
+                                                ) [Designator_var]
+                                              ) [Factor_des]
+                                            ) [Factor]
+                                          ) [SingleFactor]
+                                        ) [Term]
+                                      ) [SingleTerm]
+                                    ) [Expr_notern]
+                                  ) [PrintStatement]
+                                ) [MatchedStat]
+                              ) [StatementList_rec]
+                              MatchedStat(
+                                DesignStatement(
+                                  DesignatorStatement_ass(
+                                    Designator_var(
+                                     i
+                                    ) [Designator_var]
+                                    Assignop(
+                                    ) [Assignop]
+                                    Expr_notern(
+                                      SingleTerm(
+                                        Term(
+                                          SingleFactor(
+                                            Factor(
+                                              Unary_e(
+                                              ) [Unary_e]
+                                              Factor_n(
+                                               0
+                                              ) [Factor_n]
+                                            ) [Factor]
+                                          ) [SingleFactor]
+                                        ) [Term]
+                                      ) [SingleTerm]
+                                    ) [Expr_notern]
+                                  ) [DesignatorStatement_ass]
+                                ) [DesignStatement]
+                              ) [MatchedStat]
+                            ) [StatementList_rec]
+                            MatchedStat(
+                              ForStatement(
+                                ForDesignatorStatement_e(
+                                ) [ForDesignatorStatement_e]
+                                ForStart(
+                                ) [ForStart]
+                                ForCondition_for(
+                                  SingleCondition(
+                                    SingleCondTerm(
+                                      CondFact_relop(
+                                        SingleTerm(
+                                          Term(
+                                            SingleFactor(
+                                              Factor(
+                                                Unary_e(
+                                                ) [Unary_e]
+                                                Factor_des(
+                                                  Designator_var(
+                                                   i
+                                                  ) [Designator_var]
+                                                ) [Factor_des]
+                                              ) [Factor]
+                                            ) [SingleFactor]
+                                          ) [Term]
+                                        ) [SingleTerm]
+                                        Relop_ls(
+                                        ) [Relop_ls]
+                                        SingleTerm(
+                                          Term(
+                                            SingleFactor(
+                                              Factor(
+                                                Unary_e(
+                                                ) [Unary_e]
+                                                Factor_n(
+                                                 10
+                                                ) [Factor_n]
+                                              ) [Factor]
+                                            ) [SingleFactor]
+                                          ) [Term]
+                                        ) [SingleTerm]
+                                      ) [CondFact_relop]
+                                    ) [SingleCondTerm]
+                                  ) [SingleCondition]
+                                ) [ForCondition_for]
+                                ForStepStart(
+                                ) [ForStepStart]
+                                ForStep_e(
+                                ) [ForStep_e]
+                                ForBodyStart(
+                                ) [ForBodyStart]
+                                RecStatement(
+                                  StatementList_rec(
+                                    StatementList_rec(
+                                      StatementList_rec(
+                                        StatementList_e(
+                                        ) [StatementList_e]
+                                        UnmatchedStat(
+                                          IfElseStatement_non_else(
+                                            IfCondition(
+                                              SingleCondition(
+                                                SingleCondTerm(
+                                                  CondFact_relop(
+                                                    SingleTerm(
+                                                      Term(
+                                                        SingleFactor(
+                                                          Factor(
+                                                            Unary_e(
+                                                            ) [Unary_e]
+                                                            Factor_des(
+                                                              Designator_var(
+                                                               i
+                                                              ) [Designator_var]
+                                                            ) [Factor_des]
+                                                          ) [Factor]
+                                                        ) [SingleFactor]
+                                                      ) [Term]
+                                                    ) [SingleTerm]
+                                                    Relop_eq(
+                                                    ) [Relop_eq]
+                                                    SingleTerm(
+                                                      Term(
+                                                        SingleFactor(
+                                                          Factor(
+                                                            Unary_e(
+                                                            ) [Unary_e]
+                                                            Factor_n(
+                                                             3
+                                                            ) [Factor_n]
+                                                          ) [Factor]
+                                                        ) [SingleFactor]
+                                                      ) [Term]
+                                                    ) [SingleTerm]
+                                                  ) [CondFact_relop]
+                                                ) [SingleCondTerm]
+                                              ) [SingleCondition]
+                                            ) [IfCondition]
+                                            MatchedStat(
+                                              RecStatement(
+                                                StatementList_rec(
+                                                  StatementList_rec(
+                                                    StatementList_e(
+                                                    ) [StatementList_e]
+                                                    MatchedStat(
+                                                      DesignStatement(
+                                                        DesignatorStatement_inc(
+                                                          Designator_var(
+                                                           i
+                                                          ) [Designator_var]
+                                                        ) [DesignatorStatement_inc]
+                                                      ) [DesignStatement]
+                                                    ) [MatchedStat]
+                                                  ) [StatementList_rec]
+                                                  MatchedStat(
+                                                    ContinueStatement(
+                                                    ) [ContinueStatement]
+                                                  ) [MatchedStat]
+                                                ) [StatementList_rec]
+                                              ) [RecStatement]
+                                            ) [MatchedStat]
+                                            ThenEnd(
+                                            ) [ThenEnd]
+                                          ) [IfElseStatement_non_else]
+                                        ) [UnmatchedStat]
+                                      ) [StatementList_rec]
+                                      UnmatchedStat(
+                                        IfElseStatement_non_else(
+                                          IfCondition(
+                                            SingleCondition(
+                                              SingleCondTerm(
+                                                CondFact_relop(
+                                                  SingleTerm(
+                                                    Term(
+                                                      SingleFactor(
+                                                        Factor(
+                                                          Unary_e(
+                                                          ) [Unary_e]
+                                                          Factor_des(
+                                                            Designator_var(
+                                                             i
+                                                            ) [Designator_var]
+                                                          ) [Factor_des]
+                                                        ) [Factor]
+                                                      ) [SingleFactor]
+                                                    ) [Term]
+                                                  ) [SingleTerm]
+                                                  Relop_eq(
+                                                  ) [Relop_eq]
+                                                  SingleTerm(
+                                                    Term(
+                                                      SingleFactor(
+                                                        Factor(
+                                                          Unary_e(
+                                                          ) [Unary_e]
+                                                          Factor_n(
+                                                           4
+                                                          ) [Factor_n]
+                                                        ) [Factor]
+                                                      ) [SingleFactor]
+                                                    ) [Term]
+                                                  ) [SingleTerm]
+                                                ) [CondFact_relop]
+                                              ) [SingleCondTerm]
+                                            ) [SingleCondition]
+                                          ) [IfCondition]
+                                          MatchedStat(
+                                            BreakStatement(
+                                            ) [BreakStatement]
+                                          ) [MatchedStat]
+                                          ThenEnd(
+                                          ) [ThenEnd]
+                                        ) [IfElseStatement_non_else]
+                                      ) [UnmatchedStat]
+                                    ) [StatementList_rec]
+                                    MatchedStat(
+                                      DesignStatement(
+                                        DesignatorStatement_ass(
+                                          Designator_var(
+                                           i
+                                          ) [Designator_var]
+                                          Assignop(
+                                          ) [Assignop]
+                                          Expr_notern(
+                                            SingleTerm(
+                                              Term(
+                                                SingleFactor(
+                                                  Factor(
+                                                    Unary_e(
+                                                    ) [Unary_e]
+                                                    Factor_methpars(
+                                                      Designator_var(
+                                                       inkrement
+                                                      ) [Designator_var]
+                                                      ActPars_list(
+                                                        ActPars_single(
+                                                          Expr_notern(
+                                                            SingleTerm(
+                                                              Term(
+                                                                SingleFactor(
+                                                                  Factor(
+                                                                    Unary_e(
+                                                                    ) [Unary_e]
+                                                                    Factor_des(
+                                                                      Designator_var(
+                                                                       i
+                                                                      ) [Designator_var]
+                                                                    ) [Factor_des]
+                                                                  ) [Factor]
+                                                                ) [SingleFactor]
+                                                              ) [Term]
+                                                            ) [SingleTerm]
+                                                          ) [Expr_notern]
+                                                        ) [ActPars_single]
+                                                        Expr_notern(
+                                                          SingleTerm(
+                                                            Term(
+                                                              SingleFactor(
+                                                                Factor(
+                                                                  Unary_e(
+                                                                  ) [Unary_e]
+                                                                  Factor_n(
+                                                                   1
+                                                                  ) [Factor_n]
+                                                                ) [Factor]
+                                                              ) [SingleFactor]
+                                                            ) [Term]
+                                                          ) [SingleTerm]
+                                                        ) [Expr_notern]
+                                                      ) [ActPars_list]
+                                                    ) [Factor_methpars]
+                                                  ) [Factor]
+                                                ) [SingleFactor]
+                                              ) [Term]
+                                            ) [SingleTerm]
+                                          ) [Expr_notern]
+                                        ) [DesignatorStatement_ass]
+                                      ) [DesignStatement]
+                                    ) [MatchedStat]
+                                  ) [StatementList_rec]
+                                ) [RecStatement]
+                              ) [ForStatement]
+                            ) [MatchedStat]
+                          ) [StatementList_rec]
+                          MatchedStat(
+                            IfElseStatement(
+                              IfCondition(
+                                SingleCondition(
+                                  CondTermList(
+                                    SingleCondTerm(
+                                      CondFact_relop(
+                                        SingleTerm(
+                                          Term(
+                                            SingleFactor(
+                                              Factor(
+                                                Unary_e(
+                                                ) [Unary_e]
+                                                Factor_des(
+                                                  Designator_var(
+                                                   i
+                                                  ) [Designator_var]
+                                                ) [Factor_des]
+                                              ) [Factor]
+                                            ) [SingleFactor]
+                                          ) [Term]
+                                        ) [SingleTerm]
+                                        Relop_eq(
+                                        ) [Relop_eq]
+                                        SingleTerm(
+                                          Term(
+                                            SingleFactor(
+                                              Factor(
+                                                Unary_e(
+                                                ) [Unary_e]
+                                                Factor_n(
+                                                 3
+                                                ) [Factor_n]
+                                              ) [Factor]
+                                            ) [SingleFactor]
+                                          ) [Term]
+                                        ) [SingleTerm]
+                                      ) [CondFact_relop]
+                                    ) [SingleCondTerm]
+                                    CondFact_norelop(
+                                      SingleTerm(
+                                        Term(
+                                          SingleFactor(
+                                            Factor(
+                                              Unary_e(
+                                              ) [Unary_e]
+                                              Factor_methnopars(
+                                                Designator_var(
+                                                 verify
+                                                ) [Designator_var]
+                                              ) [Factor_methnopars]
+                                            ) [Factor]
+                                          ) [SingleFactor]
+                                        ) [Term]
+                                      ) [SingleTerm]
+                                    ) [CondFact_norelop]
+                                  ) [CondTermList]
+                                ) [SingleCondition]
+                              ) [IfCondition]
+                              PrintStatement(
+                                Expr_notern(
+                                  SingleTerm(
+                                    Term(
+                                      SingleFactor(
+                                        Factor(
+                                          Unary_e(
+                                          ) [Unary_e]
+                                          Factor_n(
+                                           4
+                                          ) [Factor_n]
+                                        ) [Factor]
+                                      ) [SingleFactor]
+                                    ) [Term]
+                                  ) [SingleTerm]
+                                ) [Expr_notern]
+                              ) [PrintStatement]
+                              ThenEnd(
+                              ) [ThenEnd]
+                              ElseStart(
+                              ) [ElseStart]
+                              PrintStatement(
+                                Expr_notern(
+                                  SingleTerm(
+                                    Term(
+                                      SingleFactor(
+                                        Factor(
+                                          Unary_m(
+                                          ) [Unary_m]
+                                          Factor_n(
+                                           4
+                                          ) [Factor_n]
+                                        ) [Factor]
+                                      ) [SingleFactor]
+                                    ) [Term]
+                                  ) [SingleTerm]
+                                ) [Expr_notern]
+                              ) [PrintStatement]
+                            ) [IfElseStatement]
+                          ) [MatchedStat]
+                        ) [StatementList_rec]
+                        MatchedStat(
+                          ReadStatement(
+                            Designator_elem(
+                              DesignatorArrayName(
+                               niz
+                              ) [DesignatorArrayName]
+                              Expr_notern(
+                                SingleTerm(
+                                  Term(
+                                    SingleFactor(
+                                      Factor(
+                                        Unary_e(
+                                        ) [Unary_e]
+                                        Factor_n(
+                                         0
+                                        ) [Factor_n]
+                                      ) [Factor]
+                                    ) [SingleFactor]
+                                  ) [Term]
+                                ) [SingleTerm]
+                              ) [Expr_notern]
+                            ) [Designator_elem]
+                          ) [ReadStatement]
+                        ) [MatchedStat]
+                      ) [StatementList_rec]
+                      MatchedStat(
+                        ReadStatement(
+                          Designator_elem(
+                            DesignatorArrayName(
+                             niz
+                            ) [DesignatorArrayName]
+                            Expr_notern(
+                              SingleTerm(
+                                Term(
+                                  SingleFactor(
+                                    Factor(
+                                      Unary_e(
+                                      ) [Unary_e]
+                                      Factor_n(
+                                       1
+                                      ) [Factor_n]
+                                    ) [Factor]
+                                  ) [SingleFactor]
+                                ) [Term]
+                              ) [SingleTerm]
+                            ) [Expr_notern]
+                          ) [Designator_elem]
+                        ) [ReadStatement]
+                      ) [MatchedStat]
+                    ) [StatementList_rec]
+                    MatchedStat(
+                      ReadStatement(
+                        Designator_elem(
+                          DesignatorArrayName(
+                           niz
+                          ) [DesignatorArrayName]
+                          Expr_notern(
+                            SingleTerm(
+                              Term(
+                                SingleFactor(
+                                  Factor(
+                                    Unary_e(
+                                    ) [Unary_e]
+                                    Factor_n(
+                                     2
+                                    ) [Factor_n]
+                                  ) [Factor]
+                                ) [SingleFactor]
+                              ) [Term]
+                            ) [SingleTerm]
+                          ) [Expr_notern]
+                        ) [Designator_elem]
+                      ) [ReadStatement]
+                    ) [MatchedStat]
+                  ) [StatementList_rec]
+                  MatchedStat(
+                    PrintStatement(
+                      Expr_notern(
+                        SingleTerm(
+                          Term(
+                            SingleFactor(
+                              Factor(
+                                Unary_e(
+                                ) [Unary_e]
+                                Factor_des(
+                                  Designator_var(
+                                   eol
+                                  ) [Designator_var]
+                                ) [Factor_des]
+                              ) [Factor]
+                            ) [SingleFactor]
+                          ) [Term]
+                        ) [SingleTerm]
+                      ) [Expr_notern]
+                    ) [PrintStatement]
+                  ) [MatchedStat]
+                ) [StatementList_rec]
+                MatchedStat(
+                  PrintStatement(
+                    Expr_notern(
+                      SingleTerm(
+                        Term(
+                          SingleFactor(
+                            Factor(
+                              Unary_e(
+                              ) [Unary_e]
+                              Factor_methpars(
+                                Designator_var(
+                                 sum
+                                ) [Designator_var]
+                                ActPars_list(
+                                  ActPars_single(
+                                    Expr_notern(
+                                      SingleTerm(
+                                        Term(
+                                          SingleFactor(
+                                            Factor(
+                                              Unary_e(
+                                              ) [Unary_e]
+                                              Factor_methpars(
+                                                Designator_var(
+                                                 sum
+                                                ) [Designator_var]
+                                                ActPars_list(
+                                                  ActPars_single(
+                                                    Expr_notern(
+                                                      SingleTerm(
+                                                        Term(
+                                                          SingleFactor(
+                                                            Factor(
+                                                              Unary_e(
+                                                              ) [Unary_e]
+                                                              Factor_des(
+                                                                Designator_elem(
+                                                                  DesignatorArrayName(
+                                                                   niz
+                                                                  ) [DesignatorArrayName]
+                                                                  Expr_notern(
+                                                                    SingleTerm(
+                                                                      Term(
+                                                                        SingleFactor(
+                                                                          Factor(
+                                                                            Unary_e(
+                                                                            ) [Unary_e]
+                                                                            Factor_n(
+                                                                             0
+                                                                            ) [Factor_n]
+                                                                          ) [Factor]
+                                                                        ) [SingleFactor]
+                                                                      ) [Term]
+                                                                    ) [SingleTerm]
+                                                                  ) [Expr_notern]
+                                                                ) [Designator_elem]
+                                                              ) [Factor_des]
+                                                            ) [Factor]
+                                                          ) [SingleFactor]
+                                                        ) [Term]
+                                                      ) [SingleTerm]
+                                                    ) [Expr_notern]
+                                                  ) [ActPars_single]
+                                                  Expr_notern(
+                                                    SingleTerm(
+                                                      Term(
+                                                        SingleFactor(
+                                                          Factor(
+                                                            Unary_e(
+                                                            ) [Unary_e]
+                                                            Factor_des(
+                                                              Designator_elem(
+                                                                DesignatorArrayName(
+                                                                 niz
+                                                                ) [DesignatorArrayName]
+                                                                Expr_notern(
+                                                                  SingleTerm(
+                                                                    Term(
+                                                                      SingleFactor(
+                                                                        Factor(
+                                                                          Unary_e(
+                                                                          ) [Unary_e]
+                                                                          Factor_n(
+                                                                           1
+                                                                          ) [Factor_n]
+                                                                        ) [Factor]
+                                                                      ) [SingleFactor]
+                                                                    ) [Term]
+                                                                  ) [SingleTerm]
+                                                                ) [Expr_notern]
+                                                              ) [Designator_elem]
+                                                            ) [Factor_des]
+                                                          ) [Factor]
+                                                        ) [SingleFactor]
+                                                      ) [Term]
+                                                    ) [SingleTerm]
+                                                  ) [Expr_notern]
+                                                ) [ActPars_list]
+                                              ) [Factor_methpars]
+                                            ) [Factor]
+                                          ) [SingleFactor]
+                                        ) [Term]
+                                      ) [SingleTerm]
+                                    ) [Expr_notern]
+                                  ) [ActPars_single]
+                                  Expr_notern(
+                                    SingleTerm(
+                                      Term(
+                                        SingleFactor(
+                                          Factor(
+                                            Unary_e(
+                                            ) [Unary_e]
+                                            Factor_des(
+                                              Designator_elem(
+                                                DesignatorArrayName(
+                                                 niz
+                                                ) [DesignatorArrayName]
+                                                Expr_notern(
+                                                  SingleTerm(
+                                                    Term(
+                                                      SingleFactor(
+                                                        Factor(
+                                                          Unary_e(
+                                                          ) [Unary_e]
+                                                          Factor_n(
+                                                           2
+                                                          ) [Factor_n]
+                                                        ) [Factor]
+                                                      ) [SingleFactor]
+                                                    ) [Term]
+                                                  ) [SingleTerm]
+                                                ) [Expr_notern]
+                                              ) [Designator_elem]
+                                            ) [Factor_des]
+                                          ) [Factor]
+                                        ) [SingleFactor]
+                                      ) [Term]
+                                    ) [SingleTerm]
+                                  ) [Expr_notern]
+                                ) [ActPars_list]
+                              ) [Factor_methpars]
+                            ) [Factor]
+                          ) [SingleFactor]
+                        ) [Term]
+                      ) [SingleTerm]
+                    ) [Expr_notern]
+                  ) [PrintStatement]
+                ) [MatchedStat]
+              ) [StatementList_rec]
+              MatchedStat(
+                ForStatement(
+                  ForDesignatorStatement_for(
+                    DesignatorStatement_ass(
+                      Designator_var(
+                       i
+                      ) [Designator_var]
+                      Assignop(
+                      ) [Assignop]
+                      Expr_notern(
+                        SingleTerm(
+                          Term(
+                            SingleFactor(
+                              Factor(
+                                Unary_e(
+                                ) [Unary_e]
+                                Factor_n(
+                                 0
+                                ) [Factor_n]
+                              ) [Factor]
+                            ) [SingleFactor]
+                          ) [Term]
+                        ) [SingleTerm]
+                      ) [Expr_notern]
+                    ) [DesignatorStatement_ass]
+                  ) [ForDesignatorStatement_for]
+                  ForStart(
+                  ) [ForStart]
+                  ForCondition_for(
+                    SingleCondition(
+                      SingleCondTerm(
+                        CondFact_relop(
+                          SingleTerm(
+                            Term(
+                              SingleFactor(
+                                Factor(
+                                  Unary_e(
+                                  ) [Unary_e]
+                                  Factor_des(
+                                    Designator_var(
+                                     i
+                                    ) [Designator_var]
+                                  ) [Factor_des]
+                                ) [Factor]
+                              ) [SingleFactor]
+                            ) [Term]
+                          ) [SingleTerm]
+                          Relop_ls(
+                          ) [Relop_ls]
+                          SingleTerm(
+                            Term(
+                              SingleFactor(
+                                Factor(
+                                  Unary_e(
+                                  ) [Unary_e]
+                                  Factor_des(
+                                    Designator_len(
+                                     niz
+                                    ) [Designator_len]
+                                  ) [Factor_des]
+                                ) [Factor]
+                              ) [SingleFactor]
+                            ) [Term]
+                          ) [SingleTerm]
+                        ) [CondFact_relop]
+                      ) [SingleCondTerm]
+                    ) [SingleCondition]
+                  ) [ForCondition_for]
+                  ForStepStart(
+                  ) [ForStepStart]
+                  ForStep_step(
+                    DesignatorStatement_inc(
+                      Designator_var(
+                       i
+                      ) [Designator_var]
+                    ) [DesignatorStatement_inc]
+                  ) [ForStep_step]
+                  ForBodyStart(
+                  ) [ForBodyStart]
+                  RecStatement(
+                    StatementList_rec(
+                      StatementList_e(
+                      ) [StatementList_e]
+                      MatchedStat(
+                        PrintStatement(
+                          Expr_notern(
+                            SingleTerm(
+                              Term(
+                                SingleFactor(
+                                  Factor(
+                                    Unary_e(
+                                    ) [Unary_e]
+                                    Factor_des(
+                                      Designator_var(
+                                       i
+                                      ) [Designator_var]
+                                    ) [Factor_des]
+                                  ) [Factor]
+                                ) [SingleFactor]
+                              ) [Term]
+                            ) [SingleTerm]
+                          ) [Expr_notern]
+                        ) [PrintStatement]
+                      ) [MatchedStat]
+                    ) [StatementList_rec]
+                  ) [RecStatement]
+                ) [ForStatement]
+              ) [MatchedStat]
+            ) [StatementList_rec]
+            MatchedStat(
+              PrintStatement(
+                Expr_notern(
+                  SingleTerm(
+                    Term(
+                      SingleFactor(
+                        Factor(
+                          Unary_e(
+                          ) [Unary_e]
+                          Factor_des(
+                            Designator_var(
+                             eol
+                            ) [Designator_var]
+                          ) [Factor_des]
+                        ) [Factor]
+                      ) [SingleFactor]
+                    ) [Term]
+                  ) [SingleTerm]
+                ) [Expr_notern]
+              ) [PrintStatement]
+            ) [MatchedStat]
+          ) [StatementList_rec]
+          MatchedStat(
+            PrintStatement(
+              Expr_notern(
+                SingleTerm(
+                  Term(
+                    SingleFactor(
+                      Factor(
+                        Unary_e(
+                        ) [Unary_e]
+                        Factor_methpars(
+                          Designator_var(
+                           inkrement
+                          ) [Designator_var]
+                          ActPars_list(
+                            ActPars_single(
+                              Expr_notern(
+                                SingleTerm(
+                                  Term(
+                                    SingleFactor(
+                                      Factor(
+                                        Unary_e(
+                                        ) [Unary_e]
+                                        Factor_des(
+                                          Designator_elem(
+                                            DesignatorArrayName(
+                                             niz
+                                            ) [DesignatorArrayName]
+                                            Expr_notern(
+                                              SingleTerm(
+                                                Term(
+                                                  SingleFactor(
+                                                    Factor(
+                                                      Unary_e(
+                                                      ) [Unary_e]
+                                                      Factor_n(
+                                                       2
+                                                      ) [Factor_n]
+                                                    ) [Factor]
+                                                  ) [SingleFactor]
+                                                ) [Term]
+                                              ) [SingleTerm]
+                                            ) [Expr_notern]
+                                          ) [Designator_elem]
+                                        ) [Factor_des]
+                                      ) [Factor]
+                                    ) [SingleFactor]
+                                  ) [Term]
+                                ) [SingleTerm]
+                              ) [Expr_notern]
+                            ) [ActPars_single]
+                            Expr_notern(
+                              SingleTerm(
+                                Term(
+                                  SingleFactor(
+                                    Factor(
+                                      Unary_e(
+                                      ) [Unary_e]
+                                      Factor_n(
+                                       2
+                                      ) [Factor_n]
+                                    ) [Factor]
+                                  ) [SingleFactor]
+                                ) [Term]
+                              ) [SingleTerm]
+                            ) [Expr_notern]
+                          ) [ActPars_list]
+                        ) [Factor_methpars]
+                      ) [Factor]
+                    ) [SingleFactor]
+                  ) [Term]
+                ) [SingleTerm]
+              ) [Expr_notern]
+            ) [PrintStatement]
+          ) [MatchedStat]
+        ) [StatementList_rec]
+        MatchedStat(
+          PrintStatement(
+            Expr_tern(
+              TernaryCondition(
+                SingleCondition(
+                  SingleCondTerm(
+                    CondFact_norelop(
+                      SingleTerm(
+                        Term(
+                          SingleFactor(
+                            Factor(
+                              Unary_e(
+                              ) [Unary_e]
+                              Factor_methnopars(
+                                Designator_var(
+                                 verify
+                                ) [Designator_var]
+                              ) [Factor_methnopars]
+                            ) [Factor]
+                          ) [SingleFactor]
+                        ) [Term]
+                      ) [SingleTerm]
+                    ) [CondFact_norelop]
+                  ) [SingleCondTerm]
+                ) [SingleCondition]
+              ) [TernaryCondition]
+              TernExpr1(
+                Expr_notern(
+                  SingleTerm(
+                    Term(
+                      SingleFactor(
+                        Factor(
+                          Unary_e(
+                          ) [Unary_e]
+                          Factor_c(
+                           t
+                          ) [Factor_c]
+                        ) [Factor]
+                      ) [SingleFactor]
+                    ) [Term]
+                  ) [SingleTerm]
+                ) [Expr_notern]
+              ) [TernExpr1]
+              TernExpr2(
+                Expr_notern(
+                  SingleTerm(
+                    Term(
+                      SingleFactor(
+                        Factor(
+                          Unary_e(
+                          ) [Unary_e]
+                          Factor_c(
+                           f
+                          ) [Factor_c]
+                        ) [Factor]
+                      ) [SingleFactor]
+                    ) [Term]
+                  ) [SingleTerm]
+                ) [Expr_notern]
+              ) [TernExpr2]
+            ) [Expr_tern]
+          ) [PrintStatement]
+        ) [MatchedStat]
+      ) [StatementList_rec]
+    ) [MethodDecl]
+  ) [MethodDeclList_rec]
+) [Program]
+INFO  20:15:16,193 - -------------------------------------------
+INFO  20:15:16,202 - Citanje form parametra, currentLevel: 1 na liniji 13
+INFO  20:15:16,203 - Citanje form parametra, currentLevel: 2 na liniji 13
+INFO  20:15:16,212 - Pristupanje varijabli: z, Obj: 1, 1, 0 na liniji 15
+INFO  20:15:16,212 - Pristupanje varijabli: d, Obj: 1, 1, 1 na liniji 15
+INFO  20:15:16,212 - Citanje form parametra, currentLevel: 1 na liniji 18
+INFO  20:15:16,212 - Citanje form parametra, currentLevel: 2 na liniji 18
+INFO  20:15:16,212 - Pristupanje varijabli: inc, Obj: 1, 1, 1 na liniji 20
+INFO  20:15:16,212 - Pristupanje varijabli: jedan, Obj: 0, 0, 1 na liniji 20
+INFO  20:15:16,213 - Pristupanje varijabli: pom, Obj: 1, 1, 2 na liniji 20
+INFO  20:15:16,213 - Pristupanje varijabli: inc, Obj: 1, 1, 1 na liniji 21
+INFO  20:15:16,213 - Pristupanje varijabli: pom, Obj: 1, 1, 2 na liniji 21
+INFO  20:15:16,213 - Pristupanje varijabli: a, Obj: 1, 1, 0 na liniji 21
+INFO  20:15:16,213 - Obrada design_var, metoda: sum, Obj: 3, 2, 0 na liniji 23
+INFO  20:15:16,213 - Pristupanje varijabli: a, Obj: 1, 1, 0 na liniji 23
+INFO  20:15:16,213 - Pristupanje varijabli: pom, Obj: 1, 1, 2 na liniji 23
+INFO  20:15:16,214 - Poziv metode: sum, Obj: 3, 2, 0 na liniji 23
+INFO  20:15:16,214 - Pristupanje varijabli: ibool, Obj: 1, 0, 1 na liniji 36
+INFO  20:15:16,214 - Pristupanje varijabli: i, Obj: 1, 0, 0 na liniji 37
+INFO  20:15:16,214 - Pristupanje varijabli: i, Obj: 1, 0, 0 na liniji 38
+INFO  20:15:16,214 - Pristupanje varijabli: i, Obj: 1, 0, 0 na liniji 38
+INFO  20:15:16,214 - Pristupanje varijabli: i, Obj: 1, 0, 0 na liniji 38
+INFO  20:15:16,214 - Pristupanje varijabli: i, Obj: 1, 0, 0 na liniji 40
+INFO  20:15:16,214 - Pristupanje varijabli: ibool, Obj: 1, 0, 1 na liniji 40
+INFO  20:15:16,214 - Pristupanje varijabli: ibool, Obj: 1, 0, 1 na liniji 43
+INFO  20:15:16,214 - Pristupanje varijabli: i, Obj: 1, 0, 0 na liniji 44
+INFO  20:15:16,214 - Pristupanje varijabli: niz, Obj: 1, 0, 2 na liniji 47
+INFO  20:15:16,215 - Pristupanje elementu niza niz, Obj: 1, 0, 2 na liniji 48
+INFO  20:15:16,215 - Pristupanje elementu niza niz, Obj: 1, 0, 2 na liniji 49
+INFO  20:15:16,215 - Pristupanje elementu niza niz, Obj: 1, 0, 2 na liniji 50
+INFO  20:15:16,215 - Obrada design_var, metoda: sum, Obj: 3, 2, 0 na liniji 50
+INFO  20:15:16,215 - Pristupanje elementu niza niz, Obj: 1, 0, 2 na liniji 50
+INFO  20:15:16,215 - Pristupanje elementu niza niz, Obj: 1, 0, 2 na liniji 50
+INFO  20:15:16,215 - Poziv metode: sum, Obj: 3, 2, 0 na liniji 50
+INFO  20:15:16,215 - Pristupanje elementu niza niz, Obj: 1, 0, 2 na liniji 51
+INFO  20:15:16,215 - Pristupanje elementu niza niz, Obj: 1, 0, 2 na liniji 52
+INFO  20:15:16,215 - Obrada design_var, metoda: verify, Obj: 3, 0, 0 na liniji 52
+INFO  20:15:16,216 - Poziv metode: verify, Obj: 3, 0, 0 na liniji 52
+INFO  20:15:16,216 - Obrada design_var, metoda: ord, Obj: 3, 1, 0 na liniji 52
+INFO  20:15:16,216 - Poziv metode: ord, Obj: 3, 1, 0 na liniji 52
+INFO  20:15:16,216 - Obrada design_var, metoda: ord, Obj: 3, 1, 0 na liniji 53
+INFO  20:15:16,216 - Poziv metode: ord, Obj: 3, 1, 0 na liniji 53
+INFO  20:15:16,216 - Pristupanje varijabli: eol, Obj: 0, 0, 10 na liniji 55
+INFO  20:15:16,216 - Pristupanje varijabli: i, Obj: 1, 0, 0 na liniji 56
+INFO  20:15:16,216 - Pristupanje varijabli: i, Obj: 1, 0, 0 na liniji 57
+INFO  20:15:16,216 - Pristupanje varijabli: i, Obj: 1, 0, 0 na liniji 59
+INFO  20:15:16,216 - Pristupanje varijabli: i, Obj: 1, 0, 0 na liniji 61
+INFO  20:15:16,216 - Pristupanje varijabli: i, Obj: 1, 0, 0 na liniji 64
+INFO  20:15:16,216 - Pristupanje varijabli: i, Obj: 1, 0, 0 na liniji 65
+INFO  20:15:16,216 - Obrada design_var, metoda: inkrement, Obj: 3, 2, 0 na liniji 65
+INFO  20:15:16,216 - Pristupanje varijabli: i, Obj: 1, 0, 0 na liniji 65
+INFO  20:15:16,216 - Poziv metode: inkrement, Obj: 3, 2, 0 na liniji 65
+INFO  20:15:16,216 - Pristupanje varijabli: i, Obj: 1, 0, 0 na liniji 68
+INFO  20:15:16,216 - Obrada design_var, metoda: verify, Obj: 3, 0, 0 na liniji 68
+INFO  20:15:16,216 - Poziv metode: verify, Obj: 3, 0, 0 na liniji 68
+INFO  20:15:16,217 - Pristupanje elementu niza niz, Obj: 1, 0, 2 na liniji 71
+INFO  20:15:16,217 - Pristupanje elementu niza niz, Obj: 1, 0, 2 na liniji 72
+INFO  20:15:16,217 - Pristupanje elementu niza niz, Obj: 1, 0, 2 na liniji 73
+INFO  20:15:16,217 - Pristupanje varijabli: eol, Obj: 0, 0, 10 na liniji 74
+INFO  20:15:16,217 - Obrada design_var, metoda: sum, Obj: 3, 2, 0 na liniji 76
+INFO  20:15:16,217 - Obrada design_var, metoda: sum, Obj: 3, 2, 0 na liniji 76
+INFO  20:15:16,217 - Pristupanje elementu niza niz, Obj: 1, 0, 2 na liniji 76
+INFO  20:15:16,217 - Pristupanje elementu niza niz, Obj: 1, 0, 2 na liniji 76
+INFO  20:15:16,217 - Poziv metode: sum, Obj: 3, 2, 0 na liniji 76
+INFO  20:15:16,217 - Pristupanje elementu niza niz, Obj: 1, 0, 2 na liniji 76
+INFO  20:15:16,217 - Poziv metode: sum, Obj: 3, 2, 0 na liniji 76
+INFO  20:15:16,217 - Pristupanje varijabli: i, Obj: 1, 0, 0 na liniji 78
+INFO  20:15:16,217 - Pristupanje varijabli: i, Obj: 1, 0, 0 na liniji 78
+INFO  20:15:16,217 - Pristupanje varijabli: i, Obj: 1, 0, 0 na liniji 78
+INFO  20:15:16,217 - Pristupanje varijabli: i, Obj: 1, 0, 0 na liniji 79
+INFO  20:15:16,217 - Pristupanje varijabli: eol, Obj: 0, 0, 10 na liniji 82
+INFO  20:15:16,217 - Obrada design_var, metoda: inkrement, Obj: 3, 2, 0 na liniji 83
+INFO  20:15:16,217 - Pristupanje elementu niza niz, Obj: 1, 0, 2 na liniji 83
+INFO  20:15:16,217 - Poziv metode: inkrement, Obj: 3, 2, 0 na liniji 83
+INFO  20:15:16,217 - Obrada design_var, metoda: verify, Obj: 3, 0, 0 na liniji 84
+INFO  20:15:16,217 - Poziv metode: verify, Obj: 3, 0, 0 na liniji 84
+INFO  20:15:16,218 - ============================================
+INFO  20:15:16,218 - Generating bytecode file: /home/rembrant/EclipseWorkspace3/MJCompiler/test/program.obj
+INFO  20:15:16,223 - Parsiranje uspesno zavrseno!

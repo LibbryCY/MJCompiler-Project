@@ -6,6 +6,7 @@ import rs.etf.pp1.symboltable.Tab;
 import rs.etf.pp1.symboltable.concepts.Obj;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
 import java.util.Stack;
 
@@ -145,12 +146,12 @@ public class CodeGenerator extends VisitorAdaptor {
 
 	@Override
 	public void visit(ConditionList cl) {
-		Code.putJump(0);
-		skipTrue.push(Code.pc - 2);
-		
-		while (!skipOR.isEmpty()) {
-			Code.fixup(skipOR.pop());
-		}
+//		Code.putJump(0);
+//		skipTrue.push(Code.pc - 2);
+//		
+//		while (!skipOR.isEmpty()) {
+//			Code.fixup(skipOR.pop());
+//		}
 	}
 
 	@Override
@@ -165,13 +166,13 @@ public class CodeGenerator extends VisitorAdaptor {
 
 	@Override
 	public void visit(CondTermList cl) {
-		Code.putJump(0);
-		skipOR.push(Code.pc - 2);
-
-		// ovde vracam netacne - ispod je sledeci OR koji treba da pokusaju da prodju
-		while (!skipAND.isEmpty()) {
-			Code.fixup(skipAND.pop());
-		}
+//		Code.putJump(0);
+//		skipOR.push(Code.pc - 2);
+//
+//		// ovde vracam netacne - ispod je sledeci OR koji treba da pokusaju da prodju
+//		while (!skipAND.isEmpty()) {
+//			Code.fixup(skipAND.pop());
+//		}
 	}
 
 	@Override
@@ -248,14 +249,14 @@ public class CodeGenerator extends VisitorAdaptor {
 
 	
 	@Override
-	public void visit (ForStart semicolon1) {
+	public void visit (ForStart fs) {
 		jumpToCond.push(Code.pc);
 		
 		breakJump.push(new Stack<Integer>());
 	}
 	
 	@Override
-	public void visit (ForStepStart semicolon2) {
+	public void visit (ForStepStart fss) {
 		Code.putJump(0);
 		skipFalse.push(Code.pc - 2);
 		
@@ -304,6 +305,48 @@ public class CodeGenerator extends VisitorAdaptor {
 	@Override
 	public void visit(ContinueStatement bs) {
 		Code.putJump(jumpToStep.peek());
+	}
+	
+	// SWICH SwitchStatement
+	
+	private Stack<HashMap<Integer,Integer>> caseLabelsAddrs = new Stack();
+	private Stack<List<Integer>> switchCaseOrder = new Stack<>();
+	private Stack<Integer> jumpToCase = new Stack();
+	
+	@Override
+	public void visit(SwitchStatement bs) {
+		
+	}
+	
+	@Override
+	public void visit(SwitchStart ss) {
+		
+	}
+	
+	@Override
+	public void visit(SwitchGoTo bs) {
+		caseLabelsAddrs.push(new HashMap<Integer, Integer>());
+	    switchCaseOrder.push(new ArrayList<>());        // redosled case konstanti
+	    
+		Code.putJump(0);
+		jumpToCase.push(Code.pc-2);		
+	}
+	
+	@Override
+	public void visit(LabelNumber ln) {
+		HashMap<Integer,Integer> map = caseLabelsAddrs.peek();
+		List<Integer> order = switchCaseOrder.peek();
+		
+		
+		map.put(ln.getN1(),Code.pc);
+		order.add(ln.getN1());
+		
+		Code.put(Code.dup);
+		Code.loadConst(ln.getN1());
+		
+		Code.putFalseJump(Code.ne, 0);
+		
+		//if(!jumpToCase.isEmpty()) Code.fixup(jumpToCase.pop());
 	}
 
 

@@ -1,6 +1,6 @@
 // generated with ast extension for cup
 // version 0.8
-// 17/1/2026 14:50:28
+// 17/1/2026 20:27:46
 
 
 package rs.ac.bg.etf.pp1.ast;
@@ -86,8 +86,10 @@ public abstract class VisitorAdaptor implements Visitor {
     public void visit(CondFact_norelop CondFact_norelop) { visit(); }
     public void visit(SingleCondTerm SingleCondTerm) { visit(); }
     public void visit(CondTermList CondTermList) { visit(); }
+    public void visit(CondTermHelp CondTermHelp) { visit(); }
     public void visit(SingleCondition SingleCondition) { visit(); }
     public void visit(ConditionList ConditionList) { visit(); }
+    public void visit(ConditionHelp ConditionHelp) { visit(); }
     public void visit(DesignatorStatement_error DesignatorStatement_error) { visit(); }
     public void visit(DesignatorStatement_dec DesignatorStatement_dec) { visit(); }
     public void visit(DesignatorStatement_inc DesignatorStatement_inc) { visit(); }
@@ -98,10 +100,12 @@ public abstract class VisitorAdaptor implements Visitor {
     public void visit(ActPars_list ActPars_list) { visit(); }
     public void visit(CaseStatements_e CaseStatements_e) { visit(); }
     public void visit(CaseStatements_state CaseStatements_state) { visit(); }
+    public void visit(LabelNumber LabelNumber) { visit(); }
     public void visit(Case Case) { visit(); }
     public void visit(CaseList_e CaseList_e) { visit(); }
     public void visit(CaseList_list CaseList_list) { visit(); }
     public void visit(SwitchStart SwitchStart) { visit(); }
+    public void visit(SwitchGoTo SwitchGoTo) { visit(); }
     public void visit(ForCondition_e ForCondition_e) { visit(); }
     public void visit(ForCondition_for ForCondition_for) { visit(); }
     public void visit(ForDesignatorStatement_e ForDesignatorStatement_e) { visit(); }

@@ -1,6 +1,6 @@
 // generated with ast extension for cup
 // version 0.8
-// 17/1/2026 14:50:28
+// 17/1/2026 20:27:46
 
 
 package rs.ac.bg.etf.pp1.ast;
@@ -9,21 +9,22 @@ public class Case implements SyntaxNode {
 
     private SyntaxNode parent;
     private int line;
-    private Integer N1;
+    private LabelNumber LabelNumber;
     private CaseStatements CaseStatements;
 
-    public Case (Integer N1, CaseStatements CaseStatements) {
-        this.N1=N1;
+    public Case (LabelNumber LabelNumber, CaseStatements CaseStatements) {
+        this.LabelNumber=LabelNumber;
+        if(LabelNumber!=null) LabelNumber.setParent(this);
         this.CaseStatements=CaseStatements;
         if(CaseStatements!=null) CaseStatements.setParent(this);
     }
 
-    public Integer getN1() {
-        return N1;
+    public LabelNumber getLabelNumber() {
+        return LabelNumber;
     }
 
-    public void setN1(Integer N1) {
-        this.N1=N1;
+    public void setLabelNumber(LabelNumber LabelNumber) {
+        this.LabelNumber=LabelNumber;
     }
 
     public CaseStatements getCaseStatements() {
@@ -55,15 +56,18 @@ public class Case implements SyntaxNode {
     }
 
     public void childrenAccept(Visitor visitor) {
+        if(LabelNumber!=null) LabelNumber.accept(visitor);
         if(CaseStatements!=null) CaseStatements.accept(visitor);
     }
 
     public void traverseTopDown(Visitor visitor) {
         accept(visitor);
+        if(LabelNumber!=null) LabelNumber.traverseTopDown(visitor);
         if(CaseStatements!=null) CaseStatements.traverseTopDown(visitor);
     }
 
     public void traverseBottomUp(Visitor visitor) {
+        if(LabelNumber!=null) LabelNumber.traverseBottomUp(visitor);
         if(CaseStatements!=null) CaseStatements.traverseBottomUp(visitor);
         accept(visitor);
     }
@@ -73,7 +77,10 @@ public class Case implements SyntaxNode {
         buffer.append(tab);
         buffer.append("Case(\n");
 
-        buffer.append(" "+tab+N1);
+        if(LabelNumber!=null)
+            buffer.append(LabelNumber.toString("  "+tab));
+        else
+            buffer.append(tab+"  null");
         buffer.append("\n");
 
         if(CaseStatements!=null)

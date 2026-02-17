@@ -100,7 +100,11 @@ nonterminal Program,
 			ElseStart,
 			ThenEnd,
 			ForBodyStart,
-			ForStepStart;
+			ForStepStart,
+			SwitchGoTo,
+			LabelNumber,
+			ConditionHelp,
+			CondTermHelp;
 
 nonterminal rs.etf.pp1.symboltable.concepts.Struct Condition, CondTerm, CondFact, Factor, FactorUnar, FactorList, TermList, Term, Expr, Type, TernaryCondition, TernExpr1, TernExpr2, IfCondition;
 nonterminal rs.etf.pp1.symboltable.concepts.Obj Designator, DesignatorArrayName, MethRetAndName;
@@ -242,7 +246,7 @@ MatchedStatement ::=  (DesignStatement) DesignatorStatement SEMI
 					  |
 					  (PrintStatement2) PRINT LPAREN Expr COMMA NUMBER RPAREN SEMI
 			  		  |
-					  (SwitchStatement) SwitchStart LBRACE CaseList RBRACE
+					  (SwitchStatement) SwitchStart SwitchGoTo CaseList RBRACE
 					  |
 					  (ForStatement) FOR LPAREN  ForDesignatorStatement ForStart ForCondition ForStepStart ForStep  RPAREN ForBodyStart MatchedStatement 
 					  |
@@ -283,6 +287,8 @@ ForCondition ::= (ForCondition_for) Condition
 				|
 				(ForCondition_e) /* epsilon */
 				; 
+				
+SwitchGoTo ::= (SwitchGoTo) LBRACE;
 
 SwitchStart ::= (SwitchStart) SWITCH LPAREN Expr RPAREN;
 
@@ -290,7 +296,9 @@ CaseList ::= (CaseList_list) CaseList Case
            | (CaseList_e) /* epsilon */
            ;
 
-Case ::= (Case) CASE NUMBER COL CaseStatements;
+Case ::= (Case) CASE LabelNumber COL CaseStatements;
+
+LabelNumber ::= (LabelNumber)NUMBER;
 
 CaseStatements ::= (CaseStatements_state) CaseStatements Statement
                     |
@@ -318,10 +326,14 @@ DesignatorStatement ::= (DesignatorStatement_ass) Designator Assignop Expr
 
 /* CONDITION */
 
+ConditionHelp ::= (ConditionHelp) Condition;
+
 Condition ::= (ConditionList) CondTerm OR Condition
 			  |
-			  (SingleCondition) CondTerm	
-				;
+			  (SingleCondition) CondTerm
+			  ;
+			  
+CondTermHelp ::= (CondTermHelp) CondTerm;
 
 CondTerm ::= (CondTermList) CondFact AND CondTerm
              |
@@ -333,10 +345,13 @@ CondFact ::= (CondFact_norelop) TermList    /* MOZDA TREBA Expr */
              (CondFact_relop) TermList Relop TermList
              ;
 
+
 Expr ::= (Expr_notern) TermList
 		 |
 	     (Expr_tern) TernaryCondition QMARK TernExpr1 COL TernExpr2
 		  ;
+
+
 
 TernaryCondition ::= (TernaryCondition)Condition;
 

@@ -451,7 +451,7 @@ public class SemAnalyzer extends VisitorAdaptor {
 		}
 
 		Struct currentLevelType = switchTypeStack.peek();
-		int caseVal = ca.getN1();
+		int caseVal = ca.getLabelNumber().getN1();
 
 		HashSet<Integer> usedValues = caseValueStack.peek();
 
@@ -570,7 +570,7 @@ public class SemAnalyzer extends VisitorAdaptor {
 				}
 				
 				index++;
-			}else {
+			}else if(metObj.getName().equals("ord") || metObj.getName().equals("chr") || metObj.getName().equals("len")){
 				Struct actualType = actParsList.get(index);
 				
 				if (!o.getType().compatibleWith(actualType)) {
@@ -944,7 +944,7 @@ public class SemAnalyzer extends VisitorAdaptor {
 					factor_methpars.struct = Tab.noType;
 				}
 				index++;
-			}else {
+			}else if(metObj.getName().equals("ord") || metObj.getName().equals("chr") || metObj.getName().equals("len")){
 				Struct actualType = actParsList.get(index);
 				
 				if (!o.getType().compatibleWith(actualType)) {

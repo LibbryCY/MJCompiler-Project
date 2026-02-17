@@ -143,6 +143,14 @@ nonterminal
 			ForBodyStart ForBodyStart;
 nonterminal
 			ForStepStart ForStepStart;
+nonterminal
+			SwitchGoTo SwitchGoTo;
+nonterminal
+			LabelNumber LabelNumber;
+nonterminal
+			ConditionHelp ConditionHelp;
+nonterminal
+			CondTermHelp CondTermHelp;
 
 nonterminal rs.etf.pp1.symboltable.concepts.Struct Condition, CondTerm, CondFact, Factor, FactorUnar, FactorList, TermList, Term, Expr, Type, TernaryCondition, TernExpr1, TernExpr2, IfCondition;
 nonterminal rs.etf.pp1.symboltable.concepts.Obj Designator, DesignatorArrayName, MethRetAndName;
@@ -284,7 +292,7 @@ MatchedStatement ::=  (DesignStatement) DesignatorStatement:D1 SEMI {: RESULT=ne
 					  |
 					  (PrintStatement2) PRINT LPAREN Expr:E1 COMMA NUMBER:N2 RPAREN SEMI {: RESULT=new PrintStatement2(E1, N2); RESULT.setLine(E1left); :}
 			  		  |
-					  (SwitchStatement) SwitchStart:S1 LBRACE CaseList:C2 RBRACE {: RESULT=new SwitchStatement(S1, C2); RESULT.setLine(S1left); :}
+					  (SwitchStatement) SwitchStart:S1 SwitchGoTo:S2 CaseList:C3 RBRACE {: RESULT=new SwitchStatement(S1, S2, C3); RESULT.setLine(S1left); :}
 					  |
 					  (ForStatement) FOR LPAREN  ForDesignatorStatement:F1 ForStart:F2 ForCondition:F3 ForStepStart:F4 ForStep:F5  RPAREN ForBodyStart:F6 MatchedStatement:M7 {: RESULT=new ForStatement(F1, F2, F3, F4, F5, F6, M7); RESULT.setLine(F1left); :} 
 					  |
@@ -325,6 +333,8 @@ ForCondition ::= (ForCondition_for) Condition:C1 {: RESULT=new ForCondition_for(
 				|
 				(ForCondition_e) {: RESULT=new ForCondition_e(); :} /* epsilon */
 				; 
+				
+SwitchGoTo ::= (SwitchGoTo) LBRACE {: RESULT=new SwitchGoTo(); :};
 
 SwitchStart ::= (SwitchStart) SWITCH LPAREN Expr:E1 RPAREN {: RESULT=new SwitchStart(E1); RESULT.setLine(E1left); :};
 
@@ -332,7 +342,9 @@ CaseList ::= (CaseList_list) CaseList:C1 Case:C2 {: RESULT=new CaseList_list(C1,
            | (CaseList_e) {: RESULT=new CaseList_e(); :} /* epsilon */
            ;
 
-Case ::= (Case) CASE NUMBER:N1 COL CaseStatements:C2 {: RESULT=new Case(N1, C2); RESULT.setLine(N1left); :};
+Case ::= (Case) CASE LabelNumber:L1 COL CaseStatements:C2 {: RESULT=new Case(L1, C2); RESULT.setLine(L1left); :};
+
+LabelNumber ::= (LabelNumber)NUMBER:N1 {: RESULT=new LabelNumber(N1); RESULT.setLine(N1left); :};
 
 CaseStatements ::= (CaseStatements_state) CaseStatements:C1 Statement:S2 {: RESULT=new CaseStatements_state(C1, S2); RESULT.setLine(C1left); :}
                     |
@@ -360,10 +372,14 @@ DesignatorStatement ::= (DesignatorStatement_ass) Designator:D1 Assignop:A2 Expr
 
 /* CONDITION */
 
+ConditionHelp ::= (ConditionHelp) Condition:C1 {: RESULT=new ConditionHelp(C1); RESULT.setLine(C1left); :};
+
 Condition ::= (ConditionList) CondTerm:C1 OR Condition:C2 {: RESULT=new ConditionList(C1, C2); RESULT.setLine(C1left); :}
 			  |
-			  (SingleCondition) CondTerm:C1 {: RESULT=new SingleCondition(C1); RESULT.setLine(C1left); :}	
-				;
+			  (SingleCondition) CondTerm:C1 {: RESULT=new SingleCondition(C1); RESULT.setLine(C1left); :}
+			  ;
+			  
+CondTermHelp ::= (CondTermHelp) CondTerm:C1 {: RESULT=new CondTermHelp(C1); RESULT.setLine(C1left); :};
 
 CondTerm ::= (CondTermList) CondFact:C1 AND CondTerm:C2 {: RESULT=new CondTermList(C1, C2); RESULT.setLine(C1left); :}
              |
@@ -375,10 +391,13 @@ CondFact ::= (CondFact_norelop) TermList:T1 {: RESULT=new CondFact_norelop(T1); 
              (CondFact_relop) TermList:T1 Relop:R2 TermList:T3 {: RESULT=new CondFact_relop(T1, R2, T3); RESULT.setLine(T1left); :}
              ;
 
+
 Expr ::= (Expr_notern) TermList:T1 {: RESULT=new Expr_notern(T1); RESULT.setLine(T1left); :}
 		 |
 	     (Expr_tern) TernaryCondition:T1 QMARK TernExpr1:T2 COL TernExpr2:T3 {: RESULT=new Expr_tern(T1, T2, T3); RESULT.setLine(T1left); :}
 		  ;
+
+
 
 TernaryCondition ::= (TernaryCondition)Condition:C1 {: RESULT=new TernaryCondition(C1); RESULT.setLine(C1left); :};
 

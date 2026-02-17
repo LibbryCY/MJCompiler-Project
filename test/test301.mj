@@ -59,6 +59,7 @@ int a;
 
 		a=1;
 		read(bodovi);
+		
 		bodovi = -bodovi + (pet * a / 2 - nula) * bodovi - (3 % 2 + 3 * 2 - 7); 
 		print(bodovi); //bodovi
 		
